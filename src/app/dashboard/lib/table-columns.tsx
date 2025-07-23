@@ -12,7 +12,7 @@ export function createColumns(selectedFilter: string): ColumnDef<TransportData>[
           <Button
             variant="ghost"
             onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
-            className="-ml-4 h-8 pl-0"
+            className="-ml-3 h-8 pl-0"
           >
             Município
             <ArrowUpDown className="ml-2 h-4 w-4" />
@@ -28,7 +28,7 @@ export function createColumns(selectedFilter: string): ColumnDef<TransportData>[
           <Button
             variant="ghost"
             onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
-            className="-ml-4 h-8 pl-0"
+            className="-ml-3 h-8 pl-0"
           >
             Unidade Federativa
             <ArrowUpDown className="ml-2 h-4 w-4" />
@@ -44,7 +44,7 @@ export function createColumns(selectedFilter: string): ColumnDef<TransportData>[
           <Button
             variant="ghost"
             onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
-            className="-ml-4 h-8 pl-0"
+            className="-ml-3 h-8 pl-0"
           >
             {selectedFilter}
             <ArrowUpDown className="ml-2 h-4 w-4" />

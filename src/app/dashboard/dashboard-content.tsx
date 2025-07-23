@@ -34,12 +34,12 @@ export default function DashboardContent() {
             <div className="flex items-center justify-between w-full">
               {/* <h1 className="text-lg font-semibold ">Dashboard</h1> */}
               <InputWithIcon
-                icon={<Search className="h-5 w-5" />}
+                icon={<Search className="h-5 w-5 lg:mr-4" />}
                 iconPosition="right"
                 placeholder="Filtrar por município ou UF..."
                 value={globalFilter}
                 onChange={(event: React.ChangeEvent<HTMLInputElement>) => setGlobalFilter(event.target.value)}
-                className="bg-white h-14 border-none shadow-none w-full focus-visible:ring-0 focus-visible:outline-none focus:ring-0 focus:outline-none"
+                className="bg-white px-4 lg:px-9 h-14 border-none shadow-none w-full focus-visible:ring-0 focus-visible:outline-none focus:ring-0 focus:outline-none"
               />
             </div>
           </div>

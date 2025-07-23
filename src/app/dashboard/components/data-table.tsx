@@ -43,7 +43,7 @@ export function DataTable({ data, selectedFilter, globalFilter, setGlobalFilter 
               <TableRow key={headerGroup.id}>
                 {headerGroup.headers.map((header) => {
                   return (
-                    <TableHead key={header.id} className="py-4 px-9">
+                    <TableHead key={header.id} className="py-4 px-4 lg:px-9">
                       {header.isPlaceholder
                         ? null
                         : flexRender(
@@ -64,7 +64,7 @@ export function DataTable({ data, selectedFilter, globalFilter, setGlobalFilter 
                   data-state={row.getIsSelected() && "selected"}
                 >
                   {row.getVisibleCells().map((cell) => (
-                    <TableCell key={cell.id} className="py-4 px-9">
+                    <TableCell key={cell.id} className="py-4 px-4 lg:px-9">
                       {flexRender(
                         cell.column.columnDef.cell,
                         cell.getContext()

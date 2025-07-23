@@ -19,7 +19,7 @@ export function FiltersSidebar({ selectedFilter, onFilterChange }: FiltersSideba
   const { filteredCategories } = useFilterCategories(searchFilter)
 
   return (
-    <aside className="w-full p-5">
+    <aside className="w-full p-4">
       <div className="space-y-3">
         {/* Header */}
         <div className="space-y-2 pb-3">
