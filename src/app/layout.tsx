@@ -15,7 +15,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Observatório - Dashboard",
+  title: "Observatório",
   description: "Sistema de monitoramento e análise de dados",
 };
 
