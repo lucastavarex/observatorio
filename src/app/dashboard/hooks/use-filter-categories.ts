@@ -33,5 +33,7 @@ export function useFilterCategories(searchFilter: string) {
     return filtered
   }, [searchFilter])
 
-  return { filteredCategories }
+  const hasResults = Object.keys(filteredCategories).length > 0
+
+  return { filteredCategories, hasResults }
 } 
