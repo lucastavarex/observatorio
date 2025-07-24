@@ -10,7 +10,7 @@ import { useDashboardData } from "./hooks/use-dashboard-data"
 export default function DashboardContent() {
   const [selectedFilter, setSelectedFilter] = React.useState<string>("Terminais Rodoviários")
   const [globalFilter, setGlobalFilter] = React.useState<string>("")
-  const { data } = useDashboardData(selectedFilter)
+  const { data, stats, isLoading } = useDashboardData(selectedFilter)
 
   return (
     <div className="bg-[#f3f3f3] min-h-screen w-full flex items-start justify-center p-4 md:p-4">
@@ -34,24 +34,30 @@ export default function DashboardContent() {
             <div className="flex items-center justify-between w-full">
               {/* <h1 className="text-lg font-semibold ">Dashboard</h1> */}
               <InputWithIcon
-                icon={<Search className="h-5 w-5 lg:mr-4" />}
+                icon={<Search className="h-5 w-5 lg:mr-4 text-black" />}
                 iconPosition="right"
-                placeholder="Filtrar por município ou UF..."
+                placeholder="Buscar por Município ou Unidade Federativa ..."
                 value={globalFilter}
                 onChange={(event: React.ChangeEvent<HTMLInputElement>) => setGlobalFilter(event.target.value)}
-                className="bg-white px-4 lg:px-9 h-14 border-none shadow-none w-full focus-visible:ring-0 focus-visible:outline-none focus:ring-0 focus:outline-none"
+                className="bg-white placeholder:text-black text-md font-medium px-4 lg:px-9 h-14 border-none shadow-none w-full focus-visible:ring-0 focus-visible:outline-none focus:ring-0 focus:outline-none"
               />
             </div>
           </div>
           
           {/* Blue container - DataTable */}
           <div className="bg-white rounded-lg min-h-[200px]">
-            <DataTable 
-              data={data}
-              selectedFilter={selectedFilter}
-              globalFilter={globalFilter}
-              setGlobalFilter={setGlobalFilter}
-            />
+            {isLoading ? (
+              <div className="p-8 text-center text-gray-500">
+                Carregando dados...
+              </div>
+            ) : (
+              <DataTable 
+                data={data}
+                selectedFilter={selectedFilter}
+                globalFilter={globalFilter}
+                setGlobalFilter={setGlobalFilter}
+              />
+            )}
           </div>
         </div>
       </div>

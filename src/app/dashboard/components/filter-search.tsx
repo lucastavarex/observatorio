@@ -8,13 +8,13 @@ interface FilterSearchProps {
 
 export function FilterSearch({ searchFilter, onSearchChange }: FilterSearchProps) {
   return (
-    <div className="px-4 mb-[1px]">
+    <div className="px-4 mb-[3px]">
     <InputWithIcon
       placeholder="Buscar por variável..."
       value={searchFilter}
       onChange={(e) => onSearchChange(e.target.value)}
-      className="h-14 p-0 border-none shadow-none focus-visible:ring-0 focus-visible:ring-offset-0 text-black"
-      icon={<Search className="h-5 w-5 -mr-2.5" />}
+      className="h-14 p-0 text-md placeholder:text-black border-none shadow-none focus-visible:ring-0 focus-visible:ring-offset-0 text-black"
+      icon={<Search className="h-5 w-5 -mr-2.5 text-black" />}
       iconPosition="right"
     />
     </div>

@@ -1,16 +1,31 @@
-import { LucideIcon } from "lucide-react"
-
 // Transport data structure
 export interface TransportData {
   id: string
   municipio: string
   unidadeFederativa: string
-  valor: number | string
+  valor: number | string | null // Allow null values
+}
+
+// PEMOB (Pesquisa Nacional de Mobilidade Urbana) data structure
+export interface PEMOBCityData {
+  "CÓDIGO": string
+  "UF": string
+  "Município": string
+  [key: string]: string | number | null // All transportation variables
+}
+
+// Processed PEMOB data for the dashboard
+export interface DashboardData {
+  codigo: string
+  municipio: string
+  uf: string
+  variavel: string
+  valor: number | null
 }
 
 // Filter structure types
 export interface SubcategoryData {
-  icon: LucideIcon
+  icon: string // Changed from LucideIcon to string for SVG paths
   options: string[]
 }
 

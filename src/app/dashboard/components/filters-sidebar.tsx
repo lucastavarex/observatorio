@@ -5,6 +5,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion"
 import { Switch } from "@/components/ui/switch"
+import Image from "next/image"
 import React from "react"
 import { useFilterCategories } from "../hooks/use-filter-categories"
 import { FilterSearch } from "./filter-search"
@@ -24,7 +25,7 @@ export function FiltersSidebar({ selectedFilter, onFilterChange }: FiltersSideba
         {/* Header */}
         <div className="space-y-2 pb-3 p-4">
           <h2 className="text-xl font-bold text-gray-900">Pesquisa Nacional de Mobilidade Urbana</h2>
-          <p className="text-sm text-gray-600">Selecione uma das variáveis</p>
+          <p className="text-md text-gray-600">Selecione uma das variáveis</p>
         </div>
 
         {/* Search */}
@@ -37,26 +38,35 @@ export function FiltersSidebar({ selectedFilter, onFilterChange }: FiltersSideba
         {/* Filters */}
         {!hasResults && searchFilter && (
           <div className="px-4 py-8 text-center">
-            <p className="text-gray-500 text-sm">Nenhum resultado encontrado</p>
+            <p className="text-gray-500 text-md">Nenhum resultado encontrado</p>
           </div>
         )}
-        <Accordion type="multiple" defaultValue={["Infraestrutura"]} className="w-full -mt-3">
-          {Object.entries(filteredCategories).map(([categoria, subcategorias]) => (
+        <Accordion type="multiple" defaultValue={[Object.keys(filteredCategories)[0]]} className="w-full -mt-3">
+          {Object.entries(filteredCategories).map(([categoria, subcategorias], categoryIndex) => (
             <AccordionItem key={categoria} value={categoria} className="border-b">
-              <AccordionTrigger className="text-left cursor-pointer px-4 font-semibold py-5 hover:no-underline ">
+              <AccordionTrigger className="text-left cursor-pointer px-4 font-semibold py-5 hover:no-underline text-md">
                 {categoria}
               </AccordionTrigger>
               <div className="h-[0.5px] w-full bg-gray-300"/>
               <AccordionContent className="pb-0">
                 <div className="space-y-0">
-                  <Accordion type="multiple" defaultValue={Object.keys(subcategorias)} className="w-full">
+                  <Accordion 
+                    type="multiple" 
+                    defaultValue={categoryIndex === 0 ? [Object.keys(subcategorias)[0]] : []} 
+                    className="w-full"
+                  >
                     {Object.entries(subcategorias).map(([subcategoria, data], index) => {
-                      const IconComponent = data.icon
                       return (
                         <AccordionItem key={subcategoria} value={subcategoria} className="border-none">
-                          <AccordionTrigger className="text-left flex items-center font-medium px-4 py-2 hover:no-underline  border-gray-200">
+                          <AccordionTrigger className="text-left cursor-pointer flex items-center font-normal px-4 py-2 hover:no-underline">
                             <div className="flex py-2 pl-4 items-center space-x-2">
-                              <IconComponent className=" h-5 w-5" />
+                              <Image 
+                                src={data.icon} 
+                                alt={subcategoria} 
+                                width={20}
+                                height={20}
+                                className="h-5 w-5" 
+                              />
                               <span className="text-sm text-gray-800 cursor-pointer">{subcategoria}</span>
                             </div>
                           </AccordionTrigger>
@@ -64,26 +74,26 @@ export function FiltersSidebar({ selectedFilter, onFilterChange }: FiltersSideba
                           <AccordionContent className="pb-0">
                             <div className="space-y-0">
                               {data.options.map((opcao, optionIndex) => (
-                                <div key={opcao}>
-                                <div className="px-8 pr-4 gap-4 flex items-center justify-between py-3 ">
-                                  <label
-                                    htmlFor={opcao}
-                                    className="text-sm cursor-pointer text-gray-700 flex-1 leading-relaxed"
-                                  >
-                                    {opcao}
-                                  </label>
-                                  <Switch
-                                    id={opcao}
-                                    checked={selectedFilter === opcao}
-                                    onCheckedChange={(checked) => {
-                                      if (checked) {
-                                        onFilterChange(opcao)
-                                      }
-                                    }}
-                                  />
-                                </div>
-                                <div className="h-[0.5px] w-full bg-gray-300"/>
-                                </div>
+                                <React.Fragment key={opcao}>
+                                  <div className="px-8 pr-4 gap-4 flex items-center justify-between py-3 ">
+                                    <label
+                                      htmlFor={opcao}
+                                      className="text-sm cursor-pointer text-black flex-1 leading-relaxed"
+                                    >
+                                      {opcao}
+                                    </label>
+                                    <Switch
+                                      id={opcao}
+                                      checked={selectedFilter === opcao}
+                                      onCheckedChange={(checked) => {
+                                        if (checked) {
+                                          onFilterChange(opcao)
+                                        }
+                                      }}
+                                    />
+                                  </div>
+                                  {optionIndex !== data.options.length - 1 && <div className="h-[0.5px] w-full bg-gray-300"/>}
+                                </React.Fragment>
                               ))}
                             </div>
                           </AccordionContent>
