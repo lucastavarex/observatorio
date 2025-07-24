@@ -83,6 +83,7 @@ export function FiltersSidebar({ selectedFilter, onFilterChange }: FiltersSideba
                                       {opcao}
                                     </label>
                                     <Switch
+                                      className="cursor-pointer"
                                       id={opcao}
                                       checked={selectedFilter === opcao}
                                       onCheckedChange={(checked) => {
