@@ -11,7 +11,6 @@ import React from "react"
 import { useTableState } from "../hooks/use-table-state"
 import { createColumns } from "../lib/table-columns"
 import { TransportData } from "../lib/types"
-import { TablePagination } from "./table-pagination"
 
 interface DataTableProps {
   data: TransportData[]
@@ -86,9 +85,6 @@ export function DataTable({ data, selectedFilter, globalFilter, setGlobalFilter 
           </TableBody>
         </Table>
       </div>
-
-      {/* Pagination */}
-      <TablePagination table={table} />
     </div>
   )
 } 

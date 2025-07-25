@@ -5,7 +5,6 @@ import {
     VisibilityState,
     getCoreRowModel,
     getFilteredRowModel,
-    getPaginationRowModel,
     getSortedRowModel,
     useReactTable,
 } from "@tanstack/react-table"
@@ -30,7 +29,6 @@ export function useTableState({ data, columns, globalFilter, setGlobalFilter }: 
     onSortingChange: setSorting,
     onColumnFiltersChange: setColumnFilters,
     getCoreRowModel: getCoreRowModel(),
-    getPaginationRowModel: getPaginationRowModel(),
     getSortedRowModel: getSortedRowModel(),
     getFilteredRowModel: getFilteredRowModel(),
     onColumnVisibilityChange: setColumnVisibility,
@@ -47,11 +45,6 @@ export function useTableState({ data, columns, globalFilter, setGlobalFilter }: 
       globalFilter,
     },
     onGlobalFilterChange: setGlobalFilter,
-    initialState: {
-      pagination: {
-        pageSize: 10,
-      },
-    },
   })
 
   return {
