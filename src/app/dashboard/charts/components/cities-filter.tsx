@@ -1,4 +1,7 @@
+import { Badge } from "@/components/ui/badge"
 import { Switch } from "@/components/ui/switch"
+import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip"
+import { InfoIcon } from "lucide-react"
 import React from "react"
 import { FilterSearch } from "../../components/filter-search"
 import { getPEMOBCities, searchPEMOBCities } from "../../lib/pemob-data"
@@ -69,6 +72,19 @@ export function CitiesFilter({ selectedCities, onCitiesChange }: CitiesFilterPro
                     className="text-sm cursor-pointer text-black flex-1 leading-relaxed"
                   >
                     {city}
+                    <Badge variant="secondary" className="ml-2 rounded-full text-xs">
+                    <Tooltip>
+                      <TooltipTrigger>
+                        50%
+                      </TooltipTrigger>
+                      <TooltipContent side="bottom">
+                        <div className="flex items-center gap-2">
+                          <InfoIcon className="w-4 h-4" />
+                          <p>Porcentagem de variáveis <br/> preenchidas por esta cidade</p>
+                        </div>
+                      </TooltipContent>
+                    </Tooltip>
+                    </Badge>
                   </label>
                   <Switch
                     className="cursor-pointer"

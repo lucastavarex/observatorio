@@ -1,4 +1,7 @@
+import { Badge } from "@/components/ui/badge"
 import { Switch } from "@/components/ui/switch"
+import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip"
+import { InfoIcon } from "lucide-react"
 import React from "react"
 import { FilterSearch } from "../../components/filter-search"
 import { getAvailableVariables } from "../../lib/pemob-data"
@@ -73,6 +76,19 @@ export function VariablesFilter({ selectedVariables, onVariablesChange }: Variab
                     className="text-sm cursor-pointer text-black flex-1 leading-relaxed"
                   >
                     {variable}
+                           <Badge variant="secondary" className="ml-2 rounded-full text-xs">
+                    <Tooltip>
+                      <TooltipTrigger>
+                        50%
+                      </TooltipTrigger>
+                      <TooltipContent side="bottom">
+                        <div className="flex items-center gap-2">
+                          <InfoIcon className="w-4 h-4" />
+                          <p>Porcentagem de cidades que <br/> preencheram esta variável</p>
+                        </div>
+                      </TooltipContent>
+                    </Tooltip>
+                    </Badge>
                   </label>
                   <Switch
                     className="cursor-pointer"
