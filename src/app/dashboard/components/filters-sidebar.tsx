@@ -30,6 +30,7 @@ export function FiltersSidebar({ selectedFilter, onFilterChange }: FiltersSideba
 
         {/* Search */}
         <FilterSearch 
+          placeholder="Buscar por variável..."
           searchFilter={searchFilter}
           onSearchChange={setSearchFilter}
         />

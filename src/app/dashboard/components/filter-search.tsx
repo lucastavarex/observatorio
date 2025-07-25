@@ -3,14 +3,15 @@ import { Search } from "lucide-react"
 
 interface FilterSearchProps {
   searchFilter: string
+  placeholder: string
   onSearchChange: (value: string) => void
 }
 
-export function FilterSearch({ searchFilter, onSearchChange }: FilterSearchProps) {
+export function FilterSearch({ searchFilter, placeholder, onSearchChange }: FilterSearchProps) {
   return (
     <div className="px-4 mb-[3px]">
     <InputWithIcon
-      placeholder="Buscar por variável..."
+      placeholder={placeholder}
       value={searchFilter}
       onChange={(e) => onSearchChange(e.target.value)}
       className="h-14 p-0 text-md placeholder:text-black border-none shadow-none focus-visible:ring-0 focus-visible:ring-offset-0 text-black"

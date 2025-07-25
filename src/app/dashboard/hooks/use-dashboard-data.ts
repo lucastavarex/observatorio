@@ -1,18 +1,15 @@
 import React from "react"
-import { getTableData, getVariableStats, isDataLoaded, loadPEMOBData } from "../lib/pemob-data"
+import { getTableData, getVariableStats, loadPEMOBData } from "../lib/pemob-data"
 
 export function useDashboardData(selectedFilter: string) {
   const [isLoading, setIsLoading] = React.useState(true)
-  const [dataLoaded, setDataLoaded] = React.useState(false)
 
   // Load PEMOB data on client side only
   React.useEffect(() => {
     const loadData = async () => {
-      if (!isDataLoaded()) {
-        setIsLoading(true)
-        await loadPEMOBData()
-        setDataLoaded(true)
-      }
+      setIsLoading(true)
+      // Since data is now loaded synchronously, this will be immediate
+      await loadPEMOBData()
       setIsLoading(false)
     }
 
@@ -21,7 +18,7 @@ export function useDashboardData(selectedFilter: string) {
 
   // Get table data for the selected variable
   const data = React.useMemo(() => {
-    if (!selectedFilter || !dataLoaded) return []
+    if (!selectedFilter) return []
     
     return getTableData(selectedFilter).map((item, index) => ({
       id: item.codigo || `${item.municipio}-${index}`,
@@ -29,13 +26,13 @@ export function useDashboardData(selectedFilter: string) {
       unidadeFederativa: item.uf,
       valor: item.valor
     }))
-  }, [selectedFilter, dataLoaded])
+  }, [selectedFilter])
 
   // Get statistics for the selected variable
   const stats = React.useMemo(() => {
-    if (!selectedFilter || !dataLoaded) return null
+    if (!selectedFilter) return null
     return getVariableStats(selectedFilter)
-  }, [selectedFilter, dataLoaded])
+  }, [selectedFilter])
 
   return { 
     data,

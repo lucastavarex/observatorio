@@ -1,44 +1,13 @@
+import { variaveis as pemobRawData } from "./data/pemob-raw"
 import type { DashboardData, PEMOBCityData } from "./types"
 
-// Import the real PEMOB data synchronously
-let pemobData: PEMOBCityData[] = []
-let dataInitialized = false
+// Use the imported data directly
+const pemobData: PEMOBCityData[] = pemobRawData
+const dataInitialized = true
 
-// Initialize with real PEMOB data synchronously
-function initializeRealData() {
-  if (dataInitialized) return
-  
-  try {
-    // For now, we'll use a synchronous approach to avoid hydration issues
-    // In a production app, you might want to move this to a server component
-    // or use proper data fetching patterns
-    
-    // Since dynamic imports cause hydration issues, we'll initialize with empty data
-    // and let the component handle the async loading properly
-    pemobData = []
-    dataInitialized = true
-  } catch (error) {
-    console.error('Error initializing PEMOB data:', error)
-    pemobData = []
-    dataInitialized = true
-  }
-}
-
-// Initialize data immediately
-initializeRealData()
-
-// Async function to load data (called from components)
+// Async function to load data (for compatibility with existing hooks)
 export async function loadPEMOBData(): Promise<PEMOBCityData[]> {
-  if (pemobData.length > 0) return pemobData
-  
-  try {
-    const pemobModule = await import('./data/pemob-raw')
-    pemobData = pemobModule.variaveis as PEMOBCityData[]
-    return pemobData
-  } catch (error) {
-    console.error('Error loading PEMOB data:', error)
-    return []
-  }
+  return pemobData
 }
 
 // Get all cities from PEMOB data
