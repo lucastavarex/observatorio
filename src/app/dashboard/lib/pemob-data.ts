@@ -115,4 +115,32 @@ export function isDataLoaded(): boolean {
 // Get total number of cities
 export function getTotalCities(): number {
   return pemobData.length
+}
+
+// NEW: Get percentage of variables filled by a specific city
+export function getCityVariableFillPercentage(cityName: string): number {
+  const cityData = getCityData(cityName)
+  if (!cityData) return 0
+
+  const availableVariables = getAvailableVariables()
+  if (availableVariables.length === 0) return 0
+
+  const filledVariables = availableVariables.filter(variable => {
+    const value = cityData[variable]
+    return value !== null && value !== undefined && value !== 0
+  })
+
+  return Math.round((filledVariables.length / availableVariables.length) * 100)
+}
+
+// NEW: Get percentage of cities that filled a specific variable
+export function getVariableCityFillPercentage(variableName: string): number {
+  if (pemobData.length === 0) return 0
+
+  const citiesWithData = pemobData.filter(city => {
+    const value = city[variableName]
+    return value !== null && value !== undefined && value !== 0
+  })
+
+  return Math.round((citiesWithData.length / pemobData.length) * 100)
 } 
