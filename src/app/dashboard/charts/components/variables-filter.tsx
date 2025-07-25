@@ -59,7 +59,7 @@ export function VariablesFilter({ selectedVariables, onVariablesChange }: Variab
         <div className="h-[0.5px] w-full bg-gray-300"/>
 
         {/* Variables List */}
-        <div className="w-full">
+        <div className="w-full -mt-2">
           {filteredVariables.length === 0 && searchFilter ? (
             <div className="px-4 py-8 text-center">
               <p className="text-gray-500 text-md">Nenhum resultado encontrado</p>
@@ -67,7 +67,7 @@ export function VariablesFilter({ selectedVariables, onVariablesChange }: Variab
           ) : (
             filteredVariables.map((variable, index) => (
               <React.Fragment key={variable}>
-                <div className="px-4 gap-4 flex items-center justify-between py-3">
+                <div className="px-4 gap-4 flex items-center justify-between py-5">
                   <label
                     htmlFor={`variable-${variable}`}
                     className="text-sm cursor-pointer text-black flex-1 leading-relaxed"
