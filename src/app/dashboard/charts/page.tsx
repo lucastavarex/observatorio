@@ -50,6 +50,8 @@ export default function ChartsPage() {
       case "radar":
         return (
           <ChartRadarMultiple
+            selectedCities={selectedCities}
+            selectedVariables={selectedVariables}
           />
         )
       case "evolucao":
