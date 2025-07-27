@@ -4,15 +4,17 @@ import { TooltipProvider } from "@/components/ui/tooltip"
 import React from "react"
 import { useDashboardData } from "../hooks/use-dashboard-data"
 import { CitiesFilter } from "./components/cities-filter"
+import { DistributionChart } from "./components/distribution-chart"
 import { VariablesFilter } from "./components/variables-filter"
 
 export default function ChartsPage() {
   // Start with some default selections to match the images
-  const [selectedCities, setSelectedCities] = React.useState<string[]>(["Anápolis"])
+  const [selectedCities, setSelectedCities] = React.useState<string[]>(["Anápolis", "Belo Horizonte"])
   const [selectedVariables, setSelectedVariables] = React.useState<string[]>([
     "Agentes de Trânsito em Exercício",
-    "Arrecadação Anual Tributos pela Utilização da Infraestrutura em Perímetro Urbano", 
-    "Arrecadação anual com Multas de Trânsito"
+    "Arrecadação anual com Multas de Trânsito",
+    "Capacidade Média da Frota (composição) de VLT", 
+    "Capacidade Média da Frota de Ônibus Convencional"
   ])
   const [globalFilter, setGlobalFilter] = React.useState<string>("")
   
@@ -50,25 +52,17 @@ export default function ChartsPage() {
           <div className="flex flex-col gap-4 lg:flex-1">
             
             {/* Chart Container */}
-            <div className="bg-white rounded-lg min-h-[200px]">
+            <div className="bg-white rounded-lg min-h-[600px]">
               {isLoading ? (
                 <div className="p-8 text-center text-gray-500">
                   Carregando dados...
                 </div>
               ) : (
                <div className="bg-white rounded-xl w-full h-full p-6">
-                 {/* Chart will be implemented here */}
-                 <div className="text-center text-gray-500">
-                   <h3 className="text-lg font-semibold mb-2">Gráfico em desenvolvimento</h3>
-                   <p className="text-sm">Cidades selecionadas: {selectedCities.length}/5</p>
-                   <p className="text-sm">Variáveis selecionadas: {selectedVariables.length}/5</p>
-                   {selectedCities.length > 0 && (
-                     <p className="text-xs mt-2">Cidades: {selectedCities.join(", ")}</p>
-                   )}
-                   {selectedVariables.length > 0 && (
-                     <p className="text-xs mt-2">Variáveis: {selectedVariables.join(", ")}</p>
-                   )}
-                 </div>
+                 <DistributionChart 
+                   selectedCities={selectedCities}
+                   selectedVariables={selectedVariables}
+                 />
                </div>
               )}
             </div>
