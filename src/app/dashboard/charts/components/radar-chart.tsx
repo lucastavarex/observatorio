@@ -54,10 +54,10 @@ export function ChartRadarMultiple({ selectedCities, selectedVariables }: RadarC
       
       const variableData = getVariableData(variable)
       
-             // Calculate the sum of ALL cities' values for this variable (not just selected)
-       const totalSum = variableData.reduce((sum, item) => {
-         return sum + (item.valor !== null ? item.valor : 0)
-       }, 0)
+      // Calculate the sum of ALL cities' values for this variable (not just selected)
+      const totalSum = variableData.reduce((sum, item) => {
+        return sum + (item.valor !== null ? item.valor : 0)
+      }, 0)
       
       // Calculate proportional percentage for each city
       selectedCities.forEach(city => {
@@ -76,6 +76,37 @@ export function ChartRadarMultiple({ selectedCities, selectedVariables }: RadarC
 
     return data
   }, [selectedCities, selectedVariables])
+
+  // Calculate dynamic domain for better readability
+  const maxValue = React.useMemo(() => {
+    if (chartData.length === 0) return 100
+    
+    let max = 0
+    chartData.forEach(dataPoint => {
+      selectedCities.forEach(city => {
+        const value = dataPoint[city] as number
+        if (value > max) max = value
+      })
+    })
+    
+    // Aggressive zoom levels for very small percentages
+    if (max <= 2) return 5       // Ultra zoom: 0-5% scale
+    if (max <= 5) return 10      // High zoom: 0-10% scale  
+    if (max <= 8) return 12      // Medium-high zoom: 0-12% scale
+    if (max <= 12) return 15     // Medium zoom: 0-15% scale
+    if (max <= 18) return 20     // Low-medium zoom: 0-20% scale
+    if (max <= 25) return 30     // Low zoom: 0-30% scale
+    if (max <= 40) return 50     // Minimal zoom: 0-50% scale
+    if (max <= 70) return 80     // Slight zoom: 0-80% scale
+    return 100                   // Full scale: 0-100%
+  }, [chartData, selectedCities])
+
+  // Dynamic tick count based on scale
+  const tickCount = React.useMemo(() => {
+    if (maxValue <= 10) return 6     // Good spacing for small scales
+    if (maxValue <= 30) return 7     // Slightly more ticks for medium scales
+    return 6                         // Default for larger scales
+  }, [maxValue])
 
   const colors = ["#ef4444", "#10b981", "#3b82f6", "#f59e0b", "#8b5cf6"] // red, green, blue, yellow, purple
 
@@ -102,9 +133,11 @@ export function ChartRadarMultiple({ selectedCities, selectedVariables }: RadarC
           <RadarChart data={chartData} margin={{ top: 40, right: 100, bottom: 40, left: 100 }}>
             <PolarGrid gridType="circle" />
             <PolarRadiusAxis 
-              domain={[0, 100]} 
-              tick={false}
-              tickCount={6}
+              domain={[0, maxValue]} 
+              tick={{ fontSize: 10, fill: '#666' }}
+              tickCount={tickCount}
+              tickFormatter={(value) => `${value}%`}
+              angle={90}
             />
             <PolarAngleAxis 
               dataKey="variable" 
@@ -127,8 +160,9 @@ export function ChartRadarMultiple({ selectedCities, selectedVariables }: RadarC
                 dataKey={city}
                 stroke={colors[index % colors.length]}
                 fill={colors[index % colors.length]}
-                fillOpacity={0.1}
-                strokeWidth={2}
+                fillOpacity={0.15}
+                strokeWidth={3}
+                dot={{ fill: colors[index % colors.length], strokeWidth: 1, r: 4 }}
               />
             ))}
           </RadarChart>
@@ -137,6 +171,11 @@ export function ChartRadarMultiple({ selectedCities, selectedVariables }: RadarC
 
       {/* Legend */}
       <div className="flex flex-col items-start mt-4 gap-2 text-sm flex-shrink-0">
+        {/* Scale indicator */}
+        <div className="text-xs text-gray-500 mb-1 font-medium">
+          Escala: 0-{maxValue}% {maxValue < 100 && "(zoom ativado)"}
+        </div>
+        
         {selectedCities.slice(0, 5).map((city, index) => (
           <div key={city} className="flex items-center gap-2">
             <div 
