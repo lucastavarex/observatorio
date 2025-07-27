@@ -4,6 +4,28 @@ import React from "react"
 import { CartesianGrid, Cell, Dot, ResponsiveContainer, Scatter, ScatterChart, Tooltip, XAxis, YAxis } from "recharts"
 import { getVariableData } from "../../lib/pemob-data"
 
+// Hook to detect mobile screens
+function useIsMobile() {
+  const [isMobile, setIsMobile] = React.useState(false)
+
+  React.useEffect(() => {
+    const checkIsMobile = () => {
+      setIsMobile(window.innerWidth < 1024) // 768px is md breakpoint in Tailwind
+    }
+
+    // Check on mount
+    checkIsMobile()
+
+    // Listen for resize events
+    window.addEventListener('resize', checkIsMobile)
+
+    // Cleanup
+    return () => window.removeEventListener('resize', checkIsMobile)
+  }, [])
+
+  return isMobile
+}
+
 interface DistributionChartProps {
   selectedCities: string[]
   selectedVariables: string[]
@@ -87,6 +109,8 @@ function CustomTooltip({ active, payload, coordinate }: TooltipProps) {
 }
 
 export function DistributionChart({ selectedCities, selectedVariables }: DistributionChartProps) {
+  const isMobile = useIsMobile()
+  
   const chartData = React.useMemo(() => {
     const data: ChartDataPoint[] = []
     
@@ -142,14 +166,14 @@ export function DistributionChart({ selectedCities, selectedVariables }: Distrib
     <div className="w-full h-full flex flex-col">
       <h3 className="text-lg font-semibold mb-4 text-center flex-shrink-0">Distribuição por Variável</h3>
       
-      <div className="flex-1 min-h-[400px]">
+      <div className="flex-1 min-h-[450px]">
         <ResponsiveContainer width="100%" height="100%">
           <ScatterChart
             margin={{
               top: 20,
-              right: 30,
+              right: isMobile ? 10 : 30,
               bottom: 60,
-              left: -50,
+              left: isMobile ? -20 : -50,
             }}
           >
             <CartesianGrid strokeDasharray="3 3" opacity={0.3} />
@@ -167,7 +191,7 @@ export function DistributionChart({ selectedCities, selectedVariables }: Distrib
               ticks={Array.from({ length: selectedVariables.length }, (_, i) => i)}
               tickFormatter={(value) => selectedVariables[value] || ''}
               tick={{ fontSize: 11 }}
-              width={200}
+              width={isMobile ? 100 : 200}
               interval={0}
               orientation="left"
             />
