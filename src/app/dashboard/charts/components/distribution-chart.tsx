@@ -2,29 +2,8 @@
 
 import React from "react"
 import { CartesianGrid, Cell, Dot, ResponsiveContainer, Scatter, ScatterChart, Tooltip, XAxis, YAxis } from "recharts"
+import { useIsMobile } from "../../hooks/use-is-mobile"
 import { getVariableData } from "../../lib/pemob-data"
-
-// Hook to detect mobile screens
-function useIsMobile() {
-  const [isMobile, setIsMobile] = React.useState(false)
-
-  React.useEffect(() => {
-    const checkIsMobile = () => {
-      setIsMobile(window.innerWidth < 1024) // 768px is md breakpoint in Tailwind
-    }
-
-    // Check on mount
-    checkIsMobile()
-
-    // Listen for resize events
-    window.addEventListener('resize', checkIsMobile)
-
-    // Cleanup
-    return () => window.removeEventListener('resize', checkIsMobile)
-  }, [])
-
-  return isMobile
-}
 
 interface DistributionChartProps {
   selectedCities: string[]
