@@ -143,7 +143,7 @@ export function DistributionChart({ selectedCities, selectedVariables }: Distrib
 
   return (
     <div className="w-full h-full flex flex-col">
-      <h3 className="text-lg font-semibold mb-4 text-center flex-shrink-0">Distribuição por Variável</h3>
+      {/* <h3 className="text-lg font-semibold mb-4 text-center flex-shrink-0">Distribuição por Variável</h3> */}
       
       <div className="flex-1 min-h-[450px]">
         <ResponsiveContainer width="100%" height="100%">
