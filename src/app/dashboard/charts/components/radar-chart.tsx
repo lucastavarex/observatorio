@@ -1,25 +1,56 @@
 "use client"
 
+import { PolarAngleAxis, PolarGrid, Radar, RadarChart } from 'recharts'
 
-interface RadarChartProps {
-  selectedCities: string[]
-  selectedVariables: string[]
-}
+import {
+  ChartConfig,
+  ChartContainer,
+  ChartTooltip,
+  ChartTooltipContent,
+} from "@/components/ui/chart"
 
-export function RadarChart({ selectedCities, selectedVariables }: RadarChartProps) {
+export const description = "A radar chart with multiple data"
+
+const chartData = [
+  { month: "January", desktop: 186, mobile: 80 },
+  { month: "February", desktop: 305, mobile: 200 },
+  { month: "March", desktop: 237, mobile: 120 },
+  { month: "April", desktop: 73, mobile: 190 },
+  { month: "May", desktop: 209, mobile: 130 },
+  { month: "June", desktop: 214, mobile: 140 },
+]
+
+const chartConfig = {
+  desktop: {
+    label: "Desktop",
+    color: "var(--chart-1)",
+  },
+  mobile: {
+    label: "Mobile",
+    color: "var(--chart-2)",
+  },
+} satisfies ChartConfig
+
+export function ChartRadarMultiple() {
   return (
-    <div className="w-full h-full flex flex-col items-center justify-center">
-      <div className="text-center">
-        <h3 className="text-2xl font-semibold mb-4 text-gray-700">Gráfico Radar</h3>
-        <div className="bg-gray-100 rounded-lg p-8 mb-4">
-          <div className="w-48 h-48 border-2 border-dashed border-gray-400 rounded-full flex items-center justify-center">
-            <span className="text-gray-500 text-sm">Radar Chart</span>
-          </div>
-        </div>
-        <p className="text-gray-600 mb-2">Cidades selecionadas: {selectedCities.length}</p>
-        <p className="text-gray-600">Variáveis selecionadas: {selectedVariables.length}</p>
-        <p className="text-sm text-gray-500 mt-4">Em desenvolvimento...</p>
-      </div>
-    </div>
+        <ChartContainer
+          config={chartConfig}
+          className="mx-auto aspect-square max-h-[450px]"
+        >
+          <RadarChart data={chartData}>
+            <ChartTooltip
+              cursor={false}
+              content={<ChartTooltipContent indicator="line" />}
+            />
+            <PolarAngleAxis dataKey="month" />
+            <PolarGrid gridType="circle" />
+            <Radar
+              dataKey="desktop"
+              fill="var(--color-desktop)"
+              fillOpacity={0.6}
+            />
+            <Radar dataKey="mobile" fill="var(--color-mobile)" />
+          </RadarChart>
+        </ChartContainer>
   )
-} 
+}

@@ -8,7 +8,7 @@ import { useDashboardData } from "../hooks/use-dashboard-data"
 import { CitiesFilter } from "./components/cities-filter"
 import { DistributionChart } from "./components/distribution-chart"
 import { EvolucaoChart } from "./components/evolucao-chart"
-import { RadarChart } from "./components/radar-chart"
+import { ChartRadarMultiple } from "./components/radar-chart"
 import { VariablesFilter } from "./components/variables-filter"
 
 type ChartType = "radar" | "distribuicao" | "evolucao"
@@ -49,9 +49,7 @@ export default function ChartsPage() {
     switch (selectedChartType) {
       case "radar":
         return (
-          <RadarChart 
-            selectedCities={selectedCities}
-            selectedVariables={selectedVariables}
+          <ChartRadarMultiple
           />
         )
       case "evolucao":
