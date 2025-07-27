@@ -52,7 +52,7 @@ export default function ChartsPage() {
           <div className="flex flex-col gap-4 lg:flex-1">
             
             {/* Chart Container */}
-            <div className="bg-white rounded-lg min-h-[600px]">
+            <div className="bg-white rounded-lg min-h-[600px] h-auto">
               {isLoading ? (
                 <div className="p-8 text-center text-gray-500">
                   Carregando dados...

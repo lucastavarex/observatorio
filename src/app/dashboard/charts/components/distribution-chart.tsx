@@ -139,68 +139,71 @@ export function DistributionChart({ selectedCities, selectedVariables }: Distrib
   }
 
   return (
-    <div className="w-full h-full">
-      <h3 className="text-lg font-semibold mb-4 text-center">Distribuição por Variável</h3>
-      <ResponsiveContainer width="100%" height="85%">
-        <ScatterChart
-          margin={{
-            top: 20,
-            right: 30,
-            bottom: 60,
-            left: -50,
-          }}
-        >
-          <CartesianGrid strokeDasharray="3 3" opacity={0.3} />
-          <XAxis 
-            type="number" 
-            dataKey="percentage" 
-            domain={[0, 100]}
-            ticks={[0, 20, 40, 60, 80, 100]}
-            label={{ value: 'Percentual (%)', position: 'insideBottom', offset: -10 }}
-          />
-          <YAxis 
-            type="number" 
-            dataKey="yPosition"
-            domain={[0, selectedVariables.length - 1]}
-            tickCount={selectedVariables.length}
-            tickFormatter={(value) => selectedVariables[value] || ''}
-            tick={{ fontSize: 11 }}
-            width={200}
-            interval={0}
-            orientation="left"
-          />
-          <Tooltip content={<CustomTooltip />} />
-          
-          {/* Non-selected cities (smaller points, render first) */}
-          <Scatter data={nonSelectedData} shape={<NonSelectedDot />}>
-            {nonSelectedData.map((entry, index) => (
-              <Cell 
-                key={`non-selected-${index}`} 
-                fill="#d1d5db"
-              />
-            ))}
-          </Scatter>
+    <div className="w-full h-full flex flex-col">
+      <h3 className="text-lg font-semibold mb-4 text-center flex-shrink-0">Distribuição por Variável</h3>
+      
+      <div className="flex-1 min-h-[400px]">
+        <ResponsiveContainer width="100%" height="100%">
+          <ScatterChart
+            margin={{
+              top: 20,
+              right: 30,
+              bottom: 60,
+              left: -50,
+            }}
+          >
+            <CartesianGrid strokeDasharray="3 3" opacity={0.3} />
+            <XAxis 
+              type="number" 
+              dataKey="percentage" 
+              domain={[0, 100]}
+              ticks={[0, 20, 40, 60, 80, 100]}
+              label={{ value: 'Percentual (%)', position: 'insideBottom', offset: -10 }}
+            />
+           <YAxis 
+              type="number" 
+              dataKey="yPosition"
+              domain={[-0.5, selectedVariables.length - 0.5]}
+              ticks={Array.from({ length: selectedVariables.length }, (_, i) => i)}
+              tickFormatter={(value) => selectedVariables[value] || ''}
+              tick={{ fontSize: 11 }}
+              width={200}
+              interval={0}
+              orientation="left"
+            />
+            <Tooltip content={<CustomTooltip />} />
+            
+            {/* Non-selected cities (smaller points, render first) */}
+            <Scatter data={nonSelectedData} shape={<NonSelectedDot />}>
+              {nonSelectedData.map((entry, index) => (
+                <Cell 
+                  key={`non-selected-${index}`} 
+                  fill="#d1d5db"
+                />
+              ))}
+            </Scatter>
 
-          {/* Selected cities (bigger points, render last/on top) */}
-          <Scatter data={selectedData} shape={<SelectedDot />}>
-            {selectedData.map((entry, index) => (
-              <Cell 
-                key={`selected-${index}`} 
-                fill="#8884d8"
-              />
-            ))}
-          </Scatter>
-        </ScatterChart>
-      </ResponsiveContainer>
+            {/* Selected cities (bigger points, render last/on top) */}
+            <Scatter data={selectedData} shape={<SelectedDot />}>
+              {selectedData.map((entry, index) => (
+                <Cell 
+                  key={`selected-${index}`} 
+                  fill="#8884d8"
+                />
+              ))}
+            </Scatter>
+          </ScatterChart>
+        </ResponsiveContainer>
+      </div>
       
       {/* Legend */}
-      <div className="flex justify-center mt-4 gap-6 text-sm">
+      <div className="flex flex-col items-start mt-4 gap-2 text-sm flex-shrink-0">
         <div className="flex items-center gap-2">
           <div className="w-3 h-3 rounded-full bg-gray-300"></div>
           <span>Cidades não selecionadas</span>
         </div>
         {selectedCities.length > 0 && (
-          <div className="flex items-center gap-4">
+          <>
             {selectedCities.slice(0, 5).map((city, index) => {
               const colors = ["#ef4444", "#10b981", "#3b82f6", "#f59e0b", "#8b5cf6"]
               return (
@@ -213,7 +216,7 @@ export function DistributionChart({ selectedCities, selectedVariables }: Distrib
                 </div>
               )
             })}
-          </div>
+          </>
         )}
       </div>
     </div>

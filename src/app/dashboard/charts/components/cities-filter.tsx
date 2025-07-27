@@ -29,8 +29,8 @@ export function CitiesFilter({ selectedCities, onCitiesChange }: CitiesFilterPro
 
   const handleCityToggle = (cityName: string, checked: boolean) => {
     if (checked) {
-      // Add city if we haven't reached the limit (max 3)
-      if (selectedCities.length < 3) {
+      // Add city if we haven't reached the limit (max 5)
+      if (selectedCities.length < 5) {
         onCitiesChange([...selectedCities, cityName])
       }
     } else {
@@ -47,7 +47,7 @@ export function CitiesFilter({ selectedCities, onCitiesChange }: CitiesFilterPro
         {/* Header */}
         <div className="space-y-2 pb-3 p-4">
           <h2 className="text-xl font-bold text-gray-900">Selecione as cidades</h2>
-          <p className="text-md text-gray-600">Escolha entre 1 e 3 cidades</p>
+          <p className="text-md text-gray-600">Escolha entre 1 e 5 cidades</p>
         </div>
 
         {/* Search */}
