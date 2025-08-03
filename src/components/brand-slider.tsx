@@ -45,16 +45,16 @@ export function BrandSlider() {
   return (
     <section className="bg-[#f5f5f0] py-16 ">
       <div className="px-4 2xl:px-16 mx-auto">
-        <div className="flex items-center gap-8">
-          {/* Text Section - Left Side */}
-          <div className="flex-shrink-0">
+        <div className="flex flex-col lg:flex-row items-start gap-8">
+          {/* Text Section - Top on mobile, Left on desktop */}
+          <div className="flex-shrink-0 text-left w-full lg:w-auto">
             <h2 className="text-base leading-relaxed md:text-lg lg:text-lg text-gray-800 leading-relaxed">
               Descubra quem está construindo um <span className="text-red-600 font-semibold">novo </span><span className="text-red-600 font-semibold">caminho</span> <br/> para a mobilidade nas cidades brasileiras.
             </h2>
           </div>
 
-          {/* Logo Slider - Right Side */}
-          <div className="flex-1 min-w-0">
+          {/* Logo Slider - Bottom on mobile, Right on desktop */}
+          <div className="flex-1 min-w-0 w-full lg:w-auto">
             <Slider
               width="220px"
               duration={20}
