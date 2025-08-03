@@ -81,7 +81,6 @@ export default function Home() {
           autoplay={{
             delay: 5000,
             disableOnInteraction: false,
-            pauseOnMouseEnter: true,
           }}
           speed={1000}
           onSlideChange={handleSlideChange}
