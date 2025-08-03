@@ -25,21 +25,21 @@ const slides: SlideData[] = [
     id: 1,
     videoSrc: "https://res.cloudinary.com/doueg88fj/video/upload/v1754231467/cover1_aaerv0.mp4",
     imageSrc: "/images/city-aerial.jpg",
-    title: "Mobilidade inteligente para um Brasil mais conectado e sustentável",
+    title: "1-Mobilidade inteligente para um Brasil mais conectado e sustentável",
     subtitle: "Conectando pessoas e lugares de forma responsável"
   },
   {
     id: 2,
     videoSrc: "https://res.cloudinary.com/doueg88fj/video/upload/v1754231467/cover1_aaerv0.mp4",
     imageSrc: "/images/transportation.jpg",
-    title: "Mobilidade inteligente para um Brasil mais conectado e sustentável",
+    title: "2-Mobilidade inteligente para um Brasil mais conectado e sustentável",
     subtitle: "Conectando pessoas e lugares de forma responsável"
   },
   {
     id: 3,
     videoSrc: "https://res.cloudinary.com/doueg88fj/video/upload/v1754231467/cover1_aaerv0.mp4",
     imageSrc: "/images/sustainable-city.jpg",
-    title: "Mobilidade inteligente para um Brasil mais conectado e sustentável",
+    title: "3-Mobilidade inteligente para um Brasil mais conectado e sustentável",
     subtitle: "Conectando pessoas e lugares de forma responsável"
   }
 ]
@@ -49,7 +49,8 @@ export default function Home() {
   const swiperRef = useRef<{ swiper: SwiperType }>(null)
 
   const handleSlideChange = (swiper: SwiperType) => {
-    setActiveIndex(swiper.activeIndex)
+    // Handle loop properly by using realIndex instead of activeIndex
+    setActiveIndex(swiper.realIndex)
   }
 
   const handlePrevSlide = () => {
@@ -80,7 +81,9 @@ export default function Home() {
           autoplay={{
             delay: 5000,
             disableOnInteraction: false,
+            pauseOnMouseEnter: true,
           }}
+          speed={1000}
           onSlideChange={handleSlideChange}
           className="h-full"
         >
