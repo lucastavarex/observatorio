@@ -199,7 +199,7 @@ export function Header() {
               href="/"
               onClick={closeMobileMenu}
               className={`block py-3 text-lg font-medium transition-colors ${
-                pathname === "/" ? "text-black font-bold" : "text-gray-400 hover:text-black"
+                pathname === "/" ? "text-black font-medium" : "text-gray-400 hover:text-black"
               }`}
             >
               Home
@@ -209,7 +209,9 @@ export function Header() {
             <div className="">
               <Accordion type="single" collapsible className="w-full">
                 <AccordionItem value="projetos" className="border-none">
-                  <AccordionTrigger className="text-lg font-medium text-gray-900 hover:no-underline py-3">
+                  <AccordionTrigger className={`text-lg font-medium hover:no-underline py-3 ${
+                    pathname.startsWith("/projetos/") ? "text-black font-medium" : "text-gray-400 hover:text-black"
+                  }`}>
                     Projetos
                   </AccordionTrigger>
                   <AccordionContent>
@@ -221,7 +223,9 @@ export function Header() {
                           onClick={closeMobileMenu}
                           className="block"
                         >
-                          <div className="font-medium text-gray-900 mb-2">
+                          <div className={`font-medium mb-2 ${
+                            pathname === item.href ? "text-black" : "text-gray-400 hover:text-black"
+                          }`}>
                             {item.title}
                           </div>
                           <div className="text-sm text-gray-600">
@@ -242,7 +246,7 @@ export function Header() {
                 href={item.href}
                 onClick={closeMobileMenu}
                 className={`block py-3 text-lg font-medium transition-colors ${
-                  pathname === item.href ? "text-black font-bold" : "text-gray-400 hover:text-black"
+                  pathname === item.href ? "text-black font-medium" : "text-gray-400 hover:text-black"
                 }`}
               >
                 {item.title}
