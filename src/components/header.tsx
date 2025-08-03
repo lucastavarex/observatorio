@@ -55,7 +55,11 @@ const menuItems = [
   { title: "Cursos", href: "/cursos" },
 ]
 
-export function Header() {
+interface HeaderProps {
+  isBgDark?: boolean
+}
+
+export function Header({ isBgDark = false }: HeaderProps) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false)
   const pathname = usePathname()
 
@@ -66,6 +70,10 @@ export function Header() {
   const closeMobileMenu = () => {
     setIsMobileMenuOpen(false)
   }
+
+  // Define text color classes based on background
+  const activeTextClass = isBgDark ? "text-white! font-medium!" : "text-black! font-medium!"
+  const inactiveTextClass = isBgDark ? "text-white/50! hover:text-white/100!" : "text-black/50! hover:text-black/100!"
 
   return (
     <header className="z-50 w-full">
@@ -94,14 +102,14 @@ export function Header() {
           <NavigationMenuList className="gap-3">
             <NavigationMenuItem>
               <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
-                <Link href="/" className={pathname === "/" ? "text-black font-medium" : "text-gray-400 hover:text-black"}>
+                <Link href="/" className={pathname === "/" ? activeTextClass : inactiveTextClass}>
                   Home
                 </Link>
               </NavigationMenuLink>
             </NavigationMenuItem>
             
             <NavigationMenuItem>
-              <NavigationMenuTrigger className={pathname.startsWith("/projetos/") ? "text-black font-medium" : "text-gray-400 hover:text-black"}>
+              <NavigationMenuTrigger className={pathname.startsWith("/projetos/") ? activeTextClass : inactiveTextClass}>
                 Projetos
               </NavigationMenuTrigger>
               <NavigationMenuContent>
@@ -121,7 +129,7 @@ export function Header() {
             
             <NavigationMenuItem>
               <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
-                <Link href="/sobre" className={pathname === "/sobre" ? "text-black font-medium" : "text-gray-400 hover:text-black"}>
+                <Link href="/sobre" className={pathname === "/sobre" ? activeTextClass : inactiveTextClass}>
                   Sobre
                 </Link>
               </NavigationMenuLink>
@@ -129,7 +137,7 @@ export function Header() {
             
             <NavigationMenuItem>
               <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
-                <Link href="/publicacoes" className={pathname === "/publicacoes" ? "text-black font-medium" : "text-gray-400 hover:text-black"}>
+                <Link href="/publicacoes" className={pathname === "/publicacoes" ? activeTextClass : inactiveTextClass}>
                   Publicações
                 </Link>
               </NavigationMenuLink>
@@ -137,7 +145,7 @@ export function Header() {
             
             <NavigationMenuItem>
               <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
-                <Link href="/eventos" className={pathname === "/eventos" ? "text-black font-medium" : "text-gray-400 hover:text-black"}>
+                <Link href="/eventos" className={pathname === "/eventos" ? activeTextClass : inactiveTextClass}>
                   Eventos
                 </Link>
               </NavigationMenuLink>
@@ -145,7 +153,7 @@ export function Header() {
             
             <NavigationMenuItem>
               <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
-                <Link href="/videos" className={pathname === "/videos" ? "text-black font-medium" : "text-gray-400 hover:text-black"}>
+                <Link href="/videos" className={pathname === "/videos" ? activeTextClass : inactiveTextClass}>
                   Vídeos
                 </Link>
               </NavigationMenuLink>
@@ -153,7 +161,7 @@ export function Header() {
             
             <NavigationMenuItem>
               <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
-                <Link href="/noticias" className={pathname === "/noticias" ? "text-black font-medium" : "text-gray-400 hover:text-black"}>
+                <Link href="/noticias" className={pathname === "/noticias" ? activeTextClass : inactiveTextClass}>
                   Notícias
                 </Link>
               </NavigationMenuLink>
@@ -161,7 +169,7 @@ export function Header() {
             
             <NavigationMenuItem>
               <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
-                <Link href="/cursos" className={pathname === "/cursos" ? "text-black font-medium" : "text-gray-400 hover:text-black"}>
+                <Link href="/cursos" className={pathname === "/cursos" ? activeTextClass : inactiveTextClass}>
                   Cursos
                 </Link>
               </NavigationMenuLink>
@@ -172,7 +180,7 @@ export function Header() {
         {/* Mobile Hamburger Menu Button */}
         <button
           onClick={toggleMobileMenu}
-          className="lg:hidden p-2 text-gray-600 hover:text-black transition-colors"
+          className={`${isBgDark ? "text-white" : "text-black"} lg:hidden p-2 ${isBgDark ? "hover:text-white/50" : "hover:text-black/50"} cursor-pointer transition-colors`}
           aria-label="Toggle mobile menu"
           aria-expanded={isMobileMenuOpen}
         >

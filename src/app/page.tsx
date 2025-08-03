@@ -67,7 +67,7 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-black">
       <div className="absolute top-0 left-0 w-full z-50">
-        <Header />
+        <Header isBgDark={true} />
       </div>
       {/* Hero Swiper Section */}
       <section className="relative h-screen overflow-hidden">

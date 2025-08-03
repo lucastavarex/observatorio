@@ -1,5 +1,6 @@
 export default function CatalogoDeDadosPage() {
   return (
+    <>
     <div className="container mx-auto p-6">
       {/* Mobile-first responsive layout */}
       <div className="flex flex-col gap-6 lg:flex-row min-h-[600px]">
@@ -16,5 +17,6 @@ export default function CatalogoDeDadosPage() {
         </div>
       </div>
     </div>
+    </>
   )
 }
