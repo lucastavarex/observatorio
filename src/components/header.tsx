@@ -68,7 +68,7 @@ export function Header() {
   }
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+    <header className="z-50 w-full">
       <div className="flex h-28 items-center justify-between px-4 2xl:px-16">
         {/* Logo and Desktop Navigation (keep this part exactly the same) */}
         <div className="flex items-center">
