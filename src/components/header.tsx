@@ -3,6 +3,7 @@
 import { Menu, X } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
+import { usePathname } from "next/navigation"
 import * as React from "react"
 
 import {
@@ -24,29 +25,29 @@ import {
 const projetosItems = [
   {
     title: "Dashboard",
-    href: "/dashboard",
+    href: "/projetos/dashboard",
     description: "Compare cidades em diferentes variáveis de mobilidade com visualização gráfica em formato de radar e de distribuição",
   },
   {
     title: "Catálogo de Dados",
-    href: "/catalago-de-dados",
+    href: "/projetos/catalago-de-dados",
     description: "Compare indicadores de mobilidade entre cidades brasileiras por meio de uma tabela interativa",
   },
   {
     title: "Geoportal",
-    href: "/geoportal",
+    href: "/projetos/geoportal",
     description: "Visualize dados espaciais de mobilidade urbana em um mapa interativo com diversas camadas temáticas",
   },
   {
     title: "Tabela PEMOB",
-    href: "/dashboard",
+    href: "/projetos/tabela-pemob",
     description: "Compare indicadores de mobilidade entre cidades brasileiras por meio de uma tabela interativa",
   },
 ]
 
 const menuItems = [
   { title: "Home", href: "/" },
-  { title: "Sobre", href: "/sobre", isActive: true },
+  { title: "Sobre", href: "/sobre" },
   { title: "Publicações", href: "/publicacoes" },
   { title: "Eventos", href: "/eventos" },
   { title: "Vídeos", href: "/videos" },
@@ -56,6 +57,7 @@ const menuItems = [
 
 export function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false)
+  const pathname = usePathname()
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen)
@@ -92,7 +94,7 @@ export function Header() {
           <NavigationMenuList className="gap-6">
             <NavigationMenuItem>
               <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
-                <Link href="/" className="text-gray-400 hover:text-black">
+                <Link href="/" className={pathname === "/" ? "text-black font-bold" : "text-gray-400 hover:text-black"}>
                   Home
                 </Link>
               </NavigationMenuLink>
@@ -119,7 +121,7 @@ export function Header() {
             
             <NavigationMenuItem>
               <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
-                <Link href="/sobre" className="text-black font-bold">
+                <Link href="/sobre" className={pathname === "/sobre" ? "text-black font-bold" : "text-gray-400 hover:text-black"}>
                   Sobre
                 </Link>
               </NavigationMenuLink>
@@ -127,7 +129,7 @@ export function Header() {
             
             <NavigationMenuItem>
               <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
-                <Link href="/publicacoes" className="text-gray-400 hover:text-black">
+                <Link href="/publicacoes" className={pathname === "/publicacoes" ? "text-black font-bold" : "text-gray-400 hover:text-black"}>
                   Publicações
                 </Link>
               </NavigationMenuLink>
@@ -135,7 +137,7 @@ export function Header() {
             
             <NavigationMenuItem>
               <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
-                <Link href="/eventos" className="text-gray-400 hover:text-black">
+                <Link href="/eventos" className={pathname === "/eventos" ? "text-black font-bold" : "text-gray-400 hover:text-black"}>
                   Eventos
                 </Link>
               </NavigationMenuLink>
@@ -143,7 +145,7 @@ export function Header() {
             
             <NavigationMenuItem>
               <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
-                <Link href="/videos" className="text-gray-400 hover:text-black">
+                <Link href="/videos" className={pathname === "/videos" ? "text-black font-bold" : "text-gray-400 hover:text-black"}>
                   Vídeos
                 </Link>
               </NavigationMenuLink>
@@ -151,7 +153,7 @@ export function Header() {
             
             <NavigationMenuItem>
               <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
-                <Link href="/noticias" className="text-gray-400 hover:text-black">
+                <Link href="/noticias" className={pathname === "/noticias" ? "text-black font-bold" : "text-gray-400 hover:text-black"}>
                   Notícias
                 </Link>
               </NavigationMenuLink>
@@ -159,7 +161,7 @@ export function Header() {
             
             <NavigationMenuItem>
               <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
-                <Link href="/cursos" className="text-gray-400 hover:text-black">
+                <Link href="/cursos" className={pathname === "/cursos" ? "text-black font-bold" : "text-gray-400 hover:text-black"}>
                   Cursos
                 </Link>
               </NavigationMenuLink>
@@ -190,26 +192,19 @@ export function Header() {
             : "max-h-0 opacity-0 overflow-hidden"
         }`}
       >
-        <div className=" px-4 py-6">
+        <div className=" px-7 py-6">
           <nav className="space-y-4">
-            {/* Regular Menu Items */}
-            {menuItems.map((item) => (
-              <Link
-                key={item.title}
-                href={item.href}
-                onClick={closeMobileMenu}
-                className={`block py-3 text-lg font-medium transition-colors ${
-                  item.isActive 
-                    ? "text-black font-bold" 
-                    : "text-gray-400 hover:text-black"
-                }`}
-              >
-                {item.title}
-              </Link>
-            ))}
+            {/* Home */}
+            <Link
+              href="/"
+              onClick={closeMobileMenu}
+              className="block py-3 text-lg font-medium transition-colors text-gray-400 hover:text-black"
+            >
+              Home
+            </Link>
 
             {/* Projetos Section with Accordion */}
-            <div className="pt-4 border-t">
+            <div className="">
               <Accordion type="single" collapsible className="w-full">
                 <AccordionItem value="projetos" className="border-none">
                   <AccordionTrigger className="text-lg font-medium text-gray-900 hover:no-underline py-3">
@@ -222,7 +217,7 @@ export function Header() {
                           key={item.title}
                           href={item.href}
                           onClick={closeMobileMenu}
-                          className="block p-4 rounded-lg border border-gray-200 hover:border-gray-300 transition-colors"
+                          className="block"
                         >
                           <div className="font-medium text-gray-900 mb-2">
                             {item.title}
@@ -237,6 +232,22 @@ export function Header() {
                 </AccordionItem>
               </Accordion>
             </div>
+
+            {/* Other Menu Items */}
+            {menuItems.slice(1).map((item) => (
+              <Link
+                key={item.title}
+                href={item.href}
+                onClick={closeMobileMenu}
+                className={`block py-3 text-lg font-medium transition-colors ${
+                  pathname === item.href
+                    ? "text-black font-bold" 
+                    : "text-gray-400 hover:text-black"
+                }`}
+              >
+                {item.title}
+              </Link>
+            ))}
           </nav>
         </div>
       </div>
