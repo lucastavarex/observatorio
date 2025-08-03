@@ -94,14 +94,14 @@ export function Header() {
           <NavigationMenuList className="gap-6">
             <NavigationMenuItem>
               <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
-                <Link href="/" className={pathname === "/" ? "text-black font-bold" : "text-gray-400 hover:text-black"}>
+                <Link href="/" className={pathname === "/" ? "text-black font-medium" : "text-gray-400 hover:text-black"}>
                   Home
                 </Link>
               </NavigationMenuLink>
             </NavigationMenuItem>
             
             <NavigationMenuItem>
-              <NavigationMenuTrigger className="text-gray-400 hover:text-black">
+              <NavigationMenuTrigger className={pathname.startsWith("/projetos/") ? "text-black font-medium" : "text-gray-400 hover:text-black"}>
                 Projetos
               </NavigationMenuTrigger>
               <NavigationMenuContent>
@@ -121,7 +121,7 @@ export function Header() {
             
             <NavigationMenuItem>
               <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
-                <Link href="/sobre" className={pathname === "/sobre" ? "text-black font-bold" : "text-gray-400 hover:text-black"}>
+                <Link href="/sobre" className={pathname === "/sobre" ? "text-black font-medium" : "text-gray-400 hover:text-black"}>
                   Sobre
                 </Link>
               </NavigationMenuLink>
@@ -129,7 +129,7 @@ export function Header() {
             
             <NavigationMenuItem>
               <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
-                <Link href="/publicacoes" className={pathname === "/publicacoes" ? "text-black font-bold" : "text-gray-400 hover:text-black"}>
+                <Link href="/publicacoes" className={pathname === "/publicacoes" ? "text-black font-medium" : "text-gray-400 hover:text-black"}>
                   Publicações
                 </Link>
               </NavigationMenuLink>
@@ -137,7 +137,7 @@ export function Header() {
             
             <NavigationMenuItem>
               <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
-                <Link href="/eventos" className={pathname === "/eventos" ? "text-black font-bold" : "text-gray-400 hover:text-black"}>
+                <Link href="/eventos" className={pathname === "/eventos" ? "text-black font-medium" : "text-gray-400 hover:text-black"}>
                   Eventos
                 </Link>
               </NavigationMenuLink>
@@ -145,7 +145,7 @@ export function Header() {
             
             <NavigationMenuItem>
               <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
-                <Link href="/videos" className={pathname === "/videos" ? "text-black font-bold" : "text-gray-400 hover:text-black"}>
+                <Link href="/videos" className={pathname === "/videos" ? "text-black font-medium" : "text-gray-400 hover:text-black"}>
                   Vídeos
                 </Link>
               </NavigationMenuLink>
@@ -153,7 +153,7 @@ export function Header() {
             
             <NavigationMenuItem>
               <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
-                <Link href="/noticias" className={pathname === "/noticias" ? "text-black font-bold" : "text-gray-400 hover:text-black"}>
+                <Link href="/noticias" className={pathname === "/noticias" ? "text-black font-medium" : "text-gray-400 hover:text-black"}>
                   Notícias
                 </Link>
               </NavigationMenuLink>
@@ -161,7 +161,7 @@ export function Header() {
             
             <NavigationMenuItem>
               <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
-                <Link href="/cursos" className={pathname === "/cursos" ? "text-black font-bold" : "text-gray-400 hover:text-black"}>
+                <Link href="/cursos" className={pathname === "/cursos" ? "text-black font-medium" : "text-gray-400 hover:text-black"}>
                   Cursos
                 </Link>
               </NavigationMenuLink>
@@ -198,7 +198,9 @@ export function Header() {
             <Link
               href="/"
               onClick={closeMobileMenu}
-              className="block py-3 text-lg font-medium transition-colors text-gray-400 hover:text-black"
+              className={`block py-3 text-lg font-medium transition-colors ${
+                pathname === "/" ? "text-black font-bold" : "text-gray-400 hover:text-black"
+              }`}
             >
               Home
             </Link>
@@ -240,9 +242,7 @@ export function Header() {
                 href={item.href}
                 onClick={closeMobileMenu}
                 className={`block py-3 text-lg font-medium transition-colors ${
-                  pathname === item.href
-                    ? "text-black font-bold" 
-                    : "text-gray-400 hover:text-black"
+                  pathname === item.href ? "text-black font-bold" : "text-gray-400 hover:text-black"
                 }`}
               >
                 {item.title}
