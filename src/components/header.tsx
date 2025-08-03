@@ -52,7 +52,7 @@ export function Header() {
                   alt="Logo Observatório"
                   width={80}
                   height={80}
-                  className="h-17 w-auto"
+                  className="h-20 w-auto"
                   priority
                 />
               </div>
