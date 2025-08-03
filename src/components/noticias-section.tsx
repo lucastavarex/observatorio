@@ -1,13 +1,21 @@
 "use client"
 
+import videocast1 from "@/app/assets/images/videocast1.png"
+import videocast2 from "@/app/assets/images/videocast2.png"
+import videocast3 from "@/app/assets/images/videocast3.png"
+import videocast4 from "@/app/assets/images/videocast4.png"
+import videocast5 from "@/app/assets/images/videocast5.png"
 import { Plus } from "lucide-react"
+import Image from "next/image"
 import Link from "next/link"
+import { useRef, useState } from "react"
 
 interface NewsItem {
   id: number
   title: string
   source: string
   date: string
+  image: typeof videocast1
 }
 
 const newsData: NewsItem[] = [
@@ -15,38 +23,68 @@ const newsData: NewsItem[] = [
     id: 1,
     title: "Grupo CCR e Laboratório Arq. Futuro de Cidades lançam Observatório Nacional de Mobilidade Sustentável",
     source: "Estadão",
-    date: "12.03.2025"
+    date: "12.03.2025",
+    image: videocast1
   },
   {
     id: 2,
     title: "Insper e CCR lançam Observatório Nacional de Mobilidade Sustentável",
     source: "Insper",
-    date: "12.03.2025"
+    date: "12.03.2025",
+    image: videocast2
   },
   {
     id: 3,
     title: "Observatório Nacional de Mobilidade Sustentável firma acordo de cooperação com o Rio de Janeiro",
     source: "Technibus",
-    date: "12.03.2025"
+    date: "12.03.2025",
+    image: videocast3
   },
   {
     id: 4,
     title: "Sexta da mobilidade: Soluções baseadas na natureza e mobilidade urbana: a urgência da mudança de paradigma das cidades",
     source: "Insper",
-    date: "12.03.2025"
+    date: "12.03.2025",
+    image: videocast4
   },
   {
     id: 5,
     title: "Sexta da mobilidade: Dados e Mobilidade Urbana",
     source: "Insper",
-    date: "12.03.2025"
+    date: "12.03.2025",
+    image: videocast5
   }
 ]
 
 export function NoticiasSection() {
+  const [hoveredImage, setHoveredImage] = useState<string | null>(null)
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null)
+  const containerRef = useRef<HTMLDivElement>(null)
+
+  const handleMouseMove = (e: React.MouseEvent) => {
+    if (containerRef.current) {
+      const rect = containerRef.current.getBoundingClientRect()
+      setMousePosition({
+        x: e.clientX - rect.left,
+        y: e.clientY - rect.top
+      })
+    }
+  }
+
+  const handleMouseEnter = (image: string, index: number) => {
+    setHoveredImage(image)
+    setHoveredIndex(index)
+  }
+
+  const handleMouseLeave = () => {
+    setHoveredImage(null)
+    setHoveredIndex(null)
+  }
+
   return (
     <section className="py-16 bg-gray-50">
-      <div className="">
+      <div ref={containerRef} onMouseMove={handleMouseMove}>
         {/* Header */}
         <Link href="/noticias">
         <h5 className="text-[#2F2C2C] text-sm px-4 lg:px-16">Ver mais</h5>
@@ -56,12 +94,36 @@ export function NoticiasSection() {
           Notícias
         </h2>
 
+                 {/* Hover Image - Desktop Only */}
+         {hoveredImage && (
+           <div 
+             className="fixed pointer-events-none z-50 hidden md:block"
+             style={{
+               left: mousePosition.x + 20,
+               top: mousePosition.y - 5,
+               transform: `translate(-50%, -50%) rotate(${hoveredIndex !== null && hoveredIndex % 2 === 0 ? '-2deg' : '2deg'})`
+             }}
+           >
+                           <Image
+                  width={256}
+                height={160}
+                src={hoveredImage} 
+                alt="News preview"
+                className="w-64 h-40 object-cover rounded-xl shadow-lg transition-all duration-500 ease-in-out"
+              />
+           </div>
+         )}
+
         {/* News List */}
         <div className="space-y-0">
           <div className="border-t border-gray-200 mx-4 lg:mx-16" />
           {newsData.map((item, index) => (
             <div key={item.id}>
-                             <div className="flex items-start py-8 group hover:bg-black md:hover:bg-black transition-all duration-300 cursor-pointer ">
+                                                           <div 
+                                className="flex items-start py-8 group hover:bg-black md:hover:bg-black transition-all duration-300 cursor-pointer"
+                                onMouseEnter={() => handleMouseEnter(item.image.src, index)}
+                                onMouseLeave={handleMouseLeave}
+                              >
                                  {/* Plus Icon */}
                  <div className="flex-shrink-0 mr-4 mt-1 px-4 lg:px-16">
                    <Plus className="w-4 h-4 text-gray-400 group-hover:text-white transition-colors duration-300" />
