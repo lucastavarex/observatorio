@@ -43,7 +43,7 @@ const brands: BrandLogo[] = [
 
 export function BrandSlider() {
   return (
-    <section className="bg-[#f5f5f0] py-16 ">
+    <section className="bg-[#f9f9f6] py-16 ">
       <div className="px-4 2xl:px-16 mx-auto">
         <div className="flex flex-col lg:flex-row items-start gap-8">
           {/* Text Section - Top on mobile, Left on desktop */}

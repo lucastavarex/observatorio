@@ -2,6 +2,7 @@
 
 import { BrandSlider } from "@/components/brand-slider"
 import { Header } from "@/components/header"
+import { ProjectsSection } from "@/components/projects-section"
 import { ChevronLeft, ChevronRight } from "lucide-react"
 import { useRef, useState } from "react"
 import type { Swiper as SwiperType } from "swiper"
@@ -9,6 +10,8 @@ import { Autoplay, Navigation } from "swiper/modules"
 import { Swiper, SwiperSlide } from "swiper/react"
 
 // Import Swiper styles
+import { EventsSection } from "@/components/events-section"
+import { ImpactNumbersSection } from "@/components/impact-numbers-section"
 import "swiper/css"
 import "swiper/css/navigation"
 
@@ -184,6 +187,15 @@ export default function Home() {
 
       {/* Brand Slider Section */}
       <BrandSlider />
+
+      {/* Projects Section */}
+      <ProjectsSection />
+
+      {/* Events Section */}
+      <EventsSection />
+
+      {/* impact numbers */}
+      <ImpactNumbersSection />
     </div>
   )
 }
