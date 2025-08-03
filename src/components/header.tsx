@@ -69,7 +69,7 @@ export function Header() {
 
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="flex h-28 items-center justify-between px-4">
+      <div className="flex h-28 items-center justify-between px-4 2xl:px-16">
         {/* Logo and Desktop Navigation (keep this part exactly the same) */}
         <div className="flex items-center">
           <Link href="/" className="flex items-center space-x-2">
@@ -91,7 +91,7 @@ export function Header() {
 
         {/* Desktop Navigation Menu */}
         <NavigationMenu className="hidden lg:flex">
-          <NavigationMenuList className="gap-6">
+          <NavigationMenuList className="gap-3">
             <NavigationMenuItem>
               <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
                 <Link href="/" className={pathname === "/" ? "text-black font-medium" : "text-gray-400 hover:text-black"}>
@@ -105,7 +105,7 @@ export function Header() {
                 Projetos
               </NavigationMenuTrigger>
               <NavigationMenuContent>
-                <ul className="grid w-[600px] gap-3 p-4 md:w-[700px] md:grid-cols-2 lg:w-[800px]">
+                <ul className="grid w-[600px] gap-3 p-2 md:grid-cols-2 lg:w-[600px]">
                   {projetosItems.map((item) => (
                     <ListItem
                       key={item.title}
