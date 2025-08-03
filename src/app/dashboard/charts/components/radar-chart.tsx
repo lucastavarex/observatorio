@@ -130,7 +130,7 @@ export function ChartRadarMultiple({ selectedCities, selectedVariables }: RadarC
     <div className="w-full h-full flex flex-col">
       <div className="flex-1 min-h-[450px]">
         <ResponsiveContainer width="100%" height="100%">
-          <RadarChart data={chartData} margin={{ top: 40, right: 100, bottom: 40, left: 100 }}>
+          <RadarChart data={chartData} margin={{  right: 100, bottom: 40, left: 100 }}>
             <PolarGrid gridType="circle" />
             <PolarRadiusAxis 
               domain={[0, maxValue]} 
