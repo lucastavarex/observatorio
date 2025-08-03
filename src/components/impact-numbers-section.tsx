@@ -126,7 +126,7 @@ export function ImpactNumbersSection() {
     <section className="py-16 px-4 2xl:px-16 bg-gray-50">
       <div className="mx-auto">
         {/* Title */}
-        <h2 className="text-2xl font-medium text-gray-900 mb-8">
+        <h2 className="text-xl text-gray-900 mb-2">
           Números de impacto
         </h2>
         
@@ -135,8 +135,8 @@ export function ImpactNumbersSection() {
         
         <div ref={ref} className="space-y-8">
           {/* First line: 63gb de dados coletados */}
-          <div className="flex items-baseline gap-2">
-            <span className="text-5xl font-bold text-gray-900">
+          <div className="flex items-baseline gap-2 md:justify-start md:pl-[10%]">
+            <span className="text-7xl font-bold text-gray-900">
               {counter1.count}
               {impactNumbers[0].suffix}
             </span>
@@ -149,8 +149,8 @@ export function ImpactNumbersSection() {
           <div className="border-t border-gray-200"></div>
 
           {/* Second line: 20 municípios com dados */}
-          <div className="flex items-baseline gap-2">
-            <span className="text-5xl font-bold text-gray-900">
+          <div className="flex items-baseline gap-2 md:justify-end md:pr-[20%]">
+            <span className="text-7xl font-bold text-gray-900">
               {counter2.count}
             </span>
             <span className="text-lg text-gray-600">
@@ -162,8 +162,8 @@ export function ImpactNumbersSection() {
           <div className="border-t border-gray-200"></div>
 
           {/* Third line: 150+ alunos/educação executiva */}
-          <div className="flex items-baseline gap-2">
-            <span className="text-5xl font-bold text-gray-900">
+          <div className="flex items-baseline gap-2 md:justify-center">
+            <span className="text-7xl font-bold text-gray-900">
               {counter3.count}
               {impactNumbers[2].suffix}
             </span>
@@ -176,8 +176,8 @@ export function ImpactNumbersSection() {
           <div className="border-t border-gray-200"></div>
 
           {/* Fourth line: 37+ horas de eventos realizados */}
-          <div className="flex items-baseline gap-2">
-            <span className="text-5xl font-bold text-gray-900">
+          <div className="flex items-baseline gap-2 md:justify-start md:pl-[10%]">
+            <span className="text-7xl font-bold text-gray-900">
               {counter4.count}
               {impactNumbers[3].suffix}
             </span>
@@ -190,8 +190,8 @@ export function ImpactNumbersSection() {
           <div className="border-t border-gray-200"></div>
 
           {/* Fifth line: 2000+ participantes em eventos */}
-          <div className="flex items-baseline gap-2">
-            <span className="text-5xl font-bold text-gray-900">
+          <div className="flex items-baseline gap-2 md:justify-end md:pr-[10%]">
+            <span className="text-7xl font-bold text-gray-900">
               {counter5.count}
               {impactNumbers[4].suffix}
             </span>
@@ -199,6 +199,9 @@ export function ImpactNumbersSection() {
               {impactNumbers[4].label}
             </span>
           </div>
+
+          {/* Sixth separator line */}
+          <div className="border-t border-gray-200"></div>
         </div>
       </div>
     </section>

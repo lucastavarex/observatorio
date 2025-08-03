@@ -12,6 +12,8 @@ import { Swiper, SwiperSlide } from "swiper/react"
 // Import Swiper styles
 import { EventsSection } from "@/components/events-section"
 import { ImpactNumbersSection } from "@/components/impact-numbers-section"
+import { NoticiasSection } from "@/components/noticias-section"
+import { VideoCastSection } from "@/components/video-cast"
 import "swiper/css"
 import "swiper/css/navigation"
 
@@ -196,6 +198,12 @@ export default function Home() {
 
       {/* impact numbers */}
       <ImpactNumbersSection />
+
+      {/* video cast */}
+      <VideoCastSection />
+
+      {/* news */}
+      <NoticiasSection />
     </div>
   )
 }
