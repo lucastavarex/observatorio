@@ -1,5 +1,6 @@
 "use client"
 
+import { BrandSlider } from "@/components/brand-slider"
 import { Header } from "@/components/header"
 import { ChevronLeft, ChevronRight } from "lucide-react"
 import { useRef, useState } from "react"
@@ -180,6 +181,9 @@ export default function Home() {
           ))}
         </div>
       </section>
+
+      {/* Brand Slider Section */}
+      <BrandSlider />
     </div>
   )
 }
