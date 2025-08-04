@@ -57,9 +57,10 @@ const menuItems = [
 
 interface HeaderProps {
   isBgDark?: boolean
+  className?: string
 }
 
-export function Header({ isBgDark = false }: HeaderProps) {
+export function Header({ isBgDark = false, className }: HeaderProps) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false)
   const pathname = usePathname()
 
@@ -76,7 +77,7 @@ export function Header({ isBgDark = false }: HeaderProps) {
   const inactiveTextClass = isBgDark ? "text-white/50! hover:text-white/100!" : "text-black/50! hover:text-black/100!"
 
   return (
-    <header className="z-50 w-full">
+    <header className={`z-50 w-full ${className}`}>
       <div className="flex h-28 items-center justify-between px-4 2xl:px-16">
         {/* Logo and Desktop Navigation (keep this part exactly the same) */}
         <div className="flex items-center">
