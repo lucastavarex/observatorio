@@ -111,7 +111,7 @@ export function NoticiasSection() {
                 height={160}
                 src={hoveredImage} 
                 alt="News preview"
-                className="w-64 h-40 object-cover rounded-xl shadow-lg transition-all duration-500 ease-in-out"
+                className="w-86 h-60 object-cover rounded-xl shadow-lg transition-all duration-500 ease-in-out"
               />
            </div>
          )}
