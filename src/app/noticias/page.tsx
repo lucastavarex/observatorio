@@ -100,24 +100,24 @@ export default function Noticias() {
     </div>
      <div ref={containerRef} onMouseMove={handleMouseMove} className="bg-[#f9f9f6] pb-30">
           {/* Hover Image - Desktop Only */}
-         {hoveredImage && (
-           <div 
-             className="fixed pointer-events-none z-50 hidden md:block"
-             style={{
-               left: mousePosition.x,
-               top: mousePosition.y - 40,
-               transform: `translate(-50%, -100%) rotate(${hoveredIndex !== null && hoveredIndex % 2 === 0 ? '-2deg' : '2deg'})`
-             }}
-           >
-             <Image
-               width={256}
-               height={160}
-               src={hoveredImage} 
-               alt="News preview"
-               className="w-86 h-60 object-cover rounded-xl shadow-lg transition-all duration-500 ease-in-out"
-             />
-           </div>
-         )}
+                   {hoveredImage && (
+            <div 
+              className="fixed pointer-events-none z-50 hidden md:block transition-all duration-300 ease-out"
+              style={{
+                left: mousePosition.x,
+                top: mousePosition.y - 40,
+                transform: `translate(-50%, -100%) rotate(${hoveredIndex !== null && hoveredIndex % 2 === 0 ? '-2deg' : '2deg'})`
+              }}
+            >
+              <Image
+                width={256}
+                height={160}
+                src={hoveredImage} 
+                alt="News preview"
+                className="w-86 h-60 object-cover rounded-xl shadow-lg"
+              />
+            </div>
+          )}
 
         {/* News List */}
         <div className="space-y-0">

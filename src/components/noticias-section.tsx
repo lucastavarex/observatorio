@@ -96,20 +96,20 @@ export function NoticiasSection() {
                  {/* Hover Image - Desktop Only */}
          {hoveredImage && (
            <div 
-             className="fixed pointer-events-none z-50 hidden md:block"
+             className="fixed pointer-events-none z-50 hidden md:block transition-all duration-300 ease-out"
              style={{
                 left: mousePosition.x,
                top: mousePosition.y - 40,
                transform: `translate(-50%, -100%) rotate(${hoveredIndex !== null && hoveredIndex % 2 === 0 ? '-2deg' : '2deg'})`
              }}
            >
-                           <Image
-                  width={256}
-                height={160}
-                src={hoveredImage} 
-                alt="News preview"
-                className="w-86 h-60 object-cover rounded-xl shadow-lg transition-all duration-500 ease-in-out"
-              />
+             <Image
+               width={256}
+               height={160}
+               src={hoveredImage} 
+               alt="News preview"
+               className="w-86 h-60 object-cover rounded-xl shadow-lg"
+             />
            </div>
          )}
 
