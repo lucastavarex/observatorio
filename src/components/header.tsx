@@ -77,7 +77,7 @@ export function Header({ isBgDark = false, className }: HeaderProps) {
   const inactiveTextClass = isBgDark ? "text-white/50! hover:text-white/100!" : "text-black/50! hover:text-black/100!"
 
   return (
-    <header className={`z-50 w-full ${className}`}>
+    <header className={`z-50 w-full ${className} ${isMobileMenuOpen ? 'bg-white' : ''}`}>
       <div className="flex h-28 items-center justify-between px-4 2xl:px-16">
         {/* Logo and Desktop Navigation (keep this part exactly the same) */}
         <div className="flex items-center">
@@ -181,7 +181,13 @@ export function Header({ isBgDark = false, className }: HeaderProps) {
         {/* Mobile Hamburger Menu Button */}
         <button
           onClick={toggleMobileMenu}
-          className={`${isBgDark ? "text-white" : "text-black"} lg:hidden p-2 ${isBgDark ? "hover:text-white/50" : "hover:text-black/50"} cursor-pointer transition-colors`}
+          className={`lg:hidden p-2 cursor-pointer transition-colors ${
+            isMobileMenuOpen 
+              ? "text-black hover:text-black/50" 
+              : isBgDark 
+                ? "text-white hover:text-white/50" 
+                : "text-black hover:text-black/50"
+          }`}
           aria-label="Toggle mobile menu"
           aria-expanded={isMobileMenuOpen}
         >
@@ -197,7 +203,7 @@ export function Header({ isBgDark = false, className }: HeaderProps) {
       <div 
         className={`lg:hidden absolute left-0 right-0 z-40 bg-white shadow-lg transition-all duration-300 ease-in-out ${
           isMobileMenuOpen 
-            ? "max-h-[80vh] opacity-100 overflow-y-auto" 
+            ? "h-lvh opacity-100 overflow-y-auto" 
             : "max-h-0 opacity-0 overflow-hidden"
         }`}
       >
