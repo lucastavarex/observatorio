@@ -19,7 +19,7 @@ export default function Publicacoes() {
             <p className="text-4xl text-gray-400 leading-none font-medium">que gera impacto</p>
           </div>
           <div className="hidden md:block h-[1.2px] flex-grow mx-16 bg-gray-300"/>
-          <div className="hidden md:block w-3 h-3 bg-[#779854]" />
+          <div className="hidden md:block w-4 h-4 bg-[#779854]" />
         </div>
 
         {/* Grid centralizado */}

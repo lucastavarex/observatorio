@@ -179,7 +179,7 @@ export function ChartRadarMultiple({ selectedCities, selectedVariables }: RadarC
         {selectedCities.slice(0, 5).map((city, index) => (
           <div key={city} className="flex items-center gap-2">
             <div 
-              className="w-3 h-3 rounded-full" 
+              className="w-4 h-4 rounded-full" 
               style={{ backgroundColor: colors[index % colors.length] }}
             ></div>
             <span>{city}</span>

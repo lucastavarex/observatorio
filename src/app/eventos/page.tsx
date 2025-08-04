@@ -67,7 +67,7 @@ export default function Eventos() {
             <p className="text-4xl text-gray-400 leading-none font-medium">nosso trabalho</p>
           </div>
           <div className="hidden md:block h-[1.2px] flex-grow mx-16 bg-gray-300" />
-          <div className="hidden md:block w-3 h-3 bg-[#C2181A]" />
+          <div className="hidden md:block w-4 h-4 bg-[#C2181A]" />
         </div>
 
         {/* Cards com espaçamento fixo e quebra automática */}

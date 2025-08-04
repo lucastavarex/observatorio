@@ -202,7 +202,7 @@ export function DistributionChart({ selectedCities, selectedVariables }: Distrib
       {/* Legend */}
       <div className="flex flex-col items-start mt-4 gap-2 text-sm flex-shrink-0">
         <div className="flex items-center gap-2">
-          <div className="w-3 h-3 rounded-full bg-gray-300"></div>
+          <div className="w-4 h-4 rounded-full bg-gray-300"></div>
           <span>Cidades não selecionadas</span>
         </div>
         {selectedCities.length > 0 && (
@@ -212,7 +212,7 @@ export function DistributionChart({ selectedCities, selectedVariables }: Distrib
               return (
                 <div key={city} className="flex items-center gap-2">
                   <div 
-                    className="w-3 h-3 rounded-full" 
+                    className="w-4 h-4 rounded-full" 
                     style={{ backgroundColor: colors[index % colors.length] }}
                   ></div>
                   <span>{city}</span>
