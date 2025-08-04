@@ -155,7 +155,7 @@ export function HeroSwiper() {
              <div className="relative z-10 flex items-end h-full pb-20 px-4 2xl:px-16">
                <div className="max-w-4xl">
                  <div>
-                   <h1 className="text-xl md:text-2xl lg:text-3xl font-bold text-white max-w-2xl leading-tight mb-4">
+                   <h1 className="text-xl md:text-2xl lg:text-3xl font-medium text-white max-w-2xl leading-tight mb-4">
                      {slide.title}
                    </h1>
                    
@@ -218,7 +218,7 @@ export function HeroSwiper() {
       </Swiper>
 
              {/* Progress Bar and Navigation Controls - Desktop */}
-       <div className="absolute bottom-8 left-0 right-0 z-20 px-4 2xl:px-16 hidden lg:block">
+       <div className="absolute bottom-15 left-0 right-0 z-20 px-4 2xl:px-16 hidden lg:block">
          <div className="flex items-center justify-between">
            {/* Progress Bar Indicators */}
            <div className="flex items-center gap-2">

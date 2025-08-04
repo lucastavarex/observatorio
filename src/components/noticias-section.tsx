@@ -90,8 +90,10 @@ export function NoticiasSection() {
         <h5 className="text-[#2F2C2C] text-sm px-4 lg:px-16">Ver mais</h5>
         </Link>
         {/* Section Title */}
-        <h2 className="text-3xl md:text-4xl font-bold px-4 lg:px-16 text-gray-900 mb-12">
+        <h2 className="text-3xl md:text-4xl font-medium px-4 lg:px-16 text-gray-900 mb-10">
+        <Link href="/noticias">
           Notícias
+        </Link>
         </h2>
 
                  {/* Hover Image - Desktop Only */}

@@ -64,8 +64,10 @@ export function VideoCastSection() {
         <h5 className="text-[#2F2C2C] text-sm px-4 2xl:px-16">Ver mais</h5>
         </Link>
         {/* Section Title */}
-        <h2 className="text-3xl md:text-4xl px-4 2xl:px-16 font-bold text-gray-900 mb-12">
+        <h2 className="text-3xl md:text-4xl px-4 2xl:px-16 font-medium text-gray-900 mb-10">
+        <Link href="/eventos">
           VídeoCast
+        </Link>
         </h2>
 
         {/* Projects Horizontal Scroll */}
