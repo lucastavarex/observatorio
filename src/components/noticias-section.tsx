@@ -1,10 +1,10 @@
 "use client"
 
-import videocast1 from "@/app/assets/images/videocast1.png"
-import videocast2 from "@/app/assets/images/videocast2.png"
-import videocast3 from "@/app/assets/images/videocast3.png"
-import videocast4 from "@/app/assets/images/videocast4.png"
-import videocast5 from "@/app/assets/images/videocast5.png"
+import video1 from "@/app/assets/images/video1.png"
+import video2 from "@/app/assets/images/video2.png"
+import video3 from "@/app/assets/images/video3.png"
+import video4 from "@/app/assets/images/video4.png"
+import video5 from "@/app/assets/images/video5.png"
 import { Plus } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
@@ -15,7 +15,7 @@ interface NewsItem {
   title: string
   source: string
   date: string
-  image: typeof videocast1
+  image: typeof video1
 }
 
 const newsData: NewsItem[] = [
@@ -24,35 +24,35 @@ const newsData: NewsItem[] = [
     title: "Grupo CCR e Laboratório Arq. Futuro de Cidades lançam Observatório Nacional de Mobilidade Sustentável",
     source: "Estadão",
     date: "12.03.2025",
-    image: videocast1
+    image: video1
   },
   {
     id: 2,
     title: "Insper e CCR lançam Observatório Nacional de Mobilidade Sustentável",
     source: "Insper",
     date: "12.03.2025",
-    image: videocast2
+    image: video2
   },
   {
     id: 3,
     title: "Observatório Nacional de Mobilidade Sustentável firma acordo de cooperação com o Rio de Janeiro",
     source: "Technibus",
     date: "12.03.2025",
-    image: videocast3
+    image: video3
   },
   {
     id: 4,
     title: "Sexta da mobilidade: Soluções baseadas na natureza e mobilidade urbana: a urgência da mudança de paradigma das cidades",
     source: "Insper",
     date: "12.03.2025",
-    image: videocast4
+    image: video4
   },
   {
     id: 5,
     title: "Sexta da mobilidade: Dados e Mobilidade Urbana",
     source: "Insper",
     date: "12.03.2025",
-    image: videocast5
+    image: video5
   }
 ]
 
