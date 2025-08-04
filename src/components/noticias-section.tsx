@@ -63,13 +63,10 @@ export function NoticiasSection() {
   const containerRef = useRef<HTMLDivElement>(null)
 
   const handleMouseMove = (e: React.MouseEvent) => {
-    if (containerRef.current) {
-      const rect = containerRef.current.getBoundingClientRect()
-      setMousePosition({
-        x: e.clientX - rect.left,
-        y: e.clientY - rect.top
-      })
-    }
+   setMousePosition({
+      x: e.clientX,
+      y: e.clientY
+    })
   }
 
   const handleMouseEnter = (image: string, index: number) => {
@@ -101,9 +98,9 @@ export function NoticiasSection() {
            <div 
              className="fixed pointer-events-none z-50 hidden md:block"
              style={{
-               left: mousePosition.x + 20,
-               top: mousePosition.y - 5,
-               transform: `translate(-50%, -50%) rotate(${hoveredIndex !== null && hoveredIndex % 2 === 0 ? '-2deg' : '2deg'})`
+                left: mousePosition.x,
+               top: mousePosition.y - 40,
+               transform: `translate(-50%, -100%) rotate(${hoveredIndex !== null && hoveredIndex % 2 === 0 ? '-2deg' : '2deg'})`
              }}
            >
                            <Image
