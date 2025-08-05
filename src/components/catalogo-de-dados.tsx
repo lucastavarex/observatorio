@@ -99,92 +99,188 @@ export default function CatalogoDeDados() {
   return (
     <div className="w-full mx-auto px-4 2xl:px-16 pt-6 pb-30 bg-[#f9f9f6]">
       <div className="bg-white rounded-lg border">
-        {/* Table Header */}
-        <div className="grid grid-cols-5 gap-4 p-4 border-b">
-          <div
-            className="flex items-center gap-2 font-medium text-gray-900 cursor-pointer hover:text-gray-700 select-none"
-            onClick={handleSort}
-          >
-            Cidades
-            {getSortIcon()}
+        {/* Desktop Table View */}
+        <div className="hidden lg:block">
+          {/* Table Header */}
+          <div className="grid grid-cols-5 gap-4 p-4 border-b">
+            <div
+              className="flex items-center gap-2 font-medium text-gray-900 cursor-pointer hover:text-gray-700 select-none"
+              onClick={handleSort}
+            >
+              Cidades
+              {getSortIcon()}
+            </div>
+            <div className="font-medium text-gray-900">GTFS</div>
+            <div className="font-medium text-gray-900">GPS embarcados</div>
+            <div className="font-medium text-gray-900">Bilhetagem</div>
+            <div className="font-medium text-gray-900">Arquivos vetoriais</div>
           </div>
-          <div className="font-medium text-gray-900">GTFS</div>
-          <div className="font-medium text-gray-900">GPS embarcados</div>
-          <div className="font-medium text-gray-900">Bilhetagem</div>
-          <div className="font-medium text-gray-900">Arquivos vetoriais</div>
+
+          {/* Table Body */}
+          <div className="divide-y">
+            {sortedData.map((city, index) => (
+              <div key={index} className="grid grid-cols-5 gap-4 p-4 items-center">
+                <div className="font-medium text-gray-900">{city.cidade}</div>
+
+                <div>
+                  <Button
+                    size="lg"
+                    variant={city.gtfs ? "default" : "secondary"}
+                    disabled={!city.gtfs}
+                    onClick={() => handleDownload(city.cidade, "GTFS")}
+                    className={` ${
+                      city.gtfs
+                        ? "bg-primary hover:bg-primary/90 text-white cursor-pointer"
+                        : "bg-gray-200 text-gray-400 cursor-not-allowed"
+                    }`}
+                  >
+                    Download
+                  </Button>
+                </div>
+
+                <div>
+                  <Button
+                    size="lg"
+                    variant={city.gpsEmbarcados ? "default" : "secondary"}
+                    disabled={!city.gpsEmbarcados}
+                    onClick={() => handleDownload(city.cidade, "GPS embarcados")}
+                    className={`${
+                      city.gpsEmbarcados
+                        ? "bg-primary hover:bg-primary/90 text-white cursor-pointer"
+                        : "bg-gray-200 text-gray-400 cursor-not-allowed"
+                    }`}
+                  >
+                    Download
+                  </Button>
+                </div>
+
+                <div>
+                  <Button
+                    size="lg"
+                    variant={city.bilhetagem ? "default" : "secondary"}
+                    disabled={!city.bilhetagem}
+                    onClick={() => handleDownload(city.cidade, "Bilhetagem")}
+                    className={`${
+                      city.bilhetagem
+                        ? "bg-primary hover:bg-primary/90 text-white cursor-pointer"
+                        : "bg-gray-200 text-gray-400 cursor-not-allowed"
+                    }`}
+                  >
+                    Download
+                  </Button>
+                </div>
+
+                <div>
+                  <Button
+                    size="lg"
+                    variant={city.arquivosVetoriais ? "default" : "secondary"}
+                    disabled={!city.arquivosVetoriais}
+                    onClick={() => handleDownload(city.cidade, "Arquivos vetoriais")}
+                    className={`${
+                      city.arquivosVetoriais
+                        ? "bg-primary hover:bg-primary/90 text-white cursor-pointer"
+                        : "bg-gray-200 text-gray-400 cursor-not-allowed"
+                    }`}
+                  >
+                    Download
+                  </Button>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
 
-        {/* Table Body */}
-        <div className="divide-y">
-          {sortedData.map((city, index) => (
-            <div key={index} className="grid grid-cols-5 gap-4 p-4 items-center">
-              <div className="font-medium text-gray-900">{city.cidade}</div>
-
-              <div>
-                <Button
-                  size="lg"
-                  variant={city.gtfs ? "default" : "secondary"}
-                  disabled={!city.gtfs}
-                  onClick={() => handleDownload(city.cidade, "GTFS")}
-                  className={` ${
-                    city.gtfs
-                      ? "bg-primary hover:bg-primary/90 text-white cursor-pointer"
-                      : "bg-gray-200 text-gray-400 cursor-not-allowed"
-                  }`}
-                >
-                  Download
-                </Button>
-              </div>
-
-              <div>
-                <Button
-                  size="lg"
-                  variant={city.gpsEmbarcados ? "default" : "secondary"}
-                  disabled={!city.gpsEmbarcados}
-                  onClick={() => handleDownload(city.cidade, "GPS embarcados")}
-                  className={`${
-                    city.gpsEmbarcados
-                      ? "bg-primary hover:bg-primary/90 text-white cursor-pointer"
-                      : "bg-gray-200 text-gray-400 cursor-not-allowed"
-                  }`}
-                >
-                  Download
-                </Button>
-              </div>
-
-              <div>
-                <Button
-                  size="lg"
-                  variant={city.bilhetagem ? "default" : "secondary"}
-                  disabled={!city.bilhetagem}
-                  onClick={() => handleDownload(city.cidade, "Bilhetagem")}
-                  className={`${
-                    city.bilhetagem
-                      ? "bg-primary hover:bg-primary/90 text-white cursor-pointer"
-                      : "bg-gray-200 text-gray-400 cursor-not-allowed"
-                  }`}
-                >
-                  Download
-                </Button>
-              </div>
-
-              <div>
-                <Button
-                  size="lg"
-                  variant={city.arquivosVetoriais ? "default" : "secondary"}
-                  disabled={!city.arquivosVetoriais}
-                  onClick={() => handleDownload(city.cidade, "Arquivos vetoriais")}
-                  className={`${
-                    city.arquivosVetoriais
-                      ? "bg-primary hover:bg-primary/90 text-white cursor-pointer"
-                      : "bg-gray-200 text-gray-400 cursor-not-allowed"
-                  }`}
-                >
-                  Download
-                </Button>
-              </div>
+        {/* Mobile/Tablet Card View */}
+        <div className="lg:hidden">
+          {/* Mobile Header */}
+          <div className="p-4 border-b">
+            <div
+              className="flex items-center gap-2 font-medium text-gray-900 cursor-pointer hover:text-gray-700 select-none"
+              onClick={handleSort}
+            >
+              Cidades
+              {getSortIcon()}
             </div>
-          ))}
+          </div>
+
+          {/* Mobile Cards */}
+          <div className="divide-y">
+            {sortedData.map((city, index) => (
+              <div key={index} className="p-4 space-y-3">
+                <div className="font-medium text-gray-900 text-lg">{city.cidade}</div>
+                
+                <div className="grid grid-cols-2 gap-3">
+                  <div className="space-y-2">
+                    <div className="text-sm font-medium text-gray-700">GTFS</div>
+                    <Button
+                      size="sm"
+                      variant={city.gtfs ? "default" : "secondary"}
+                      disabled={!city.gtfs}
+                      onClick={() => handleDownload(city.cidade, "GTFS")}
+                      className={`w-full ${
+                        city.gtfs
+                          ? "bg-primary hover:bg-primary/90 text-white cursor-pointer"
+                          : "bg-gray-200 text-gray-400 cursor-not-allowed"
+                      }`}
+                    >
+                      Download
+                    </Button>
+                  </div>
+
+                  <div className="space-y-2">
+                    <div className="text-sm font-medium text-gray-700">GPS embarcados</div>
+                    <Button
+                      size="sm"
+                      variant={city.gpsEmbarcados ? "default" : "secondary"}
+                      disabled={!city.gpsEmbarcados}
+                      onClick={() => handleDownload(city.cidade, "GPS embarcados")}
+                      className={`w-full ${
+                        city.gpsEmbarcados
+                          ? "bg-primary hover:bg-primary/90 text-white cursor-pointer"
+                          : "bg-gray-200 text-gray-400 cursor-not-allowed"
+                      }`}
+                    >
+                      Download
+                    </Button>
+                  </div>
+
+                  <div className="space-y-2">
+                    <div className="text-sm font-medium text-gray-700">Bilhetagem</div>
+                    <Button
+                      size="sm"
+                      variant={city.bilhetagem ? "default" : "secondary"}
+                      disabled={!city.bilhetagem}
+                      onClick={() => handleDownload(city.cidade, "Bilhetagem")}
+                      className={`w-full ${
+                        city.bilhetagem
+                          ? "bg-primary hover:bg-primary/90 text-white cursor-pointer"
+                          : "bg-gray-200 text-gray-400 cursor-not-allowed"
+                      }`}
+                    >
+                      Download
+                    </Button>
+                  </div>
+
+                  <div className="space-y-2">
+                    <div className="text-sm font-medium text-gray-700">Arquivos vetoriais</div>
+                    <Button
+                      size="sm"
+                      variant={city.arquivosVetoriais ? "default" : "secondary"}
+                      disabled={!city.arquivosVetoriais}
+                      onClick={() => handleDownload(city.cidade, "Arquivos vetoriais")}
+                      className={`w-full ${
+                        city.arquivosVetoriais
+                          ? "bg-primary hover:bg-primary/90 text-white cursor-pointer"
+                          : "bg-gray-200 text-gray-400 cursor-not-allowed"
+                      }`}
+                    >
+                      Download
+                    </Button>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </div>
