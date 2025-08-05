@@ -411,17 +411,18 @@ export default function CatalogoDeDados() {
 
       {/* Modal */}
       <Dialog open={modalState.isOpen} onOpenChange={(open) => setModalState((prev) => ({ ...prev, isOpen: open }))}>
-        <DialogContent className="md:max-w-2xl! overflow-y-auto">
-          <DialogHeader className="space-y-3">
+        <DialogContent className="md:max-w-2xl! overflow-y-auto md:p-10">
+          <DialogHeader>
             <DialogTitle className="text-2xl font-bold text-gray-900">{currentModalData?.title}</DialogTitle>
             <DialogDescription className="text-gray-600 text-base leading-relaxed">
               {currentModalData?.subtitle}
             </DialogDescription>
+         <div className="my-3 h-[1px]! flex-grow  bg-gray-100" />
           </DialogHeader>
 
-          <div className="space-y-6 mt-6">
+          <div className="space-y-6">
             {currentModalData?.sources.map((source, index) => (
-              <div key={index} className="flex items-start justify-between gap-4">
+              <div key={index} className="flex items-center justify-between md:gap-24 gap-4">
                 <div className="flex-1">
                   <h3 className="font-semibold text-gray-900 mb-2">{source.name}</h3>
                   <p className="text-gray-600 text-sm leading-relaxed">{source.description}</p>
