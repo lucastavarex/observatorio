@@ -40,7 +40,7 @@ const projetosItems = [
   },
   {
     title: "Tabela PEMOB",
-    href: "/projetos/tabela-pemob",
+    href: "/projetos/tabela",
     description: "Compare indicadores de mobilidade entre cidades brasileiras por meio de uma tabela interativa",
   },
 ]

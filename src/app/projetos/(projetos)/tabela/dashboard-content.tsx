@@ -3,9 +3,10 @@
 import { InputWithIcon } from "@/components/ui/input"
 import { Search } from "lucide-react"
 import React from "react"
-import { DataTable } from "./components/data-table"
-import { FiltersSidebar } from "./components/filters-sidebar"
-import { useDashboardData } from "./hooks/use-dashboard-data"
+import { DataTable } from "../dashboard/components/data-table"
+import { FiltersSidebar } from "../dashboard/components/filters-sidebar"
+import { useDashboardData } from "../dashboard/hooks/use-dashboard-data"
+
 
 export default function DashboardContent() {
   const [selectedFilter, setSelectedFilter] = React.useState<string>("Terminais Rodoviários")
