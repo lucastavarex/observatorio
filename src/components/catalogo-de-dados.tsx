@@ -411,7 +411,7 @@ export default function CatalogoDeDados() {
 
       {/* Modal */}
       <Dialog open={modalState.isOpen} onOpenChange={(open) => setModalState((prev) => ({ ...prev, isOpen: open }))}>
-        <DialogContent className="max-w-2xl max-h-[80vh] overflow-y-auto">
+        <DialogContent className="md:max-w-2xl! overflow-y-auto">
           <DialogHeader className="space-y-3">
             <DialogTitle className="text-2xl font-bold text-gray-900">{currentModalData?.title}</DialogTitle>
             <DialogDescription className="text-gray-600 text-base leading-relaxed">
