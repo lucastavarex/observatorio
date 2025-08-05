@@ -341,7 +341,7 @@ export default function CatalogoDeDados() {
                   <div className="space-y-2">
                     <div className="text-sm font-medium text-gray-700">GTFS</div>
                     <Button
-                      size="sm"
+                      size="lg"
                       variant={city.gtfs ? "default" : "secondary"}
                       disabled={!city.gtfs}
                       onClick={() => handleDownload(city.cidade, "GTFS")}
@@ -357,7 +357,7 @@ export default function CatalogoDeDados() {
                   <div className="space-y-2">
                     <div className="text-sm font-medium text-gray-700">GPS embarcados</div>
                     <Button
-                      size="sm"
+                      size="lg"
                       variant={city.gpsEmbarcados ? "default" : "secondary"}
                       disabled={!city.gpsEmbarcados}
                       onClick={() => handleDownload(city.cidade, "GPS embarcados")}
@@ -373,7 +373,7 @@ export default function CatalogoDeDados() {
                   <div className="space-y-2">
                     <div className="text-sm font-medium text-gray-700">Bilhetagem</div>
                     <Button
-                      size="sm"
+                      size="lg"
                       variant={city.bilhetagem ? "default" : "secondary"}
                       disabled={!city.bilhetagem}
                       onClick={() => handleDownload(city.cidade, "Bilhetagem")}
@@ -389,7 +389,7 @@ export default function CatalogoDeDados() {
                   <div className="space-y-2">
                     <div className="text-sm font-medium text-gray-700">Arquivos vetoriais</div>
                     <Button
-                      size="sm"
+                      size="lg"
                       variant={city.arquivosVetoriais ? "default" : "secondary"}
                       disabled={!city.arquivosVetoriais}
                       onClick={() => handleDownload(city.cidade, "Arquivos vetoriais")}
@@ -420,29 +420,34 @@ export default function CatalogoDeDados() {
          <div className="my-3 h-[1px]! flex-grow  bg-gray-100" />
           </DialogHeader>
 
-          <div className="space-y-6">
-            {currentModalData?.sources.map((source, index) => (
-              <div key={index} className="flex items-center justify-between md:gap-24 gap-4">
-                <div className="flex-1">
-                  <h3 className="font-semibold text-gray-900 mb-2">{source.name}</h3>
-                  <p className="text-gray-600 text-sm leading-relaxed">{source.description}</p>
-                </div>
-                <Button
-                  onClick={() => {
-                    if (source.actionType === "download") {
-                      console.log(`Downloading from ${source.name} for ${modalState.cidade}`)
-                      // Simulate download
-                    } else {
-                      window.open(source.actionUrl, "_blank")
-                    }
-                  }}
-                  className=" px-6 py-2 min-w-[100px] shrink-0"
-                >
-                  {source.actionText}
-                </Button>
-              </div>
-            ))}
-          </div>
+                     <div className="space-y-0 -mt-6">
+             {currentModalData?.sources.map((source, index) => (
+               <div key={index}>
+                 <div className="flex items-center justify-between md:gap-24 gap-4 py-4">
+                   <div className="flex-1">
+                     <h3 className="font-semibold text-gray-900 mb-2">{source.name}</h3>
+                     <p className="text-gray-600 text-sm leading-relaxed">{source.description}</p>
+                   </div>
+                   <Button
+                     onClick={() => {
+                       if (source.actionType === "download") {
+                         console.log(`Downloading from ${source.name} for ${modalState.cidade}`)
+                         // Simulate download
+                       } else {
+                         window.open(source.actionUrl, "_blank")
+                       }
+                     }}
+                     className=" px-6 py-2 min-w-[100px] shrink-0"
+                   >
+                     {source.actionText}
+                   </Button>
+                 </div>
+                 {index < currentModalData.sources.length - 1 && (
+                   <div className="h-[1.2px] flex-grow bg-gray-100" />
+                 )}
+               </div>
+             ))}
+           </div>
         </DialogContent>
       </Dialog>
     </div>
