@@ -22,8 +22,8 @@ export default function Publicacoes() {
           <div className="hidden md:block w-4 h-4 bg-[#779854]" />
         </div>
 
-        {/* Grid centralizado */}
-        <div className="flex flex-wrap justify-center gap-10 md:gap-6">
+        {/* Grid centralizado no mobile, alinhado ao início no desktop */}
+        <div className="flex flex-wrap justify-center md:justify-start gap-10 md:gap-6">
           {/* Card 1 */}
           <div className="flex flex-col items-start text-left max-w-[320px] group">
             <div className="relative overflow-hidden rounded-md">
@@ -62,6 +62,38 @@ export default function Publicacoes() {
           </div>
 
           {/* Card 3 */}
+          <div className="flex flex-col items-start text-left max-w-[320px] group">
+            <div className="relative overflow-hidden rounded-md">
+              <Image
+                src={publicacao3}
+                alt="Mobilidade Humana"
+                width={320}
+                height={320}
+                className="rounded-md transition-transform duration-300 group-hover:scale-105"
+              />
+            </div>
+            <h3 className="mt-4 font-regular text-sm">Mobilidade Humana</h3>
+            <p className="text-xs text-gray-600 mt-2">
+              Documento para apoiar a elaboração de programas de governo com foco em mobilidade urbana
+              sustentável para as eleições municipais de 2024.
+            </p>
+          </div>
+          <div className="flex flex-col items-start text-left max-w-[320px] group">
+            <div className="relative overflow-hidden rounded-md">
+              <Image
+                src={publicacao3}
+                alt="Mobilidade Humana"
+                width={320}
+                height={320}
+                className="rounded-md transition-transform duration-300 group-hover:scale-105"
+              />
+            </div>
+            <h3 className="mt-4 font-regular text-sm">Mobilidade Humana</h3>
+            <p className="text-xs text-gray-600 mt-2">
+              Documento para apoiar a elaboração de programas de governo com foco em mobilidade urbana
+              sustentável para as eleições municipais de 2024.
+            </p>
+          </div>
           <div className="flex flex-col items-start text-left max-w-[320px] group">
             <div className="relative overflow-hidden rounded-md">
               <Image

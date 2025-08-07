@@ -126,7 +126,7 @@ export function ImpactNumbersSection() {
     <section className="py-16 px-4 2xl:px-16 bg-gray-50">
       <div className="mx-auto">
         {/* Title */}
-        <h2 className="text-xl text-gray-900 mb-2">
+        <h2 className="text-xl text-[#2F2C2C] mb-2">
           Números de impacto
         </h2>
         
@@ -136,11 +136,11 @@ export function ImpactNumbersSection() {
         <div ref={ref} className="space-y-8">
           {/* First line: 63gb de dados coletados */}
           <div className="flex flex-col md:flex-row md:items-baseline gap-2 md:justify-start md:pl-[10%]">
-            <span className="text-6xl md:text-7xl font-bold text-gray-900">
+            <span className="text-6xl md:text-7xl font-medium text-[#2F2C2C]">
               {counter1.count}
               {impactNumbers[0].suffix}
             </span>
-            <span className="text-lg text-gray-600">
+            <span className="text-lg text-[#2F2C2C]/50">
               {impactNumbers[0].label}
             </span>
           </div>
@@ -150,10 +150,10 @@ export function ImpactNumbersSection() {
 
           {/* Second line: 20 municípios com dados */}
           <div className="flex flex-col md:flex-row md:items-baseline gap-2 md:justify-end md:pr-[20%]">
-            <span className="text-6xl md:text-7xl font-bold text-gray-900">
+            <span className="text-6xl md:text-7xl font-medium text-[#2F2C2C]">
               {counter2.count}
             </span>
-            <span className="text-lg text-gray-600">
+            <span className="text-lg text-[#2F2C2C]/50">
               {impactNumbers[1].label}
             </span>
           </div>
@@ -163,11 +163,11 @@ export function ImpactNumbersSection() {
 
           {/* Third line: 150+ alunos/educação executiva */}
           <div className="flex flex-col md:flex-row md:items-baseline gap-2 md:justify-center">
-            <span className="text-6xl md:text-7xl font-bold text-gray-900">
+            <span className="text-6xl md:text-7xl font-medium text-[#2F2C2C]">
               {counter3.count}
               {impactNumbers[2].suffix}
             </span>
-            <span className="text-lg text-gray-600">
+            <span className="text-lg text-[#2F2C2C]/50">
               {impactNumbers[2].label}
             </span>
           </div>
@@ -177,11 +177,11 @@ export function ImpactNumbersSection() {
 
           {/* Fourth line: 37+ horas de eventos realizados */}
           <div className="flex flex-col md:flex-row md:items-baseline gap-2 md:justify-start md:pl-[10%]">
-            <span className="text-6xl md:text-7xl font-bold text-gray-900">
+            <span className="text-6xl md:text-7xl font-medium text-[#2F2C2C]">
               {counter4.count}
               {impactNumbers[3].suffix}
             </span>
-            <span className="text-lg text-gray-600">
+            <span className="text-lg text-[#2F2C2C]/50">
               {impactNumbers[3].label}
             </span>
           </div>
@@ -191,11 +191,11 @@ export function ImpactNumbersSection() {
 
           {/* Fifth line: 2000+ participantes em eventos */}
           <div className="flex flex-col md:flex-row md:items-baseline gap-2 md:justify-end md:pr-[10%]">
-            <span className="text-6xl md:text-7xl font-bold text-gray-900">
+            <span className="text-6xl md:text-7xl font-medium text-[#2F2C2C]">
               {counter5.count}
               {impactNumbers[4].suffix}
             </span>
-            <span className="text-lg text-gray-600">
+            <span className="text-lg text-[#2F2C2C]/50">
               {impactNumbers[4].label}
             </span>
           </div>

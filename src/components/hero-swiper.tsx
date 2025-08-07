@@ -1,12 +1,14 @@
 "use client"
 
-import { ChevronLeft, ChevronRight } from "lucide-react"
+import arrowLeft from "@/app/assets/images/arrow-left.png"
+import arrowRight from "@/app/assets/images/arrow-right.png"
 import { useEffect, useRef, useState } from "react"
 import type { Swiper as SwiperType } from "swiper"
 import { Autoplay, Navigation } from "swiper/modules"
 import { Swiper, SwiperSlide } from "swiper/react"
 
 // Import Swiper styles
+import Image from "next/image"
 import "swiper/css"
 import "swiper/css/navigation"
 
@@ -193,20 +195,32 @@ export function HeroSwiper() {
                       </div>
                       
                       {/* Navigation Controls */}
-                      <div className="flex items-center gap-4">
+                      <div className="flex items-center gap-0">
                         <button
                           onClick={handlePrevSlide}
-                          className="w-12 h-12 bg-white/20 hover:bg-white/30 backdrop-blur-sm rounded-full flex items-center justify-center transition-all duration-300 group"
+                          className="w-12 h-12 flex items-center justify-center bg-trasparent"
                           aria-label="Previous slide"
                         >
-                          <ChevronLeft className="w-6 h-6 text-white group-hover:scale-110 transition-transform" />
+                         <Image 
+                            width={24}
+                            height={24}
+                            src={arrowLeft.src} 
+                            alt="Previous slide" 
+                            className="w-8 h-8 group-hover:scale-110 transition-transform" 
+                          />
                         </button>
                         <button
                           onClick={handleNextSlide}
-                          className="w-12 h-12 bg-white/20 hover:bg-white/30 backdrop-blur-sm rounded-full flex items-center justify-center transition-all duration-300 group"
+                          className="w-12 h-12 flex items-center justify-center bg-transparent"
                           aria-label="Next slide"
                         >
-                          <ChevronRight className="w-6 h-6 text-white group-hover:scale-110 transition-transform" />
+                          <Image 
+                            width={24}
+                            height={24}
+                            src={arrowRight.src} 
+                            alt="Next slide" 
+                            className="w-8 h-8 group-hover:scale-110 transition-transform" 
+                          />
                         </button>
                       </div>
                     </div>
@@ -248,20 +262,32 @@ export function HeroSwiper() {
            </div>
            
            {/* Navigation Controls */}
-           <div className="flex items-center gap-4">
+           <div className="flex items-center gap-0">
              <button
                onClick={handlePrevSlide}
-               className="w-12 h-12 bg-white/20 hover:bg-white/30 backdrop-blur-sm rounded-full flex items-center justify-center transition-all duration-300 group"
+               className="w-12 h-12  flex items-center justify-center transition-all duration-300 group"
                aria-label="Previous slide"
              >
-               <ChevronLeft className="w-6 h-6 text-white group-hover:scale-110 transition-transform" />
+               <Image 
+                width={24}
+                height={24}
+                 src={arrowLeft.src} 
+                 alt="Previous slide" 
+                 className="w-8 h-8 group-hover:scale-110 transition-transform" 
+               />
              </button>
              <button
                onClick={handleNextSlide}
-               className="w-12 h-12 bg-white/20 hover:bg-white/30 backdrop-blur-sm rounded-full flex items-center justify-center transition-all duration-300 group"
+               className="w-12 h-12  flex items-center justify-center transition-all duration-300 group"
                aria-label="Next slide"
              >
-               <ChevronRight className="w-6 h-6 text-white group-hover:scale-110 transition-transform" />
+               <Image 
+                width={24}
+                height={24}
+                 src={arrowRight.src} 
+                 alt="Next slide" 
+                 className="w-8 h-8 group-hover:scale-110 transition-transform" 
+               />
              </button>
            </div>
          </div>

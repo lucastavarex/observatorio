@@ -154,7 +154,7 @@ export default function Sobre() {
             <div className="lg:col-span-2">
               <h2 className="text-3xl font-medium text-gray-900">Origem</h2>
             </div>
-            <div className="lg:col-span-4">
+            <div className="lg:col-span-4 lg:max-w-[50vw] lg:justify-self-end">
               <div className="space-y-4">
                 <p className="text-gray-700 leading-relaxed">
                   Um evento realizado no Insper, em São Paulo, marcou o lançamento do Observatório Nacional de Mobilidade Sustentável, em setembro de 2023.
@@ -174,7 +174,7 @@ export default function Sobre() {
             <div className="lg:col-span-2">
               <h2 className="text-3xl font-medium text-gray-900">Missão</h2>
             </div>
-            <div className="lg:col-span-4">
+            <div className="lg:col-span-4 lg:max-w-[50vw] lg:justify-self-end">
               <div className="space-y-4">
                 <p className="text-gray-700 leading-relaxed">
                   A missão primordial do Observatório é prover o setor e os tomadores de decisão de um banco de dados robusto acerca dos sistemas de mobilidade urbana nas maiores cidades do país.
@@ -194,7 +194,7 @@ export default function Sobre() {
             <div className="lg:col-span-2">
               <h2 className="text-3xl font-medium text-gray-900">Objetivos</h2>
             </div>
-            <div className="lg:col-span-4">
+            <div className="lg:col-span-4 lg:max-w-[50vw] lg:justify-self-end">
               <div className="space-y-4">
                 <ol className="list-decimal list-inside space-y-6 text-gray-700 leading-relaxed">
                   <li>Consolidar dados do transporte público, segurança viária, emissões e eficiência da logística urbana nas principais cidades brasileiras;</li>
