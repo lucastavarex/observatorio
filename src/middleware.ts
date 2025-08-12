@@ -6,18 +6,19 @@ const nonce = Buffer.from(crypto.randomUUID()).toString('base64')
 // const isDevelopment = process.env.NODE_ENV === 'development'
 
 const cspHeader = `
-    default-src 'self';
-    script-src 'self' 'unsafe-inline';
+    default-src 'self' https://*.cloudinary.com;
+    script-src 'self' 'unsafe-eval' 'unsafe-inline';
     style-src 'self' 'unsafe-inline';
-    img-src 'self' blob: data: https:;
-    font-src 'self' data: https:;
-    media-src 'self' https:;
+    img-src 'self' blob: data:;
+    font-src 'self' data: https://storage.googleapis.com;
+    media-src 'self' data: blob:;
     object-src 'none';
     base-uri 'self';
     form-action 'self';
     frame-ancestors 'none';
     upgrade-insecure-requests;
 `
+
   // Replace newline characters and spaces
   const contentSecurityPolicyHeaderValue = cspHeader
     .replace(/\s{2,}/g, ' ')

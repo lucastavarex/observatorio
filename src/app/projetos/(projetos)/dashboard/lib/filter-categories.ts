@@ -3,7 +3,6 @@ import aeromovelIcon from "@/app/assets/images/aeromovel.svg"
 import bandeiraIcon from "@/app/assets/images/bandeira.svg"
 import barcoIcon from "@/app/assets/images/barco.svg"
 import bicicletaIcon from "@/app/assets/images/bicicleta.svg"
-import brtIcon from "@/app/assets/images/BRT.svg"
 import carroIcon from "@/app/assets/images/carro.svg"
 import equipamentosIcon from "@/app/assets/images/equipamentos.svg"
 import monotrilhoIcon from "@/app/assets/images/monotrilho.svg"
@@ -23,674 +22,710 @@ import vltIcon from "@/app/assets/images/VLT.svg"
 
 import { FilterCategoriesType } from "./types"
 
-// Complete filter categories extracted from arvore.js with all transportation data
-export const filterCategories: FilterCategoriesType = {
-  "Infraestrutura": {
-    "Ônibus": {
-      icon: onibusIcon.src,
-      options: [
-        "Terminais Rodoviários",
-        "Terminais Rodoviários com Acessibilidade (Deficiência Física)",
-        "Terminais Rodoviários com Acessibilidade (Deficiência Visual)",
-        "Terminais Rodoviários com Integração Física",
-        "Total de Pontos de Embarque",
-        "Total de Pontos de Embarque com Abrigo",
-        "Total de Pontos de Embarque com Acessibilidade",
-        "Pontos de Embarque são georreferenciados?",
-        "Quilometragem de Corredores Exclusivos de Ônibus",
-        "Quilometragem de Faixas Exclusivas",
-        "Velocidade Média dos Corredores de Ônibus em Horário de Pico",
-        "Velocidade Média das Faixas Exclusivas de Ônibus em Horário de Pico",
-        "Velocidade Média do Sistema de Transporte Público Coletivo em Vias de Tráfego Misto no Horário de Pico",
-        "Terminais Rodoviários com Informações de Itinerário",
-        "Terminais Rodoviários com Informações de Horários",
-        "Terminais Rodoviários com Informações de Tarifas",
-        "Terminais Rodoviários com Informações de Integração",
-        "Pontos de Embarque com Informações de Itinerários",
-        "Pontos de Embarque com Informações de Horários",
-        "Pontos de Embarque com Informações de Tarifas",
-        "Pontos de Embarque com Informações de Integração",
-        "Proporção de Viagens de Ônibus Realizadas dentro o Horário Programado",
-        "Proporção de Viagens de Ônibus não Completadas"
+// Complete filter categories extracted from CSV data
+export const filterCategories: FilterCategoriesType =
+{
+  "Arrecadação": {
+    "Multas": {
+      "icon": multasIcon.src,
+      "options": [
+        "Valor Arrecadado com Multas de Trânsito"
       ]
     },
-    "Metrô/Trem": {
-      icon: tremIcon.src,
-      options: [
-        "Estações Metroferroviárias",
-        "Estações Metroferroviárias com Acessibilidade (Deficiência Física)",
-        "Estações Metroferroviárias com Acessibilidade (Deficiência Visual)",
-        "Estações Metroferroviárias com Integração Física",
-        "Estações Metroferroviárias com Informações de Itinerários",
-        "Estações Metroferroviárias com Informações de Horários",
-        "Estações Metroferroviárias com Informações de Tarifas",
-        "Estações Metroferroviárias com Informações de Integração"
-      ]
-    },
-    "Pedestre": {
-      icon: pedestreIcon.src,
-      options: [
-        "Quilometragem de Vias Exclusivas para Pedestres",
-        "Quilometragem de Vias Exclusivas Temporárias para Pedestres",
-        "Quilometragem de calçadas"
-      ]
-    },
-    "BRT": {
-      icon: brtIcon.src,
-      options: [
-        "Quilometragem de Vias Exclusivas para BRT",
-        "Velocidade Média do BRT em Horário de Pico"
-      ]
-    },
-    "Bicicletas": {
-      icon: bicicletaIcon.src,
-      options: [
-        "Quilometragem de Ciclovias Exclusivas",
-        "Quilometragem de Ciclofaixas Exclusivas"
-      ]
-    },
-    "Metrô": {
-      icon: tremIcon.src,
-      options: [
-        "Quilometragem de Linhas de Metrô",
-        "Velocidade Média do Sistema de Metrô no Horário de Pico",
-        "Proporção de Viagens de Metrô Realizadas dentro do Horário Programado",
-        "Proporção de Viagens de Metro não Completadas"
-      ]
-    },
-    "Trem": {
-      icon: tremIcon.src,
-      options: [
-        "Quilometragem de Linhas de Trem",
-        "Velocidade Média do Sistema de Trem no Horário de Pico",
-        "Proporção de Viagens de Trem Realizadas dentro do Horário Programado",
-        "Proporção de Viagens de Trem não Completadas"
-      ]
-    },
-    "VLT": {
-      icon: vltIcon.src,
-      options: [
-        "Quilometragem de Linhas de VLT",
-        "Velocidade Média do Sistema de VLT no Horário de Pico",
-        "Proporção de Viagens de VLT Realizadas dentro do Horário Programado",
-        "Proporção de Viagens de VLT não Completadas"
-      ]
-    },
-    "Monotrilho": {
-      icon: monotrilhoIcon.src,
-      options: [
-        "Quilometragem de Linhas de Monotrilho",
-        "Velocidade Média do Sistema de Monotrilho no Horário de Pico",
-        "Proporção de Viagens de Monotrilho Realizadas dentro do Horário Programado",
-        "Proporção de Viagens de Monotrilho não Completadas"
-      ]
-    },
-    "Aeromóvel": {
-      icon: aeromovelIcon.src,
-      options: [
-        "Quilometragem de Vias Exclusivas de Aeromóvel",
-        "Velocidade Média do Sistema de Aeromóvel no Horário de Pico",
-        "Proporção de Viagens de Aeromóvel Realizadas dentro do Horário Programado",
-        "Proporção de Viagens de Aeromóvel não Completadas"
-      ]
-    },
-    "Vans/Microônibus": {
-      icon: vanIcon.src,
-      options: [
-        "Proporção de Viagens de Vans/Microônibus Realizadas dentro do Horário Programado",
-        "Proporção de Viagens de Vans/Microônibus não Completadas"
-      ]
-    },
-    "Barco": {
-      icon: barcoIcon.src,
-      options: [
-        "Proporção de Viagens de Barco Realizadas dentro do Horário Programado",
-        "Proporção de Viagens de Barco não Completadas"
-      ]
-    },
-    "Automóvel": {
-      icon: carroIcon.src,
-      options: [
-        "Vagas de Estacionamento Regulamentados no município?",
-        "Proporção de Vagas de Estacionamento para PCDs",
-        "Proporção de Vagas de Estacionamento para Idosos",
-        "Proporção de Vagas de Estacionamento para Gestantes"
-      ]
-    },
-    "Trabalhadores": {
-      icon: trabalhadoresIcon.src,
-      options: [
-        "Agentes de Trânsito em Exercício"
-      ]
-    },
-    "Equipamentos": {
-      icon: equipamentosIcon.src,
-      options: [
-        "Equipamentos de Fiscalização de Velocidade Existentes"
-      ]
-    }
-  },
-  "Frota": {
-    "Ônibus": {
-      icon: onibusIcon.src,
-      options: [
-        "Frota de Ônibus Convencional",
-        "Capacidade Média da Frota de Ônibus Convencional",
-        "Frota de Ônibus Convencional com Piso Baixo",
-        "Frota de Ônibus Convencional com Plataforma Elevatória",
-        "Frota de Ônibus Articulado",
-        "Capacidade Média da Frota de Ônibus Articulado",
-        "Frota de Ônibus Articulado com Piso Baixo",
-        "Frota de Ônibus Articulado com Plataforma Elevatória",
-        "Frota de Ônibus Biarticulado",
-        "Capacidade Média da Frota de Ônibus Biarticulado",
-        "Frota de Ônibus Biarticulado com Piso Baixo",
-        "Frota de Ônibus Biarticulado com Plataforma Elevatória",
-        "Frota de Veículos Fretados para Passageiros",
-        "Frota de Veículos Escolares",
-        "Quilometragem Percorrida pela Frota de Ônibus",
-        "Idade Média da Frota de Ônibus"
-      ]
-    },
-    "Vans/Microônibus": {
-      icon: vanIcon.src,
-      options: [
-        "Frota de Vans/Microônibus",
-        "Capacidade Média da Frota de Vans/Microônibus",
-        "Quilometragem Percorrida pela Frota de Vans/Microônibus",
-        "Idade Média da Frota de Vans/Microônibus"
-      ]
-    },
-    "Táxis": {
-      icon: taxisIcon.src,
-      options: [
-        "Frota de Táxis",
-        "Idade Média da Frota de Táxi",
-        "Proporção da Frota de Táxi que Utiliza Etanol como Fonte de Energia",
-        "Proporção da Frota de Táxi que Utiliza Eletricidade como Fonte de Energia",
-        "Proporção da Frota de Táxi que Utiliza Gás Natural como Fonte de Energia",
-        "Proporção da Frota de Táxi que Utiliza Energia Híbrida como Fonte de Energia"
-      ]
-    },
-    "Mototáxis": {
-      icon: mototaxisIcon.src,
-      options: [
-        "Frota de Mototáxis"
-      ]
-    },
-    "Metrô": {
-      icon: tremIcon.src,
-      options: [
-        "Frota (composições) de Metrôs",
-        "Capacidade Média da Frota (composições) de Metrô",
-        "Quilometragem Percorrida pela Frota de Metrô",
-        "Idade Média da Frota de Metrô"
-      ]
-    },
-    "Trem": {
-      icon: tremIcon.src,
-      options: [
-        "Frota (composições) de Trem",
-        "Capacidade Média da Frota (composição) de Trem",
-        "Quilometragem Percorrida pela Frota de Trem",
-        "Idade Média da Frota de Trem"
-      ]
-    },
-    "Barco": {
-      icon: barcoIcon.src,
-      options: [
-        "Frota de Barcos",
-        "Capacidade Média da Frota de Barcos",
-        "Quilometragem Percorrida pela Frota de Barcos"
-      ]
-    },
-    "VLT": {
-      icon: vltIcon.src,
-      options: [
-        "Frota (composições) de VLT",
-        "Capacidade Média da Frota (composição) de VLT",
-        "Quilometragem Percorrida pela Frota de VLT",
-        "Idade Média da Frota de VLT"
-      ]
-    },
-    "Monotrilho": {
-      icon: monotrilhoIcon.src,
-      options: [
-        "Frota (composição) de Monotrilho",
-        "Capacidade da Frota (composição) de Monotrilho",
-        "Quilometragem Percorrida pela Frota de Monotrilho",
-        "Idade Média da Frota de Monotrilho"
-      ]
-    },
-    "Aeromóvel": {
-      icon: aeromovelIcon.src,
-      options: [
-        "Frota de Aeromóvel",
-        "Capacidade média da Frota de Aeromóvel",
-        "Quilometragem Percorrida pela Frota de Aeromóvel",
-        "Idade Média da Frota de Aeromóvel"
-      ]
-    },
-    "Bicicletas": {
-      icon: bicicletaIcon.src,
-      options: [
-        "Frota de Bicicletas Compartilhadas"
-      ]
-    },
-    "Automóvel": {
-      icon: carroIcon.src,
-      options: [
-        "Proporção de Frota que Usa Etanol como Fonte de Energia",
-        "Proporção de Frota que Usa Eletricidade como Fonte de Energia",
-        "Proporção de Frota que Usa Gás Natural como Fonte de Energia",
-        "Proporção de Frota que Usa Hidrogênio como Fonte de Energia",
-        "Proporção de Frota que Usa Biodiesel como Fonte de Energia",
-        "Proporção de Frota que Usa Energia Híbrida como Fonte de Energia",
-        "Quilometragem Percorrida por Transporte Remunerado Individual de Passageiros"
-      ]
-    }
-  },
-  "Tarifas": {
-    "Valores": {
-      icon: valoresIcon.src,
-      options: [
-        "Valor Atual da Tarifa Predominante",
-        "Valor Anterior da Tarifa Predominante"
-      ]
-    },
-    "Subsídios": {
-      icon: subsidiosIcon.src,
-      options: [
-        "Desconto para Passageiros de Baixa Renda",
-        "Renda Máxima para Baixa Renda",
-        "Desconto para Passageiros entre 60 e 64 anos",
-        "Descontos para PCDs",
-        "Desconto para Estudantes da Rede Pública",
-        "Desconto para Estudantes da Rede Privada"
-      ]
-    },
-    "Bandeira": {
-      icon: bandeiraIcon.src,
-      options: [
-        "Valor da Bandeira para Táxi",
-        "Valor da Bandeira 1 para Táxi por Km rodado",
-        "Valor da Bandeira 2 para Táxi por Km rodado",
-        "Valor do Serviço de Táxi por hora parada",
-        "Valor da Tarifa Aeroporto do Serviço de Táxi",
-        "Valor da Bandeira para Mototáxi",
-        "Valor da Bandeira 1 para Mototáxi por Km rodado",
-        "Valor da Bandeira 2 para Mototáxi por Km rodado",
-        "Valor do Serviço de Mototáxi por hora parada",
-        "Valor da Tarifa Aeroporto do Serviço de Mototáxi"
-      ]
-    }
-  },
-  "Receita": {
-    "Ônibus": {
-      icon: onibusIcon.src,
-      options: [
-        "Receita Tarifária Arrecadada por Ônibus",
-        "Valor do Subsídio Tarifário para o Sistema de Ônibus",
-        "Valor do Subsídio Direto ao Sistema de Ônibus",
-        "Valor Arrecadado com Publicidade no Sistema de Ônibus",
-        "Valor Arrecadado com Outras Fontes de Recursos no Sistema de Ônibus"
-      ]
-    },
-    "Vans/Microônibus": {
-      icon: vanIcon.src,
-      options: [
-        "Receita Tarifária Arrecadada com Vans/Microõnibus",
-        "Valor do Subsídio Tarifário para o Sistema de Vans/Microônibus",
-        "Valor do Subsídio Direto ao Sistema de Vans/Microônibus",
-        "Valor Arrecadado com Publicidade no Sistema de Vans/Microônibus",
-        "Valor Arrecadado com Outras Fontes de Recursos no Sistema de Vans/Microônibus"
-      ]
-    },
-    "Metrô": {
-      icon: tremIcon.src,
-      options: [
-        "Receita Tarifária Arrecadada com Metrô",
-        "Valor do Subsídio Tarifário para o Sistema de Metrô",
-        "Valor do Subsídio Direto ao Sistema de Metrô",
-        "Valor Arrecadado com Publicidade no Sistema de Metrô",
-        "Valor Arrecadado com Outras Fontes de Recursos no Sistema de Metrô"
-      ]
-    },
-    "Trem": {
-      icon: tremIcon.src,
-      options: [
-        "Receita Tarifária Arrecadada com Trem",
-        "Valor do Subsídio Tarifário para o Sistema de Trem",
-        "Valor do Subsídio Direto ao Sistema de Trem",
-        "Valor Arrecadado com Publicidade no Sistema de Trem",
-        "Valor Arrecadado com Outras Fontes de Recursos no Sistema de Trem"
-      ]
-    },
-    "Barco": {
-      icon: barcoIcon.src,
-      options: [
-        "Receita Tarifária Arrecadada com Barco",
-        "Valor do Subsídio Tarifário para o Sistema de Barco",
-        "Valor do Subsídio Direto ao Sistema de Barco",
-        "Valor Arrecadado com Publicidade no Sistema de Barco",
-        "Valor Arrecadado com Outras Fontes de Recursos no Sistema de Barco"
-      ]
-    },
-    "VLT": {
-      icon: vltIcon.src,
-      options: [
-        "Receita Tarifária Arrecadada com VLT",
-        "Valor do Subsídio Tarifário para o Sistema de VLT",
-        "Valor do Subsídio Direto ao Sistema de VLT",
-        "Valor Arrecadado com Publicidade no Sistema de VLT",
-        "Valor Arrecadado com Outras Fontes de Recursos no Sistema de VLT"
-      ]
-    },
-    "Monotrilho": {
-      icon: monotrilhoIcon.src,
-      options: [
-        "Receita Tarifária Arrecadada com Monotrilho",
-        "Valor do Subsídio Tarifário para o Sistema de Monotrilho",
-        "Valor do Subsídio Direto ao Sistema de Monotrilho",
-        "Valor Arrecadado com Publicidade no Sistema de Monotrilho",
-        "Valor Arrecadado com Outras Fontes de Recursos no Sistema de Monotrilho"
-      ]
-    },
-    "Aeromóvel": {
-      icon: aeromovelIcon.src,
-      options: [
-        "Receita Tarifária Arrecadada com Aeromóvel",
-        "Valor do Subsídio Tarifário para o Sistema de Aeromóvel",
-        "Valor do Subsídio Direto ao Sistema de Aeromóvel",
-        "Valor Arrecadado com Publicidade no Sistema de Aeromóvel",
-        "Valor Arrecadado com Outras Fontes de Recursos no Sistema de Aeromóvel"
+    "Tributos": {
+      "icon": tributosIcon.src,
+      "options": [
+        "Valor Arrecadado com Cobrança de Estacionamento"
       ]
     }
   },
   "Custos": {
-    "Ônibus": {
-      icon: onibusIcon.src,
-      options: [
-        "ISS Incidente no Serviço de Transporte de Ônibus",
-        "Taxa de Gerenciamento Incidente no Serviço de Transporte de Ônibus",
-        "PIS Incidente no Serviço de Transporte de Ônibus",
-        "Cofins Incidente no Serviço de Transporte de Ônibus",
-        "Outros Impostos Incidentes no Serviço de Transporte de Ônibus",
-        "Custo de Mão de Obra Operacional do Serviço de Ônibus",
-        "Custo de Mão de Obra Administrativa do Serviço de Ônibus",
-        "Custo de Combustíveis no Serviço de Ônibus",
-        "Custo de Depreciação no Serviço de Ônibus",
-        "Custo de Remuneração de Serviços no Serviço de Ônibus",
-        "Custo de Peças no Serviço de Ônibus",
-        "Custo de Impostos no Serviço de Ônibus",
-        "Custo de Despesas Administrativas no Serviço de Ônibus",
-        "Custo de Outros Insumos no Serviço de Ônibus"
-      ]
-    },
-    "Vans/Microônibus": {
-      icon: vanIcon.src,
-      options: [
-        "ISS Incidente no Serviço de Transporte de Vans/Microônibus",
-        "Taxa de Gerenciamento Incidente no Serviço de Transporte de Vans/Microônibus",
-        "PIS Incidente no Serviço de Transporte de Vans/Microônibus",
-        "Cofins Incidente no Serviço de Transporte de Vans/Microônibus",
-        "Outros Impostos Incidentes no Serviço de Transporte de Vans/Microônibus",
-        "Custo de Mão de Obra Operacional do Serviço de Vans/Microônibus",
-        "Custo de Mão de Obra Administrativa do Serviço de Vans/Microônibus",
-        "Custo de Combustíveis no Serviço de Vans/Microônibus",
-        "Custo de Depreciação no Serviço de Vans/Microônibus",
-        "Custo de Remuneração de Serviços no Serviço de Vans/Microônibus",
-        "Custo de Peças no Serviço de Vans/Microônibus",
-        "Custo de Impostos no Serviço de Vans/Microônibus",
-        "Custo de Despesas Administrativas no Serviço de Vans/Microônibus",
-        "Custo de Outros Insumos no Serviço de Vans/Microônibus"
-      ]
-    },
-    "Metrô": {
-      icon: tremIcon.src,
-      options: [
-        "ISS Incidente no Serviço de Transporte de Metrô",
-        "Taxa de Gerenciamento Incidente no Serviço de Transporte de Metrô",
-        "PIS Incidente no Serviço de Transporte de Metrô",
-        "Cofins Incidente no Serviço de Transporte de Metrô",
-        "Outros Impostos Incidentes no Serviço de Transporte de Metrô",
-        "Custo de Mão de Obra Operacional do Serviço de Metrô",
-        "Custo de Mão de Obra Administrativa do Serviço de Metrô",
-        "Custo de Combustíveis no Serviço de Metrô",
-        "Custo de Depreciação no Serviço de Metrô",
-        "Custo de Remuneração de Serviços no Serviço de Metrô",
-        "Custo de Peças no Serviço de Metrô",
-        "Custo de Impostos no Serviço de Metrô",
-        "Custo de Despesas Administrativas no Serviço de Metrô",
-        "Custo de Energia no Serviço de Metrô",
-        "Custo de IPTU no Serviço de Metrô",
-        "Custo de Outros Insumos no Serviço de Metrô"
-      ]
-    },
-    "Trem": {
-      icon: tremIcon.src,
-      options: [
-        "ISS Incidente no Serviço de Transporte de Trem",
-        "Taxa de Gerenciamento Incidente no Serviço de Transporte de Trem",
-        "PIS Incidente no Serviço de Transporte de Trem",
-        "Cofins Incidente no Serviço de Transporte de Trem",
-        "Outros Impostos Incidentes no Serviço de Transporte de Trem",
-        "Custo de Mão de Obra Operacional do Serviço de Trem",
-        "Custo de Mão de Obra Administrativa do Serviço de Trem",
-        "Custo de Combustíveis no Serviço de Trem",
-        "Custo de Depreciação no Serviço de Trem",
-        "Custo de Remuneração de Serviços no Serviço de Trem",
-        "Custo de Peças no Serviço de Trem",
-        "Custo de Impostos no Serviço de Trem",
-        "Custo de Despesas Administrativas no Serviço de Trem",
-        "Custo de Energia no Serviço de Trem",
-        "Custo de IPTU no Serviço de Trem",
-        "Custo de Outros Insumos no Serviço de Trem"
+    "Aeromóvel": {
+      "icon": aeromovelIcon.src,
+      "options": [
+        "Impostos e taxas - Alíquota ISS (Aeromóvel)",
+        "Impostos e Taxas - Taxa de Gerenciamento (Aeromóvel)",
+        "Impostos e Taxas - PIS (Aeromóvel)",
+        "Impostos e Taxas - Cofins (Aeromóvel)",
+        "Impostos e Taxas - Alíquota Outros Impostos (Aeromóvel)",
+        "Impostos e Taxas - Outros Impostos (Aeromóvel)",
+        "Custos (Aeromóvel) - Operação (Ônibus)",
+        "Custos (Aeromóvel) - Administrativo (Ônibus)",
+        "Custos (Aeromóvel) - Combustível (Ônibus)",
+        "Custos (Aeromóvel) - Depreciação (Ônibus)",
+        "Custos (Aeromóvel) - Remuneração pelo Serviço Prestado (Ônibus)",
+        "Custos (Aeromóvel) - Peças, acessórios e material de rodagem (Ônibus)",
+        "Custos (Aeromóvel) - Impostos e Tributação (Ônibus)",
+        "Custos (Aeromóvel) - Despesas Administrativas (Ônibus)",
+        "Custos (Aeromóvel) - Energia (Ônibus)",
+        "Custos (Aeromóvel) - IPTU (Ônibus)",
+        "Custos (Aeromóvel) - Outros insumos (Ônibus)"
       ]
     },
     "Barco": {
-      icon: barcoIcon.src,
-      options: [
-        "ISS Incidente no Serviço de Transporte de Barco",
-        "Taxa de Gerenciamento Incidente no Serviço de Transporte de Barco",
-        "PIS Incidente no Serviço de Transporte de Barco",
-        "Cofins Incidente no Serviço de Transporte de Barco",
-        "Outros Impostos Incidentes no Serviço de Transporte de Barco",
-        "Custo de Mão de Obra Operacional do Serviço de Barco",
-        "Custo de Mão de Obra Administrativa do Serviço de Barco",
-        "Custo de Combustíveis no Serviço de Barco",
-        "Custo de Depreciação no Serviço de Barco",
-        "Custo de Remuneração de Serviços no Serviço de Barco",
-        "Custo de Peças no Serviço de Barco",
-        "Custo de Impostos no Serviço de Barco",
-        "Custo de Despesas Administrativas no Serviço de Barco",
-        "Custo de Outros Insumos no Serviço de Barco"
+      "icon": barcoIcon.src,
+      "options": [
+        "Impostos e taxas - Alíquota ISS (Barco)",
+        "Impostos e Taxas - Taxa de Gerenciamento (Barco)",
+        "Impostos e Taxas - PIS (Barco)",
+        "Impostos e Taxas - Cofins (Barco)",
+        "Impostos e Taxas - Alíquota Outros Impostos (Barco)",
+        "Impostos e Taxas - Outros Impostos (Barco)",
+        "Custos (Barco) - Operação (Ônibus)",
+        "Custos (Barco) - Administrativo (Ônibus)",
+        "Custos (Barco) - Combustível (Ônibus)",
+        "Custos (Barco) - Depreciação (Ônibus)",
+        "Custos (Barco) - Remuneração pelo Serviço Prestado (Ônibus)",
+        "Custos (Barco) - Peças, acessórios e material de rodagem (Ônibus)",
+        "Custos (Barco) - Impostos e Tributação (Ônibus)",
+        "Custos (Barco) - Despesas Administrativas (Ônibus)",
+        "Custos (Barco) - Outros insumos (Ônibus)"
       ]
     },
-    "VLT": {
-      icon: vltIcon.src,
-      options: [
-        "ISS Incidente no Serviço de Transporte de VLT",
-        "Taxa de Gerenciamento Incidente no Serviço de Transporte de VLT",
-        "PIS Incidente no Serviço de Transporte de VLT",
-        "Cofins Incidente no Serviço de Transporte de VLT",
-        "Outros Impostos Incidentes no Serviço de Transporte de VLT",
-        "Custo de Mão de Obra Operacional do Serviço de VLT",
-        "Custo de Mão de Obra Administrativa do Serviço de VLT",
-        "Custo de Combustíveis no Serviço de VLT",
-        "Custo de Depreciação no Serviço de VLT",
-        "Custo de Remuneração de Serviços no Serviço de VLT",
-        "Custo de Peças no Serviço de VLT",
-        "Custo de Impostos no Serviço de VLT",
-        "Custo de Despesas Administrativas no Serviço de VLT",
-        "Custo de Energia no Serviço de VLT",
-        "Custo de IPTU no Serviço de VLT",
-        "Custo de Outros Insumos no Serviço de VLT"
+    "Metrô": {
+      "icon": tremIcon.src,
+      "options": [
+        "Impostos e taxas - Alíquota ISS (Metrô)",
+        "Impostos e Taxas - Taxa de Gerenciamento (Metrô)",
+        "Impostos e Taxas - PIS (Metrô)",
+        "Impostos e Taxas - Cofins (Metrô)",
+        "Impostos e Taxas - Alíquota Outros Impostos (Metrô)",
+        "Impostos e Taxas - Outros Impostos (Metrô)",
+        "Custos (Metrô) - Operação (Ônibus)",
+        "Custos (Metrô) - Administrativo (Ônibus)",
+        "Custos (Metrô) - Combustível (Ônibus)",
+        "Custos (Metrô) - Depreciação (Ônibus)",
+        "Custos (Metrô) - Remuneração pelo Serviço Prestado (Ônibus)",
+        "Custos (Metrô) - Peças, acessórios e material de rodagem (Ônibus)",
+        "Custos (Metrô) - Impostos e Tributação (Ônibus)",
+        "Custos (Metrô) - Despesas Administrativas (Ônibus)",
+        "Custos (Metrô) - Energia (Ônibus)",
+        "Custos (Metrô) - IPTU (Ônibus)",
+        "Custos (Metrô) - Outros insumos (Ônibus)"
       ]
     },
     "Monotrilho": {
-      icon: monotrilhoIcon.src,
-      options: [
-        "ISS Incidente no Serviço de Transporte de Monotrilho",
-        "Taxa de Gerenciamento Incidente no Serviço de Transporte de Monotrilho",
-        "PIS Incidente no Serviço de Transporte de Monotrilho",
-        "Cofins Incidente no Serviço de Transporte de Monotrilho",
-        "Outros Impostos Incidentes no Serviço de Transporte de Monotrilho",
-        "Custo de Mão de Obra Operacional do Serviço de Monotrilho",
-        "Custo de Mão de Obra Administrativa do Serviço de Monotrilho",
-        "Custo de Combustíveis no Serviço de Monotrilho",
-        "Custo de Depreciação no Serviço de Monotrilho",
-        "Custo de Remuneração de Serviços no Serviço de Monotrilho",
-        "Custo de Peças no Serviço de Monotrilho",
-        "Custo de Impostos no Serviço de Monotrilho",
-        "Custo de Despesas Administrativas no Serviço de Monotrilho",
-        "Custo de Energia no Serviço de Monotrilho",
-        "Custo de IPTU no Serviço de Monotrilho",
-        "Custo de Outros Insumos no Serviço de Monotrilho"
+      "icon": monotrilhoIcon.src,
+      "options": [
+        "Impostos e taxas - Alíquota ISS (Monotrilho)",
+        "Impostos e Taxas - Taxa de Gerenciamento (Monotrilho)",
+        "Impostos e Taxas - PIS (Monotrilho)",
+        "Impostos e Taxas - Cofins (Monotrilho)",
+        "Impostos e Taxas - Alíquota Outros Impostos (Monotrilho)",
+        "Impostos e Taxas - Outros Impostos (Monotrilho)",
+        "Custos (Monotrilho) - Operação (Ônibus)",
+        "Custos (Monotrilho) - Administrativo (Ônibus)",
+        "Custos (Monotrilho) - Combustível (Ônibus)",
+        "Custos (Monotrilho) - Depreciação (Ônibus)",
+        "Custos (Monotrilho) - Remuneração pelo Serviço Prestado (Ônibus)",
+        "Custos (Monotrilho) - Peças, acessórios e material de rodagem (Ônibus)",
+        "Custos (Monotrilho) - Impostos e Tributação (Ônibus)",
+        "Custos (Monotrilho) - Despesas Administrativas (Ônibus)",
+        "Custos (Monotrilho) - Energia (Ônibus)",
+        "Custos (Monotrilho) - IPTU (Ônibus)",
+        "Custos (Monotrilho) - Outros insumos (Ônibus)"
       ]
     },
-    "Aeromóvel": {
-      icon: aeromovelIcon.src,
-      options: [
-        "ISS Incidente no Serviço de Transporte de Aeromóvel",
-        "Taxa de Gerenciamento Incidente no Serviço de Transporte de Aeromóvel",
-        "PIS Incidente no Serviço de Transporte de Aeromóvel",
-        "Cofins Incidente no Serviço de Transporte de Aeromóvel",
-        "Outros Impostos Incidentes no Serviço de Transporte de Aeromóvel",
-        "Custo de Mão de Obra Operacional do Serviço de Aeromóvel",
-        "Custo de Mão de Obra Administrativa do Serviço de Aeromóvel",
-        "Custo de Combustíveis no Serviço de Aeromóvel",
-        "Custo de Depreciação no Serviço de Aeromóvel",
-        "Custo de Remuneração de Serviços no Serviço de Aeromóvel",
-        "Custo de Peças no Serviço de Aeromóvel",
-        "Custo de Impostos no Serviço de Aeromóvel",
-        "Custo de Despesas Administrativas no Serviço de Aeromóvel",
-        "Custo de Energia no Serviço de Aeromóvel",
-        "Custo de IPTU no Serviço de Aeromóvel",
-        "Custo de Outros Insumos no Serviço de Aeromóvel"
+    "Trem": {
+      "icon": tremIcon.src,
+      "options": [
+        "Impostos e taxas - Alíquota ISS (Trem)",
+        "Impostos e Taxas - Taxa de Gerenciamento (Trem)",
+        "Impostos e Taxas - PIS (Trem)",
+        "Impostos e Taxas - Cofins (Trem)",
+        "Impostos e Taxas - Alíquota Outros Impostos (Trem)",
+        "Impostos e Taxas - Outros Impostos (Trem)",
+        "Custos (Trem) - Operação (Ônibus)",
+        "Custos (Trem) - Administrativo (Ônibus)",
+        "Custos (Trem) - Combustível (Ônibus)",
+        "Custos (Trem) - Depreciação (Ônibus)",
+        "Custos (Trem) - Remuneração pelo Serviço Prestado (Ônibus)",
+        "Custos (Trem) - Peças, acessórios e material de rodagem (Ônibus)",
+        "Custos (Trem) - Impostos e Tributação (Ônibus)",
+        "Custos (Trem) - Despesas Administrativas (Ônibus)",
+        "Custos (Trem) - Energia (Ônibus)",
+        "Custos (Trem) - IPTU (Ônibus)",
+        "Custos (Trem) - Outros insumos (Ônibus)"
+      ]
+    },
+    "VLT": {
+      "icon": vltIcon.src,
+      "options": [
+        "Impostos e taxas - Alíquota ISS (VLT)",
+        "Impostos e Taxas - Taxa de Gerenciamento (VLT)",
+        "Impostos e Taxas - PIS (VLT)",
+        "Impostos e Taxas - Cofins (VLT)",
+        "Impostos e Taxas - Alíquota Outros Impostos (VLT)",
+        "Impostos e Taxas - Outros Impostos (VLT)",
+        "Custos (VLT) - Operação (Ônibus)",
+        "Custos (VLT) - Administrativo (Ônibus)",
+        "Custos (VLT) - Combustível (Ônibus)",
+        "Custos (VLT) - Depreciação (Ônibus)",
+        "Custos (VLT) - Remuneração pelo Serviço Prestado (Ônibus)",
+        "Custos (VLT) - Peças, acessórios e material de rodagem (Ônibus)",
+        "Custos (VLT) - Impostos e Tributação (Ônibus)",
+        "Custos (VLT) - Despesas Administrativas (Ônibus)",
+        "Custos (VLT) - Energia (Ônibus)",
+        "Custos (VLT) - IPTU (Ônibus)",
+        "Custos (VLT) - Outros insumos (Ônibus)"
+      ]
+    },
+    "Vans/Microônibus": {
+      "icon": vanIcon.src,
+      "options": [
+        "Impostos e taxas - Alíquota ISS (Vans/Microônibus)",
+        "Impostos e Taxas - Taxa de Gerenciamento (Vans/Microônibus)",
+        "Impostos e Taxas - PIS (Vans/Microônibus)",
+        "Impostos e Taxas - Cofins (Vans/Microônibus)",
+        "Impostos e Taxas - Alíquota Outros Impostos (Vans/Microônibus)",
+        "Impostos e Taxas - Outros Impostos (Vans/Microônibus)",
+        "Custos (Vans/Microônibus) - Operação (Ônibus)",
+        "Custos (Vans/Microônibus) - Administrativo (Ônibus)",
+        "Custos (Vans/Microônibus) - Combustível (Ônibus)",
+        "Custos (Vans/Microônibus) - Depreciação (Ônibus)",
+        "Custos (Vans/Microônibus) - Remuneração pelo Serviço Prestado (Ônibus)",
+        "Custos (Vans/Microônibus) - Peças, acessórios e material de rodagem (Ônibus)",
+        "Custos (Vans/Microônibus) - Impostos e Tributação (Ônibus)",
+        "Custos (Vans/Microônibus) - Despesas Administrativas (Ônibus)",
+        "Custos (Vans/Microônibus) - Outros insumos (Ônibus)"
+      ]
+    },
+    "Ônibus": {
+      "icon": onibusIcon.src,
+      "options": [
+        "Impostos e taxas - Alíquota ISS (Ônibus)",
+        "Impostos e Taxas - Taxa de Gerenciamento (Ônibus)",
+        "Impostos e Taxas - PIS (Ônibus)",
+        "Impostos e Taxas - Cofins (Ônibus)",
+        "Impostos e Taxas - Alíquota Outros Impostos (Ônibus)",
+        "Impostos e Taxas - Outros Impostos (Ônibus)",
+        "Custos (Ônibus) - Operação (Ônibus)",
+        "Custos (Ônibus) - Administrativo (Ônibus)",
+        "Custos (Ônibus) - Combustível (Ônibus)",
+        "Custos (Ônibus) - Depreciação (Ônibus)",
+        "Custos (Ônibus) - Remuneração pelo Serviço Prestado (Ônibus)",
+        "Custos (Ônibus) - Peças, acessórios e material de rodagem (Ônibus)",
+        "Custos (Ônibus) - Impostos e Tributação (Ônibus)",
+        "Custos (Ônibus) - Despesas Administrativas (Ônibus)",
+        "Custos (Ônibus) - Outros insumos (Ônibus)"
       ]
     }
   },
   "Demanda": {
-    "Ônibus": {
-      icon: onibusIcon.src,
-      options: [
-        "Passageiros Comuns Transportados por Ônibus",
-        "Passageiros de Vale Transporte Transportados por Ônibus",
-        "Estudantes Transportados por Ônibus",
-        "Passageiros de Integração Transportados por Ônibus",
-        "Gratuidades no Transporte de Ônibus",
-        "Total Equivalente de Passageiros Transportados por Ônibus"
+    "Aeromóvel": {
+      "icon": aeromovelIcon.src,
+      "options": [
+        "Passageiros de Aeromóvel (Comum)",
+        "Passageiros de Aeromóvel (Vale Transporte)",
+        "Passageiros de Aeromóvel (Estudante)",
+        "Passageiros de Aeromóvel (Integração)",
+        "Passageiros de Aeromóvel (Gratuidade)",
+        "Passageiros de Aeromóvel (Equivalentes)"
       ]
     },
-    "Vans/Microônibus": {
-      icon: vanIcon.src,
-      options: [
-        "Passageiros Comuns Transportados por Vans/Microônibus",
-        "Passageiros de Vale Transporte Transportados por Vans/Microônibus",
-        "Estudantes Transportados por Vans/Microônibus",
-        "Passageiros de Integração Transportados por Vans/Microônibus",
-        "Gratuidades no Transporte de Vans/Microônibus",
-        "Total Equivalente de Passageiros Transportados por Vans/Microônibus"
-      ]
-    },
-    "Metrô": {
-      icon: tremIcon.src,
-      options: [
-        "Passageiros Comuns Transportados por Metrô",
-        "Passageiros de Vale Transporte Transportados por Metrô",
-        "Estudantes Transportados por Metrô",
-        "Passageiros de Integração Transportados por Metrô",
-        "Gratuidades no Transporte de Metrô",
-        "Total Equivalente de Passageiros Transportados por Metrô"
-      ]
-    },
-    "Trem": {
-      icon: tremIcon.src,
-      options: [
-        "Passageiros Comuns Transportados por Trem",
-        "Passageiros de Vale Transporte Transportados por Trem",
-        "Estudantes Transportados por Trem",
-        "Passageiros de Integração Transportados por Trem",
-        "Gratuidades no Transporte de Trem",
-        "Total Equivalente de Passageiros Transportados por Trem"
+    "Automóvel": {
+      "icon": carroIcon.src,
+      "options": [
+        "Passageiros de Transporte por Aplicativo"
       ]
     },
     "Barco": {
-      icon: barcoIcon.src,
-      options: [
-        "Passageiros Comuns Transportados por Barco",
-        "Passageiros de Vale Transporte Transportados por Barco",
-        "Estudantes Transportados por Barco",
-        "Passageiros de Integração Transportados por Barco",
-        "Gratuidades no Transporte de Barco",
-        "Total Equivalente de Passageiros Transportados por Barco"
+      "icon": barcoIcon.src,
+      "options": [
+        "Passageiros de Barco (Comum)",
+        "Passageiros de Barco (Vale Transporte)",
+        "Passageiros de Barco (Estudante)",
+        "Passageiros de Barco (Integração)",
+        "Passageiros de Barco (Gratuidade)",
+        "Passageiros de Barco (Equivalentes)"
       ]
     },
-    "VLT": {
-      icon: vltIcon.src,
-      options: [
-        "Passageiros Comuns Transportados por VLT",
-        "Passageiros de Vale Transporte Transportados por VLT",
-        "Estudantes Transportados por VLT",
-        "Passageiros de Integração Transportados por VLT",
-        "Gratuidades no Transporte de VLT",
-        "Total Equivalente de Passageiros Transportados por VLT"
+    "Metrô": {
+      "icon": tremIcon.src,
+      "options": [
+        "Passageiros de Metrô (Comum)",
+        "Passageiros de Metrô (Vale Transporte)",
+        "Passageiros de Metrô (Estudante)",
+        "Passageiros de Metrô (Integração)",
+        "Passageiros de Metrô (Gratuidade)",
+        "Passageiros de Metrô (Equivalentes)"
       ]
     },
     "Monotrilho": {
-      icon: monotrilhoIcon.src,
-      options: [
-        "Passageiros Comuns Transportados por Monotrilho",
-        "Passageiros de Vale Transporte Transportados por Monotrilho",
-        "Estudantes Transportados por Monotrilho",
-        "Passageiros de Integração Transportados por Monotrilho",
-        "Gratuidades no Transporte de Monotrilho",
-        "Total Equivalente de Passageiros Transportados por Monotrilho"
+      "icon": monotrilhoIcon.src,
+      "options": [
+        "Passageiros de Monotrilho (Comum)",
+        "Passageiros de Monotrilho (Vale Transporte)",
+        "Passageiros de Monotrilho (Estudante)",
+        "Passageiros de Monotrilho (Integração)",
+        "Passageiros de Monotrilho (Gratuidade)",
+        "Passageiros de Monotrilho (Equivalentes)"
       ]
     },
-    "Aeromóvel": {
-      icon: aeromovelIcon.src,
-      options: [
-        "Passageiros Comuns Transportados por Aeromóvel",
-        "Passageiros de Vale Transporte Transportados por Aeromóvel",
-        "Estudantes Transportados por Aeromóvel",
-        "Passageiros de Integração Transportados por Aeromóvel",
-        "Gratuidades no Transporte de Aeromóvel",
-        "Total Equivalente de Passageiros Transportados por Aeromóvel"
+    "Trem": {
+      "icon": tremIcon.src,
+      "options": [
+        "Passageiros de Trem (Comum)",
+        "Passageiros de Trem (Vale Transporte)",
+        "Passageiros de Trem (Estudante)",
+        "Passageiros de Trem (Integração)",
+        "Passageiros de Trem (Gratuidade)",
+        "Passageiros de Trem (Equivalentes)"
       ]
     },
-    "Viagens": {
-      icon: viagensIcon.src,
-      options: [
-        "Número Médio de Viagens Diárias no Município",
-        "Distância Média das Viagens no Município",
-        "Tempo Médio das Viagens no Município",
-        "Proporção de Viagens a Pé",
-        "Proporção de Viagens de Bicicleta",
-        "Proporção de Viagens em Transporte Coletivo",
-        "Proporção de Viagens em Transporte Individual Motorizado",
-        "Proporção de Viagens em Transporte Individual Motocicleta",
-        "Proporção de Viagens em Transporte Individual Remunerado",
-        "Proporção de Viagens em Outros Modos de Transporte",
-        "Viagens Realizadas por Transporte Remunerado Individual de Passageiros"
+    "VLT": {
+      "icon": vltIcon.src,
+      "options": [
+        "Passageiros de VLT (Comum)",
+        "Passageiros de VLT (Vale Transporte)",
+        "Passageiros de VLT (Estudante)",
+        "Passageiros de VLT (Integração)",
+        "Passageiros de VLT (Gratuidade)",
+        "Passageiros de VLT (Equivalentes)"
+      ]
+    },
+    "Vans/Microônibus": {
+      "icon": vanIcon.src,
+      "options": [
+        "Passageiros de Vans/Microônibus (Comum)",
+        "Passageiros de Vans/Microônibus (Vale Transporte)",
+        "Passageiros de Vans/Microônibus (Estudante)",
+        "Passageiros de Vans/Microônibus (Integração)",
+        "Passageiros de Vans/Microônibus (Gratuidade)",
+        "Passageiros de Vans/Microônibus (Equivalentes)"
+      ]
+    },
+    "Ônibus": {
+      "icon": onibusIcon.src,
+      "options": [
+        "Passageiros de Ônibus (Comum)",
+        "Passageiros de Ônibus (Vale Transporte)",
+        "Passageiros de Ônibus (Estudante)",
+        "Passageiros de Ônibus (Integração)",
+        "Passageiros de Ônibus (Gratuidade)",
+        "Passageiros de Ônibus (Equivalentes)"
       ]
     }
   },
-  "Arrecadação": {
-    "Tributos": {
-      icon: tributosIcon.src,
-      options: [
-        "Arrecadação Anual Tributos pela Utilização da Infraestrutura em Perímetro Urbano",
-        "Valor Arrecadado com Cobrança de Estacionamento",
-        "Arrecadação por Transporte Remunerado Individual de Passageiros"
+  "Frota": {
+    "Aeromóvel": {
+      "icon": aeromovelIcon.src,
+      "options": [
+        "Frota (composição) de Aeromóvel",
+        "Aeromóvel (capacidade média)",
+        "Quilômetros Percorridos (Aeromóvel)",
+        "Idade Média da Frota de Aeromóvel"
       ]
     },
-    "Multas": {
-      icon: multasIcon.src,
-      options: [
-        "Arrecadação anual com Multas de Trânsito"
+    "Automóvel": {
+      "icon": carroIcon.src,
+      "options": [
+        "Quilômetros Percorridos de Transporte por Aplicativo"
+      ]
+    },
+    "Barco": {
+      "icon": barcoIcon.src,
+      "options": [
+        "Frota de Barcos",
+        "Barcos (capacidade média)",
+        "Quilômetros Percorridos (Barco)"
+      ]
+    },
+    "Bicicletas": {
+      "icon": bicicletaIcon.src,
+      "options": [
+        "Frota de Bicicletas Compartilhadas",
+        "Extensão de Ciclovias Exclusivas",
+        "Extensão de Ciclofaixas Exclusivas"
+      ]
+    },
+    "Metrô": {
+      "icon": tremIcon.src,
+      "options": [
+        "Frota (composição) de Metrôs",
+        "Metrô (capacidade média)",
+        "Quilômetros Percorridos (Metrô)",
+        "Idade Média da Frota de Metrô"
+      ]
+    },
+    "Monotrilho": {
+      "icon": monotrilhoIcon.src,
+      "options": [
+        "Frota (composição) de Monotrilhos",
+        "Monotrilho (capacidade média)",
+        "Quilômetros Percorridos (Monotrilho)",
+        "Idade Média da Frota de Monotrilho"
+      ]
+    },
+    "Mototáxis": {
+      "icon": mototaxisIcon.src,
+      "options": [
+        "Frota de Mototáxis"
+      ]
+    },
+    "Trem": {
+      "icon": tremIcon.src,
+      "options": [
+        "Frota de Trens",
+        "Trem (capacidade média)",
+        "Quilômetros Percorridos (Trem)",
+        "Idade Média da Frota de Trens"
+      ]
+    },
+    "Táxis": {
+      "icon": taxisIcon.src,
+      "options": [
+        "Frota de Táxis",
+        "Idade Média da Frota de Táxis",
+        "Frota de Táxis com Fontes de Energia Alternativa",
+        "Frota de Táxis Movido a Etanol (%)",
+        "Frota de Táxis Movido a Eletricidade (%)",
+        "Frota de Táxis Movido a Gás Natural (%)",
+        "Frota de Táxis Híbridos (Eletricidade + Gasolina) (%)"
+      ]
+    },
+    "VLT": {
+      "icon": vltIcon.src,
+      "options": [
+        "Frota (composição) de VLTs",
+        "VLT (capacidade média)",
+        "Quilômetros Percorridos (VLT)",
+        "Idade Média da Frota de VLTs"
+      ]
+    },
+    "Vans/Microônibus": {
+      "icon": vanIcon.src,
+      "options": [
+        "Frota de Microônibus",
+        "Microônibus (capacidade média)",
+        "Quilômetros Percorridos (Microônibus)",
+        "Idade Média da Frota de Microônibus"
+      ]
+    },
+    "Ônibus": {
+      "icon": onibusIcon.src,
+      "options": [
+        "Frota de ônibus",
+        "Ônibus (capacidade média)",
+        "Ônibus (piso baixo)",
+        "Ônibus (com plataforma)",
+        "Frota de Ônibus Articulados",
+        "Ônibus Articulados (capacidade média)",
+        "Ônibus Articulados (piso baixo)",
+        "Ônibus Articulados (com plataforma)",
+        "Frota de Ônibus Biarticulados",
+        "Ônibus Biarticulados (cap. média)",
+        "Ônibus Biarticulados (piso baixo)",
+        "Ônibus Biarticulados (com plataforma)",
+        "Frota de Veículos Fretados para Passageiros",
+        "Frota de Veículos Escolares",
+        "Extensão de Vias Exclusivas para BRT",
+        "Extensão de Corredores Exclusivos de Ônibus",
+        "Extensão de Faixas Exclusivas",
+        "Quilômetros Percorridos (Ônibus)",
+        "Idade Média da Frota de Ônibus",
+        "Frota de Ônibus com Fontes de Energia Alternativa",
+        "Frota de Ônibus Movido a Etanol (%)",
+        "Frota de Ônibus Movido a Eletricidade (%)",
+        "Frota de Ônibus Movido a Gás Natural (%)",
+        "Frota de Ônibus Movido a Hidrogênio (%)",
+        "Frota de Ônibus Movido a Biodiesel (%)",
+        "Frota de Ônibus Híbridos (Eletricidade + Diesel) (%)"
+      ]
+    }
+  },
+  "Infraestrutura": {
+    "Aeromóvel": {
+      "icon": aeromovelIcon.src,
+      "options": [
+        "Extensão da malha (aeromóvel)",
+        "Velocidade Média do Aeromóvel (pico)",
+        "Existe informação sobre pontualidade e regularidade (Aeromóvel)",
+        "Viagens de Aeromóvel Realizadas no Horário Programado (%)",
+        "Viagens de Aeromóvel Incompletas (%)"
+      ]
+    },
+    "Automóvel": {
+      "icon": carroIcon.src,
+      "options": [
+        "Vagas de Estacionamento Reguladas",
+        "Percentual de Vagas de Estacionamento para Deficientes",
+        "Percentual de Vagas de Estacionamento para Idosos",
+        "Percentual de Vagas de Estacionamento para Gestantes",
+        "Existe Fiscalização para Cobrança em Vagas Públicas"
+      ]
+    },
+    "Barco": {
+      "icon": barcoIcon.src,
+      "options": [
+        "Existe informação sobre pontualidade e regularidade (Barco)",
+        "Viagens de Barco Realizadas no Horário Programado (%)",
+        "Viagens de Barco Incompletas (%)"
+      ]
+    },
+    "Equipamentos": {
+      "icon": equipamentosIcon.src,
+      "options": [
+        "Equipamentos de Fiscalização"
+      ]
+    },
+    "Metrô": {
+      "icon": tremIcon.src,
+      "options": [
+        "Extensão da malha (metrô)",
+        "Velocidade Média do Metrô (pico)",
+        "Existe informação sobre pontualidade e regularidade (Metrô)",
+        "Viagens de Metrô Realizadas no Horário Programado (%)",
+        "Viagens de Metrô Incompletas (%)"
+      ]
+    },
+    "Metrô/Trem": {
+      "icon": tremIcon.src,
+      "options": [
+        "Número de Metroviárias",
+        "Número de Metroviárias (acessibilidade, def. física)",
+        "Número de Metroviárias (acessibilidade, def. visual)",
+        "Número de Metroviárias com Intregração",
+        "Estações Metroviárias com Itinerários",
+        "Estações Metroviárias com Informações sobre Horários",
+        "Estações Metroviárias com Informações sobre Tarifas",
+        "Estações Metroviárias com Informações sobre Integrações"
+      ]
+    },
+    "Monotrilho": {
+      "icon": monotrilhoIcon.src,
+      "options": [
+        "Extensão da malha (monotrilho)",
+        "Velocidade Média do Monotrilho (pico)",
+        "Existe informação sobre pontualidade e regularidade (Monotrilho)",
+        "Viagens de Monotrilho Realizadas no Horário Programado (%)",
+        "Viagens de Monotrilho Incompletas (%)"
+      ]
+    },
+    "Pedestre": {
+      "icon": pedestreIcon.src,
+      "options": [
+        "Extensão de Vias Exclusivas para Pedestres",
+        "Extensão de Vias Exclusivas Temporárias para Pedestres",
+        "Extensão de Calçadas para Pedestres"
+      ]
+    },
+    "Trabalhadores": {
+      "icon": trabalhadoresIcon.src,
+      "options": [
+        "Agentes de Trânsito em Exercício"
+      ]
+    },
+    "Trem": {
+      "icon": tremIcon.src,
+      "options": [
+        "Extensão da malha (trem)",
+        "Velocidade Média do Trem (pico)",
+        "Existe informação sobre pontualidade e regularidade (Trem)",
+        "Viagens de Trem Realizadas no Horário Programado (%)",
+        "Viagens de Trem Incompletas (%)"
+      ]
+    },
+    "Táxis": {
+      "icon": taxisIcon.src,
+      "options": [
+        "Táxi no Corredor de Ônibus"
+      ]
+    },
+    "VLT": {
+      "icon": vltIcon.src,
+      "options": [
+        "Extensão da malha (VLT)",
+        "Velocidade Média do VLT (pico)",
+        "Existe informação sobre pontualidade e regularidade (VLT)",
+        "Viagens de VLT Realizadas no Horário Programado (%)",
+        "Viagens de VLT Incompletas (%)"
+      ]
+    },
+    "Vans/Microônibus": {
+      "icon": vanIcon.src,
+      "options": [
+        "Existe informação sobre pontualidade e regularidade (Microônibus)",
+        "Viagens de Microônibus Realizadas no Horário Programado (%)",
+        "Viagens de Ônibus Incompletas Microônibus(%)"
+      ]
+    },
+    "Ônibus": {
+      "icon": onibusIcon.src,
+      "options": [
+        "Número de Rodoviárias",
+        "Número de Rodoviárias (acessibilidade, def. física)",
+        "Número de Rodoviárias (acessibilidade, def. visual)",
+        "Número de Rodoviárias com Integração",
+        "Pontos de Embarque/Desembarque (Total)",
+        "Pontos de Embarque com abrigo",
+        "Pontos de Embarque (em nível)",
+        "Pontos de Embarque Georreferenciados",
+        "Velocidade Média do BRT em faixas prioritárias (pico)",
+        "Velocidade Média do Ônibus nos Corredores (pico)",
+        "Velocidade Média do Ônibus nas Faixas Exclusivas (pico)",
+        "Velocidade Média do Transporte Público em Vias Mistas",
+        "Terminais Rodoviários com Itinerários",
+        "Terminais Rodoviários com Informações sobre Horários",
+        "Terminais Rodoviários com Informações sobre Tarifas",
+        "Terminais Rodoviários com Informações sobre Integrações",
+        "Pontos de Embarque com Itinerários",
+        "Pontos de Embarque com Informações sobre Horários",
+        "Pontos de Embarque com Informações sobre Tarifas",
+        "Pontos de Embarque com Informações sobre Integrações",
+        "Existe informação sobre pontualidade e regularidade (Ônibus)",
+        "Viagens de Ônibus Realizadas no Horário Programado (%)",
+        "Viagens de Ônibus Incompletas (%)"
+      ]
+    }
+  },
+  "Outros": {
+    "Governança e Leis": {
+      "icon": bandeiraIcon.src,
+      "options": [
+        "Existe Pesquisa de Satisfação de Usuário",
+        "Plano Diretor",
+        "Ano Plano Diretor",
+        "Lei de Zoneamento ou Uso e Ocupação do Solo",
+        "Contemplado em Plano de Mobilidade Urbana",
+        "Conselho Municipal de Transporte e/ou Mobilidade Urbana"
+      ]
+    },
+    "Origem e Destino": {
+      "icon": viagensIcon.src,
+      "options": [
+        "POD - Número médio de viagens diárias",
+        "POD - Distância média das viagens",
+        "POD - Tempo médio das viagens",
+        "POD - Percentual de viagens a pé",
+        "POD - Percentual de viagens de bicicleta",
+        "POD - Percentual de viagens por transporte público",
+        "POD - Percentual de viagens por automóvel individual",
+        "POD - Percentual de viagens por moto",
+        "POD - Percentual de viagens por táxi ou carro de aplicativo",
+        "POD - Percentual de viagens por outros modais"
+      ]
+    }
+  },
+  "Receita": {
+    "Aeromóvel": {
+      "icon": aeromovelIcon.src,
+      "options": [
+        "Receita Tarifária (Aeromóvel)",
+        "Subsídios a Passageiros (Aeromóvel)",
+        "Subsídios ao Sistema (Aeromóvel)",
+        "Receita Extratarifária com Publicidade (Aeromóvel)",
+        "Receita Extratarifária de Outras Fontes (Aeromóvel)"
+      ]
+    },
+    "Barco": {
+      "icon": barcoIcon.src,
+      "options": [
+        "Receita Tarifária (Barco)",
+        "Subsídios a Passageiros (Barco)",
+        "Subsídios ao Sistema (Barco)",
+        "Receita Extratarifária com Publicidade (Barco)",
+        "Receita Extratarifária de Outras Fontes (Barco)"
+      ]
+    },
+    "Metrô": {
+      "icon": tremIcon.src,
+      "options": [
+        "Receita Tarifária (Metrô)",
+        "Subsídios a Passageiros (Metrô)",
+        "Subsídios ao Sistema (Metrô)",
+        "Receita Extratarifária com Publicidade (Metrô)",
+        "Receita Extratarifária de Outras Fontes (Metrô)"
+      ]
+    },
+    "Monotrilho": {
+      "icon": monotrilhoIcon.src,
+      "options": [
+        "Receita Tarifária (Monotrilho)",
+        "Subsídios a Passageiros (Monotrilho)",
+        "Subsídios ao Sistema (Monotrilho)",
+        "Receita Extratarifária com Publicidade (Monotrilho)",
+        "Receita Extratarifária de Outras Fontes (Monotrilho)"
+      ]
+    },
+    "Trem": {
+      "icon": tremIcon.src,
+      "options": [
+        "Receita Tarifária (Trem)",
+        "Subsídios a Passageiros (Trem)",
+        "Subsídios ao Sistema (Trem)",
+        "Receita Extratarifária com Publicidade (Trem)",
+        "Receita Extratarifária de Outras Fontes (Trem)"
+      ]
+    },
+    "VLT": {
+      "icon": vltIcon.src,
+      "options": [
+        "Receita Tarifária (VLT)",
+        "Subsídios a Passageiros (VLT)",
+        "Subsídios ao Sistema (VLT)",
+        "Receita Extratarifária com Publicidade (VLT)",
+        "Receita Extratarifária de Outras Fontes (VLT)"
+      ]
+    },
+    "Vans/Microônibus": {
+      "icon": vanIcon.src,
+      "options": [
+        "Receita Tarifária (Vans/Microônibus)",
+        "Subsídios a Passageiros (Vans/Microônibus)",
+        "Subsídios ao Sistema (Vans/Microônibus)",
+        "Receita Extratarifária com Publicidade (Vans/Microônibus)",
+        "Receita Extratarifária de Outras Fontes (Vans/Microônibus)"
+      ]
+    },
+    "Ônibus": {
+      "icon": onibusIcon.src,
+      "options": [
+        "Receita Tarifária (Ônibus)",
+        "Subsídios a Passageiros (Ônibus)",
+        "Subsídios ao Sistema (Ônibus)",
+        "Receita Extratarifária com Publicidade (Ônibus)",
+        "Receita Extratarifária de Outras Fontes (Ônibus)"
+      ]
+    }
+  },
+  "Tarifas": {
+    "Mototáxis": {
+      "icon": mototaxisIcon.src,
+      "options": [
+        "Táxi - Valor da Bandeirada",
+        "Táxi - Valor da Bandeirada 1",
+        "Táxi - Valor da Bandeirada 2",
+        "Táxi - Valor Hora Parada",
+        "Táxi - Valor Tarifa Aeroporto"
+      ]
+    },
+    "Subsídios": {
+      "icon": subsidiosIcon.src,
+      "options": [
+        "Baixa Renda - Percentual de Desconto",
+        "Idosos - Tarifa Paga",
+        "Deficientes - Tarifa Paga",
+        "Estudantes de Rede Pública - Percentual de Desconto",
+        "Estudantes de Rede Privada - Percentual de Desconto"
+      ]
+    },
+    "Táxis": {
+      "icon": taxisIcon.src,
+      "options": [
+        "Táxi - Valor da Bandeirada",
+        "Táxi - Valor da Bandeirada 1",
+        "Táxi - Valor da Bandeirada 2",
+        "Táxi - Valor Hora Parada",
+        "Táxi - Valor Tarifa Aeroporto"
+      ]
+    },
+    "Valores": {
+      "icon": valoresIcon.src,
+      "options": [
+        "Valor da Tarifa",
+        "Valor Anterior da Tarifa"
       ]
     }
   }
-} 
+}
