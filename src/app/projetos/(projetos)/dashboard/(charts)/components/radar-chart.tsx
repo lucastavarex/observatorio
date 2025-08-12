@@ -89,16 +89,8 @@ export function ChartRadarMultiple({ selectedCities, selectedVariables }: RadarC
       })
     })
     
-    // Aggressive zoom levels for very small percentages
-    if (max <= 2) return 5       // Ultra zoom: 0-5% scale
-    if (max <= 5) return 10      // High zoom: 0-10% scale  
-    if (max <= 8) return 12      // Medium-high zoom: 0-12% scale
-    if (max <= 12) return 15     // Medium zoom: 0-15% scale
-    if (max <= 18) return 20     // Low-medium zoom: 0-20% scale
-    if (max <= 25) return 30     // Low zoom: 0-30% scale
-    if (max <= 40) return 50     // Minimal zoom: 0-50% scale
-    if (max <= 70) return 80     // Slight zoom: 0-80% scale
-    return 100                   // Full scale: 0-100%
+    // Use the actual maximum value as the scale top
+    return Math.ceil(max)
   }, [chartData, selectedCities])
 
   // Dynamic tick count based on scale
@@ -173,7 +165,7 @@ export function ChartRadarMultiple({ selectedCities, selectedVariables }: RadarC
       <div className="flex flex-col items-start mt-4 gap-2 text-sm flex-shrink-0">
         {/* Scale indicator */}
         <div className="text-xs text-gray-500 mb-1 font-medium">
-          Escala: 0-{maxValue}% {maxValue < 100 && "(zoom ativado)"}
+          Escala: 0-{maxValue.toFixed(1)}%
         </div>
         
         {selectedCities.slice(0, 5).map((city, index) => (
