@@ -24,7 +24,8 @@ export function useDashboardData(selectedFilter: string) {
       id: item.codigo || `${item.municipio}-${index}`,
       municipio: item.municipio,
       unidadeFederativa: item.uf,
-      valor: item.valor
+      valor: item.valor,
+      pergunta: item.pergunta
     }))
   }, [selectedFilter])
 

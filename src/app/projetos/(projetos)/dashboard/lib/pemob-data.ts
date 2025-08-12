@@ -107,6 +107,7 @@ export function getTableData(variableName: string): Array<{
   uf: string
   valor: number | null
   codigo: string
+  pergunta: string
 }> {
   return pemobData
     .map(city => {
@@ -115,7 +116,8 @@ export function getTableData(variableName: string): Array<{
         municipio: city.Município,
         uf: city.UF,
         valor: dataItem?.valor || null,
-        codigo: String(city.CÓDIGO) // Convert to string to match return type
+        codigo: String(city.CÓDIGO), // Convert to string to match return type
+        pergunta: dataItem?.pergunta || ""
       }
     })
     .sort((a, b) => a.municipio.localeCompare(b.municipio, 'pt-BR'))

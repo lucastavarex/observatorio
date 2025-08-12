@@ -4,6 +4,7 @@ export interface TransportData {
   municipio: string
   unidadeFederativa: string
   valor: number | string | null // Allow null values
+  pergunta?: string // Add question field for tooltip
 }
 
 // PEMOB (Pesquisa Nacional de Mobilidade Urbana) data structure - Updated for new format
@@ -55,6 +56,15 @@ export interface TableState {
   }[]
   columnVisibility: Record<string, boolean>
   globalFilter: string
+}
+
+// Table data structure for PEMOB dashboard
+export interface TableDataItem {
+  municipio: string
+  uf: string
+  valor: number | null
+  codigo: string
+  pergunta: string
 }
 
 // Municipality data for mock generation

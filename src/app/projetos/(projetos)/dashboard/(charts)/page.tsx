@@ -23,12 +23,13 @@ export default function ChartsPage() {
   const selectedYear = availableYears[selectedYearIndex[0]]
   
   // Start with some default selections to match the images
-  const [selectedCities, setSelectedCities] = React.useState<string[]>(["Anápolis", "Belo Horizonte"])
+  const [selectedCities, setSelectedCities] = React.useState<string[]>(["Anápolis", "Aparecida de Goiânia", "Aracaju","Barueri","Belo Horizonte"])
   const [selectedVariables, setSelectedVariables] = React.useState<string[]>([
     "Agentes de Trânsito em Exercício",
-    "Arrecadação anual com Multas de Trânsito",
-    "Capacidade Média da Frota (composição) de VLT", 
-    "Capacidade Média da Frota de Ônibus Convencional"
+    "Ano Plano Diretor",
+    "Barcos (capacidade média)", 
+    "Equipamentos de Fiscalização",
+    "Estações Metroviárias com Informações sobre Horários"
   ])
   const [globalFilter, setGlobalFilter] = React.useState<string>("")
   
