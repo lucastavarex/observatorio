@@ -11,7 +11,7 @@ const cspHeader = `
     style-src 'self' 'unsafe-inline';
     img-src 'self' blob: data:;
     font-src 'self' data: https://storage.googleapis.com;
-    media-src 'self' data: blob:;
+    media-src 'self' data: blob: https://*.cloudinary.com;
     object-src 'none';
     base-uri 'self';
     form-action 'self';
