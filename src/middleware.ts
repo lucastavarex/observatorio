@@ -51,9 +51,29 @@ export function middleware(request: NextRequest) {
       headers: requestHeaders,
     },
   })
+  
+  // Set security headers
   response.headers.set(
     'Content-Security-Policy',
     contentSecurityPolicyHeaderValue
+  )
+  
+  // X-Content-Type-Options: nosniff - Prevents MIME type sniffing
+  response.headers.set('X-Content-Type-Options', 'nosniff')
+  
+  // X-Frame-Options: DENY - Prevents clickjacking attacks
+  response.headers.set('X-Frame-Options', 'DENY')
+  
+  // X-XSS-Protection: 1; mode=block - Enables XSS protection
+  response.headers.set('X-XSS-Protection', '1; mode=block')
+  
+  // Referrer-Policy: strict-origin-when-cross-origin - Controls referrer information
+  response.headers.set('Referrer-Policy', 'strict-origin-when-cross-origin')
+  
+  // Permissions-Policy - Restricts browser features
+  response.headers.set(
+    'Permissions-Policy',
+    'camera=(), microphone=(), geolocation=(), payment=()'
   )
  
   return response
