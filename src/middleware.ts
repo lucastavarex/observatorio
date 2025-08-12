@@ -1,9 +1,29 @@
 import { NextRequest, NextResponse } from 'next/server'
  
 export function middleware(request: NextRequest) {
+   // Generate nonce for CSP
+  const nonce = Buffer.from(crypto.randomUUID()).toString('base64')
+
+  // Define CSP header with nonce support
+  const isDevelopment = process.env.NODE_ENV === 'development'
+
+  // SHA256 hashes for inline scripts
+  const scriptHashes = [
+    'sha256-UnthrFpGFotkvMOTp/ghVMSXoZZj9Y6epaMsaBAbUtg=',
+    'sha256-TtbCxulSBIRcXKJGEUTNzReCryzD01lKLU4IQV8Ips0=',
+    'sha256-QaDv8TLjywIM3mKcA73bK0btmqNpUfcuwzqZ4U9KTsk=',
+  ]
+
+  const scriptSrcDirectives = [
+    "'self'",
+    `'nonce-${nonce}'`,
+    "'strict-dynamic'",
+    ...scriptHashes.map(hash => `'${hash}'`),
+    ...(isDevelopment ? ["'unsafe-eval'"] : []),
+  ]
   const cspHeader = `
     default-src 'self';
-    script-src 'self' 'unsafe-eval' 'unsafe-inline';
+    script-src ${scriptSrcDirectives.join(' ')};
     style-src 'self' 'unsafe-inline';
     img-src 'self' blob: data: https:;
     font-src 'self' data: https:;
