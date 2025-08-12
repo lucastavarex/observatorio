@@ -4,31 +4,10 @@ export function middleware(request: NextRequest) {
    // Generate nonce for CSP
   const nonce = Buffer.from(crypto.randomUUID()).toString('base64')
 
-  // Define CSP header with nonce support
-  const isDevelopment = process.env.NODE_ENV === 'development'
 
-  // SHA256 hashes for inline scripts
-  const scriptHashes = [
-    'sha256-OBTN3RiyCV4Bq7dFqZ5a2pAXjnCcCYeTJMO2I/LYKeo=',
-    'sha256-sGVtHVp00IulNv14EJIaormesFIV+oWwKEy/uXWWb9Q=',
-    'sha256-uI5bP4of1vtd24ZrmHn3HiSZYGBdwy9yZXU3bLVhHks=',
-    'sha256-8NxxGXxir9pjY1tgobEanFuJ/nW5tfGtLxLWJWjuN6A=',
-    'sha256-DsoVc5FBtiFzFVprMLb7k3gKy0FYX7fMwSef2XeymCM=',
-    'sha256-ODF6w7yglqORN/KuIsl8BOyE2dZmkkqHyScTUYU7+n8=',
-    'sha256-j/DJh3tOOqC3mvlAkpSW3QcbR98SsBBK+LOw+3i9+rw=',
-    'sha256-PrF8T1YM+nxIGGv2T95j1595SvPg9L52nyO9QeN6AVo='
-  ]
-
-  const scriptSrcDirectives = [
-    "'self'",
-    `'nonce-${nonce}'`,
-    "'strict-dynamic'",
-    ...scriptHashes.map(hash => `'${hash}'`),
-    ...(isDevelopment ? ["'unsafe-eval'"] : []),
-  ]
-  const cspHeader = `
+const cspHeader = `
     default-src 'self';
-    script-src ${scriptSrcDirectives.join(' ')};
+    script-src 'self' 'unsafe-inline';
     style-src 'self' 'unsafe-inline';
     img-src 'self' blob: data: https:;
     font-src 'self' data: https:;
