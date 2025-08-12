@@ -6,12 +6,18 @@ export interface TransportData {
   valor: number | string | null // Allow null values
 }
 
-// PEMOB (Pesquisa Nacional de Mobilidade Urbana) data structure
+// PEMOB (Pesquisa Nacional de Mobilidade Urbana) data structure - Updated for new format
+export interface PEMOBDataItem {
+  label: string
+  valor: number | null
+  pergunta: string
+}
+
 export interface PEMOBCityData {
-  "CÓDIGO": string
+  "CÓDIGO": string | number
   "UF": string
   "Município": string
-  [key: string]: string | number | null // All transportation variables
+  "data": PEMOBDataItem[]
 }
 
 // Processed PEMOB data for the dashboard

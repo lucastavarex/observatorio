@@ -1,4 +1,4 @@
-import { variaveis as pemobRawData } from "./data/pemob-raw"
+import { variaveis as pemobRawData } from "./data/pemob-raw-new"
 import type { DashboardData, PEMOBCityData } from "./types"
 
 // Use the imported data directly
@@ -23,30 +23,41 @@ export function getCityData(cityName: string): PEMOBCityData | undefined {
 // Get data for a specific variable across all cities
 export function getVariableData(variableName: string): DashboardData[] {
   return pemobData
-    .map(city => ({
-      codigo: city.CÓDIGO,
-      municipio: city.Município,
-      uf: city.UF,
-      variavel: variableName,
-      valor: typeof city[variableName] === 'number' ? city[variableName] as number : null
-    }))
+    .map(city => {
+      const dataItem = city.data.find(item => item.label === variableName)
+      return {
+        codigo: String(city.CÓDIGO), // Convert to string to match DashboardData type
+        municipio: city.Município,
+        uf: city.UF,
+        variavel: variableName,
+        valor: dataItem?.valor || null
+      }
+    })
     .filter(item => item.valor !== null) // Only return cities with data for this variable
 }
 
-// Get all available variables (column names excluding ID fields)
+// Get all available variables (labels from the data array)
 export function getAvailableVariables(): string[] {
   if (pemobData.length === 0) return []
   
-  const excludeFields = ['CÓDIGO', 'UF', 'Município']
-  return Object.keys(pemobData[0])
-    .filter(key => !excludeFields.includes(key))
-    .sort()
+  // Get all unique labels from the data arrays
+  const allLabels = new Set<string>()
+  pemobData.forEach(city => {
+    city.data.forEach(item => {
+      allLabels.add(item.label)
+    })
+  })
+  
+  return Array.from(allLabels).sort()
 }
 
 // Get cities with data for a specific variable
 export function getCitiesWithData(variableName: string): string[] {
   return pemobData
-    .filter(city => city[variableName] !== null && city[variableName] !== undefined)
+    .filter(city => {
+      const dataItem = city.data.find(item => item.label === variableName)
+      return dataItem && dataItem.valor !== null && dataItem.valor !== undefined
+    })
     .map(city => city.Município)
     .sort()
 }
@@ -59,7 +70,10 @@ export function getVariableStats(variableName: string): {
   count: number
 } | null {
   const values = pemobData
-    .map(city => city[variableName])
+    .map(city => {
+      const dataItem = city.data.find(item => item.label === variableName)
+      return dataItem?.valor
+    })
     .filter((value): value is number => typeof value === 'number' && value !== null)
 
   if (values.length === 0) return null
@@ -95,12 +109,15 @@ export function getTableData(variableName: string): Array<{
   codigo: string
 }> {
   return pemobData
-    .map(city => ({
-      municipio: city.Município,
-      uf: city.UF,
-      valor: typeof city[variableName] === 'number' ? city[variableName] as number : null,
-      codigo: city.CÓDIGO
-    }))
+    .map(city => {
+      const dataItem = city.data.find(item => item.label === variableName)
+      return {
+        municipio: city.Município,
+        uf: city.UF,
+        valor: dataItem?.valor || null,
+        codigo: String(city.CÓDIGO) // Convert to string to match return type
+      }
+    })
     .sort((a, b) => a.municipio.localeCompare(b.municipio, 'pt-BR'))
 }
 
@@ -128,8 +145,8 @@ export function getCityVariableFillPercentage(cityName: string): number {
   if (availableVariables.length === 0) return 0
 
   const filledVariables = availableVariables.filter(variable => {
-    const value = cityData[variable]
-    return value !== null && value !== undefined && value !== 0
+    const dataItem = cityData.data.find(item => item.label === variable)
+    return dataItem && dataItem.valor !== null && dataItem.valor !== undefined && dataItem.valor !== 0
   })
 
   return Math.round((filledVariables.length / availableVariables.length) * 100)
@@ -140,8 +157,8 @@ export function getVariableCityFillPercentage(variableName: string): number {
   if (pemobData.length === 0) return 0
 
   const citiesWithData = pemobData.filter(city => {
-    const value = city[variableName]
-    return value !== null && value !== undefined && value !== 0
+    const dataItem = city.data.find(item => item.label === variableName)
+    return dataItem && dataItem.valor !== null && dataItem.valor !== undefined && dataItem.valor !== 0
   })
 
   return Math.round((citiesWithData.length / pemobData.length) * 100)

@@ -9,7 +9,7 @@ import { useDashboardData } from "../dashboard/hooks/use-dashboard-data"
 
 
 export default function DashboardContent() {
-  const [selectedFilter, setSelectedFilter] = React.useState<string>("Terminais Rodoviários")
+  const [selectedFilter, setSelectedFilter] = React.useState<string>("Valor Arrecadado com Multas de Trânsito")
   const [globalFilter, setGlobalFilter] = React.useState<string>("")
   const { data, stats, isLoading } = useDashboardData(selectedFilter)
 
