@@ -9,9 +9,13 @@ export function middleware(request: NextRequest) {
 
   // SHA256 hashes for inline scripts
   const scriptHashes = [
-    'sha256-UnthrFpGFotkvMOTp/ghVMSXoZZj9Y6epaMsaBAbUtg=',
-    'sha256-TtbCxulSBIRcXKJGEUTNzReCryzD01lKLU4IQV8Ips0=',
-    'sha256-QaDv8TLjywIM3mKcA73bK0btmqNpUfcuwzqZ4U9KTsk=',
+    'sha256-OBTN3RiyCV4Bq7dFqZ5a2pAXjnCcCYeTJMO2I/LYKeo=',
+    'sha256-sGVtHVp00IulNv14EJIaormesFIV+oWwKEy/uXWWb9Q=',
+    'sha256-uI5bP4of1vtd24ZrmHn3HiSZYGBdwy9yZXU3bLVhHks=',
+    'sha256-8NxxGXxir9pjY1tgobEanFuJ/nW5tfGtLxLWJWjuN6A=',
+    'sha256-DsoVc5FBtiFzFVprMLb7k3gKy0FYX7fMwSef2XeymCM=',
+    'sha256-ODF6w7yglqORN/KuIsl8BOyE2dZmkkqHyScTUYU7+n8=',
+    'sha256-j/DJh3tOOqC3mvlAkpSW3QcbR98SsBBK+LOw+3i9+rw='
   ]
 
   const scriptSrcDirectives = [
@@ -40,7 +44,7 @@ export function middleware(request: NextRequest) {
     .trim()
  
   const requestHeaders = new Headers(request.headers)
- 
+ requestHeaders.set('x-nonce', nonce)
   requestHeaders.set(
     'Content-Security-Policy',
     contentSecurityPolicyHeaderValue
