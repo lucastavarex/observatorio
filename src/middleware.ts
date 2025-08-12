@@ -15,7 +15,8 @@ export function middleware(request: NextRequest) {
     'sha256-8NxxGXxir9pjY1tgobEanFuJ/nW5tfGtLxLWJWjuN6A=',
     'sha256-DsoVc5FBtiFzFVprMLb7k3gKy0FYX7fMwSef2XeymCM=',
     'sha256-ODF6w7yglqORN/KuIsl8BOyE2dZmkkqHyScTUYU7+n8=',
-    'sha256-j/DJh3tOOqC3mvlAkpSW3QcbR98SsBBK+LOw+3i9+rw='
+    'sha256-j/DJh3tOOqC3mvlAkpSW3QcbR98SsBBK+LOw+3i9+rw=',
+    'sha256-PrF8T1YM+nxIGGv2T95j1595SvPg9L52nyO9QeN6AVo='
   ]
 
   const scriptSrcDirectives = [
