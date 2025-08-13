@@ -1,7 +1,6 @@
 import { Button } from "@/components/ui/button"
-import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip"
 import { ColumnDef } from "@tanstack/react-table"
-import { ArrowUpDown, Info } from "lucide-react"
+import { ArrowUpDown } from "lucide-react"
 import { TransportData } from "./types"
 
 export function createColumns(selectedFilter: string, question?: string): ColumnDef<TransportData>[] {
@@ -44,16 +43,6 @@ export function createColumns(selectedFilter: string, question?: string): Column
         return (
           <div className="flex items-center gap-2">
             <span>{selectedFilter}</span>
-            {question && (
-              <Tooltip>
-                <TooltipTrigger asChild>
-                  <Info className="h-4 w-4 text-muted-foreground cursor-help" />
-                </TooltipTrigger>
-                <TooltipContent className="max-w-xs">
-                  <span className="text-sm">{question}</span>
-                </TooltipContent>
-              </Tooltip>
-            )}
           </div>
         )
       },
