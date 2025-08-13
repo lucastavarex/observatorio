@@ -15,20 +15,21 @@ type ChartType = "radar" | "distribuicao" | "evolucao"
 
 export default function ChartsPage() {
   // Chart type selection
-  const [selectedChartType, setSelectedChartType] = React.useState<ChartType>("distribuicao")
+  const [selectedChartType, setSelectedChartType] = React.useState<ChartType>("radar")
   
   // Year selection
   const availableYears = [2019, 2020, 2021, 2022, 2023, 2024]
-  const [selectedYearIndex, setSelectedYearIndex] = React.useState<number[]>([3]) // Default to 2023 (index 3)
+  const [selectedYearIndex, setSelectedYearIndex] = React.useState<number[]>([4]) // Default to 2023 (index 3)
   const selectedYear = availableYears[selectedYearIndex[0]]
   
   // Start with some default selections to match the images
   const [selectedCities, setSelectedCities] = React.useState<string[]>(["Anápolis", "Aparecida de Goiânia", "Aracaju","Barueri","Belo Horizonte"])
   const [selectedVariables, setSelectedVariables] = React.useState<string[]>([
-    "Frota de Veículos Escolares",
     "Valor da Tarifa",
+    "Estudantes de Rede Pública - Percentual de Desconto",
     "Frota de Táxis",
     "Agentes de Trânsito em Exercício",
+   
     "Percentual de Vagas de Estacionamento para Deficientes"
   ])
   const [globalFilter, setGlobalFilter] = React.useState<string>("")
