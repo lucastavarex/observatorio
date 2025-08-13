@@ -39,16 +39,28 @@ export function getPEMOBCities(year?: number): string[] {
 
 // Get data for a specific city for a specific year
 export function getCityData(cityName: string, year?: number): PEMOBCityData | undefined {
+  // Validate input
+  if (!cityName || typeof cityName !== 'string' || cityName.trim() === '') {
+    return undefined
+  }
+  
   const data = year ? getPEMOBDataByYear(year) : pemobData
   return data.find(city => city.Município === cityName)
 }
 
 // Get data for a specific variable across all cities for a specific year
 export function getVariableData(variableName: string, year?: number): DashboardData[] {
+  // Validate input
+  if (!variableName || typeof variableName !== 'string' || variableName.trim() === '') {
+    return []
+  }
+  
   const data = year ? getPEMOBDataByYear(year) : pemobData
   return data
     .map(city => {
-      const dataItem = city.data.find(item => item.label === variableName)
+      const dataItem = city.data.find(item => 
+        item.label === variableName && item.is_dashboard === true
+      )
       return {
         codigo: String(city.CÓDIGO), // Convert to string to match DashboardData type
         municipio: city.Município,
@@ -65,11 +77,14 @@ export function getAvailableVariables(year?: number): string[] {
   const data = year ? getPEMOBDataByYear(year) : pemobData
   if (data.length === 0) return []
   
-  // Get all unique labels from the data arrays
+  // Get all unique labels from the data arrays, but only those with is_dashboard: true
   const allLabels = new Set<string>()
   data.forEach(city => {
     city.data.forEach(item => {
-      allLabels.add(item.label)
+      // Only include variables that are marked for dashboard display and have valid labels
+      if (item.is_dashboard === true && item.label && typeof item.label === 'string' && item.label.trim() !== '') {
+        allLabels.add(item.label.trim())
+      }
     })
   })
   
@@ -78,10 +93,17 @@ export function getAvailableVariables(year?: number): string[] {
 
 // Get cities with data for a specific variable for a specific year
 export function getCitiesWithData(variableName: string, year?: number): string[] {
+  // Validate input
+  if (!variableName || typeof variableName !== 'string' || variableName.trim() === '') {
+    return []
+  }
+  
   const data = year ? getPEMOBDataByYear(year) : pemobData
   return data
     .filter(city => {
-      const dataItem = city.data.find(item => item.label === variableName)
+      const dataItem = city.data.find(item => 
+        item.label === variableName && item.is_dashboard === true
+      )
       return dataItem && dataItem.value !== null && dataItem.value !== undefined
     })
     .map(city => city.Município)
@@ -95,10 +117,17 @@ export function getVariableStats(variableName: string, year?: number): {
   mean: number
   count: number
 } | null {
+  // Validate input
+  if (!variableName || typeof variableName !== 'string' || variableName.trim() === '') {
+    return null
+  }
+  
   const data = year ? getPEMOBDataByYear(year) : pemobData
   const values = data
     .map(city => {
-      const dataItem = city.data.find(item => item.label === variableName)
+      const dataItem = city.data.find(item => 
+        item.label === variableName && item.is_dashboard === true
+      )
       return dataItem?.value
     })
     .filter((value): value is number => typeof value === 'number' && value !== null)
@@ -137,9 +166,16 @@ export function getTableData(variableName: string): Array<{
   codigo: string
   label_pergunta: string
 }> {
+  // Validate input
+  if (!variableName || typeof variableName !== 'string' || variableName.trim() === '') {
+    return []
+  }
+  
   return pemobDataTable
     .map(city => {
-      const dataItem = city.data.find(item => item.label === variableName)
+      const dataItem = city.data.find(item => 
+        item.label === variableName && item.is_dashboard === true
+      )
       return {
         municipio: city.Município,
         uf: city.UF,
@@ -169,6 +205,11 @@ export function getTotalCities(year?: number): number {
 
 // NEW: Get percentage of variables filled by a specific city for a specific year
 export function getCityVariableFillPercentage(cityName: string, year?: number): number {
+  // Validate input
+  if (!cityName || typeof cityName !== 'string' || cityName.trim() === '') {
+    return 0
+  }
+  
   const cityData = getCityData(cityName, year)
   if (!cityData) return 0
 
@@ -176,7 +217,9 @@ export function getCityVariableFillPercentage(cityName: string, year?: number): 
   if (availableVariables.length === 0) return 0
 
   const filledVariables = availableVariables.filter(variable => {
-    const dataItem = cityData.data.find(item => item.label === variable)
+    const dataItem = cityData.data.find(item => 
+      item.label === variable && item.is_dashboard === true
+    )
     return dataItem && dataItem.value !== null && dataItem.value !== undefined && dataItem.value !== 0
   })
 
@@ -185,11 +228,18 @@ export function getCityVariableFillPercentage(cityName: string, year?: number): 
 
 // NEW: Get percentage of cities that filled a specific variable for a specific year
 export function getVariableCityFillPercentage(variableName: string, year?: number): number {
+  // Validate input
+  if (!variableName || typeof variableName !== 'string' || variableName.trim() === '') {
+    return 0
+  }
+  
   const data = year ? getPEMOBDataByYear(year) : pemobData
   if (data.length === 0) return 0
 
   const citiesWithData = data.filter(city => {
-    const dataItem = city.data.find(item => item.label === variableName)
+    const dataItem = city.data.find(item => 
+      item.label === variableName && item.is_dashboard === true
+    )
     return dataItem && dataItem.value !== null && dataItem.value !== undefined && dataItem.value !== 0
   })
 

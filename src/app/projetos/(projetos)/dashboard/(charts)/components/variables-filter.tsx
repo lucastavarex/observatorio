@@ -19,16 +19,22 @@ export function VariablesFilter({ selectedVariables, onVariablesChange, year }: 
   // Load variables data
   React.useEffect(() => {
     const variables = getAvailableVariables(year)
-    setAvailableVariables(variables)
+    // Filter out any null, undefined, or non-string values
+    const validVariables = variables.filter(variable => 
+      variable && typeof variable === 'string' && variable.trim() !== ''
+    )
+    setAvailableVariables(validVariables)
   }, [year])
 
   // Filter variables based on search
   const filteredVariables = React.useMemo(() => {
-    if (!searchFilter.trim()) return availableVariables
+    if (!searchFilter || typeof searchFilter !== 'string' || !searchFilter.trim()) {
+      return availableVariables
+    }
     
     const searchTerm = searchFilter.toLowerCase().trim()
     return availableVariables.filter(variable =>
-      variable.toLowerCase().includes(searchTerm)
+      variable && typeof variable === 'string' && variable.toLowerCase().includes(searchTerm)
     )
   }, [searchFilter, availableVariables])
 
@@ -72,6 +78,12 @@ export function VariablesFilter({ selectedVariables, onVariablesChange, year }: 
             </div>
           ) : (
             filteredVariables.map((variable, index) => {
+              // Skip invalid variables
+              if (!variable || typeof variable !== 'string') {
+                return null
+              }
+              
+              // Ensure variable is valid before calling getVariableCityFillPercentage
               const fillPercentage = getVariableCityFillPercentage(variable, year)
               const isSelected = selectedVariables.includes(variable)
               const isAtMinimum = isSelected && selectedVariables.length === 3
