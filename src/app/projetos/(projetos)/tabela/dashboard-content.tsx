@@ -140,7 +140,7 @@ export default function DashboardContent() {
 
                 <div className="space-y-2">
                   <label className="text-sm font-medium text-gray-500">Anos</label>
-                  <p className="text-sm font-semibold text-gray-900">{availableYears.join(", ")}</p>
+                  <p className="text-sm font-semibold text-gray-900">{availableYears.length > 0 ? availableYears.join(", ") : "-"}</p>
                 </div>
 
                 <div className="space-y-2">
