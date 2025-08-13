@@ -114,25 +114,25 @@ export default function ChartsPage() {
                 
                 <div className="flex flex-col items-end gap-4 w-full sm:w-auto">
                   {/* Chart Type Buttons */}
-                  <div className="flex gap-2 pb-8">
+                  <div className="flex flex-col sm:flex-row gap-2 pb-8 w-full">
                     <Button
                       variant={selectedChartType === "radar" ? "default" : "secondary"}
                       onClick={() => setSelectedChartType("radar")}
-                      className={`px-6 ${selectedChartType === "radar" ? "bg-primary hover:bg-primary/90 cursor-pointer" : "hover:bg-primary hover:text-primary-foreground cursor-pointer"}`}
+                      className={`px-6 w-full sm:w-auto ${selectedChartType === "radar" ? "bg-primary hover:bg-primary/90 cursor-pointer" : "hover:bg-primary hover:text-primary-foreground cursor-pointer"}`}
                     >
                       Radar
                     </Button>
                     <Button
                       variant={selectedChartType === "distribuicao" ? "default" : "secondary"}
                       onClick={() => setSelectedChartType("distribuicao")}
-                      className={`px-6 ${selectedChartType === "distribuicao" ? "bg-primary hover:bg-primary/90 cursor-pointer" : "hover:bg-primary hover:text-primary-foreground cursor-pointer"}`}
+                      className={`px-6 w-full sm:w-auto ${selectedChartType === "distribuicao" ? "bg-primary hover:bg-primary/90 cursor-pointer" : "hover:bg-primary hover:text-primary-foreground cursor-pointer"}`}
                     >
                       Distribuição
                     </Button>
                     <Button
                       variant={selectedChartType === "evolucao" ? "default" : "secondary"}
                       onClick={() => setSelectedChartType("evolucao")}
-                      className={`px-6 ${selectedChartType === "evolucao" ? "bg-primary hover:bg-primary/90 cursor-pointer" : "hover:bg-primary hover:text-primary-foreground cursor-pointer"}`}
+                      className={`px-6 w-full sm:w-auto ${selectedChartType === "evolucao" ? "bg-primary hover:bg-primary/90 cursor-pointer" : "hover:bg-primary hover:text-primary-foreground cursor-pointer"}`}
                     >
                       Evolução
                     </Button>
