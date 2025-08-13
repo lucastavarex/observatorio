@@ -139,7 +139,9 @@ export default function ChartsPage() {
                   </div>
 
                   {/* Year Slider */}
-                  <div className="w-full relative">
+                  <div className={`w-full relative transition-opacity duration-300 ${
+                    selectedChartType === "evolucao" ? "opacity-0 pointer-events-none" : "opacity-100"
+                  }`}>
                     <Slider
                       value={selectedYearIndex}
                       onValueChange={setSelectedYearIndex}

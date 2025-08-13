@@ -1,5 +1,8 @@
 "use client"
 
+import React from "react"
+import { CartesianGrid, Legend, Line, LineChart, ResponsiveContainer, Tooltip, XAxis, YAxis } from "recharts"
+import { getVariableData } from "../../lib/pemob-data"
 
 interface EvolucaoChartProps {
   selectedCities: string[]
@@ -7,19 +10,157 @@ interface EvolucaoChartProps {
   year?: number
 }
 
-export function EvolucaoChart({ selectedCities, selectedVariables, year }: EvolucaoChartProps) {
-  return (
-    <div className="w-full h-full flex flex-col items-center justify-center">
-      <div className="text-center">
-        <h3 className="text-2xl font-semibold mb-4 text-gray-700">Gráfico de Evolução</h3>
-        <div className="bg-gray-100 rounded-lg p-8 mb-4">
-          <div className="w-64 h-32 border-2 border-dashed border-gray-400 rounded-lg flex items-center justify-center">
-            <span className="text-gray-500 text-sm">Line Chart Evolution</span>
-          </div>
+interface ChartDataPoint {
+  year: string
+  [city: string]: string | number
+}
+
+interface CustomTooltipProps {
+  active?: boolean
+  payload?: Array<{
+    dataKey: string
+    value: number
+    color: string
+    payload: ChartDataPoint
+  }>
+  label?: string
+}
+
+function CustomTooltip({ active, payload, label }: CustomTooltipProps) {
+  if (active && payload && payload.length) {
+    return (
+      <div className="bg-white p-3 border border-gray-200 rounded-lg shadow-lg">
+        <p className="font-semibold mb-2">Ano: {label}</p>
+        <div className="space-y-1">
+          {payload.map((entry, index) => (
+            <p key={index} className="text-sm" style={{ color: entry.color }}>
+              <span className="font-medium">{entry.dataKey}:</span> {entry.value?.toLocaleString('pt-BR') || 'N/A'}
+            </p>
+          ))}
         </div>
-        <p className="text-gray-600 mb-2">Cidades selecionadas: {selectedCities.length}</p>
-        <p className="text-gray-600">Variáveis selecionadas: {selectedVariables.length}</p>
-        <p className="text-sm text-gray-500 mt-4">Em desenvolvimento...</p>
+      </div>
+    )
+  }
+  return null
+}
+
+function SingleVariableChart({ 
+  variable, 
+  selectedCities, 
+  cityColors
+}: { 
+  variable: string
+  selectedCities: string[]
+  cityColors: string[]
+}) {
+  const availableYears = [2019, 2020, 2021, 2022, 2023, 2024]
+  
+  const chartData = React.useMemo(() => {
+    // Create data structure for the chart - each year is a data point
+    const data: ChartDataPoint[] = availableYears.map(year => {
+      const dataPoint: ChartDataPoint = { year: year.toString() }
+      
+      // For each city, get the value for this specific variable
+      selectedCities.forEach(city => {
+        const variableData = getVariableData(variable, year)
+        const cityData = variableData.find(item => item.municipio === city)
+        
+        if (cityData && cityData.valor !== null) {
+          dataPoint[city] = cityData.valor
+        } else {
+          dataPoint[city] = 0
+        }
+      })
+      
+      return dataPoint
+    })
+
+    return data
+  }, [variable, selectedCities])
+
+  return (
+    <div className="w-full h-64 mb-6">
+      <h3 className="text-lg font-semibold mb-3 text-gray-800 text-center">
+        {variable}
+      </h3>
+      <ResponsiveContainer width="100%" height="100%">
+        <LineChart
+          data={chartData}
+          margin={{
+            top: 10,
+            right: 30,
+            bottom: 20,
+            left: 40,
+          }}
+        >
+          <CartesianGrid strokeDasharray="3 3" opacity={0.3} />
+          <XAxis 
+            dataKey="year" 
+            type="category"
+            tick={{ fontSize: 11 }}
+          />
+          <YAxis 
+            type="number"
+            tick={{ fontSize: 10 }}
+            width={40}
+          />
+          <Tooltip content={<CustomTooltip />} />
+          <Legend />
+          
+          {/* Create a line for each city */}
+          {selectedCities.map((city, index) => (
+            <Line
+              key={city}
+              type="monotone"
+              dataKey={city}
+              stroke={cityColors[index % cityColors.length]}
+              strokeWidth={2}
+              dot={{ r: 3 }}
+              activeDot={{ r: 5 }}
+              name={city}
+            />
+          ))}
+        </LineChart>
+      </ResponsiveContainer>
+    </div>
+  )
+}
+
+export function EvolucaoChart({ selectedCities, selectedVariables, year }: EvolucaoChartProps) {
+  // Generate colors for each city
+  const cityColors = React.useMemo(() => {
+    const colors = ["#ef4444", "#10b981", "#3b82f6", "#f59e0b", "#8b5cf6"] // red, green, blue, yellow, purple
+    return selectedCities.map((_, index) => colors[index % colors.length])
+  }, [selectedCities])
+
+  if (selectedVariables.length === 0) {
+    return (
+      <div className="flex items-center justify-center h-full text-gray-500">
+        Selecione pelo menos uma variável para visualizar o gráfico
+      </div>
+    )
+  }
+
+  if (selectedCities.length === 0) {
+    return (
+      <div className="flex items-center justify-center h-full text-gray-500">
+        Selecione pelo menos uma cidade para visualizar o gráfico
+      </div>
+    )
+  }
+
+  return (
+    <div className="w-full h-full flex flex-col">
+      <div className="flex-1 overflow-y-auto">
+        {/* Render one chart for each selected variable */}
+        {selectedVariables.map((variable, index) => (
+          <SingleVariableChart
+            key={variable}
+            variable={variable}
+            selectedCities={selectedCities}
+            cityColors={cityColors}
+          />
+        ))}
       </div>
     </div>
   )
