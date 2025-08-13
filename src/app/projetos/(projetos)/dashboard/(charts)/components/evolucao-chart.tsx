@@ -79,8 +79,8 @@ function SingleVariableChart({
   }, [variable, selectedCities])
 
   return (
-    <div className="w-full h-64 mb-6">
-      <h3 className="text-lg font-semibold mb-3 text-gray-800 text-center">
+    <div className="w-full h-60 mb-10">
+      <h3 className="text-lg font-semibold mb-1 text-gray-800 text-center">
         {variable}
       </h3>
       <ResponsiveContainer width="100%" height="100%">
