@@ -90,7 +90,7 @@ function SingleVariableChart({
             top: 10,
             right: 30,
             bottom: 20,
-            left: 40,
+            left: 10,
           }}
         >
           <CartesianGrid strokeDasharray="3 3" opacity={0.3} />
