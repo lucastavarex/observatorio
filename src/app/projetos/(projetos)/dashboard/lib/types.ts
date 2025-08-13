@@ -10,7 +10,7 @@ export interface TransportData {
 
 // PEMOB (Pesquisa Nacional de Mobilidade Urbana) data structure - Updated for new format
 export interface PEMOBDataItem {
-  label: string
+  label: string | null
   value: number | null
   is_dashboard?: boolean
   label_pergunta: string
