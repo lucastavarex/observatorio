@@ -18,7 +18,7 @@ export default function ChartsPage() {
   const [selectedChartType, setSelectedChartType] = React.useState<ChartType>("distribuicao")
   
   // Year selection
-  const availableYears = [2020, 2021, 2022, 2023, 2024]
+  const availableYears = [2019, 2020, 2021, 2022, 2023, 2024]
   const [selectedYearIndex, setSelectedYearIndex] = React.useState<number[]>([3]) // Default to 2023 (index 3)
   const selectedYear = availableYears[selectedYearIndex[0]]
   
@@ -35,7 +35,7 @@ export default function ChartsPage() {
   
   // For now, use the first selected variable for the dashboard data hook
   const primaryVariable = selectedVariables[0] || "Agentes de Trânsito em Exercício"
-  const { data, stats, isLoading } = useDashboardData(primaryVariable)
+  const { data, stats, isLoading } = useDashboardData(primaryVariable, selectedYear)
 
   // Render the appropriate chart based on selection
   const renderChart = () => {
@@ -53,6 +53,7 @@ export default function ChartsPage() {
           <ChartRadarMultiple
             selectedCities={selectedCities}
             selectedVariables={selectedVariables}
+            year={selectedYear}
           />
         )
       case "evolucao":
@@ -60,6 +61,7 @@ export default function ChartsPage() {
           <EvolucaoChart 
             selectedCities={selectedCities}
             selectedVariables={selectedVariables}
+            year={selectedYear}
           />
         )
       case "distribuicao":
@@ -68,6 +70,7 @@ export default function ChartsPage() {
           <DistributionChart 
             selectedCities={selectedCities}
             selectedVariables={selectedVariables}
+            year={selectedYear}
           />
         )
     }
@@ -85,6 +88,7 @@ export default function ChartsPage() {
               <CitiesFilter 
                 selectedCities={selectedCities}
                 onCitiesChange={setSelectedCities}
+                year={selectedYear}
               />
             </div>
           </div>
@@ -95,6 +99,7 @@ export default function ChartsPage() {
               <VariablesFilter 
                 selectedVariables={selectedVariables}
                 onVariablesChange={setSelectedVariables}
+                year={selectedYear}
               />
             </div>
           </div>

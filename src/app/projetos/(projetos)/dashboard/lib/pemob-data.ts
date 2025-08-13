@@ -1,28 +1,52 @@
-import { variaveis as pemobRawData } from "./data/pemob-raw-new"
+import { variaveis as pemobRawData2019 } from "./data/pemob-2019"
+import { variaveis as pemobRawData2020 } from "./data/pemob-2020"
+import { variaveis as pemobRawData2021 } from "./data/pemob-2021"
+import { variaveis as pemobRawData2022 } from "./data/pemob-2022"
+import { variaveis as pemobRawData2023 } from "./data/pemob-2023"
+import { variaveis as pemobRawData2024 } from "./data/pemob-2024"
 import type { DashboardData, PEMOBCityData } from "./types"
 
-// Use the imported data directly
-const pemobData: PEMOBCityData[] = pemobRawData
+// Data mapping by year
+const pemobDataByYear: Record<number, PEMOBCityData[]> = {
+  2019: pemobRawData2019,
+  2020: pemobRawData2020,
+  2021: pemobRawData2021,
+  2022: pemobRawData2022,
+  2023: pemobRawData2023,
+  2024: pemobRawData2024
+}
+
+// Default data (2024 for charts, 2023 for table)
+const pemobData: PEMOBCityData[] = pemobRawData2024
+const pemobDataTable: PEMOBCityData[] = pemobRawData2023
 const dataInitialized = true
+
+// Get data for a specific year
+export function getPEMOBDataByYear(year: number): PEMOBCityData[] {
+  return pemobDataByYear[year] || pemobDataByYear[2024] // fallback to 2024
+}
 
 // Async function to load data (for compatibility with existing hooks)
 export async function loadPEMOBData(): Promise<PEMOBCityData[]> {
   return pemobData
 }
 
-// Get all cities from PEMOB data
-export function getPEMOBCities(): string[] {
-  return pemobData.map(city => city.Município).sort()
+// Get all cities from PEMOB data for a specific year
+export function getPEMOBCities(year?: number): string[] {
+  const data = year ? getPEMOBDataByYear(year) : pemobData
+  return data.map(city => city.Município).sort()
 }
 
-// Get data for a specific city
-export function getCityData(cityName: string): PEMOBCityData | undefined {
-  return pemobData.find(city => city.Município === cityName)
+// Get data for a specific city for a specific year
+export function getCityData(cityName: string, year?: number): PEMOBCityData | undefined {
+  const data = year ? getPEMOBDataByYear(year) : pemobData
+  return data.find(city => city.Município === cityName)
 }
 
-// Get data for a specific variable across all cities
-export function getVariableData(variableName: string): DashboardData[] {
-  return pemobData
+// Get data for a specific variable across all cities for a specific year
+export function getVariableData(variableName: string, year?: number): DashboardData[] {
+  const data = year ? getPEMOBDataByYear(year) : pemobData
+  return data
     .map(city => {
       const dataItem = city.data.find(item => item.label === variableName)
       return {
@@ -36,13 +60,14 @@ export function getVariableData(variableName: string): DashboardData[] {
     .filter(item => item.valor !== null) // Only return cities with data for this variable
 }
 
-// Get all available variables (labels from the data array)
-export function getAvailableVariables(): string[] {
-  if (pemobData.length === 0) return []
+// Get all available variables (labels from the data array) for a specific year
+export function getAvailableVariables(year?: number): string[] {
+  const data = year ? getPEMOBDataByYear(year) : pemobData
+  if (data.length === 0) return []
   
   // Get all unique labels from the data arrays
   const allLabels = new Set<string>()
-  pemobData.forEach(city => {
+  data.forEach(city => {
     city.data.forEach(item => {
       allLabels.add(item.label)
     })
@@ -51,9 +76,10 @@ export function getAvailableVariables(): string[] {
   return Array.from(allLabels).sort()
 }
 
-// Get cities with data for a specific variable
-export function getCitiesWithData(variableName: string): string[] {
-  return pemobData
+// Get cities with data for a specific variable for a specific year
+export function getCitiesWithData(variableName: string, year?: number): string[] {
+  const data = year ? getPEMOBDataByYear(year) : pemobData
+  return data
     .filter(city => {
       const dataItem = city.data.find(item => item.label === variableName)
       return dataItem && dataItem.valor !== null && dataItem.valor !== undefined
@@ -62,14 +88,15 @@ export function getCitiesWithData(variableName: string): string[] {
     .sort()
 }
 
-// Get summary statistics for a variable
-export function getVariableStats(variableName: string): {
+// Get summary statistics for a variable for a specific year
+export function getVariableStats(variableName: string, year?: number): {
   min: number
   max: number
   mean: number
   count: number
 } | null {
-  const values = pemobData
+  const data = year ? getPEMOBDataByYear(year) : pemobData
+  const values = data
     .map(city => {
       const dataItem = city.data.find(item => item.label === variableName)
       return dataItem?.valor
@@ -90,18 +117,19 @@ export function getVariableStats(variableName: string): {
   }
 }
 
-// Search cities by name
-export function searchPEMOBCities(query: string): string[] {
-  if (!query.trim()) return getPEMOBCities()
+// Search cities by name for a specific year
+export function searchPEMOBCities(query: string, year?: number): string[] {
+  const data = year ? getPEMOBDataByYear(year) : pemobData
+  if (!query.trim()) return getPEMOBCities(year)
   
   const searchTerm = query.toLowerCase().trim()
-  return pemobData
+  return data
     .filter(city => city.Município.toLowerCase().includes(searchTerm))
     .map(city => city.Município)
     .sort()
 }
 
-// Get formatted data for table display
+// Get formatted data for table display (ALWAYS uses 2023 data)
 export function getTableData(variableName: string): Array<{
   municipio: string
   uf: string
@@ -109,7 +137,7 @@ export function getTableData(variableName: string): Array<{
   codigo: string
   pergunta: string
 }> {
-  return pemobData
+  return pemobDataTable
     .map(city => {
       const dataItem = city.data.find(item => item.label === variableName)
       return {
@@ -123,9 +151,9 @@ export function getTableData(variableName: string): Array<{
     .sort((a, b) => a.municipio.localeCompare(b.municipio, 'pt-BR'))
 }
 
-// Get the raw data (useful for advanced operations)
-export function getRawPEMOBData(): PEMOBCityData[] {
-  return pemobData
+// Get the raw data for a specific year (useful for advanced operations)
+export function getRawPEMOBData(year?: number): PEMOBCityData[] {
+  return year ? getPEMOBDataByYear(year) : pemobData
 }
 
 // Function to check if data is loaded (useful for debugging)
@@ -133,17 +161,18 @@ export function isDataLoaded(): boolean {
   return pemobData.length > 0
 }
 
-// Get total number of cities
-export function getTotalCities(): number {
-  return pemobData.length
+// Get total number of cities for a specific year
+export function getTotalCities(year?: number): number {
+  const data = year ? getPEMOBDataByYear(year) : pemobData
+  return data.length
 }
 
-// NEW: Get percentage of variables filled by a specific city
-export function getCityVariableFillPercentage(cityName: string): number {
-  const cityData = getCityData(cityName)
+// NEW: Get percentage of variables filled by a specific city for a specific year
+export function getCityVariableFillPercentage(cityName: string, year?: number): number {
+  const cityData = getCityData(cityName, year)
   if (!cityData) return 0
 
-  const availableVariables = getAvailableVariables()
+  const availableVariables = getAvailableVariables(year)
   if (availableVariables.length === 0) return 0
 
   const filledVariables = availableVariables.filter(variable => {
@@ -154,14 +183,15 @@ export function getCityVariableFillPercentage(cityName: string): number {
   return Math.round((filledVariables.length / availableVariables.length) * 100)
 }
 
-// NEW: Get percentage of cities that filled a specific variable
-export function getVariableCityFillPercentage(variableName: string): number {
-  if (pemobData.length === 0) return 0
+// NEW: Get percentage of cities that filled a specific variable for a specific year
+export function getVariableCityFillPercentage(variableName: string, year?: number): number {
+  const data = year ? getPEMOBDataByYear(year) : pemobData
+  if (data.length === 0) return 0
 
-  const citiesWithData = pemobData.filter(city => {
+  const citiesWithData = data.filter(city => {
     const dataItem = city.data.find(item => item.label === variableName)
     return dataItem && dataItem.valor !== null && dataItem.valor !== undefined && dataItem.valor !== 0
   })
 
-  return Math.round((citiesWithData.length / pemobData.length) * 100)
+  return Math.round((citiesWithData.length / data.length) * 100)
 } 

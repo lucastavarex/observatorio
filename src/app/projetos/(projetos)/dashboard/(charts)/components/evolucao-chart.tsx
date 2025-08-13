@@ -4,9 +4,10 @@
 interface EvolucaoChartProps {
   selectedCities: string[]
   selectedVariables: string[]
+  year?: number
 }
 
-export function EvolucaoChart({ selectedCities, selectedVariables }: EvolucaoChartProps) {
+export function EvolucaoChart({ selectedCities, selectedVariables, year }: EvolucaoChartProps) {
   return (
     <div className="w-full h-full flex flex-col items-center justify-center">
       <div className="text-center">

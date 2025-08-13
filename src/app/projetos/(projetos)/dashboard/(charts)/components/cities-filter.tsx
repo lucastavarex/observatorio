@@ -9,23 +9,24 @@ import { getCityVariableFillPercentage, getPEMOBCities, searchPEMOBCities } from
 interface CitiesFilterProps {
   selectedCities: string[]
   onCitiesChange: (cities: string[]) => void
+  year?: number
 }
 
-export function CitiesFilter({ selectedCities, onCitiesChange }: CitiesFilterProps) {
+export function CitiesFilter({ selectedCities, onCitiesChange, year }: CitiesFilterProps) {
   const [searchFilter, setSearchFilter] = React.useState("")
   const [availableCities, setAvailableCities] = React.useState<string[]>([])
 
   // Load cities data
   React.useEffect(() => {
-    const cities = getPEMOBCities()
+    const cities = getPEMOBCities(year)
     setAvailableCities(cities)
-  }, [])
+  }, [year])
 
   // Filter cities based on search
   const filteredCities = React.useMemo(() => {
     if (!searchFilter.trim()) return availableCities
-    return searchPEMOBCities(searchFilter)
-  }, [searchFilter, availableCities])
+    return searchPEMOBCities(searchFilter, year)
+  }, [searchFilter, availableCities, year])
 
   const handleCityToggle = (cityName: string, checked: boolean) => {
     if (checked) {
@@ -67,7 +68,7 @@ export function CitiesFilter({ selectedCities, onCitiesChange }: CitiesFilterPro
             </div>
           ) : (
             filteredCities.map((city, index) => {
-              const fillPercentage = getCityVariableFillPercentage(city)
+              const fillPercentage = getCityVariableFillPercentage(city, year)
               const isSelected = selectedCities.includes(city)
               const isLastSelected = isSelected && selectedCities.length === 1
               

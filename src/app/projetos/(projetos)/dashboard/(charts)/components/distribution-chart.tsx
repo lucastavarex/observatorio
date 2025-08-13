@@ -8,6 +8,7 @@ import { getVariableData } from "../../lib/pemob-data"
 interface DistributionChartProps {
   selectedCities: string[]
   selectedVariables: string[]
+  year?: number
 }
 
 interface ChartDataPoint {
@@ -87,14 +88,14 @@ function CustomTooltip({ active, payload, coordinate }: TooltipProps) {
   return null
 }
 
-export function DistributionChart({ selectedCities, selectedVariables }: DistributionChartProps) {
+export function DistributionChart({ selectedCities, selectedVariables, year }: DistributionChartProps) {
   const isMobile = useIsMobile()
   
   const chartData = React.useMemo(() => {
     const data: ChartDataPoint[] = []
     
     selectedVariables.forEach((variable, variableIndex) => {
-      const variableData = getVariableData(variable)
+      const variableData = getVariableData(variable, year)
       
       // Calculate total for percentage calculation
       const total = variableData.reduce((sum, item) => sum + (item.valor || 0), 0)
@@ -124,7 +125,7 @@ export function DistributionChart({ selectedCities, selectedVariables }: Distrib
     })
     
     return data
-  }, [selectedCities, selectedVariables])
+  }, [selectedCities, selectedVariables, year])
 
   // Reorganize data so selected cities come last (render and detect on top)
   const nonSelectedData = React.useMemo(() => 

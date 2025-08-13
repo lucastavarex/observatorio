@@ -9,17 +9,18 @@ import { getAvailableVariables, getVariableCityFillPercentage } from "../../lib/
 interface VariablesFilterProps {
   selectedVariables: string[]
   onVariablesChange: (variables: string[]) => void
+  year?: number
 }
 
-export function VariablesFilter({ selectedVariables, onVariablesChange }: VariablesFilterProps) {
+export function VariablesFilter({ selectedVariables, onVariablesChange, year }: VariablesFilterProps) {
   const [searchFilter, setSearchFilter] = React.useState("")
   const [availableVariables, setAvailableVariables] = React.useState<string[]>([])
 
   // Load variables data
   React.useEffect(() => {
-    const variables = getAvailableVariables()
+    const variables = getAvailableVariables(year)
     setAvailableVariables(variables)
-  }, [])
+  }, [year])
 
   // Filter variables based on search
   const filteredVariables = React.useMemo(() => {
@@ -71,7 +72,7 @@ export function VariablesFilter({ selectedVariables, onVariablesChange }: Variab
             </div>
           ) : (
             filteredVariables.map((variable, index) => {
-              const fillPercentage = getVariableCityFillPercentage(variable)
+              const fillPercentage = getVariableCityFillPercentage(variable, year)
               const isSelected = selectedVariables.includes(variable)
               const isAtMinimum = isSelected && selectedVariables.length === 3
               

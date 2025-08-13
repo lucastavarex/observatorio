@@ -7,6 +7,7 @@ import { getVariableData } from "../../lib/pemob-data"
 interface RadarChartProps {
   selectedCities: string[]
   selectedVariables: string[]
+  year?: number
 }
 
 interface RadarChartDataPoint {
@@ -42,7 +43,7 @@ function CustomTooltip({ active, payload, label }: CustomTooltipProps) {
   return null
 }
 
-export function ChartRadarMultiple({ selectedCities, selectedVariables }: RadarChartProps) {
+export function ChartRadarMultiple({ selectedCities, selectedVariables, year }: RadarChartProps) {
   const chartData = React.useMemo(() => {
     if (selectedVariables.length === 0 || selectedCities.length === 0) {
       return []
@@ -52,7 +53,7 @@ export function ChartRadarMultiple({ selectedCities, selectedVariables }: RadarC
     const data: RadarChartDataPoint[] = selectedVariables.map(variable => {
       const dataPoint: RadarChartDataPoint = { variable }
       
-      const variableData = getVariableData(variable)
+      const variableData = getVariableData(variable, year)
       
       // Calculate the sum of ALL cities' values for this variable (not just selected)
       const totalSum = variableData.reduce((sum, item) => {
@@ -75,7 +76,7 @@ export function ChartRadarMultiple({ selectedCities, selectedVariables }: RadarC
     })
 
     return data
-  }, [selectedCities, selectedVariables])
+  }, [selectedCities, selectedVariables, year])
 
   // Calculate dynamic domain for better readability
   const maxValue = React.useMemo(() => {
