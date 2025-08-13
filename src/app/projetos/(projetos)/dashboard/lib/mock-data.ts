@@ -53,7 +53,7 @@ export function generateMockData(indicador: string): TransportData[] {
       id: String(index + 1),
       municipio: municipio.nome,
       unidadeFederativa: municipio.uf,
-      valor: indicador.includes("Valor") || indicador.includes("Receita") || indicador.includes("Taxa") || indicador.includes("ISS") 
+      value: indicador.includes("Valor") || indicador.includes("Receita") || indicador.includes("Taxa") || indicador.includes("ISS") 
         ? `R$ ${(randomValue * 10000).toFixed(2).replace('.', ',')}`
         : indicador.includes("Capacidade")
         ? Math.floor(randomValue * 100) + 20
