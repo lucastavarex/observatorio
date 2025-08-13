@@ -25,11 +25,11 @@ export default function ChartsPage() {
   // Start with some default selections to match the images
   const [selectedCities, setSelectedCities] = React.useState<string[]>(["Anápolis", "Aparecida de Goiânia", "Aracaju","Barueri","Belo Horizonte"])
   const [selectedVariables, setSelectedVariables] = React.useState<string[]>([
+    "Frota de Veículos Escolares",
+    "Valor da Tarifa",
+    "Frota de Táxis",
     "Agentes de Trânsito em Exercício",
-    "Ano Plano Diretor",
-    "Barcos (capacidade média)", 
-    "Equipamentos de Fiscalização",
-    "Estações Metroviárias com Informações sobre Horários"
+    "Percentual de Vagas de Estacionamento para Deficientes"
   ])
   const [globalFilter, setGlobalFilter] = React.useState<string>("")
   

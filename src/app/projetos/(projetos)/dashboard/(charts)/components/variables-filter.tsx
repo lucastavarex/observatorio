@@ -29,14 +29,30 @@ export function VariablesFilter({ selectedVariables, onVariablesChange, year }: 
   // Filter variables based on search
   const filteredVariables = React.useMemo(() => {
     if (!searchFilter || typeof searchFilter !== 'string' || !searchFilter.trim()) {
+      // Sort by fill percentage (highest to lowest) when no search filter
       return availableVariables
+        .map(variable => ({
+          name: variable,
+          fillPercentage: getVariableCityFillPercentage(variable, year)
+        }))
+        .sort((a, b) => (b.fillPercentage || 0) - (a.fillPercentage || 0))
+        .map(item => item.name)
     }
     
     const searchTerm = searchFilter.toLowerCase().trim()
-    return availableVariables.filter(variable =>
+    const filtered = availableVariables.filter(variable =>
       variable && typeof variable === 'string' && variable.toLowerCase().includes(searchTerm)
     )
-  }, [searchFilter, availableVariables])
+    
+    // Sort filtered results by fill percentage (highest to lowest)
+    return filtered
+      .map(variable => ({
+        name: variable,
+        fillPercentage: getVariableCityFillPercentage(variable, year)
+      }))
+      .sort((a, b) => (b.fillPercentage || 0) - (a.fillPercentage || 0))
+      .map(item => item.name)
+  }, [searchFilter, availableVariables, year])
 
   const handleVariableToggle = (variableName: string, checked: boolean) => {
     if (checked) {
