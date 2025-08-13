@@ -56,7 +56,7 @@ export default function DashboardContent() {
       
       // Get the question from the data
       const variableData = cityWithData.data.find(item => item.label === variableName)
-      return variableData?.pergunta || "Pergunta não disponível para esta variável"
+      return variableData?.label_pergunta || "Pergunta não disponível para esta variável"
     } catch (error) {
       return "Pergunta não disponível"
     }

@@ -65,8 +65,8 @@ function SingleVariableChart({
         const variableData = getVariableData(variable, year)
         const cityData = variableData.find(item => item.municipio === city)
         
-        if (cityData && cityData.valor !== null) {
-          dataPoint[city] = cityData.valor
+        if (cityData && cityData.value !== null) {
+          dataPoint[city] = cityData.value
         } else {
           dataPoint[city] = 0
         }

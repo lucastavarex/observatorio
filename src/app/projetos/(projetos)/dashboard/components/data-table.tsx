@@ -22,7 +22,7 @@ interface DataTableProps {
 
 export function DataTable({ data, selectedFilter, globalFilter, setGlobalFilter }: DataTableProps) {
   // Get the question from the first data item (all items should have the same question for the same filter)
-  const question = data.length > 0 ? data[0].pergunta : undefined
+  const question = data.length > 0 ? data[0].label_pergunta : undefined
   
   const columns = React.useMemo(
     () => createColumns(selectedFilter, question),

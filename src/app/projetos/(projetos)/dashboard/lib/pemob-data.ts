@@ -54,10 +54,10 @@ export function getVariableData(variableName: string, year?: number): DashboardD
         municipio: city.Município,
         uf: city.UF,
         variavel: variableName,
-        valor: dataItem?.valor || null
+        value: dataItem?.value || null
       }
     })
-    .filter(item => item.valor !== null) // Only return cities with data for this variable
+    .filter(item => item.value !== null) // Only return cities with data for this variable
 }
 
 // Get all available variables (labels from the data array) for a specific year
@@ -82,7 +82,7 @@ export function getCitiesWithData(variableName: string, year?: number): string[]
   return data
     .filter(city => {
       const dataItem = city.data.find(item => item.label === variableName)
-      return dataItem && dataItem.valor !== null && dataItem.valor !== undefined
+      return dataItem && dataItem.value !== null && dataItem.value !== undefined
     })
     .map(city => city.Município)
     .sort()
@@ -99,7 +99,7 @@ export function getVariableStats(variableName: string, year?: number): {
   const values = data
     .map(city => {
       const dataItem = city.data.find(item => item.label === variableName)
-      return dataItem?.valor
+      return dataItem?.value
     })
     .filter((value): value is number => typeof value === 'number' && value !== null)
 
@@ -133,9 +133,9 @@ export function searchPEMOBCities(query: string, year?: number): string[] {
 export function getTableData(variableName: string): Array<{
   municipio: string
   uf: string
-  valor: number | null
+  value: number | null
   codigo: string
-  pergunta: string
+  label_pergunta: string
 }> {
   return pemobDataTable
     .map(city => {
@@ -143,9 +143,9 @@ export function getTableData(variableName: string): Array<{
       return {
         municipio: city.Município,
         uf: city.UF,
-        valor: dataItem?.valor || null,
+        value: dataItem?.value || null,
         codigo: String(city.CÓDIGO), // Convert to string to match return type
-        pergunta: dataItem?.pergunta || ""
+        label_pergunta: dataItem?.label_pergunta || ""
       }
     })
     .sort((a, b) => a.municipio.localeCompare(b.municipio, 'pt-BR'))
@@ -177,7 +177,7 @@ export function getCityVariableFillPercentage(cityName: string, year?: number): 
 
   const filledVariables = availableVariables.filter(variable => {
     const dataItem = cityData.data.find(item => item.label === variable)
-    return dataItem && dataItem.valor !== null && dataItem.valor !== undefined && dataItem.valor !== 0
+    return dataItem && dataItem.value !== null && dataItem.value !== undefined && dataItem.value !== 0
   })
 
   return Math.round((filledVariables.length / availableVariables.length) * 100)
@@ -190,7 +190,7 @@ export function getVariableCityFillPercentage(variableName: string, year?: numbe
 
   const citiesWithData = data.filter(city => {
     const dataItem = city.data.find(item => item.label === variableName)
-    return dataItem && dataItem.valor !== null && dataItem.valor !== undefined && dataItem.valor !== 0
+    return dataItem && dataItem.value !== null && dataItem.value !== undefined && dataItem.value !== 0
   })
 
   return Math.round((citiesWithData.length / data.length) * 100)

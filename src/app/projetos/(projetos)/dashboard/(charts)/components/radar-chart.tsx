@@ -57,15 +57,15 @@ export function ChartRadarMultiple({ selectedCities, selectedVariables, year }: 
       
       // Calculate the sum of ALL cities' values for this variable (not just selected)
       const totalSum = variableData.reduce((sum, item) => {
-        return sum + (item.valor !== null ? item.valor : 0)
+        return sum + (item.value !== null ? item.value : 0)
       }, 0)
       
       // Calculate proportional percentage for each city
       selectedCities.forEach(city => {
         const cityData = variableData.find(item => item.municipio === city)
-        if (cityData && cityData.valor !== null && totalSum > 0) {
+        if (cityData && cityData.value !== null && totalSum > 0) {
           // Calculate percentage as (city_value / total_sum) * 100
-          const percentage = (cityData.valor / totalSum) * 100
+          const percentage = (cityData.value / totalSum) * 100
           dataPoint[city] = Math.max(0, percentage)
         } else {
           dataPoint[city] = 0 // Default to 0 if no data or total sum is 0

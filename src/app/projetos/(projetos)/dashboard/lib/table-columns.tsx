@@ -38,7 +38,7 @@ export function createColumns(selectedFilter: string, question?: string): Column
       cell: ({ row }) => <div>{row.getValue("unidadeFederativa")}</div>,
     },
     {
-      accessorKey: "valor",
+      accessorKey: "value",
       header: () => {
         return (
           <div className="flex items-center gap-2">
@@ -46,7 +46,7 @@ export function createColumns(selectedFilter: string, question?: string): Column
           </div>
         )
       },
-      cell: ({ row }) => <div className="font-medium">{row.getValue("valor")}</div>,
+      cell: ({ row }) => <div className="font-medium">{row.getValue("value")}</div>,
     },
   ]
 } 

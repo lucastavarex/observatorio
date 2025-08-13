@@ -3,15 +3,17 @@ export interface TransportData {
   id: string
   municipio: string
   unidadeFederativa: string
-  valor: number | string | null // Allow null values
-  pergunta?: string // Add question field for tooltip
+  value: number | string | null // Allow null values
+  label_pergunta?: string // Add question field for tooltip
+
 }
 
 // PEMOB (Pesquisa Nacional de Mobilidade Urbana) data structure - Updated for new format
 export interface PEMOBDataItem {
   label: string
-  valor: number | null
-  pergunta: string
+  value: number | null
+  is_dashboard?: boolean
+  label_pergunta: string
 }
 
 export interface PEMOBCityData {
@@ -27,7 +29,8 @@ export interface DashboardData {
   municipio: string
   uf: string
   variavel: string
-  valor: number | null
+  value: number | null
+  is_dashboard?: boolean
 }
 
 // Filter structure types
@@ -62,9 +65,9 @@ export interface TableState {
 export interface TableDataItem {
   municipio: string
   uf: string
-  valor: number | null
+  value: number | null
   codigo: string
-  pergunta: string
+  label_pergunta: string
 }
 
 // Municipality data for mock generation

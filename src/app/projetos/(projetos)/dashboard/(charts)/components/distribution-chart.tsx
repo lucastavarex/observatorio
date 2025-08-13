@@ -79,7 +79,7 @@ function CustomTooltip({ active, payload, coordinate }: TooltipProps) {
         <p className="font-semibold">{dataToShow.city}</p>
         <p className="text-sm text-gray-600">UF: {dataToShow.uf}</p>
         <p className="text-sm text-gray-600">Variável: {dataToShow.variable}</p>
-        <p className="text-sm text-gray-600">Valor: {dataToShow.value?.toLocaleString('pt-BR') || 'N/A'}</p>
+        <p className="text-sm text-gray-600">value: {dataToShow.value?.toLocaleString('pt-BR') || 'N/A'}</p>
         <p className="text-sm text-gray-600">Total: {dataToShow.total?.toLocaleString('pt-BR') || 'N/A'}</p>
         <p className="text-sm text-gray-600">Percentual: {dataToShow.percentage.toFixed(2)}%</p>
       </div>
@@ -98,12 +98,12 @@ export function DistributionChart({ selectedCities, selectedVariables, year }: D
       const variableData = getVariableData(variable, year)
       
       // Calculate total for percentage calculation
-      const total = variableData.reduce((sum, item) => sum + (item.valor || 0), 0)
+      const total = variableData.reduce((sum, item) => sum + (item.value || 0), 0)
       
       if (total > 0) {
         variableData.forEach((item) => {
-          if (item.valor !== null && item.valor > 0) {
-            const percentage = (item.valor / total) * 100
+          if (item.value !== null && item.value > 0) {
+            const percentage = (item.value / total) * 100
             const isSelected = selectedCities.includes(item.municipio)
             const selectedIndex = isSelected ? selectedCities.indexOf(item.municipio) : undefined
             
@@ -111,7 +111,7 @@ export function DistributionChart({ selectedCities, selectedVariables, year }: D
               variable,
               city: item.municipio,
               percentage,
-              value: item.valor,
+              value: item.value,
               uf: item.uf,
               isSelected,
               selectedIndex,
