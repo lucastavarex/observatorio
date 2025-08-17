@@ -112,7 +112,7 @@ export default function DashboardContent() {
         </div>
 
         {/* Third column - Information Panel */}
-        <div className="flex flex-col gap-4 w-full min-w-0 lg:min-w-[280px] lg:w-[280px] lg:flex-shrink-0 order-2 lg:order-3">
+        <div className="flex flex-col gap-4 w-full min-w-0 lg:min-w-[280px] lg:w-[280px] lg:flex-shrink-0 order-2 lg:order-3 md:sticky md:top-32 md:self-start">
           {/* Year Selection - External to the card */}
           <div className="w-full">
             <YearCombobox
@@ -124,8 +124,8 @@ export default function DashboardContent() {
           </div>
 
           {/* Information Card - Separate from combobox */}
-          <div className="bg-white w-full rounded-lg min-h-[200px] lg:min-h-full overflow-hidden">
-            <div className="h-full p-4 flex flex-col gap-4">
+          <div className="bg-white w-full rounded-lg min-h-[200px] overflow-hidden">
+            <div className="p-4 flex flex-col gap-4">
               {/* Variable Information */}
               <div className="space-y-4 flex-1">
                 <div className="space-y-2">
