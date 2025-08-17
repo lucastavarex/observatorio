@@ -2,6 +2,7 @@
 
 import arrowLeft from "@/app/assets/images/arrow-left.png"
 import arrowRight from "@/app/assets/images/arrow-right.png"
+import Link from "next/link"
 import { useEffect, useRef, useState } from "react"
 import type { Swiper as SwiperType } from "swiper"
 import { Autoplay, Navigation } from "swiper/modules"
@@ -18,6 +19,7 @@ interface SlideData {
   imageSrc?: string
   title: string
   subtitle: string
+  link: string
 }
 
 const slides: SlideData[] = [
@@ -25,23 +27,35 @@ const slides: SlideData[] = [
     id: 1,
     videoSrc: "https://res.cloudinary.com/doueg88fj/video/upload/v1754231467/cover1_aaerv0.mp4",
     imageSrc: "/images/city-aerial.jpg",
-    title: "1-Mobilidade inteligente para um Brasil mais conectado e sustentável",
-    subtitle: "Indicadores e evidências para transformar a mobilidade urbana brasileira"
+    title: "Mobilidade inteligente  e humana para um Brasil mais conectado e sustentável",
+    subtitle: "Indicadores e evidências para transformar a mobilidade urbana brasileira",
+    link: "/sobre"
   },
   {
     id: 2,
     videoSrc: "https://res.cloudinary.com/doueg88fj/video/upload/v1754231467/cover1_aaerv0.mp4",
     imageSrc: "/images/transportation.jpg",
-    title: "2-Mobilidade inteligente para um Brasil mais conectado e sustentável",
-    subtitle: "Indicadores e evidências para transformar a mobilidade urbana brasileira"
+    title: "Evento - Gestão metropolitana: desafios e oportunidades",
+    subtitle: "Desafio da implementação das autoridades metropolitanas no Brasil",
+    link: "/evento-gestao-metropolitana"
   },
   {
     id: 3,
     videoSrc: "https://res.cloudinary.com/doueg88fj/video/upload/v1754231467/cover1_aaerv0.mp4",
     imageSrc: "/images/sustainable-city.jpg",
-    title: "3-Mobilidade inteligente para um Brasil mais conectado e sustentável",
-    subtitle: "Indicadores e evidências para transformar a mobilidade urbana brasileira"
-  }
+    title: "Criar uma ampla base de dados de mobilidade urbana e conectar cidades",
+    subtitle: "Construir caminhos para a democratização e acesso aos dados de mobilidade urbana",
+    link: "/projetos/catalago-de-dados"
+  },
+  {
+    id: 4,
+    videoSrc: "https://res.cloudinary.com/doueg88fj/video/upload/v1754231467/cover1_aaerv0.mp4",
+    imageSrc: "/images/sustainable-city.jpg",
+    title: "Insper Cidades na mobilidade: Urbanismo social",
+    subtitle: "A transformação do território a partir do urbanismo social sob o olhar da mobilidade urbana",
+    link: "https://insper-my.sharepoint.com/personal/laboratorioarqfuturo_insper_edu_br/_layouts/15/stream.aspx?id=%2Fpersonal%2Flaboratorioarqfuturo%5Finsper%5Fedu%5Fbr%2FDocuments%2F8%2E%20Produ%C3%A7%C3%B5es%20de%20Video%20%2D%20Laborat%C3%B3rio%20Arq%2EFuturo%20de%20Cidades%2FVideocast%20%2D%20Observat%C3%B3rio%2FINSPER%20MOBILIDADE%20URBANA%202025%2FEPIS%C3%93DIOS%20FINALIZADOS%20PARA%20APROVA%C3%87%C3%83O%2FUrbanismo%20Social%2FURBANISMO%5FSOCIAL%5FV02%2Emp4&referrer=StreamWebApp%2EWeb&referrerScenario=AddressBarCopied%2Eview%2E383bc817%2De1c5%2D48bc%2Db163%2D539798799b09"
+  },
+
 ]
 
 export function HeroSwiper() {
@@ -116,63 +130,66 @@ export function HeroSwiper() {
       >
         {slides.map((slide) => (
           <SwiperSlide key={slide.id} className="relative">
-            {/* Video/Image Background */}
-            <div className="absolute inset-0">
-              {slide.videoSrc ? (
-                <video
-                  autoPlay
-                  muted
-                  loop
-                  playsInline
-                  className="w-full h-full object-cover"
-                  onError={(e) => {
-                    // Fallback to image if video fails to load
-                    const target = e.target as HTMLVideoElement
-                    target.style.display = 'none'
-                    const fallback = target.nextElementSibling as HTMLElement
-                    if (fallback) fallback.style.display = 'block'
+            <Link href={slide.link} className="block h-full">
+              {/* Video/Image Background */}
+              <div className="absolute inset-0">
+                {slide.videoSrc ? (
+                  <video
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                    className="w-full h-full object-cover"
+                    onError={(e) => {
+                      // Fallback to image if video fails to load
+                      const target = e.target as HTMLVideoElement
+                      target.style.display = 'none'
+                      const fallback = target.nextElementSibling as HTMLElement
+                      if (fallback) fallback.style.display = 'block'
+                    }}
+                  >
+                    <source src={slide.videoSrc} type="video/mp4" />
+                  </video>
+                ) : null}
+                
+                {/* Fallback Image Background */}
+                <div 
+                  className={`w-full h-full bg-cover bg-center ${
+                    slide.videoSrc ? 'hidden' : 'block'
+                  }`}
+                  style={{
+                    backgroundImage: slide.imageSrc 
+                      ? `url(${slide.imageSrc})` 
+                      : 'linear-gradient(135deg, #1f2937 0%, #111827 50%, #000000 100%)'
                   }}
-                >
-                  <source src={slide.videoSrc} type="video/mp4" />
-                </video>
-              ) : null}
-              
-              {/* Fallback Image Background */}
-              <div 
-                className={`w-full h-full bg-cover bg-center ${
-                  slide.videoSrc ? 'hidden' : 'block'
-                }`}
-                style={{
-                  backgroundImage: slide.imageSrc 
-                    ? `url(${slide.imageSrc})` 
-                    : 'linear-gradient(135deg, #1f2937 0%, #111827 50%, #000000 100%)'
-                }}
-              />
-              
-              {/* Dark overlay */}
-              <div className="absolute inset-0 bg-black/50" />
-            </div>
+                />
+                
+                {/* Dark overlay */}
+                <div className="absolute inset-0 bg-black/50" />
+              </div>
 
-                         {/* Content */}
-             <div className="relative z-10 flex items-end h-full pb-20 px-4 2xl:px-16">
-               <div className="max-w-4xl">
-                 <div>
-                   <h1 className="text-xl md:text-2xl lg:text-3xl font-medium text-white max-w-2xl leading-tight mb-4">
-                     {slide.title}
-                   </h1>
-                   
-                   <p className="text-md md:text-xl text-white/90 leading-relaxed mb-6">
-                     {slide.subtitle}
-                   </p>
-                   
-                                       {/* Progress Bar and Navigation Controls - Mobile/Tablet */}
+              {/* Content */}
+              <div className="relative z-10 flex items-end h-full pb-20 px-4 2xl:px-16">
+                <div className="max-w-4xl">
+                  <div>
+                    <h1 className="text-xl md:text-2xl lg:text-3xl font-medium text-white max-w-2xl leading-tight mb-4">
+                      {slide.title}
+                    </h1>
+                    
+                    <p className="text-md md:text-xl text-white/90 leading-relaxed mb-6">
+                      {slide.subtitle}
+                    </p>
+                    
+                    {/* Progress Bar and Navigation Controls - Mobile/Tablet */}
                     <div className="lg:hidden">
                       {/* Progress Bar Indicators */}
                       <div className="flex items-center gap-2 mb-4">
                         {slides.map((_, index) => (
                           <button
                             key={index}
-                            onClick={() => {
+                            onClick={(e) => {
+                              e.preventDefault()
+                              e.stopPropagation()
                               if (swiperRef.current) {
                                 swiperRef.current.swiper.slideTo(index)
                               }
@@ -197,7 +214,11 @@ export function HeroSwiper() {
                       {/* Navigation Controls */}
                       <div className="flex items-center gap-0">
                         <button
-                          onClick={handlePrevSlide}
+                          onClick={(e) => {
+                            e.preventDefault()
+                            e.stopPropagation()
+                            handlePrevSlide()
+                          }}
                           className="w-12 h-12 flex items-center justify-center bg-trasparent"
                           aria-label="Previous slide"
                         >
@@ -210,7 +231,11 @@ export function HeroSwiper() {
                           />
                         </button>
                         <button
-                          onClick={handleNextSlide}
+                          onClick={(e) => {
+                            e.preventDefault()
+                            e.stopPropagation()
+                            handleNextSlide()
+                          }}
                           className="w-12 h-12 flex items-center justify-center bg-transparent"
                           aria-label="Next slide"
                         >
@@ -224,9 +249,10 @@ export function HeroSwiper() {
                         </button>
                       </div>
                     </div>
-                 </div>
-               </div>
-             </div>
+                  </div>
+                </div>
+              </div>
+            </Link>
           </SwiperSlide>
         ))}
       </Swiper>
@@ -239,7 +265,9 @@ export function HeroSwiper() {
              {slides.map((_, index) => (
                <button
                  key={index}
-                 onClick={() => {
+                 onClick={(e) => {
+                   e.preventDefault()
+                   e.stopPropagation()
                    if (swiperRef.current) {
                      swiperRef.current.swiper.slideTo(index)
                    }
@@ -264,7 +292,11 @@ export function HeroSwiper() {
            {/* Navigation Controls */}
            <div className="flex items-center gap-0">
              <button
-               onClick={handlePrevSlide}
+               onClick={(e) => {
+                 e.preventDefault()
+                 e.stopPropagation()
+                 handlePrevSlide()
+               }}
                className="w-12 h-12  flex items-center justify-center transition-all duration-300 group"
                aria-label="Previous slide"
              >
@@ -277,7 +309,11 @@ export function HeroSwiper() {
                />
              </button>
              <button
-               onClick={handleNextSlide}
+               onClick={(e) => {
+                 e.preventDefault()
+                 e.stopPropagation()
+                 handleNextSlide()
+               }}
                className="w-12 h-12  flex items-center justify-center transition-all duration-300 group"
                aria-label="Next slide"
              >

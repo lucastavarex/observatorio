@@ -24,24 +24,25 @@ import {
 
 const projetosItems = [
   {
-    title: "Dashboard",
-    href: "/projetos/dashboard",
-    description: "Compare cidades em diferentes variáveis de mobilidade com visualização gráfica em formato de radar e de distribuição",
-  },
-  {
-    title: "Catálogo de Dados",
-    href: "/projetos/catalago-de-dados",
-    description: "Compare indicadores de mobilidade entre cidades brasileiras por meio de uma tabela interativa",
-  },
-  {
     title: "Geoportal",
     href: "/projetos/geoportal",
     description: "Visualize dados espaciais de mobilidade urbana em um mapa interativo com diversas camadas temáticas",
   },
+    {
+    title: "Catálogo de Dados",
+    href: "/projetos/catalago-de-dados",
+    description: "Navegue por um catálogo interativo com dados de mobilidade de diversas cidades brasileiras.",
+  },
   {
-    title: "Tabela PEMOB",
+    title: "Dashboard PEMOB",
+    href: "/projetos/dashboard",
+    description: "Visualize dados espaciais de mobilidade urbana em um mapa interativo com diversas camadas temáticas",
+  },
+
+  {
+    title: "Dados PEMOB",
     href: "/projetos/tabela",
-    description: "Compare indicadores de mobilidade entre cidades brasileiras por meio de uma tabela interativa",
+    description: "Explore indicadores de mobilidade de diferentes cidades brasileiras em uma tabela interativa.",
   },
 ]
 
@@ -77,7 +78,7 @@ export function Header({ isBgDark = false, className }: HeaderProps) {
   const inactiveTextClass = isBgDark ? "text-white/50! hover:text-white/100!" : "text-black/50! hover:text-black/100!"
 
   return (
-    <header className={`z-50 w-full ${className} ${isMobileMenuOpen ? 'bg-white' : ''}`}>
+    <header className={`z-50 w-full ${className} ${isMobileMenuOpen ? 'bg-white' : isBgDark ? 'bg-gradient-to-b from-[#242424] to-[#242424]/0' : ''}`}>
       <div className="flex h-28 items-center justify-between px-4 2xl:px-16">
         {/* Logo and Desktop Navigation (keep this part exactly the same) */}
         <div className="flex items-center">
@@ -86,7 +87,7 @@ export function Header({ isBgDark = false, className }: HeaderProps) {
               {/* Main Logo Graphic */}
               <div className="flex items-center">
                 <Image
-                  src="/logo.png"
+                  src={isBgDark && isMobileMenuOpen ? "/logo-preto.png" : isBgDark && !isMobileMenuOpen ? "/logo-branco.png" : "/logo-preto.png"}
                   alt="Logo Observatório"
                   width={80}
                   height={80}

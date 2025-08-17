@@ -10,7 +10,7 @@ export function Footer() {
           {/* Left Section - Logo and Text */}
           <div className="flex flex-col items-start gap-4">
             <Image
-              src="/logo.png"
+              src="/logo-preto.png"
               alt="Observatório Nacional de Mobilidade Sustentável"
               width={80}
               height={80}
