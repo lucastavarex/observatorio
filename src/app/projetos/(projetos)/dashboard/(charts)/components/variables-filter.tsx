@@ -72,7 +72,7 @@ export function VariablesFilter({ selectedVariables, onVariablesChange, year }: 
     <aside className="w-full">
       <div className="space-y-3">
         {/* Header */}
-        <div className="space-y-2 pb-3 p-4">
+        <div className="pb-3 p-4">
           <h2 className="text-xl font-bold text-gray-900">Selecione as variáveis</h2>
           <p className="text-md text-gray-600">Escolha entre 3 e 5 variáveis</p>
         </div>

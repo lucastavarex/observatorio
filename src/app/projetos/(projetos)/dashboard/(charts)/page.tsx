@@ -80,9 +80,9 @@ export default function ChartsPage() {
   return (
     <TooltipProvider>
       <div className="bg-[#f3f3f3] min-h-screen w-full flex items-start justify-center p-4 md:p-4">
-        <div className="container w-full">
-          {/* Dashboard layout using same structure as catalago-de-dados */}
-          <div className="flex flex-col gap-4 lg:flex-row min-h-[600px]">
+        <div className="w-full">
+                     {/* Dashboard layout using same structure as catalago-de-dados */}
+           <div className="flex flex-col gap-4 lg:flex-row min-h-[600px] overflow-visible">
           {/* Cities Filter Container */}
           <div className="bg-white w-full min-w-0 lg:min-w-[350px] lg:w-[350px] lg:flex-shrink-0 rounded-lg min-h-[200px] lg:min-h-full overflow-hidden">
             <div className="h-full overflow-y-auto">
@@ -105,8 +105,8 @@ export default function ChartsPage() {
             </div>
           </div>
           
-          {/* Container for chart display */}
-          <div className="flex flex-col  lg:flex-1">
+                     {/* Container for chart display */}
+           <div className="flex flex-col lg:flex-1 sticky top-[130px] self-start z-10">
             
             {/* Chart Type Selection Header */}
             <div className="bg-white rounded-t-lg p-6">

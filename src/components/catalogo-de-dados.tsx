@@ -68,7 +68,7 @@ const modalData = {
         name: "Dataverse",
         description:
           "Repositório de dados com bases, metadados e informações organizadas para facilitar sua consulta, citação e reuso.",
-        actionText: "Download",
+        actionText: "Acesse",
         actionType: "download",
         actionUrl: "#",
       },
@@ -76,7 +76,7 @@ const modalData = {
         name: "Prefeitura",
         description:
           "Fonte original dos dados, geralmente hospedada em portais institucionais das prefeituras ou órgãos públicos responsáveis.",
-        actionText: "Download",
+        actionText: "Acesse",
         actionType: "download",
         actionUrl: "#",
       },
@@ -105,14 +105,14 @@ const modalData = {
       {
         name: "Dataverse",
         description: "Dados históricos de GPS organizados e documentados para análises e pesquisas acadêmicas.",
-        actionText: "Download",
+        actionText: "Acesse",
         actionType: "download",
         actionUrl: "#",
       },
       {
         name: "Portal de Dados Abertos",
         description: "Conjunto de dados de mobilidade urbana disponibilizados pela administração pública municipal.",
-        actionText: "Download",
+        actionText: "Acesse",
         actionType: "download",
         actionUrl: "#",
       },
@@ -125,7 +125,7 @@ const modalData = {
       {
         name: "Operadora do Sistema",
         description: "Relatórios oficiais da empresa responsável pelo sistema de bilhetagem eletrônica da cidade.",
-        actionText: "Download",
+        actionText: "Acesse",
         actionType: "download",
         actionUrl: "#",
       },
@@ -140,7 +140,7 @@ const modalData = {
       {
         name: "Dataverse",
         description: "Base de dados acadêmica com informações de bilhetagem organizadas para pesquisa e análise.",
-        actionText: "Download",
+        actionText: "Acesse",
         actionType: "download",
         actionUrl: "#",
       },
@@ -162,7 +162,7 @@ const modalData = {
         name: "IBGE",
         description:
           "Dados geográficos oficiais do Instituto Brasileiro de Geografia e Estatística relacionados ao transporte urbano.",
-        actionText: "Download",
+        actionText: "Acesse",
         actionType: "download",
         actionUrl: "#",
       },

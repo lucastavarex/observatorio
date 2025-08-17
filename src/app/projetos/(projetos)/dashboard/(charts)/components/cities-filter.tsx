@@ -46,7 +46,7 @@ export function CitiesFilter({ selectedCities, onCitiesChange, year }: CitiesFil
     <aside className="w-full">
       <div className="space-y-3">
         {/* Header */}
-        <div className="space-y-2 pb-3 p-4">
+        <div className=" pb-3 p-4">
           <h2 className="text-xl font-bold text-gray-900">Selecione as cidades</h2>
           <p className="text-md text-gray-600">Escolha entre 1 e 5 cidades</p>
         </div>

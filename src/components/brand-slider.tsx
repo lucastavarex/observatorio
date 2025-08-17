@@ -1,11 +1,36 @@
 "use client"
 
+import logoArqFuturo from '@/app/assets/images/logo_arq_futuro.png'
+import insperLogo from '@/app/assets/images/logo_insper.png'
 import motivaLogo from '@/app/assets/images/logo_motiva.png'
 import niteroiLogo from '@/app/assets/images/logo_niteroi.png'
 import rioLogo from '@/app/assets/images/logo_rio.png'
 import spLogo from '@/app/assets/images/logo_sp.png'
 import Image from 'next/image'
+import { useEffect, useState } from "react"
 import Slider from 'react-infinite-logo-slider'
+
+// Custom hook to detect mobile devices
+const useIsMobile = () => {
+  const [isMobile, setIsMobile] = useState(false)
+
+  useEffect(() => {
+    const checkIsMobile = () => {
+      setIsMobile(window.innerWidth < 998) // 768px is typical mobile breakpoint
+    }
+
+    // Check on mount
+    checkIsMobile()
+
+    // Add event listener for window resize
+    window.addEventListener('resize', checkIsMobile)
+
+    // Cleanup
+    return () => window.removeEventListener('resize', checkIsMobile)
+  }, [])
+
+  return isMobile
+}
 
 interface BrandLogo {
   id: string
@@ -14,7 +39,7 @@ interface BrandLogo {
   alt: string
 }
 
-const brands: BrandLogo[] = [
+const fixedBrands: BrandLogo[] = [
   {
     id: 'motiva',
     name: 'Motiva',
@@ -22,6 +47,21 @@ const brands: BrandLogo[] = [
     alt: 'Motiva logo'
   },
   {
+    id: 'insper',
+    name: 'Insper',
+    logo: insperLogo,
+    alt: 'Insper logo'
+  },
+  {
+    id: 'arq-futuro',
+    name: 'Arq.Futuro',
+    logo: logoArqFuturo,
+    alt: 'Arq.Futuro logo'
+  },
+]
+
+const brands: BrandLogo[] = [
+   {
     id: 'prefeitura-rio',
     name: 'Prefeitura do Rio',
     logo: rioLogo,
@@ -42,15 +82,45 @@ const brands: BrandLogo[] = [
 ]
 
 export function BrandSlider() {
+  const isMobile = useIsMobile()
   return (
     <section className="bg-[#f9f9f6] py-16 ">
       <div className="px-4 2xl:px-16 mx-auto">
-        <div className="flex flex-col lg:flex-row items-start gap-8">
+        <div className="flex flex-col lg:flex-row items-left lg:items-center gap-4 lg:gap-8">
           {/* Text Section - Top on mobile, Left on desktop */}
           <div className="flex-shrink-0 text-left w-full lg:w-auto">
-            <h2 className="text-base leading-relaxed md:text-lg lg:text-lg text-gray-800 leading-relaxed">
-              Descubra quem está construindo um <span className="text-red-600 font-semibold">novo </span><span className="text-red-600 font-semibold">caminho</span> <br/> para a mobilidade nas cidades brasileiras.
+            <h2 className="text-base leading-relaxed md:text-lg lg:text-lg text-gray-800">
+             Parceiros
             </h2>
+          </div>
+          <div className="flex justify-left lg:justify-center items-center gap-2 md:gap-10 lg:gap-16">
+           
+              <Image
+                key={fixedBrands[0].id}
+                src={fixedBrands[0].logo}
+              alt="Parceiros"
+              width={200}
+              height={200}
+              className="md:w-50 w-30 h-auto"
+              />
+              <Image
+                key={fixedBrands[1].id}
+                src={fixedBrands[1].logo}
+              alt="Parceiros"
+              width={120}
+              height={120}
+              className="pr-4 md:w-30 w-24 h-auto"
+              />
+              <Image
+                key={fixedBrands[2].id}
+                src={fixedBrands[2].logo}
+              alt="Parceiros"
+              width={80}
+              height={80}
+              className="w-16 md:w-20 h-auto"
+              />
+    
+
           </div>
 
           {/* Logo Slider - Bottom on mobile, Right on desktop */}
@@ -59,7 +129,7 @@ export function BrandSlider() {
               width="220px"
               duration={20}
               pauseOnHover={true}
-              blurBorders={true}
+              blurBorders={isMobile ? false : true}
               blurBorderColor={'#f5f5f0'}
               toRight={false}
             >

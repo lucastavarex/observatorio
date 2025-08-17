@@ -23,21 +23,14 @@ interface Project {
 }
 
 const projects: Project[] = [
-  {
-    id: 'dashboard',
-    title: 'Dashboard',
-    description: 'Compare cidades em diferentes variáveis de mobilidade com visualização gráfica em formato de radar e de distribuição',
-    image: dashboard,
-    href: '/projetos/dashboard'
-  },
-  {
+    {
     id: 'geoportal',
     title: 'Geoportal',
     description: 'Visualize dados espaciais de mobilidade urbana em um mapa interativo com diversas camadas temáticas',
     image: geoportal,
     href: '/'
   },
-  {
+    {
     id: 'catalogo',
     title: 'Catálogo de Dados',
     description: 'Compare indicadores de mobilidade entre cidades brasileiras por meio de uma tabela interativa',
@@ -45,8 +38,15 @@ const projects: Project[] = [
     href: '/projetos/catalago-de-dados'
   },
   {
+    id: 'dashboard',
+    title: 'Dashboard PEMOB',
+    description: 'Compare cidades em diferentes variáveis de mobilidade com visualização gráfica em formato de radar e de distribuição',
+    image: dashboard,
+    href: '/projetos/dashboard'
+  },
+  {
     id: 'tabela',
-    title: 'Tabela',
+    title: 'Dados PEMOB',
     description: 'Compare indicadores de mobilidade entre cidades brasileiras',
     image: tabela,
     href: '/projetos/tabela'
@@ -90,7 +90,7 @@ export function ProjectsSection() {
         <div className="mx-auto">
           {/* Section Title */}
           <h2 className="text-3xl md:text-4xl px-4 2xl:px-16 font-medium text-gray-900 mb-6">
-            Projetos
+            Mobilidade em dados
           </h2>
 
           {/* Projects Horizontal Scroll */}
