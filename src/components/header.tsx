@@ -67,6 +67,7 @@ const menuItems = [
   { title: "Home", href: "/" },
   { title: "Sobre", href: "/sobre" },
   { title: "Publicações", href: "/publicacoes" },
+  { title: "Pesquisas", href: "/pesquisas" },
   { title: "Eventos", href: "/eventos" },
   { title: "Vídeos", href: "/videos" },
   { title: "Notícias", href: "/noticias" },
@@ -118,7 +119,7 @@ export function Header({ isBgDark = false, className }: HeaderProps) {
 
         {/* Desktop Navigation Menu */}
         <NavigationMenu className="hidden lg:flex">
-          <NavigationMenuList className="gap-3">
+          <NavigationMenuList className="gap-1">
             <NavigationMenuItem>
               <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
                 <Link href="/" className={pathname === "/" ? activeTextClass : inactiveTextClass}>
@@ -173,6 +174,14 @@ export function Header({ isBgDark = false, className }: HeaderProps) {
               </NavigationMenuContent>
             </NavigationMenuItem>
             
+            <NavigationMenuItem>
+              <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
+                <Link href="/pesquisas" className={pathname === "/pesquisas" ? activeTextClass : inactiveTextClass}>
+                  Pesquisas
+                </Link>
+              </NavigationMenuLink>
+            </NavigationMenuItem>
+
             <NavigationMenuItem>
               <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
                 <Link href="/eventos" className={pathname === "/eventos" ? activeTextClass : inactiveTextClass}>

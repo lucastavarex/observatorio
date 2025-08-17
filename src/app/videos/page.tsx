@@ -62,9 +62,9 @@ export default function Videos() {
         <div className="flex items-end justify-between mb-16">
           <div>
             <h2 className="text-4xl font-medium leading-none">
-              Nossas histórias
+             Desafios e oportunidades
             </h2>
-            <p className="text-4xl text-gray-400 leading-none font-medium">sobre mobilidade</p>
+            <p className="text-4xl text-gray-400 leading-none font-medium">da mobilidade urbana</p>
           </div>
           <div className="hidden md:block h-[1.2px] flex-grow mx-16 bg-gray-300" />
           <div className="hidden md:block w-4 h-4 bg-[#C2181A]" />

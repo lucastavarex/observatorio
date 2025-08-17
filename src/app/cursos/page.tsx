@@ -23,7 +23,7 @@ export default function Eventos() {
         </div>
 
         {/* Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-2">
           {/* Card 1 */}
           <div className="relative rounded-xl overflow-hidden group h-[400px]">
             <Image
