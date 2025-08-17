@@ -45,6 +45,23 @@ const projetosItems = [
     description: "Explore indicadores de mobilidade de diferentes cidades brasileiras em uma tabela interativa.",
   },
 ]
+const publicacoesItems = [
+  {
+    title: "Livros",
+    href: "/publicacoes?tipo=livros",
+    description: "Explore nossa coleção de livros sobre mobilidade urbana e desenvolvimento sustentável",
+  },
+    {
+    title: "Artigos científicos",
+    href: "/publicacoes?tipo=artigos",
+    description: "Acesse artigos científicos e pesquisas sobre mobilidade urbana",
+  },
+  {
+    title: "Notas técnicas",
+    href: "/publicacoes?tipo=notas",
+    description: "Consulte notas técnicas e documentos especializados em mobilidade",
+  },
+]
 
 const menuItems = [
   { title: "Home", href: "/" },
@@ -138,11 +155,22 @@ export function Header({ isBgDark = false, className }: HeaderProps) {
             </NavigationMenuItem>
             
             <NavigationMenuItem>
-              <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
-                <Link href="/publicacoes" className={pathname === "/publicacoes" ? activeTextClass : inactiveTextClass}>
-                  Publicações
-                </Link>
-              </NavigationMenuLink>
+              <NavigationMenuTrigger className={pathname.startsWith("/publicacoes") ? activeTextClass : inactiveTextClass}>
+                Publicações
+              </NavigationMenuTrigger>
+              <NavigationMenuContent>
+                <ul className="grid w-[600px] gap-3 p-2 md:grid-cols-2 lg:w-[600px]">
+                  {publicacoesItems.map((item) => (
+                    <ListItem
+                      key={item.title}
+                      title={item.title}
+                      href={item.href}
+                    >
+                      {item.description}
+                    </ListItem>
+                  ))}
+                </ul>
+              </NavigationMenuContent>
             </NavigationMenuItem>
             
             <NavigationMenuItem>
@@ -262,7 +290,10 @@ export function Header({ isBgDark = false, className }: HeaderProps) {
                 href={item.href}
                 onClick={closeMobileMenu}
                 className={`block py-3 text-lg font-medium transition-colors ${
-                  pathname === item.href ? "text-black font-medium" : "text-gray-400 hover:text-black"
+                  (item.title === "Publicações" && pathname.startsWith("/publicacoes")) || 
+                  (item.title !== "Publicações" && pathname === item.href) 
+                    ? "text-black font-medium" 
+                    : "text-gray-400 hover:text-black"
                 }`}
               >
                 {item.title}
