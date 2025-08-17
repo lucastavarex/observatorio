@@ -106,7 +106,7 @@ export default function ChartsPage() {
           </div>
           
                      {/* Container for chart display */}
-           <div className="flex flex-col lg:flex-1 sticky top-[130px] self-start z-10">
+           <div className={`flex flex-col w-full lg:flex-1 ${(selectedChartType === "radar" || selectedChartType === "distribuicao") ? "sticky top-32 self-start z-10" : ""}`}>
             
             {/* Chart Type Selection Header */}
             <div className="bg-white rounded-t-lg p-6">
@@ -166,8 +166,8 @@ export default function ChartsPage() {
             </div>
 
             {/* Chart Container */}
-            <div className="bg-white rounded-t-none rounded-b-lg h-[800px] 2xl:min-h-[600px] 2xl:h-auto">
-              <div className="bg-white rounded-xl w-full h-full p-6">
+            <div className="bg-white rounded-t-none rounded-b-lg h-[600px] 2xl:min-h-[380px] 2xl:h-auto custom-min-height">
+              <div className="bg-white rounded-xl w-full h-full p-6 pt-0">
                 {renderChart()}
               </div>
             </div>

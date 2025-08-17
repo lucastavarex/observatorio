@@ -143,16 +143,14 @@ export function DistributionChart({ selectedCities, selectedVariables, year }: D
   }
 
   return (
-    <div className="w-full h-full flex flex-col">
-      {/* <h3 className="text-lg font-semibold mb-4 text-center flex-shrink-0">Distribuição por Variável</h3> */}
-      
-      <div className="flex-1 min-h-[450px]">
+    <div className="w-full flex flex-col">
+      <div className="h-[350px] custom-height flex flex-col items-start">
         <ResponsiveContainer width="100%" height="100%">
           <ScatterChart
             margin={{
               top: 20,
               right: isMobile ? 10 : 30,
-              bottom: 60,
+              bottom: 20,
               left: isMobile ? -20 : -50,
             }}
           >
@@ -201,10 +199,10 @@ export function DistributionChart({ selectedCities, selectedVariables, year }: D
       </div>
       
       {/* Legend */}
-      <div className="flex flex-col items-start mt-4 gap-2 text-sm flex-shrink-0">
+      <div className="flex flex-wrap items-start mt-4 gap-2 text-sm flex-shrink-0">
         <div className="flex items-center gap-2">
           <div className="w-4 h-4 rounded-full bg-gray-300"></div>
-          <span>Cidades não selecionadas</span>
+          <span className="whitespace-nowrap">Cidades não selecionadas</span>
         </div>
         {selectedCities.length > 0 && (
           <>
@@ -216,7 +214,7 @@ export function DistributionChart({ selectedCities, selectedVariables, year }: D
                     className="w-4 h-4 rounded-full" 
                     style={{ backgroundColor: colors[index % colors.length] }}
                   ></div>
-                  <span>{city}</span>
+                  <span className="whitespace-nowrap">{city}</span>
                 </div>
               )
             })}

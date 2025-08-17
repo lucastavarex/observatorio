@@ -120,10 +120,10 @@ export function ChartRadarMultiple({ selectedCities, selectedVariables, year }: 
   }
 
   return (
-    <div className="w-full h-full flex flex-col">
-      <div className="flex-1 min-h-[450px]">
+    <div className="w-full flex flex-col">
+      <div className="h-[350px] custom-height flex flex-col items-start">
         <ResponsiveContainer width="100%" height="100%">
-          <RadarChart data={chartData} margin={{  right: 100, bottom: 40, left: 100 }}>
+          <RadarChart data={chartData} margin={{  right: 100,top:0, bottom: 0, left: 100 }}>
             <PolarGrid gridType="circle" />
             <PolarRadiusAxis 
               domain={[0, maxValue]} 
@@ -163,11 +163,12 @@ export function ChartRadarMultiple({ selectedCities, selectedVariables, year }: 
       </div>
 
       {/* Legend */}
-      <div className="flex flex-col items-start mt-4 gap-2 text-sm flex-shrink-0">
-        {/* Scale indicator */}
-        <div className="text-xs text-gray-500 mb-1 font-medium">
+{/* Scale indicator */}
+        <div className="text-xs text-gray-500 font-medium">
           Escala: 0-{maxValue.toFixed(1)}%
         </div>
+      <div className="flex flex-col md:flex-row items-start mt-4 gap-2 text-sm flex-shrink-0">
+        
         
         {selectedCities.slice(0, 5).map((city, index) => (
           <div key={city} className="flex items-center gap-2">

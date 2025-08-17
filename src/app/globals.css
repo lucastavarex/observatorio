@@ -132,3 +132,17 @@
     @apply bg-background text-foreground;
   }
 }
+
+/* Custom height for screens larger than 1800px */
+@media (min-width: 1800px) {
+  .custom-height {
+    height: 500px;
+  }
+}
+
+/* Custom min-height for screens larger than 1800px */
+@media (min-width: 1800px) {
+  .custom-min-height {
+    min-height: 600px;
+  }
+}
