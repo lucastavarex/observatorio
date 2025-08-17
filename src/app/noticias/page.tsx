@@ -1,10 +1,12 @@
 "use client"
 
 import video1 from "@/app/assets/images/video1.png"
-import video2 from "@/app/assets/images/video2.png"
 import video3 from "@/app/assets/images/video3.png"
 import video4 from "@/app/assets/images/video4.png"
 import video5 from "@/app/assets/images/video5.png"
+import video6 from "@/app/assets/images/video6.png"
+import video7 from "@/app/assets/images/video7.png"
+import video8 from "@/app/assets/images/video8.png"
 import { Header } from "@/components/header"
 import { Plus } from "lucide-react"
 import Image from "next/image"
@@ -15,7 +17,8 @@ interface NewsItem {
   title: string
   source: string
   date: string
-  image: typeof video1
+  image: typeof video1,
+  link: string
 }
 
 const newsData: NewsItem[] = [
@@ -23,37 +26,66 @@ const newsData: NewsItem[] = [
     id: 1,
     title: "Grupo CCR e Laboratório Arq. Futuro de Cidades lançam Observatório Nacional de Mobilidade Sustentável",
     source: "Estadão",
-    date: "12.03.2025",
-    image: video1
+    date: "2023",
+    image: video1,
+    link: "https://mobilidade.estadao.com.br/mobilidade-para-que/grupo-ccr-e-laboratorio-arq-futuro-de-cidades-lancam-observatorio-nacional-de-mobilidade-sustentavel"
   },
-  {
-    id: 2,
-    title: "Insper e CCR lançam Observatório Nacional de Mobilidade Sustentável",
-    source: "Insper",
-    date: "12.03.2025",
-    image: video2
-  },
+  // {
+  //   id: 2,
+  //   title: "Insper e CCR lançam Observatório Nacional de Mobilidade Sustentável",
+  //   source: "Insper",
+  //   date: "12.03.2025",
+  //   image: video2
+  //   link: "https://www.insper.edu.br/noticias/insper-e-ccr-lancam-observatorio-nacional-de-mobilidade-sustentavel/"
+  // },
   {
     id: 3,
     title: "Observatório Nacional de Mobilidade Sustentável firma acordo de cooperação com o Rio de Janeiro",
     source: "Technibus",
-    date: "12.03.2025",
-    image: video3
+    date: "2025",
+    image: video3,
+    link: "https://technibus.com.br/2025/02/19/observatorio-nacional-de-mobilidade-sustentavel-firma-acordo-de-cooperacao-com-o-rio-de-janeiro/"
   },
   {
     id: 4,
     title: "Sexta da mobilidade: Soluções baseadas na natureza e mobilidade urbana: a urgência da mudança de paradigma das cidades",
     source: "Insper",
-    date: "12.03.2025",
-    image: video4
+    date: "2024",
+    image: video4,
+    link: "https://www.insper.edu.br/pt/eventos/2024/08/sexta-da-mobilidade-solucoes-baseadas-na-natureza-e-mobilidade-urbana-a-urgencia-da-mudanca-de-paradigma-das-cidades"
   },
   {
     id: 5,
     title: "Sexta da mobilidade: Dados e Mobilidade Urbana",
     source: "Insper",
-    date: "12.03.2025",
-    image: video5
-  }
+    date: "2024",
+    image: video5,
+    link: "https://www.insper.edu.br/pt/eventos/2024/10/sexta-da-mobilidade-dados-e-mobilidade-urbana"
+  },
+  {
+    id: 6,
+    title: "Sexta da Mobilidade: Soluções Brasileiras para o Futuro da Mobilidade, o Caso do Aeromóvel",
+    source: "Insper",
+    date: "2024",
+    image: video6,
+    link: "https://www.insper.edu.br/pt/eventos/2024/11/sexta-da-mobilidade-solucoes-brasileiras-para-o-futuro-da-mobilidade-o-caso-do-aeromovel?utm_content=316378986&utm_medium=social&utm_source=facebook&hss_channel=fbp-120253158027896"
+  },
+  {
+    id: 7,
+    title: "Evento de Lançamento do Guia de Eletromobilidade para Cidades Brasileiras",
+    source: "Insper",
+    date: "2024",
+    image: video7,
+    link: "https://www.insper.edu.br/pt/eventos/2024/09/mobilidade-sustentavel-na-agenda-da-cop-30-impactos-no-meio-ambiente-e-mudanca-climatica"
+  },
+  {
+    id: 8,
+    title: "Agenda da descarbonização pode ser melhor",
+    source: "ABOL",
+    date: "2025",
+    image: video8,
+    link: "https://abolbrasil.org.br/noticias/noticias-do-setor/agenda-da-descarbonizacao-pode-ser-melhor"
+  },
 ]
 
 export default function Noticias() {
@@ -89,9 +121,9 @@ export default function Noticias() {
         <div className="flex items-end justify-between mb-16">
           <div>
             <h2 className="text-4xl font-medium leading-none">
-              Nossas histórias
+              Clipping
             </h2>
-            <p className="text-4xl text-gray-400 leading-none font-medium">sobre mobilidade</p>
+           
           </div>
           <div className="hidden md:block h-[1.2px] flex-grow mx-16 bg-gray-300" />
           <div className="hidden md:block w-4 h-4 bg-[#779854]" />
@@ -128,6 +160,7 @@ export default function Noticias() {
                                 className="flex items-start py-8 group hover:bg-black md:hover:bg-black transition-all duration-300 cursor-pointer"
                                 onMouseEnter={() => handleMouseEnter(item.image.src, index)}
                                 onMouseLeave={handleMouseLeave}
+                                onClick={() => window.open(item.link, '_blank')}
                               >
                                  {/* Plus Icon */}
                  <div className="flex-shrink-0 mr-4 mt-1 px-4 lg:px-16">
