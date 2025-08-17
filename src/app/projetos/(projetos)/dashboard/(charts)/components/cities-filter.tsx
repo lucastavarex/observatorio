@@ -3,6 +3,7 @@ import { Switch } from "@/components/ui/switch"
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip"
 import { InfoIcon } from "lucide-react"
 import React from "react"
+import { toast } from "sonner"
 import { FilterSearch } from "../../components/filter-search"
 import { getCityVariableFillPercentage, getPEMOBCities, searchPEMOBCities } from "../../lib/pemob-data"
 
@@ -24,15 +25,45 @@ export function CitiesFilter({ selectedCities, onCitiesChange, year }: CitiesFil
 
   // Filter cities based on search
   const filteredCities = React.useMemo(() => {
-    if (!searchFilter.trim()) return availableCities
-    return searchPEMOBCities(searchFilter, year)
-  }, [searchFilter, availableCities, year])
+    if (!searchFilter.trim()) {
+      // Get all cities and sort them alphabetically
+      const sortedCities = availableCities.sort((a, b) => a.localeCompare(b, 'pt-BR'))
+      
+      // Separate selected and unselected cities
+      const selectedCitiesList = sortedCities.filter(c => selectedCities.includes(c))
+      const unselectedCities = sortedCities.filter(c => !selectedCities.includes(c))
+      
+      // Return selected cities first (sorted alphabetically), then unselected cities (sorted alphabetically)
+      return [...selectedCitiesList, ...unselectedCities]
+    }
+    
+    // When there's a search filter, apply the same logic to filtered results
+    const searchResults = searchPEMOBCities(searchFilter, year)
+    
+    // Sort filtered results alphabetically
+    const sortedSearchResults = searchResults.sort((a, b) => a.localeCompare(b, 'pt-BR'))
+    
+    // Separate selected and unselected cities from filtered results
+    const selectedCitiesList = sortedSearchResults.filter(c => selectedCities.includes(c))
+    const unselectedCities = sortedSearchResults.filter(c => !selectedCities.includes(c))
+    
+    // Return selected cities first (sorted alphabetically), then unselected cities (sorted alphabetically)
+    return [...selectedCitiesList, ...unselectedCities]
+  }, [searchFilter, availableCities, year, selectedCities])
 
   const handleCityToggle = (cityName: string, checked: boolean) => {
     if (checked) {
       // Add city if we haven't reached the limit (max 5)
       if (selectedCities.length < 5) {
         onCitiesChange([...selectedCities, cityName])
+      } else {
+        // Show toast and scroll to top when trying to select a 6th city
+        toast.warning("Limite atingido! É permitido selecionar de 3 a 5 cidades. Remova uma para continuar.", {
+          // description: "Remova uma cidade para selecionar outra."
+        })
+        
+        // Scroll to top of the page
+        window.scrollTo({ top: 0, behavior: 'smooth' })
       }
     } else {
       // Prevent removing the last city (minimum 1 required)

@@ -25,7 +25,7 @@ interface SlideData {
 const slides: SlideData[] = [
   {
     id: 1,
-    videoSrc: "https://res.cloudinary.com/doueg88fj/video/upload/v1754231467/cover1_aaerv0.mp4",
+    videoSrc: "/videos/video1.mp4",
     imageSrc: "/images/city-aerial.jpg",
     title: "Mobilidade inteligente  e humana para um Brasil mais conectado e sustentável",
     subtitle: "Indicadores e evidências para transformar a mobilidade urbana brasileira",
@@ -33,7 +33,7 @@ const slides: SlideData[] = [
   },
   {
     id: 2,
-    videoSrc: "https://res.cloudinary.com/doueg88fj/video/upload/v1754231467/cover1_aaerv0.mp4",
+    videoSrc: "/videos/video2.mp4",
     imageSrc: "/images/transportation.jpg",
     title: "Evento - Gestão metropolitana: desafios e oportunidades",
     subtitle: "Desafio da implementação das autoridades metropolitanas no Brasil",
@@ -41,7 +41,7 @@ const slides: SlideData[] = [
   },
   {
     id: 3,
-    videoSrc: "https://res.cloudinary.com/doueg88fj/video/upload/v1754231467/cover1_aaerv0.mp4",
+    videoSrc: "/videos/video3.mp4",
     imageSrc: "/images/sustainable-city.jpg",
     title: "Criar uma ampla base de dados de mobilidade urbana e conectar cidades",
     subtitle: "Construir caminhos para a democratização e acesso aos dados de mobilidade urbana",
@@ -49,7 +49,7 @@ const slides: SlideData[] = [
   },
   {
     id: 4,
-    videoSrc: "https://res.cloudinary.com/doueg88fj/video/upload/v1754231467/cover1_aaerv0.mp4",
+    videoSrc: "/videos/video4.mp4",
     imageSrc: "/images/sustainable-city.jpg",
     title: "Insper Cidades na mobilidade: Urbanismo social",
     subtitle: "A transformação do território a partir do urbanismo social sob o olhar da mobilidade urbana",
@@ -76,7 +76,7 @@ export function HeroSwiper() {
     
     // Start progress animation
     const startTime = Date.now()
-    const duration = 5000 // 5 seconds
+    const duration = 10000 // 10 seconds
     
     progressIntervalRef.current = setInterval(() => {
       const elapsed = Date.now() - startTime
@@ -121,7 +121,7 @@ export function HeroSwiper() {
         slidesPerView={1}
         loop={true}
         autoplay={{
-          delay: 5000,
+          delay: 10000,
           disableOnInteraction: false,
         }}
         speed={1000}

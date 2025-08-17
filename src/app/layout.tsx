@@ -1,4 +1,5 @@
 import { Footer } from "@/components/footer";
+import { Toaster } from "@/components/ui/sonner";
 import type { Metadata } from "next";
 import { Plus_Jakarta_Sans } from "next/font/google";
 import { headers } from 'next/headers';
@@ -27,6 +28,7 @@ export default async function RootLayout({
     <html lang="pt-BR" className={plusJakartaSans.className}>
       <body className="antialiased" nonce={nonce}>
         <main className="">{children}</main>
+        <Toaster />
         <Footer />
       </body>
     </html>

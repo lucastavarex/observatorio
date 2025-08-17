@@ -3,6 +3,7 @@ import { Switch } from "@/components/ui/switch"
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip"
 import { InfoIcon } from "lucide-react"
 import React from "react"
+import { toast } from "sonner"
 import { FilterSearch } from "../../components/filter-search"
 import { getAvailableVariables, getVariableCityFillPercentage } from "../../lib/pemob-data"
 
@@ -29,14 +30,20 @@ export function VariablesFilter({ selectedVariables, onVariablesChange, year }: 
   // Filter variables based on search
   const filteredVariables = React.useMemo(() => {
     if (!searchFilter || typeof searchFilter !== 'string' || !searchFilter.trim()) {
-      // Sort by fill percentage (highest to lowest) when no search filter
-      return availableVariables
+      // Get all variables with their fill percentages
+      const variablesWithPercentages = availableVariables
         .map(variable => ({
           name: variable,
           fillPercentage: getVariableCityFillPercentage(variable, year)
         }))
         .sort((a, b) => (b.fillPercentage || 0) - (a.fillPercentage || 0))
-        .map(item => item.name)
+      
+      // Separate selected and unselected variables
+      const selectedVars = variablesWithPercentages.filter(v => selectedVariables.includes(v.name))
+      const unselectedVars = variablesWithPercentages.filter(v => !selectedVariables.includes(v.name))
+      
+      // Return selected variables first (sorted by percentage), then unselected variables (sorted by percentage)
+      return [...selectedVars, ...unselectedVars].map(item => item.name)
     }
     
     const searchTerm = searchFilter.toLowerCase().trim()
@@ -44,21 +51,34 @@ export function VariablesFilter({ selectedVariables, onVariablesChange, year }: 
       variable && typeof variable === 'string' && variable.toLowerCase().includes(searchTerm)
     )
     
-    // Sort filtered results by fill percentage (highest to lowest)
-    return filtered
+    // Get filtered variables with their fill percentages
+    const filteredWithPercentages = filtered
       .map(variable => ({
         name: variable,
         fillPercentage: getVariableCityFillPercentage(variable, year)
       }))
       .sort((a, b) => (b.fillPercentage || 0) - (a.fillPercentage || 0))
-      .map(item => item.name)
-  }, [searchFilter, availableVariables, year])
+    
+    // Separate selected and unselected variables from filtered results
+    const selectedVars = filteredWithPercentages.filter(v => selectedVariables.includes(v.name))
+    const unselectedVars = filteredWithPercentages.filter(v => !selectedVariables.includes(v.name))
+    
+    // Return selected variables first (sorted by percentage), then unselected variables (sorted by percentage)
+    return [...selectedVars, ...unselectedVars].map(item => item.name)
+  }, [searchFilter, availableVariables, year, selectedVariables])
 
   const handleVariableToggle = (variableName: string, checked: boolean) => {
     if (checked) {
       // Add variable if we haven't reached the limit (max 5)
       if (selectedVariables.length < 5) {
         onVariablesChange([...selectedVariables, variableName])
+      } else {
+        // Show toast and scroll to top when trying to select a 6th variable
+        toast.warning("Limite atingido! É permitido selecionar de 3 a 5 variáveis. Remova uma para continuar.", {
+        })
+        
+        // Scroll to top of the page
+        window.scrollTo({ top: 0, behavior: 'smooth' })
       }
     } else {
       // Prevent removing when at minimum (3 variables required)

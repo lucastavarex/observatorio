@@ -62,7 +62,7 @@ export default function Eventos() {
         <div className="flex items-end justify-between mb-16">
           <div>
             <h2 className="text-4xl font-medium leading-none">
-              Onde apresentamos
+              Onde divulgamos
             </h2>
             <p className="text-4xl text-gray-400 leading-none font-medium">nosso trabalho</p>
           </div>

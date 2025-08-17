@@ -15,8 +15,8 @@ export default function Eventos() {
         {/* Título e linha com quadrado */}
         <div className="flex items-end justify-between mb-16">
           <div>
-            <h2 className="text-4xl font-medium leading-none">Nosso lugar</h2>
-            <p className="text-4xl text-gray-400 leading-none font-medium">de ensinar</p>
+            <h2 className="text-4xl font-medium leading-none">Formação baseada em dados</h2>
+            <p className="text-4xl text-gray-400 leading-none font-medium">e evidências para diferentes públicos</p>
           </div>
           <div className="hidden md:block h-[1.2px] flex-grow mx-16 bg-gray-300" />
           <div className="hidden md:block w-4 h-4 bg-[#F7A703]" />

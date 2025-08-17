@@ -28,12 +28,12 @@ const scriptSrcDirectives = [
   ]
 
 const cspHeader = `
-    default-src 'self' https://*.cloudinary.com;
+    default-src 'self' https://*.cloudinary.com https://*.sharepoint.com;
     script-src ${scriptSrcDirectives.join(' ')};
     style-src 'self' 'unsafe-inline';
     img-src 'self' blob: data: ;
     font-src 'self' data: https://storage.googleapis.com;
-    media-src 'self' data: blob: https://*.cloudinary.com;
+    media-src 'self' data: blob: https://*.cloudinary.com https://*.sharepoint.com ;
     object-src 'none';
     base-uri 'self';
     form-action 'self';
