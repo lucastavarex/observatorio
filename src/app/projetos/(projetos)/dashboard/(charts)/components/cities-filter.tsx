@@ -1,7 +1,6 @@
 import { Badge } from "@/components/ui/badge"
 import { Switch } from "@/components/ui/switch"
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip"
-import { InfoIcon } from "lucide-react"
 import React from "react"
 import { toast } from "sonner"
 import { FilterSearch } from "../../components/filter-search"
@@ -117,8 +116,8 @@ export function CitiesFilter({ selectedCities, onCitiesChange, year }: CitiesFil
                             {fillPercentage}%
                           </TooltipTrigger>
                           <TooltipContent side="bottom">
-                            <div className="flex items-center gap-2">
-                              <InfoIcon className="w-4 h-4" />
+                            <div className="flex items-center">
+                              {/* <InfoIcon className="w-4 h-4" /> */}
                               <p>Porcentagem de variáveis <br/> preenchidas por esta cidade</p>
                             </div>
                           </TooltipContent>

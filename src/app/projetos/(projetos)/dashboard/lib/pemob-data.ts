@@ -244,4 +244,27 @@ export function getVariableCityFillPercentage(variableName: string, year?: numbe
   })
 
   return Math.round((citiesWithData.length / data.length) * 100)
+}
+
+// NEW: Get the question (pergunta) for a specific variable for a specific year
+export function getVariableQuestion(variableName: string, year?: number): string {
+  // Validate input
+  if (!variableName || typeof variableName !== 'string' || variableName.trim() === '') {
+    return ""
+  }
+  
+  const data = year ? getPEMOBDataByYear(year) : pemobData
+  if (data.length === 0) return ""
+
+  // Find the first occurrence of the variable to get its question
+  for (const city of data) {
+    const dataItem = city.data.find(item => 
+      item.label === variableName && item.is_dashboard === true
+    )
+    if (dataItem && dataItem.label_pergunta) {
+      return dataItem.label_pergunta
+    }
+  }
+
+  return ""
 } 

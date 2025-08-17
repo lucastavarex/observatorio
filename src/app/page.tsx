@@ -7,7 +7,6 @@ import { HeroSwiper } from "@/components/hero-swiper"
 import { ImpactNumbersSection } from "@/components/impact-numbers-section"
 import { NoticiasSection } from "@/components/noticias-section"
 import { ProjectsSection } from "@/components/projects-section"
-import { VideoCastSection } from "@/components/video-cast"
 
 export default function Home() {
 
@@ -33,7 +32,7 @@ export default function Home() {
       <ImpactNumbersSection />
 
       {/* video cast */}
-      <VideoCastSection />
+      {/* <VideoCastSection /> */}
 
       {/* news */}
       <NoticiasSection />

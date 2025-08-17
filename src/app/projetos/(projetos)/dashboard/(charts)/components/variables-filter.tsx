@@ -5,7 +5,7 @@ import { InfoIcon } from "lucide-react"
 import React from "react"
 import { toast } from "sonner"
 import { FilterSearch } from "../../components/filter-search"
-import { getAvailableVariables, getVariableCityFillPercentage } from "../../lib/pemob-data"
+import { getAvailableVariables, getVariableCityFillPercentage, getVariableQuestion } from "../../lib/pemob-data"
 
 interface VariablesFilterProps {
   selectedVariables: string[]
@@ -129,22 +129,36 @@ export function VariablesFilter({ selectedVariables, onVariablesChange, year }: 
                   <div className="px-4 gap-4 flex items-center justify-between py-5">
                     <label
                       htmlFor={`variable-${variable}`}
-                      className="text-sm cursor-pointer text-black flex-1 leading-relaxed"
+                      className="text-sm cursor-pointer flex items-center text-black flex-1 leading-relaxed"
                     >
-                      {variable}
-                      <Badge variant="secondary" className="ml-2 rounded-full text-xs">
+                      {variable}  
+                      <Badge variant="secondary" className="bg-transparent rounded-full text-xs">
+                        <Tooltip>
+                          <TooltipTrigger>
+                            <InfoIcon className="w-4 h-4 text-black/50" />
+                          </TooltipTrigger>
+                          <TooltipContent side="bottom" className="max-w-[220px]">
+                            <div className="flex items-center">
+                              <p className="text-xs leading-relaxed">{getVariableQuestion(variable, year)}</p>
+                            </div>
+                          </TooltipContent>
+                        </Tooltip>
+                      </Badge>
+                      <div className="flex items-center gap-0">
+                      <Badge variant="secondary" className="rounded-full text-xs">
                         <Tooltip>
                           <TooltipTrigger>
                             {fillPercentage}%
                           </TooltipTrigger>
                           <TooltipContent side="bottom">
-                            <div className="flex items-center gap-2">
-                              <InfoIcon className="w-4 h-4" />
+                            <div className="flex items-center">
+                              {/* <InfoIcon className="w-4 h-4" /> */}
                               <p>Porcentagem de cidades que <br/> preencheram esta variável</p>
                             </div>
                           </TooltipContent>
                         </Tooltip>
                       </Badge>
+                      </div>
                     </label>
                     <Switch
                       className={`cursor-pointer ${isAtMinimum ? 'opacity-60' : ''}`}
