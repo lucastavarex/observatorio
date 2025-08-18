@@ -129,7 +129,11 @@ export function Header({ isBgDark = false, className }: HeaderProps) {
             </NavigationMenuItem>
             
             <NavigationMenuItem>
-              <NavigationMenuTrigger className={pathname.startsWith("/projetos/") ? activeTextClass : inactiveTextClass}>
+              <NavigationMenuTrigger 
+                isBgDark={isBgDark}
+                isActive={pathname.startsWith("/projetos/")}
+                className={pathname.startsWith("/projetos/") ? activeTextClass : inactiveTextClass}
+              >
                 Projetos
               </NavigationMenuTrigger>
               <NavigationMenuContent>
@@ -156,7 +160,11 @@ export function Header({ isBgDark = false, className }: HeaderProps) {
             </NavigationMenuItem>
             
             <NavigationMenuItem>
-              <NavigationMenuTrigger className={pathname.startsWith("/publicacoes") ? activeTextClass : inactiveTextClass}>
+              <NavigationMenuTrigger 
+                isBgDark={isBgDark}
+                isActive={pathname.startsWith("/publicacoes")}
+                className={pathname.startsWith("/publicacoes") ? activeTextClass : inactiveTextClass}
+              >
                 Publicações
               </NavigationMenuTrigger>
               <NavigationMenuContent>
@@ -262,7 +270,7 @@ export function Header({ isBgDark = false, className }: HeaderProps) {
             <div className="">
               <Accordion type="single" collapsible className="w-full">
                 <AccordionItem value="projetos" className="border-none">
-                  <AccordionTrigger className={`text-lg font-medium hover:no-underline py-3 ${
+                  <AccordionTrigger className={`text-lg font-medium text-black hover:no-underline py-3 ${
                     pathname.startsWith("/projetos/") ? "text-black font-medium" : "text-gray-400 hover:text-black"
                   }`}>
                     Projetos

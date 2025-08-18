@@ -62,11 +62,22 @@ const navigationMenuTriggerStyle = cva(
   "group inline-flex h-9 w-max bg-transparent! text-white items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground disabled:pointer-events-none disabled:opacity-50 data-[state=open]:hover:bg-accent data-[state=open]:text-accent-foreground data-[state=open]:focus:bg-accent data-[state=open]:bg-accent/50 focus-visible:ring-ring/50 outline-none transition-[color,box-shadow] focus-visible:ring-[3px] focus-visible:outline-1"
 )
 
+interface NavigationMenuTriggerProps extends React.ComponentProps<typeof NavigationMenuPrimitive.Trigger> {
+  isBgDark?: boolean
+  isActive?: boolean
+}
+
 function NavigationMenuTrigger({
   className,
   children,
+  isBgDark = false,
+  isActive = false,
   ...props
-}: React.ComponentProps<typeof NavigationMenuPrimitive.Trigger>) {
+}: NavigationMenuTriggerProps) {
+  // Define text color classes based on background and active state
+  const activeTextClass = isBgDark ? "text-white! font-medium!" : "text-black! font-medium!"
+  const inactiveTextClass = isBgDark ? "text-white/50! hover:text-white/100!" : "text-black/50! hover:text-black/100!"
+  
   return (
     <NavigationMenuPrimitive.Trigger
       data-slot="navigation-menu-trigger"
@@ -75,7 +86,9 @@ function NavigationMenuTrigger({
     >
       {children}{" "}
       <ChevronDownIcon
-        className="relative top-[1px] ml-1 size-3 transition duration-300 group-data-[state=open]:rotate-180"
+        className={`relative top-[1px] ml-1 size-3 transition duration-300 group-data-[state=open]:rotate-180 ${
+          isActive ? activeTextClass : inactiveTextClass
+        }`}
         aria-hidden="true"
       />
     </NavigationMenuPrimitive.Trigger>
@@ -158,4 +171,6 @@ function NavigationMenuIndicator({
 export {
   NavigationMenu, NavigationMenuContent, NavigationMenuIndicator, NavigationMenuItem, NavigationMenuLink, NavigationMenuList, NavigationMenuTrigger, navigationMenuTriggerStyle, NavigationMenuViewport
 }
+
+export type { NavigationMenuTriggerProps }
 
