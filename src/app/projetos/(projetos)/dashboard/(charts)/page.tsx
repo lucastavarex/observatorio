@@ -84,7 +84,11 @@ export default function ChartsPage() {
         <div className="w-full">
           {/* //novo card w-full aqui com o texto Explore dados da Pesquisa Nacional de Mobilidade Urbana na esquerda e um botão  saiba mais na direita */}
            <div className="bg-white w-full flex flex-col sm:flex-row justify-between mb-4 items-start sm:items-center rounded-lg p-2 py-4 gap-4">
+           <div className="flex flex-col gap-0">
             <h2 className="text-lg sm:text-xl px-2 font-bold text-gray-900">Explore dados da Pesquisa Nacional de Mobilidade Urbana</h2>
+            <div className="pb-2 text-sm lg:text-base px-2 text-gray-600">Pesquisa realizada pelo Mininstério das Cidades
+          </div>
+           </div>
             <Link href="/projetos/pemob/saiba-mais">
               <Button variant="secondary" className="px-6 w-full sm:w-auto hover:bg-primary hover:text-primary-foreground cursor-pointer">Saiba mais</Button>
             </Link>

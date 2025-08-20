@@ -6,6 +6,7 @@ import {
 } from "@/components/ui/accordion"
 import { Switch } from "@/components/ui/switch"
 import Image from "next/image"
+import Link from "next/link"
 import React from "react"
 import { useFilterCategories } from "../hooks/use-filter-categories"
 import { FilterSearch } from "./filter-search"
@@ -23,8 +24,13 @@ export function FiltersSidebar({ selectedFilter, onFilterChange }: FiltersSideba
     <aside className="w-full">
       <div className="space-y-3">
         {/* Header */}
-        <div className="space-y-2 pb-3 p-4">
+        <div className="space-y-0 pb-3 p-4">
           <h2 className="text-xl font-bold text-gray-900">Explore dados da Pesquisa Nacional de Mobilidade Urbana</h2>
+          <div className="pb-2 text-sm text-gray-600">Pesquisa realizada pelo Mininstério das Cidades - {" "}
+            <Link href="/projetos/pemob/saiba-mais" className="hover:text-primary hover:underline font-semibold">
+              saiba mais 
+             </Link>
+          </div>
           <p className="text-md text-gray-600">Selecione uma das variáveis</p>
         </div>
 
