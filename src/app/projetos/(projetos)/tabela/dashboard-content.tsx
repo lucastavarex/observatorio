@@ -64,7 +64,7 @@ export default function DashboardContent() {
 
   return (
     <div className="bg-[#f3f3f3] min-h-screen w-full flex items-start justify-center p-4 md:p-4">
-      <div className="container w-full">
+      <div className="w-full">
         {/* Dashboard layout using same structure as catalago-de-dados */}
         <div className="flex flex-col gap-4 lg:flex-row min-h-[600px]">
         {/* Red container - FiltersSidebar */}

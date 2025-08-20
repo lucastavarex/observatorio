@@ -3,6 +3,7 @@
 import { Button } from "@/components/ui/button"
 import { Slider } from "@/components/ui/slider"
 import { TooltipProvider } from "@/components/ui/tooltip"
+import Link from "next/link"
 import React from "react"
 import { useDashboardData } from "../hooks/use-dashboard-data"
 import { CitiesFilter } from "./components/cities-filter"
@@ -81,7 +82,14 @@ export default function ChartsPage() {
     <TooltipProvider>
       <div className="bg-[#f3f3f3] min-h-screen w-full flex items-start justify-center p-4 md:p-4">
         <div className="w-full">
-                     {/* Dashboard layout using same structure as catalago-de-dados */}
+          {/* //novo card w-full aqui com o texto Explore dados da Pesquisa Nacional de Mobilidade Urbana na esquerda e um botão  saiba mais na direita */}
+           <div className="bg-white w-full flex flex-col sm:flex-row justify-between mb-4 items-start sm:items-center rounded-lg p-2 py-4 gap-4">
+            <h2 className="text-lg sm:text-xl px-2 font-bold text-gray-900">Explore dados da Pesquisa Nacional de Mobilidade Urbana</h2>
+            <Link href="/projetos/pemob/saiba-mais">
+              <Button variant="secondary" className="px-6 w-full sm:w-auto hover:bg-primary hover:text-primary-foreground cursor-pointer">Saiba mais</Button>
+            </Link>
+          </div>
+            {/* Dashboard layout using same structure as catalago-de-dados */}
            <div className="flex flex-col gap-4 lg:flex-row min-h-[600px] overflow-visible">
           {/* Cities Filter Container */}
           <div className="bg-white w-full min-w-0 lg:min-w-[350px] lg:w-[350px] lg:flex-shrink-0 rounded-lg min-h-[200px] lg:min-h-full overflow-hidden">
