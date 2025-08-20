@@ -15,6 +15,13 @@ interface EventData {
 }
 
 const eventsData: EventData[] = [
+   {
+    id: 5,
+    image: events5,
+    title: "Lançamento do guia de eletromobilidade",
+    date: "2024",
+    location: "Insper"
+  },
   {
     id: 1,
     image: events1,
@@ -42,13 +49,6 @@ const eventsData: EventData[] = [
     title: "Apresentação do Observatório Nac. de Mobilidade Sustentável para a comunidade do Rio de Janeiro",
     date: "2023",
     location: "Museu do Amanhã"
-  },
-  {
-    id: 5,
-    image: events5,
-    title: "Lançamento do guia de eletromobilidade",
-    date: "2024",
-    location: "Insper"
   }
 ];
 
