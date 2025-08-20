@@ -1,66 +1,19 @@
 "use client"
 
-import video1 from "@/app/assets/images/video1.png"
-import video2 from "@/app/assets/images/video2.png"
-import video3 from "@/app/assets/images/video3.png"
-import video4 from "@/app/assets/images/video4.png"
-import video5 from "@/app/assets/images/video5.png"
 import { Plus } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
 import { useRef, useState } from "react"
-
-interface NewsItem {
-  id: number
-  title: string
-  source: string
-  date: string
-  image: typeof video1
-}
-
-const newsData: NewsItem[] = [
-  {
-    id: 1,
-    title: "Grupo CCR e Laboratório Arq. Futuro de Cidades lançam Observatório Nacional de Mobilidade Sustentável",
-    source: "Estadão",
-    date: "2023",
-    image: video1
-  },
-  {
-    id: 2,
-    title: "Insper e CCR lançam Observatório Nacional de Mobilidade Sustentável",
-    source: "Insper",
-    date: "2023",
-    image: video2
-  },
-  {
-    id: 3,
-    title: "Observatório Nacional de Mobilidade Sustentável firma acordo de cooperação com o Rio de Janeiro",
-    source: "Technibus",
-    date: "2025",
-    image: video3
-  },
-  {
-    id: 4,
-    title: "Sexta da mobilidade: Soluções baseadas na natureza e mobilidade urbana: a urgência da mudança de paradigma das cidades",
-    source: "Insper",
-    date: "2024",
-    image: video4
-  },
-  {
-    id: 5,
-    title: "Sexta da mobilidade: Dados e Mobilidade Urbana",
-    source: "Insper",
-    date: "2024",
-    image: video5
-  }
-]
+import { getHomeNews } from "@/lib/data/news"
+import { NewsItem } from "@/lib/types/news"
 
 export function NoticiasSection() {
   const [hoveredImage, setHoveredImage] = useState<string | null>(null)
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null)
   const containerRef = useRef<HTMLDivElement>(null)
+
+  const newsData = getHomeNews()
 
   const handleMouseMove = (e: React.MouseEvent) => {
    setMousePosition({
@@ -115,12 +68,12 @@ export function NoticiasSection() {
 
         {/* News List */}
         <div className="space-y-0">
-          <div className="border-t border-gray-200 mx-4 lg:mx-16" />
+          <div className="border-t border-gray-200 mx-4 lg:px-16" />
           {newsData.map((item, index) => (
             <div key={item.id}>
                                                            <div 
                                 className="flex items-start py-8 group hover:bg-black md:hover:bg-black transition-all duration-300 cursor-pointer"
-                                onMouseEnter={() => handleMouseEnter(item.image.src, index)}
+                                onMouseEnter={() => handleMouseEnter(item.image, index)}
                                 onMouseLeave={handleMouseLeave}
                               >
                                  {/* Plus Icon */}
@@ -144,7 +97,7 @@ export function NoticiasSection() {
 
               {/* Divider - only show if not the last item */}
               {/* {index < newsData.length - 1 && ( */}
-                <div className="border-b border-gray-200 mx-4 lg:mx-16" />
+                <div className="border-b border-gray-200 mx-4 lg:px-16" />
               {/* )} */}
             </div>
           ))}
