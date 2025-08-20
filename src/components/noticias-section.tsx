@@ -23,35 +23,35 @@ const newsData: NewsItem[] = [
     id: 1,
     title: "Grupo CCR e Laboratório Arq. Futuro de Cidades lançam Observatório Nacional de Mobilidade Sustentável",
     source: "Estadão",
-    date: "12.03.2025",
+    date: "2023",
     image: video1
   },
   {
     id: 2,
     title: "Insper e CCR lançam Observatório Nacional de Mobilidade Sustentável",
     source: "Insper",
-    date: "12.03.2025",
+    date: "2023",
     image: video2
   },
   {
     id: 3,
     title: "Observatório Nacional de Mobilidade Sustentável firma acordo de cooperação com o Rio de Janeiro",
     source: "Technibus",
-    date: "12.03.2025",
+    date: "2025",
     image: video3
   },
   {
     id: 4,
     title: "Sexta da mobilidade: Soluções baseadas na natureza e mobilidade urbana: a urgência da mudança de paradigma das cidades",
     source: "Insper",
-    date: "12.03.2025",
+    date: "2024",
     image: video4
   },
   {
     id: 5,
     title: "Sexta da mobilidade: Dados e Mobilidade Urbana",
     source: "Insper",
-    date: "12.03.2025",
+    date: "2024",
     image: video5
   }
 ]

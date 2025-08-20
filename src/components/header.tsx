@@ -107,9 +107,9 @@ export function Header({ isBgDark = false, className }: HeaderProps) {
                 <Image
                   src={isBgDark && isMobileMenuOpen ? "/logo-preto.png" : isBgDark && !isMobileMenuOpen ? "/logo-branco.png" : "/logo-preto.png"}
                   alt="Logo Observatório"
-                  width={80}
+                  width={400}
                   height={80}
-                  className="h-20 w-auto"
+                  // className=""
                   priority
                 />
               </div>
@@ -134,7 +134,7 @@ export function Header({ isBgDark = false, className }: HeaderProps) {
                 isActive={pathname.startsWith("/projetos/")}
                 className={pathname.startsWith("/projetos/") ? activeTextClass : inactiveTextClass}
               >
-                Projetos
+                Mobilidade em dados
               </NavigationMenuTrigger>
               <NavigationMenuContent>
                 <ul className="grid w-[600px] gap-3 p-2 md:grid-cols-2 lg:w-[600px]">
@@ -198,13 +198,13 @@ export function Header({ isBgDark = false, className }: HeaderProps) {
               </NavigationMenuLink>
             </NavigationMenuItem>
             
-            <NavigationMenuItem>
+            {/* <NavigationMenuItem>
               <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
                 <Link href="/videos" className={pathname === "/videos" ? activeTextClass : inactiveTextClass}>
-                  Vídeos
+                  VideoCast
                 </Link>
               </NavigationMenuLink>
-            </NavigationMenuItem>
+            </NavigationMenuItem> */}
             
             <NavigationMenuItem>
               <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
@@ -273,7 +273,7 @@ export function Header({ isBgDark = false, className }: HeaderProps) {
                   <AccordionTrigger className={`text-lg font-medium text-black hover:no-underline py-3 ${
                     pathname.startsWith("/projetos/") ? "text-black font-medium" : "text-gray-400 hover:text-black"
                   }`}>
-                    Projetos
+                    Mobilidade em dados
                   </AccordionTrigger>
                   <AccordionContent>
                     <div className="space-y-4 pt-2">
