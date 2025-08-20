@@ -43,7 +43,7 @@ export function HomeLoading({ onLoadingComplete }: HomeLoadingProps) {
         <Image
           src="/logo-preto.png"
           alt="Observatório Nacional de Mobilidade Sustentável"
-          width={400}
+          width={600}
           height={200}
           className="object-contain animate-pulse"
           priority
