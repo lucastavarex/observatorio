@@ -24,7 +24,7 @@ export function FiltersSidebar({ selectedFilter, onFilterChange }: FiltersSideba
       <div className="space-y-3">
         {/* Header */}
         <div className="space-y-2 pb-3 p-4">
-          <h2 className="text-xl font-bold text-gray-900">Pesquisa Nacional de Mobilidade Urbana</h2>
+          <h2 className="text-xl font-bold text-gray-900">Explore dados da Pesquisa Nacional de Mobilidade Urbana</h2>
           <p className="text-md text-gray-600">Selecione uma das variáveis</p>
         </div>
 

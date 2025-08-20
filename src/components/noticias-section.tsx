@@ -1,11 +1,10 @@
 "use client"
 
+import { getHomeNews } from "@/lib/data/news"
 import { Plus } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
 import { useRef, useState } from "react"
-import { getHomeNews } from "@/lib/data/news"
-import { NewsItem } from "@/lib/types/news"
 
 export function NoticiasSection() {
   const [hoveredImage, setHoveredImage] = useState<string | null>(null)

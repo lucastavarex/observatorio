@@ -84,32 +84,32 @@ const brands: BrandLogo[] = [
 export function BrandSlider() {
   const isMobile = useIsMobile()
   return (
-    <section className="bg-[#f9f9f6] py-16 ">
-      <div className="px-4 2xl:px-16 mx-auto">
+    <section className="bg-[#f9f9f6] py-16 overflow-hidden">
+      <div className="px-4 2xl:px-16 mx-auto max-w-full">
         <div className="flex flex-col lg:flex-row items-left lg:items-center gap-4 lg:gap-8">
           {/* Text Section - Top on mobile, Left on desktop */}
           <div className="flex-shrink-0 text-left w-full lg:w-auto">
             <h2 className="text-base leading-relaxed md:text-lg lg:text-lg text-gray-800">
-             Parceiros
+             Realizadores
             </h2>
           </div>
-          <div className="flex justify-left lg:justify-center items-center gap-2 md:gap-10 lg:gap-16">
+          <div className="flex justify-left lg:justify-center items-center gap-2 md:gap-10 lg:gap-8 md:pr-20">
            
               <Image
                 key={fixedBrands[0].id}
                 src={fixedBrands[0].logo}
-              alt="Parceiros"
+              alt="Realizadores"
               width={200}
               height={200}
-              className="md:w-50 w-30 h-auto"
+              className="w-32 md:w-48 h-auto"
               />
               <Image
                 key={fixedBrands[1].id}
                 src={fixedBrands[1].logo}
-              alt="Parceiros"
+              alt="Realizadores"
               width={120}
               height={120}
-              className="pr-4 md:w-30 w-24 h-auto"
+              className="pr-4 w-24 md:w-32 h-auto"
               />
               <Image
                 key={fixedBrands[2].id}
@@ -124,32 +124,40 @@ export function BrandSlider() {
           </div>
 
           {/* Logo Slider - Bottom on mobile, Right on desktop */}
-          <div className="flex-1 min-w-0 w-full lg:w-auto">
-            <Slider
-              width="220px"
-              duration={20}
-              pauseOnHover={true}
-              blurBorders={isMobile ? false : true}
-              blurBorderColor={'#f5f5f0'}
-              toRight={false}
-            >
-              {brands.map((brand) => (
-                <Slider.Slide key={brand.id}>
-                  <div className="flex items-center justify-center">
-                    <div className="w-full h-full flex items-center justify-center">
-                      <Image
-                        width={100}
-                        height={100}
-                        src={brand.logo}
-                        alt={brand.alt}
-                        className="h-12 w-auto object-contain filter grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
-                        priority={false}
-                      />
-                    </div>
-                  </div>
-                </Slider.Slide>
-              ))}
-            </Slider>
+          <div className="flex-1 min-w-0 w-full lg:w-auto overflow-hidden">
+            <div className="flex flex-col lg:flex-row lg:items-center lg:gap-4">
+              <div className="flex-shrink-0 text-left w-full lg:w-auto mb-4 lg:mb-0">
+                <h2 className="text-base leading-relaxed md:text-lg lg:text-lg text-gray-800">
+                  Parceiros
+                </h2>
+              </div>
+              <div className="flex-1 overflow-hidden">
+                <Slider
+                  duration={20}
+                  pauseOnHover={true}
+                  blurBorders={isMobile ? false : true}
+                  blurBorderColor={'#f5f5f0'}
+                  toRight={false}
+                >
+                  {brands.map((brand) => (
+                    <Slider.Slide key={brand.id}>
+                      <div className="flex items-center justify-center">
+                        <div className="w-full h-full flex items-center justify-center">
+                          <Image
+                            width={100}
+                            height={100}
+                            src={brand.logo}
+                            alt={brand.alt}
+                            className="h-12 w-auto object-contain filter grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
+                            priority={false}
+                          />
+                        </div>
+                      </div>
+                    </Slider.Slide>
+                  ))}
+                </Slider>
+              </div>
+            </div>
           </div>
         </div>
       </div>

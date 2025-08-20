@@ -9,25 +9,7 @@ import video8 from "@/app/assets/images/video8.png"
 import { NewsItem } from "@/lib/types/news"
 
 export const newsData: NewsItem[] = [
-  {
-    id: 1,
-    title: "Grupo CCR e Laboratório Arq. Futuro de Cidades lançam Observatório Nacional de Mobilidade Sustentável",
-    source: "Estadão",
-    date: "2023",
-    image: video1.src,
-    link: "https://mobilidade.estadao.com.br/mobilidade-para-que/grupo-ccr-e-laboratorio-arq-futuro-de-cidades-lancam-observatorio-nacional-de-mobilidade-sustentavel",
-    apareceNaHome: true
-  },
-  {
-    id: 2,
-    title: "Insper e CCR lançam Observatório Nacional de Mobilidade Sustentável",
-    source: "Insper",
-    date: "2023",
-    image: video2.src,
-    link: "https://www.insper.edu.br/noticias/insper-e-ccr-lancam-observatorio-nacional-de-mobilidade-sustentavel/",
-    apareceNaHome: true
-  },
-  {
+    {
     id: 3,
     title: "Observatório Nacional de Mobilidade Sustentável firma acordo de cooperação com o Rio de Janeiro",
     source: "Technibus",
@@ -35,6 +17,15 @@ export const newsData: NewsItem[] = [
     image: video3.src,
     link: "https://technibus.com.br/2025/02/19/observatorio-nacional-de-mobilidade-sustentavel-firma-acordo-de-cooperacao-com-o-rio-de-janeiro/",
     apareceNaHome: true
+  },
+   {
+    id: 8,
+    title: "Agenda da descarbonização pode ser melhor",
+    source: "ABOL",
+    date: "2025",
+    image: video8.src,
+    link: "https://abolbrasil.org.br/noticias/noticias-do-setor/agenda-da-descarbonizacao-pode-ser-melhor",
+    apareceNaHome: false
   },
   {
     id: 4,
@@ -61,7 +52,7 @@ export const newsData: NewsItem[] = [
     date: "2024",
     image: video6.src,
     link: "https://www.insper.edu.br/pt/eventos/2024/11/sexta-da-mobilidade-solucoes-brasileiras-para-o-futuro-da-mobilidade-o-caso-do-aeromovel?utm_content=316378986&utm_medium=social&utm_source=facebook&hss_channel=fbp-120253158027896",
-    apareceNaHome: false
+    apareceNaHome: true
   },
   {
     id: 7,
@@ -70,15 +61,24 @@ export const newsData: NewsItem[] = [
     date: "2024",
     image: video7.src,
     link: "https://www.insper.edu.br/pt/eventos/2024/09/mobilidade-sustentavel-na-agenda-da-cop-30-impactos-no-meio-ambiente-e-mudanca-climatica",
-    apareceNaHome: false
+    apareceNaHome: true
   },
   {
-    id: 8,
-    title: "Agenda da descarbonização pode ser melhor",
-    source: "ABOL",
-    date: "2025",
-    image: video8.src,
-    link: "https://abolbrasil.org.br/noticias/noticias-do-setor/agenda-da-descarbonizacao-pode-ser-melhor",
+    id: 1,
+    title: "Grupo CCR e Laboratório Arq. Futuro de Cidades lançam Observatório Nacional de Mobilidade Sustentável",
+    source: "Estadão",
+    date: "2023",
+    image: video1.src,
+    link: "https://mobilidade.estadao.com.br/mobilidade-para-que/grupo-ccr-e-laboratorio-arq-futuro-de-cidades-lancam-observatorio-nacional-de-mobilidade-sustentavel",
+    apareceNaHome: true
+  },
+  {
+    id: 2,
+    title: "Insper e CCR lançam Observatório Nacional de Mobilidade Sustentável",
+    source: "Insper",
+    date: "2023",
+    image: video2.src,
+    link: "https://www.insper.edu.br/noticias/insper-e-ccr-lancam-observatorio-nacional-de-mobilidade-sustentavel/",
     apareceNaHome: false
   },
 ]
