@@ -28,7 +28,7 @@ const projects: Project[] = [
     title: 'Geoportal',
     description: 'Visualize dados espaciais de mobilidade urbana em um mapa interativo com diversas camadas temáticas',
     image: geoportal,
-    href: '/'
+    href: '/projetos/geoportal'
   },
     {
     id: 'catalogo',
