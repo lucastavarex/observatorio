@@ -28,7 +28,7 @@ const scriptSrcDirectives = [
   ]
 
 const cspHeader = `
-    default-src 'self' https://*.cloudinary.com https://*.sharepoint.com;
+    default-src 'self' https://*.cloudinary.com https://*.sharepoint.com https://*.mapbox.com/;
     script-src ${scriptSrcDirectives.join(' ')};
     style-src 'self' 'unsafe-inline';
     img-src 'self' blob: data: ;

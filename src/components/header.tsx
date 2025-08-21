@@ -95,8 +95,11 @@ export function Header({ isBgDark = false, className }: HeaderProps) {
   const activeTextClass = isBgDark ? "text-white! font-medium!" : "text-black! font-medium!"
   const inactiveTextClass = isBgDark ? "text-white/50! hover:text-white/100!" : "text-black/50! hover:text-black/100!"
 
+  // Check if current path contains "geoportal"
+  const isGeoportalPage = pathname.includes("geoportal");
+  
   return (
-    <header className={`z-50 w-full ${className} ${isMobileMenuOpen ? 'bg-white' : isBgDark ? 'bg-gradient-to-b from-[#242424] to-[#242424]/0' : ''}`}>
+    <header className={`z-50 w-full ${className} ${isMobileMenuOpen ? 'bg-white' : isGeoportalPage ? 'bg-none!' : isBgDark ? 'bg-gradient-to-b from-[#242424] to-[#242424]/0' : ''}`}>
       <div className="flex h-28 items-center justify-between px-4 2xl:px-16">
         {/* Logo and Desktop Navigation (keep this part exactly the same) */}
         <div className="flex items-center">

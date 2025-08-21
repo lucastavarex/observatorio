@@ -1,7 +1,11 @@
+"use client";
+
+import PropertyMap from "./components/property-map";
+
 export default function GeoportalPage() {
   return (
     <div>
-      <h1>Geoportal</h1>
+      <PropertyMap />
     </div>
   )
 }

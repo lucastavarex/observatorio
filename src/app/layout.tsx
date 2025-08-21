@@ -1,4 +1,4 @@
-import { Footer } from "@/components/footer";
+import { ConditionalFooter } from "@/components/conditional-footer";
 import { Toaster } from "@/components/ui/sonner";
 import type { Metadata } from "next";
 import { Plus_Jakarta_Sans } from "next/font/google";
@@ -26,10 +26,10 @@ export default async function RootLayout({
   const nonce = (await headers()).get('x-nonce') ?? undefined
   return (
     <html lang="pt-BR" className={plusJakartaSans.className}>
-      <body className="antialiased" nonce={nonce}>
+      <body className="antialiased">
         <main className="">{children}</main>
         <Toaster />
-        <Footer />
+        <ConditionalFooter />
       </body>
     </html>
   );
