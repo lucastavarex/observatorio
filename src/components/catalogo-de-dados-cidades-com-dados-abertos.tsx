@@ -178,6 +178,7 @@ const modalData = {
 }
 
 type SortOrder = "asc" | "desc" | null
+type SortField = "cidade" | "gtfs" | "gpsEmbarcados" | "bilhetagem" | "arquivosVetoriais"
 
 interface ModalState {
   isOpen: boolean
@@ -185,7 +186,8 @@ interface ModalState {
   dataType: string
 }
 
-export default function CatalogoDeDados() {
+export default function CatalogoDeDadosCidadesParceiras() {
+  const [sortField, setSortField] = useState<SortField>("cidade")
   const [sortOrder, setSortOrder] = useState<SortOrder>(null)
   const [sortedData, setSortedData] = useState(citiesData)
   const [modalState, setModalState] = useState<ModalState>({
@@ -202,25 +204,48 @@ export default function CatalogoDeDados() {
     })
   }
 
-  const handleSort = () => {
+  const handleSort = (field: SortField) => {
     let newSortOrder: SortOrder
     const newSortedData = [...citiesData]
 
-    if (sortOrder === null || sortOrder === "desc") {
-      // Sort ascending
-      newSortOrder = "asc"
-      newSortedData.sort((a, b) => a.cidade.localeCompare(b.cidade))
+    if (sortField === field) {
+      // Same field, toggle order
+      if (sortOrder === null || sortOrder === "desc") {
+        newSortOrder = "asc"
+      } else {
+        newSortOrder = "desc"
+      }
     } else {
-      // Sort descending
-      newSortOrder = "desc"
-      newSortedData.sort((a, b) => b.cidade.localeCompare(a.cidade))
+      // New field, start with ascending
+      newSortOrder = "asc"
     }
 
+    // Sort the data
+    newSortedData.sort((a, b) => {
+      if (field === "cidade") {
+        const aValue = a[field] as string
+        const bValue = b[field] as string
+        return newSortOrder === "asc" 
+          ? aValue.localeCompare(bValue)
+          : bValue.localeCompare(aValue)
+      } else {
+        // For boolean fields, true values come first in ascending order
+        const aValue = (a[field] as boolean) ? 1 : 0
+        const bValue = (b[field] as boolean) ? 1 : 0
+        return newSortOrder === "asc" ? bValue - aValue : aValue - bValue
+      }
+    })
+
+    setSortField(field)
     setSortOrder(newSortOrder)
     setSortedData(newSortedData)
   }
 
-  const getSortIcon = () => {
+  const getSortIcon = (field: SortField) => {
+    if (sortField !== field) {
+      return <ChevronDown className="w-4 h-4 opacity-50" />
+    }
+    
     if (sortOrder === "asc") {
       return <ChevronUp className="w-4 h-4" />
     } else if (sortOrder === "desc") {
@@ -233,23 +258,50 @@ export default function CatalogoDeDados() {
   const currentModalData = modalData[modalState.dataType as keyof typeof modalData]
 
   return (
-    <div className="w-full mx-auto px-4 2xl:px-16 pt-6 pb-30 bg-[#f9f9f6]">
+    <div className="w-full mx-auto px-4 2xl:px-16">
       <div className="bg-white rounded-lg border">
         {/* Desktop Table View */}
         <div className="hidden lg:block">
+          <div className="p-4">
+            <div className="font-semibold text-xl text-gray-900">Cidades com dados abertos</div>
+          </div>
           {/* Table Header */}
           <div className="grid grid-cols-5 gap-4 p-4 border-b">
             <div
               className="flex items-center gap-2 font-medium text-gray-900 cursor-pointer hover:text-gray-700 select-none"
-              onClick={handleSort}
+              onClick={() => handleSort("cidade")}
             >
               Cidades
-              {getSortIcon()}
+              {getSortIcon("cidade")}
             </div>
-            <div className="font-medium text-gray-900">GTFS</div>
-            <div className="font-medium text-gray-900">GPS embarcados</div>
-            <div className="font-medium text-gray-900">Bilhetagem</div>
-            <div className="font-medium text-gray-900">Arquivos vetoriais</div>
+            <div
+              className="flex items-center gap-2 font-medium text-gray-900 cursor-pointer hover:text-gray-700 select-none"
+              onClick={() => handleSort("gtfs")}
+            >
+              GTFS
+              {getSortIcon("gtfs")}
+            </div>
+            <div
+              className="flex items-center gap-2 font-medium text-gray-900 cursor-pointer hover:text-gray-700 select-none"
+              onClick={() => handleSort("gpsEmbarcados")}
+            >
+              GPS embarcados
+              {getSortIcon("gpsEmbarcados")}
+            </div>
+            <div
+              className="flex items-center gap-2 font-medium text-gray-900 cursor-pointer hover:text-gray-700 select-none"
+              onClick={() => handleSort("bilhetagem")}
+            >
+              Bilhetagem
+              {getSortIcon("bilhetagem")}
+            </div>
+            <div
+              className="flex items-center gap-2 font-medium text-gray-900 cursor-pointer hover:text-gray-700 select-none"
+              onClick={() => handleSort("arquivosVetoriais")}
+            >
+              Arquivos vetoriais
+              {getSortIcon("arquivosVetoriais")}
+            </div>
           </div>
           {/* Table Body */}
           <div className="divide-y">
@@ -322,14 +374,17 @@ export default function CatalogoDeDados() {
         </div>
         {/* Mobile/Tablet Card View */}
         <div className="lg:hidden">
+           <div className="p-4">
+            <div className="font-semibold text-xl text-gray-900">Cidades com dados abertos</div>
+          </div>
           {/* Mobile Header */}
           <div className="p-4 border-b">
             <div
               className="flex items-center gap-2 font-medium text-gray-900 cursor-pointer hover:text-gray-700 select-none"
-              onClick={handleSort}
+              onClick={() => handleSort("cidade")}
             >
               Cidades
-              {getSortIcon()}
+              {getSortIcon("cidade")}
             </div>
           </div>
           {/* Mobile Cards */}
