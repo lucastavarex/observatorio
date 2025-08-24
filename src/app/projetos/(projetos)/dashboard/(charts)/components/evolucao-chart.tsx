@@ -2,7 +2,7 @@
 
 import React from "react"
 import { CartesianGrid, Legend, Line, LineChart, ResponsiveContainer, Tooltip, XAxis, YAxis } from "recharts"
-import { getVariableData } from "../../lib/pemob-data"
+import { getVariableCityFillPercentage, getVariableData } from "../../lib/pemob-data"
 
 interface EvolucaoChartProps {
   selectedCities: string[]
@@ -133,6 +133,15 @@ export function EvolucaoChart({ selectedCities, selectedVariables, year }: Evolu
     return selectedCities.map((_, index) => colors[index % colors.length])
   }, [selectedCities])
 
+  // Sort variables by city fill percentage in descending order
+  const sortedVariables = React.useMemo(() => {
+    return [...selectedVariables].sort((a, b) => {
+      const percentageA = getVariableCityFillPercentage(a, year)
+      const percentageB = getVariableCityFillPercentage(b, year)
+      return percentageB - percentageA
+    })
+  }, [selectedVariables, year])
+
   if (selectedVariables.length === 0) {
     return (
       <div className="flex items-center justify-center h-full text-gray-500">
@@ -152,8 +161,8 @@ export function EvolucaoChart({ selectedCities, selectedVariables, year }: Evolu
   return (
     <div className="w-full h-full flex flex-col">
       <div className="flex-1 overflow-y-auto">
-        {/* Render one chart for each selected variable */}
-        {selectedVariables.map((variable, index) => (
+        {/* Render one chart for each selected variable in sorted order */}
+        {sortedVariables.map((variable, index) => (
           <SingleVariableChart
             key={variable}
             variable={variable}

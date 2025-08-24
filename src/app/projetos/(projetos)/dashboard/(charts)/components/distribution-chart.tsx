@@ -3,7 +3,7 @@
 import React from "react"
 import { CartesianGrid, Cell, Dot, ResponsiveContainer, Scatter, ScatterChart, Tooltip, XAxis, YAxis } from "recharts"
 import { useIsMobile } from "../../hooks/use-is-mobile"
-import { getVariableData } from "../../lib/pemob-data"
+import { getVariableCityFillPercentage, getVariableData } from "../../lib/pemob-data"
 
 interface DistributionChartProps {
   selectedCities: string[]
@@ -92,9 +92,16 @@ export function DistributionChart({ selectedCities, selectedVariables, year }: D
   const isMobile = useIsMobile()
   
   const chartData = React.useMemo(() => {
+    // Sort variables by city fill percentage in descending order
+    const sortedVariables = [...selectedVariables].sort((a, b) => {
+      const percentageA = getVariableCityFillPercentage(a, year)
+      const percentageB = getVariableCityFillPercentage(b, year)
+      return percentageB - percentageA
+    })
+
     const data: ChartDataPoint[] = []
     
-    selectedVariables.forEach((variable, variableIndex) => {
+    sortedVariables.forEach((variable, variableIndex) => {
       const variableData = getVariableData(variable, year)
       
       // Calculate total for percentage calculation
@@ -167,7 +174,15 @@ export function DistributionChart({ selectedCities, selectedVariables, year }: D
               dataKey="yPosition"
               domain={[-0.5, selectedVariables.length - 0.5]}
               ticks={Array.from({ length: selectedVariables.length }, (_, i) => i)}
-              tickFormatter={(value) => selectedVariables[value] || ''}
+              tickFormatter={(value) => {
+                // Use sortedVariables to get the correct variable name for each position
+                const sortedVariables = [...selectedVariables].sort((a, b) => {
+                  const percentageA = getVariableCityFillPercentage(a, year)
+                  const percentageB = getVariableCityFillPercentage(b, year)
+                  return percentageB - percentageA
+                })
+                return sortedVariables[value] || ''
+              }}
               tick={{ fontSize: 11 }}
               width={isMobile ? 100 : 200}
               interval={0}

@@ -2,7 +2,7 @@
 
 import React from "react"
 import { PolarAngleAxis, PolarGrid, PolarRadiusAxis, Radar, RadarChart, ResponsiveContainer, Tooltip } from 'recharts'
-import { getVariableData } from "../../lib/pemob-data"
+import { getVariableCityFillPercentage, getVariableData } from "../../lib/pemob-data"
 
 interface RadarChartProps {
   selectedCities: string[]
@@ -49,8 +49,15 @@ export function ChartRadarMultiple({ selectedCities, selectedVariables, year }: 
       return []
     }
 
-    // Create radar chart data structure
-    const data: RadarChartDataPoint[] = selectedVariables.map(variable => {
+    // Sort variables by city fill percentage in descending order
+    const sortedVariables = [...selectedVariables].sort((a, b) => {
+      const percentageA = getVariableCityFillPercentage(a, year)
+      const percentageB = getVariableCityFillPercentage(b, year)
+      return percentageB - percentageA
+    })
+
+    // Create radar chart data structure with sorted variables
+    const data: RadarChartDataPoint[] = sortedVariables.map(variable => {
       const dataPoint: RadarChartDataPoint = { variable }
       
       const variableData = getVariableData(variable, year)
