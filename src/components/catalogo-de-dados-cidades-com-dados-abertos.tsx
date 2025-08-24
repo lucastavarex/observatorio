@@ -320,7 +320,7 @@ export default function CatalogoDeDadosCidadesParceiras() {
                         : "bg-gray-200 text-gray-400 cursor-not-allowed"
                     }`}
                   >
-                    Download
+                    Acesse
                   </Button>
                 </div>
                 <div>
@@ -335,7 +335,7 @@ export default function CatalogoDeDadosCidadesParceiras() {
                         : "bg-gray-200 text-gray-400 cursor-not-allowed"
                     }`}
                   >
-                    Download
+                    Acesse
                   </Button>
                 </div>
                 <div>
@@ -350,7 +350,7 @@ export default function CatalogoDeDadosCidadesParceiras() {
                         : "bg-gray-200 text-gray-400 cursor-not-allowed"
                     }`}
                   >
-                    Download
+                    Acesse
                   </Button>
                 </div>
                 <div>
@@ -365,7 +365,7 @@ export default function CatalogoDeDadosCidadesParceiras() {
                         : "bg-gray-200 text-gray-400 cursor-not-allowed"
                     }`}
                   >
-                    Download
+                    Acesse
                   </Button>
                 </div>
               </div>
@@ -406,7 +406,7 @@ export default function CatalogoDeDadosCidadesParceiras() {
                           : "bg-gray-200 text-gray-400 cursor-not-allowed"
                       }`}
                     >
-                      Download
+                      Acesse
                     </Button>
                   </div>
                   <div className="space-y-2">
@@ -422,7 +422,7 @@ export default function CatalogoDeDadosCidadesParceiras() {
                           : "bg-gray-200 text-gray-400 cursor-not-allowed"
                       }`}
                     >
-                      Download
+                      Acesse
                     </Button>
                   </div>
                   <div className="space-y-2">
@@ -438,7 +438,7 @@ export default function CatalogoDeDadosCidadesParceiras() {
                           : "bg-gray-200 text-gray-400 cursor-not-allowed"
                       }`}
                     >
-                      Download
+                      Acesse
                     </Button>
                   </div>
                   <div className="space-y-2">
@@ -454,7 +454,7 @@ export default function CatalogoDeDadosCidadesParceiras() {
                           : "bg-gray-200 text-gray-400 cursor-not-allowed"
                       }`}
                     >
-                      Download
+                      Acesse
                     </Button>
                   </div>
                 </div>
