@@ -178,8 +178,8 @@ export default function ChartsPage() {
             </div>
 
             {/* Chart Container */}
-            <div className="bg-white rounded-t-none rounded-b-lg h-[600px] 2xl:min-h-[380px] 2xl:h-auto custom-min-height">
-              <div className="bg-white rounded-xl w-full h-full p-6 pt-0">
+            <div className="bg-white rounded-t-none rounded-b-lg custom-min-height">
+              <div className="bg-white rounded-xl w-full h-full px-6 pb-10">
                 {renderChart()}
               </div>
             </div>
