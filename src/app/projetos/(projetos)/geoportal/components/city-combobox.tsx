@@ -25,6 +25,18 @@ const cities = [
     value: "Niteroi",
     label: "Niterói",
   },
+  {
+    value: "Santo André",
+    label: "Santo André",
+  },
+  {
+    value: "Salvador",
+    label: "Salvador",
+  },
+  {
+    value: "Porto Alegre",
+    label: "Porto Alegre",
+  },
 ]
 
 interface CityComboboxProps {

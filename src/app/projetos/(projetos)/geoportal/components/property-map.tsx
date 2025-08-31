@@ -5,6 +5,7 @@ import mapboxgl from "mapbox-gl"
 import "mapbox-gl/dist/mapbox-gl.css"
 import { useEffect, useRef, useState } from "react"
 import { CityCombobox } from "./city-combobox"
+import { CityLayers } from "./city-layers"
 
 mapboxgl.accessToken = process.env.NEXT_PUBLIC_MAPBOX_TOKEN
 
@@ -12,7 +13,10 @@ const cityCoordinates: Record<string, [number, number]> = {
   "São Paulo": [-46.6388, -23.5505],
   "Rio de Janeiro": [-43.43852, -22.91464],
   "Belo Horizonte": [-43.9388, -19.9167],
-  Niteroi: [-43.12084, -22.89277],
+  "Niteroi": [-43.12084, -22.89277],
+  "Santo André": [-46.19209, -23.67494],
+  "Salvador": [-38.51101, -12.97162],
+  "Porto Alegre": [-51.2177, -30.0326],
 }
 
 export default function PropertyMap() {
@@ -21,6 +25,7 @@ export default function PropertyMap() {
   const [zoom] = useState(10.5)
   const [selectedCity, setSelectedCity] = useState("Rio de Janeiro")
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [selectedLayers, setSelectedLayers] = useState<string[]>([])
 
   useEffect(() => {
     if (!mapContainer.current) return
@@ -36,6 +41,8 @@ export default function PropertyMap() {
 
   const handleCityChange = (city: string) => {
     setSelectedCity(city)
+    // Reset selected layers when changing city
+    setSelectedLayers([])
     if (map.current) {
       map.current.flyTo({
         center: cityCoordinates[city],
@@ -47,6 +54,12 @@ export default function PropertyMap() {
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen)
+  }
+
+  const handleLayersChange = (layers: string[]) => {
+    setSelectedLayers(layers)
+    // Here you can add logic to show/hide map layers based on selection
+    console.log("Selected layers:", layers)
   }
 
   return (
@@ -67,19 +80,29 @@ export default function PropertyMap() {
       </div>
 
       <div
-        className={`absolute bg-white top-6 left-6 z-10 w-80 rounded-lg h-[calc(100lvh-48px)] transition-transform duration-300 ease-in-out
-          max-md:top-20 max-md:left-4 max-md:right-4 max-md:w-auto max-md:h-[calc(100lvh-96px)]
+        className={`absolute bg-white top-6 left-6 z-10 w-80 rounded-lg shadow-lg transition-transform duration-300 ease-in-out
+          max-md:top-20 max-md:left-4 max-md:right-4 max-md:w-auto max-md:h-[calc(100vh-96px)]
           ${isMenuOpen ? "max-md:translate-x-0" : "max-md:-translate-x-full max-md:opacity-0"}
           md:translate-x-0 md:opacity-100
         `}
+        style={{ height: 'calc(100vh - 48px)' }}
       >
         <div className="p-4 border-b md:hidden">
-          <h2 className="text-lg font-semibold">Menu de Navegação</h2>
+          <h2 className="text-lg font-semibold">Selecione as camadas</h2>
         </div>
 
-        {/* Menu content will go here */}
-        <div className="p-4">
-          <p className="text-gray-600">Conteúdo da navegação...</p>
+        <div className="flex flex-col h-full">
+          <div className="md:p-4">
+            <h2 className="text-xl font-bold text-gray-900 hidden md:block">Selecione as camadas</h2>
+          </div>
+
+          <div className="flex-1 overflow-y-auto">
+            <CityLayers
+              selectedCity={selectedCity}
+              selectedLayers={selectedLayers}
+              onLayersChange={handleLayersChange}
+            />
+          </div>
         </div>
       </div>
 
