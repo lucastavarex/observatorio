@@ -2,6 +2,9 @@ export interface CityLayer {
   id: string
   name: string
   description?: string
+  tilesetId?: string
+  sourceLayer?: string
+  layerType?: 'fill' | 'line' | 'circle' | 'symbol'
 }
 
 export interface CityLayersConfig {
@@ -18,9 +21,30 @@ export const cityLayersConfig: CityLayersConfig = {
     { id: "air-quality-points", name: "Qualidade do ar (Pontos)", description: "Estações de monitoramento da qualidade do ar" },
   ],
   "São Paulo": [
-    { id: "density", name: "Densidade", description: "Densidade populacional por bairro/distrito" },
-    { id: "census", name: "Censo", description: "Dados demográficos do último censo IBGE" },
-    { id: "census-iptu", name: "Censo IPTU", description: "Informações cadastrais e tributárias dos imóveis" },
+    { 
+      id: "census-iptu", 
+      name: "IPTU Census", 
+      description: "Informações cadastrais e tributárias dos imóveis",
+      tilesetId: "observatorio-nacional.cqpa7k1p",
+      sourceLayer: "sp_censo_iptu-2emtek",
+      layerType: "fill"
+    },
+    { 
+      id: "census", 
+      name: "General Census", 
+      description: "Dados demográficos do último censo IBGE",
+      tilesetId: "observatorio-nacional.d8lmd7ji",
+      sourceLayer: "sp_censo-8o4mbb",
+      layerType: "fill"
+    },
+    { 
+      id: "density", 
+      name: "Population Density", 
+      description: "Densidade populacional por bairro/distrito",
+      tilesetId: "observatorio-nacional.63ptdyhl",
+      sourceLayer: "sp_density-d1vpm8",
+      layerType: "fill"
+    },
     { id: "ubs-expenses", name: "Gastos UBS Distritos", description: "Distribuição de recursos para Unidades Básicas de Saúde" },
     { id: "geoses", name: "Geoses", description: "Sistema de informações geográficas socioeconômicas" },
     { id: "deaths", name: "Óbitos", description: "Estatísticas de mortalidade por região" },

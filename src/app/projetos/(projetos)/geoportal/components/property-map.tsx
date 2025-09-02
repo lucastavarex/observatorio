@@ -4,6 +4,7 @@ import { Menu, X } from "lucide-react"
 import mapboxgl from "mapbox-gl"
 import "mapbox-gl/dist/mapbox-gl.css"
 import { useEffect, useRef, useState } from "react"
+import { cityLayersConfig } from "../lib/city-layers"
 import { CityCombobox } from "./city-combobox"
 import { CityLayers } from "./city-layers"
 
@@ -23,9 +24,11 @@ export default function PropertyMap() {
   const mapContainer = useRef<HTMLDivElement>(null)
   const map = useRef<mapboxgl.Map | null>(null)
   const [zoom] = useState(10.5)
-  const [selectedCity, setSelectedCity] = useState("Rio de Janeiro")
+  const [selectedCity, setSelectedCity] = useState("São Paulo")
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [selectedLayers, setSelectedLayers] = useState<string[]>([])
+  const [mapLoaded, setMapLoaded] = useState(false)
+  const [layerLoadingStates, setLayerLoadingStates] = useState<Record<string, 'loading' | 'loaded' | 'error'>>({})
 
   useEffect(() => {
     if (!mapContainer.current) return
@@ -36,6 +39,9 @@ export default function PropertyMap() {
       zoom,
     })
     map.current.addControl(new mapboxgl.NavigationControl(), "bottom-right")
+    map.current.on('load', () => {
+      setMapLoaded(true)
+    })
     return () => map.current?.remove()
   }, [zoom])
 
@@ -43,6 +49,22 @@ export default function PropertyMap() {
     setSelectedCity(city)
     // Reset selected layers when changing city
     setSelectedLayers([])
+    
+    // Remove all existing custom layers and sources when changing city
+    if (map.current && mapLoaded) {
+      const cityLayers = cityLayersConfig[city] || []
+      cityLayers.forEach(layer => {
+        if (layer.tilesetId && map.current?.getLayer(layer.id)) {
+          map.current.removeLayer(layer.id)
+        }
+        if (layer.tilesetId && map.current?.getSource(layer.id)) {
+          map.current.removeSource(layer.id)
+        }
+      })
+      // Reset loading states
+      setLayerLoadingStates({})
+    }
+    
     if (map.current) {
       map.current.flyTo({
         center: cityCoordinates[city],
@@ -57,9 +79,89 @@ export default function PropertyMap() {
   }
 
   const handleLayersChange = (layers: string[]) => {
+    if (!map.current || !mapLoaded) return
+    
+    console.log('Handling layers change:', { previous: selectedLayers, new: layers, city: selectedCity })
+    
+    const cityLayers = cityLayersConfig[selectedCity] || []
+    const previousLayers = selectedLayers
+    const newLayers = layers
+    
+    // Remove layers that are no longer selected
+    previousLayers.forEach(layerId => {
+      if (!newLayers.includes(layerId)) {
+        const layerConfig = cityLayers.find(l => l.id === layerId)
+        if (layerConfig?.tilesetId) {
+          console.log(`Removing layer: ${layerId}`)
+          if (map.current?.getLayer(layerId)) {
+            map.current.removeLayer(layerId)
+          }
+          if (map.current?.getSource(layerId)) {
+            map.current.removeSource(layerId)
+          }
+          // Update loading state
+          setLayerLoadingStates(prev => {
+            const newState = { ...prev }
+            delete newState[layerId]
+            return newState
+          })
+        }
+      }
+    })
+    
+    // Add new layers that are now selected
+    newLayers.forEach(layerId => {
+      if (!previousLayers.includes(layerId)) {
+        const layerConfig = cityLayers.find(l => l.id === layerId)
+        if (layerConfig?.tilesetId && layerConfig?.sourceLayer) {
+          console.log(`Adding layer: ${layerId}`, { tilesetId: layerConfig.tilesetId, sourceLayer: layerConfig.sourceLayer })
+          
+          // Set loading state
+          setLayerLoadingStates(prev => ({ ...prev, [layerId]: 'loading' }))
+          
+          try {
+            // Add source
+            map.current!.addSource(layerId, {
+              type: 'vector',
+              url: `mapbox://${layerConfig.tilesetId}`
+            })
+            
+            // Add layer
+            const layerType = layerConfig.layerType || 'fill'
+            const paint = layerType === 'fill' ? {
+              'fill-color': '#007cbf',
+              'fill-opacity': 0.7,
+              'fill-outline-color': '#000',
+              'fill-outline-width': 1
+            } : {}
+            
+            map.current!.addLayer({
+              id: layerId,
+              type: layerType,
+              source: layerId,
+              'source-layer': layerConfig.sourceLayer,
+              layout: {
+                visibility: 'visible'
+              },
+              paint
+            })
+            
+            console.log(`Successfully added layer: ${layerId}`)
+            
+            // Set loaded state
+            setLayerLoadingStates(prev => ({ ...prev, [layerId]: 'loaded' }))
+            
+            // Note: Error handling can be enhanced with proper event listeners when needed
+            
+          } catch (error) {
+            console.error(`Error adding layer ${layerId}:`, error)
+            setLayerLoadingStates(prev => ({ ...prev, [layerId]: 'error' }))
+          }
+        }
+      }
+    })
+    
     setSelectedLayers(layers)
-    // Here you can add logic to show/hide map layers based on selection
-    console.log("Selected layers:", layers)
   }
 
   return (
@@ -100,6 +202,7 @@ export default function PropertyMap() {
               selectedCity={selectedCity}
               selectedLayers={selectedLayers}
               onLayersChange={handleLayersChange}
+              layerLoadingStates={layerLoadingStates}
             />
           </div>
         </div>

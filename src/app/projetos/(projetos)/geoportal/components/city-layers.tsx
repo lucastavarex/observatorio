@@ -10,9 +10,10 @@ interface CityLayersProps {
   selectedCity: string
   selectedLayers: string[]
   onLayersChange: (layers: string[]) => void
+  layerLoadingStates?: Record<string, 'loading' | 'loaded' | 'error'>
 }
 
-export function CityLayers({ selectedCity, selectedLayers, onLayersChange }: CityLayersProps) {
+export function CityLayers({ selectedCity, selectedLayers, onLayersChange, layerLoadingStates = {} }: CityLayersProps) {
   const cityLayers = cityLayersConfig[selectedCity] || []
 
   const handleLayerToggle = (layerId: string, checked: boolean) => {
@@ -44,7 +45,9 @@ export function CityLayers({ selectedCity, selectedLayers, onLayersChange }: Cit
                   htmlFor={`layer-${layer.id}`}
                   className="text-sm cursor-pointer text-black leading-relaxed block"
                 >
-                  <span className={`block truncate ${isSelected ? 'font-semibold' : 'font-medium'}`}>{layer.name}</span>
+                  <div className="flex items-center gap-2">
+                    <span className={`block truncate ${isSelected ? 'font-semibold' : 'font-medium'}`}>{layer.name}</span>
+                  </div>
                   {layer.description && (
                     <Tooltip>
                       <TooltipTrigger asChild>
@@ -65,6 +68,7 @@ export function CityLayers({ selectedCity, selectedLayers, onLayersChange }: Cit
                 id={`layer-${layer.id}`}
                 checked={isSelected}
                 onCheckedChange={(checked) => handleLayerToggle(layer.id, checked)}
+                disabled={layerLoadingStates[layer.id] === 'loading'}
               />
             </div>
             {index !== cityLayers.length - 1 && (
