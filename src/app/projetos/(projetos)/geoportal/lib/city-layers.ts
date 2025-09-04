@@ -5,6 +5,7 @@ export interface CityLayer {
   tilesetId?: string
   sourceLayer?: string
   layerType?: 'fill' | 'line' | 'circle' | 'symbol'
+  hasCustomStyle?: boolean // Indicates if this layer has a custom style defined in layer-styles.ts
 }
 
 export interface CityLayersConfig {
@@ -22,6 +23,22 @@ export const cityLayersConfig: CityLayersConfig = {
   ],
   "São Paulo": [
     { 
+      id: "density", 
+      name: "Densidade Populacional", 
+      description: "Densidade populacional por bairro/distrito",
+      tilesetId: "observatorio-nacional.3g2magjo",
+      sourceLayer: "density-2aws6m",
+      layerType: "fill",
+      hasCustomStyle: true
+    },
+     { id: "geoses", name: "Geoses", 
+      description: "Sistema de informações geográficas socioeconômicas",
+      tilesetId: "observatorio-nacional.ah3u3vxi",
+      sourceLayer: "geoses-4hsw1f",
+      layerType: "fill",
+      hasCustomStyle: true
+     },
+    { 
       id: "census-iptu", 
       name: "IPTU Census", 
       description: "Informações cadastrais e tributárias dos imóveis",
@@ -37,24 +54,10 @@ export const cityLayersConfig: CityLayersConfig = {
       sourceLayer: "sp_censo-0inwjz",
       layerType: "fill"
     },
-    { 
-      id: "density", 
-      name: "Densidade Populacional", 
-      description: "Densidade populacional por bairro/distrito",
-      tilesetId: "observatorio-nacional.3g2magjo",
-      sourceLayer: "density-2aws6m",
-      layerType: "fill"
-    },
     { id: "ubs-expenses", name: "Gastos UBS Distritos", 
       description: "Distribuição de recursos para Unidades Básicas de Saúde",
       tilesetId: "observatorio-nacional.a8auz7xs",
       sourceLayer: "gastos_ubs_distritos-7ty5vi",
-      layerType: "fill"
-     },
-    { id: "geoses", name: "Geoses", 
-      description: "Sistema de informações geográficas socioeconômicas",
-      tilesetId: "observatorio-nacional.ah3u3vxi",
-      sourceLayer: "geoses-4hsw1f",
       layerType: "fill"
      },
     { id: "deaths", name: "Óbitos", description: "Estatísticas de mortalidade por região",

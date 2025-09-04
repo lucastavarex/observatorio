@@ -5,10 +5,33 @@ import mapboxgl from "mapbox-gl"
 import "mapbox-gl/dist/mapbox-gl.css"
 import { useEffect, useRef, useState } from "react"
 import { cityLayersConfig } from "../lib/city-layers"
+import { createStyledLayer } from "../lib/layer-styles"
 import { CityCombobox } from "./city-combobox"
 import { CityLayers } from "./city-layers"
 
 mapboxgl.accessToken = process.env.NEXT_PUBLIC_MAPBOX_TOKEN
+
+// Helper function to create default layer configuration
+function createDefaultLayerConfig(layerId: string, layerConfig: { layerType?: 'fill' | 'line' | 'circle' | 'symbol'; sourceLayer: string }): mapboxgl.AnyLayer {
+  const layerType = layerConfig.layerType || 'fill'
+  const paint = layerType === 'fill' ? {
+    'fill-color': '#007cbf',
+    'fill-opacity': 0.7,
+    'fill-outline-color': '#000',
+    'fill-outline-width': 1
+  } : {}
+  
+  return {
+    id: layerId,
+    type: layerType as 'fill' | 'line' | 'circle' | 'symbol',
+    source: layerId,
+    'source-layer': layerConfig.sourceLayer,
+    layout: {
+      visibility: 'visible'
+    },
+    paint
+  } as mapboxgl.AnyLayer
+}
 
 const cityCoordinates: Record<string, [number, number]> = {
   "São Paulo": [-46.6388, -23.5505],
@@ -43,7 +66,7 @@ export default function PropertyMap() {
       setMapLoaded(true)
     })
     return () => map.current?.remove()
-  }, [zoom])
+  }, [zoom, selectedCity])
 
   const handleCityChange = (city: string) => {
     setSelectedCity(city)
@@ -126,25 +149,39 @@ export default function PropertyMap() {
               url: `mapbox://${layerConfig.tilesetId}`
             })
             
-            // Add layer
-            const layerType = layerConfig.layerType || 'fill'
-            const paint = layerType === 'fill' ? {
-              'fill-color': '#007cbf',
-              'fill-opacity': 0.7,
-              'fill-outline-color': '#000',
-              'fill-outline-width': 1
-            } : {}
+            // Check if layer has custom style
+            let layerConfigToAdd: mapboxgl.AnyLayer
             
-            map.current!.addLayer({
-              id: layerId,
-              type: layerType,
-              source: layerId,
-              'source-layer': layerConfig.sourceLayer,
-              layout: {
-                visibility: 'visible'
-              },
-              paint
-            })
+            if (layerConfig.hasCustomStyle) {
+              // Use custom style from Mapbox Studio
+              const customStyle = createStyledLayer(layerId, layerConfig.sourceLayer, layerConfig.tilesetId)
+              if (customStyle) {
+                layerConfigToAdd = {
+                  ...customStyle,
+                  layout: {
+                    ...customStyle.layout,
+                    visibility: 'visible'
+                  }
+                }
+                console.log(`Using custom style for layer: ${layerId}`)
+              } else {
+                // Fallback to default style if custom style not found
+                layerConfigToAdd = createDefaultLayerConfig(layerId, { 
+                  layerType: layerConfig.layerType, 
+                  sourceLayer: layerConfig.sourceLayer 
+                })
+                console.log(`Custom style not found, using default for layer: ${layerId}`)
+              }
+            } else {
+              // Use default style
+              layerConfigToAdd = createDefaultLayerConfig(layerId, { 
+                layerType: layerConfig.layerType, 
+                sourceLayer: layerConfig.sourceLayer 
+              })
+              console.log(`Using default style for layer: ${layerId}`)
+            }
+            
+            map.current!.addLayer(layerConfigToAdd)
             
             console.log(`Successfully added layer: ${layerId}`)
             
