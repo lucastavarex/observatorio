@@ -52,6 +52,121 @@ export default function PropertyMap() {
   const [selectedLayers, setSelectedLayers] = useState<string[]>([])
   const [mapLoaded, setMapLoaded] = useState(false)
   const [layerLoadingStates, setLayerLoadingStates] = useState<Record<string, 'loading' | 'loaded' | 'error'>>({})
+  const [, setHoveredFeature] = useState<{
+    feature: mapboxgl.MapboxGeoJSONFeature
+    layerName: string
+    coordinates: [number, number]
+  } | null>(null)
+  const popupRef = useRef<mapboxgl.Popup | null>(null)
+  const eventHandlersRef = useRef<Map<string, { mouseenter: () => void; mouseleave: () => void; mousemove: (e: mapboxgl.MapLayerMouseEvent) => void }>>(new Map())
+
+  // Function to add hover handlers for a layer
+  const addHoverHandlers = (layerId: string, layerName: string) => {
+    if (!map.current) return
+
+    // Create event handler functions
+    const mouseenterHandler = () => {
+      if (map.current) {
+        map.current.getCanvas().style.cursor = 'pointer'
+      }
+    }
+
+    const mouseleaveHandler = () => {
+      if (map.current) {
+        map.current.getCanvas().style.cursor = ''
+      }
+      // Remove popup when mouse leaves
+      if (popupRef.current) {
+        popupRef.current.remove()
+        popupRef.current = null
+      }
+      setHoveredFeature(null)
+    }
+
+    const mousemoveHandler = (e: mapboxgl.MapLayerMouseEvent) => {
+      if (!map.current || !e.features || e.features.length === 0) return
+
+      const feature = e.features[0]
+      const coordinates = e.lngLat.toArray() as [number, number]
+
+      // Remove existing popup
+      if (popupRef.current) {
+        popupRef.current.remove()
+      }
+
+      // Create new popup
+      const popup = new mapboxgl.Popup({
+        closeButton: false,
+        closeOnClick: false,
+        maxWidth: '400px'
+      })
+
+      // Create popup content
+      const popupContent = document.createElement('div')
+      popupContent.innerHTML = `
+        <div class="p-2 min-w-50">
+          <h3 class="font-semibold text-sm mb-2">${layerName}</h3>
+          <div class="space-y-1 overflow-y-auto">
+            ${Object.entries(feature.properties || {})
+              .filter(([key, value]) => {
+                const excludeKeys = ['id', 'geometry', 'type', 'coordinates']
+                return !excludeKeys.includes(key.toLowerCase()) && 
+                       value !== null && 
+                       value !== undefined &&
+                       value !== ''
+              })
+              .slice(0, 8)
+              .map(([key, value]) => {
+                const formattedValue = typeof value === 'number' 
+                  ? (Number.isInteger(value) ? value.toLocaleString() : value.toFixed(2))
+                  : String(value)
+                return `
+                  <div class="flex justify-between items-center text-xs">
+                    <span class="font-medium text-gray-600 capitalize">${key.replace(/_/g, ' ')}:</span>
+                    <span class="bg-gray-100 px-2 py-1 rounded text-gray-800">${formattedValue}</span>
+                  </div>
+                `
+              }).join('')}
+          </div>
+        </div>
+      `
+
+      popup.setLngLat(coordinates)
+        .setDOMContent(popupContent)
+        .addTo(map.current)
+
+      popupRef.current = popup
+      setHoveredFeature({ feature, layerName, coordinates })
+    }
+
+    // Store handlers for later removal
+    eventHandlersRef.current.set(layerId, {
+      mouseenter: mouseenterHandler,
+      mouseleave: mouseleaveHandler,
+      mousemove: mousemoveHandler
+    })
+
+    // Add event listeners
+    map.current.on('mouseenter', layerId, mouseenterHandler)
+    map.current.on('mouseleave', layerId, mouseleaveHandler)
+    map.current.on('mousemove', layerId, mousemoveHandler)
+  }
+
+  // Function to remove hover handlers for a layer
+  const removeHoverHandlers = (layerId: string) => {
+    if (!map.current) return
+
+    const handlers = eventHandlersRef.current.get(layerId)
+    if (handlers) {
+      // Remove event listeners using the stored handler functions
+      map.current.off('mouseenter', layerId, handlers.mouseenter)
+      map.current.off('mouseleave', layerId, handlers.mouseleave)
+      map.current.off('mousemove', layerId, handlers.mousemove)
+      
+      // Remove from stored handlers
+      eventHandlersRef.current.delete(layerId)
+    }
+  }
 
   useEffect(() => {
     if (!mapContainer.current) return
@@ -75,17 +190,24 @@ export default function PropertyMap() {
     
     // Remove all existing custom layers and sources when changing city
     if (map.current && mapLoaded) {
-      const cityLayers = cityLayersConfig[city] || []
+      const cityLayers = cityLayersConfig[selectedCity] || []
       cityLayers.forEach(layer => {
         if (layer.tilesetId && map.current?.getLayer(layer.id)) {
+          // Remove hover handlers first
+          removeHoverHandlers(layer.id)
           map.current.removeLayer(layer.id)
         }
         if (layer.tilesetId && map.current?.getSource(layer.id)) {
           map.current.removeSource(layer.id)
         }
       })
-      // Reset loading states
+      // Reset loading states and clear popup
       setLayerLoadingStates({})
+      if (popupRef.current) {
+        popupRef.current.remove()
+        popupRef.current = null
+      }
+      setHoveredFeature(null)
     }
     
     if (map.current) {
@@ -116,6 +238,10 @@ export default function PropertyMap() {
         const layerConfig = cityLayers.find(l => l.id === layerId)
         if (layerConfig?.tilesetId) {
           console.log(`Removing layer: ${layerId}`)
+          
+          // Remove hover handlers first
+          removeHoverHandlers(layerId)
+          
           if (map.current?.getLayer(layerId)) {
             map.current.removeLayer(layerId)
           }
@@ -182,6 +308,9 @@ export default function PropertyMap() {
             }
             
             map.current!.addLayer(layerConfigToAdd)
+            
+            // Add hover functionality for this layer
+            addHoverHandlers(layerId, layerConfig.name)
             
             console.log(`Successfully added layer: ${layerId}`)
             
