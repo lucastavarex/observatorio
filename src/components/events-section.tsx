@@ -1,10 +1,6 @@
 "use client"
 
-import events1 from "@/app/assets/images/events1.png"
-import events2 from "@/app/assets/images/events2.png"
-import events3 from "@/app/assets/images/events3.png"
-import events4 from "@/app/assets/images/events4.png"
-import events5 from "@/app/assets/images/events5.png"
+import { getEventsForHome } from '@/lib/data/events'
 import Image from 'next/image'
 import Link from 'next/link'
 import { useEffect, useState } from 'react'
@@ -15,55 +11,10 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 import 'swiper/css'
 import 'swiper/css/free-mode'
 
-interface Events {
-  id: string
-  title: string
-  description: string
-  image: typeof events1
-  href: string
-}
-
-const events: Events[] = [
-  {
-    id: 'event1',
-    title: 'Lançamento do Observatório Nacional de Mobilidade Sustentável ',
-    description: '2023 • Insper',
-    image: events1,
-    href: '/projetos/dashboard'
-  },
-  {
-    id: 'event2',
-    title: 'Climate Resiliency and Low-carbon Accessibility Seminar',
-    description: '2023 • Insper',
-    image: events2,
-    href: '/projetos/geoportal'
-  },
-  {
-    id: 'event3',
-    title: 'Evento realizado pelo Banco de Desenvolvimento da Am.Latina e Caribe/CAF e pelo Banco Interamericano de Desenvolvimento/BID ',
-    description: '2023 • Medellin',
-    image: events3,
-    href: '/projetos/catalago-de-dados'
-  },
-  {
-    id: 'event4',
-    title: 'Apresentação do Observatório Nac. de Mobilidade Sustentável para a comunidade do Rio de Janeiro ',
-    description: '2023 • Museu do Amanhã',
-    image: events4,
-    href: '/projetos/tabela'
-  },
-  {
-    id: 'event5',
-    title: 'Gestão metropolitana: desafios e oportunidades',
-    description: '2023 • Insper',
-    image: events5,
-    href: '/projetos/tabela'
-  },
-]
-
 export function EventsSection() {
   const [isHovering, setIsHovering] = useState(false)
   const [cursorPos, setCursorPos] = useState({ x: 0, y: 0 })
+  const events = getEventsForHome()
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
@@ -122,11 +73,23 @@ export function EventsSection() {
             >
               {events.map((event) => (
                 <SwiperSlide key={event.id} className="!w-[250px] md:!w-[350px] group relative">
-                  <Link
-                    href={event.href}
-                    className="block"
-                  >
-                    {/* Event Card */}
+                  {event.href ? (
+                    <Link
+                      href={event.href}
+                      className="block"
+                    >
+                      {/* Event Card */}
+                      <div className="relative overflow-hidden rounded-lg h-[350px] w-[250px] md:h-[450px] md:w-[350px]">
+                        <Image
+                          src={event.image}
+                          alt={event.title}
+                          fill
+                          className="object-cover transition-transform duration-300 group-hover:scale-105"
+                        />
+                      </div>
+                    </Link>
+                  ) : (
+                    /* Event Card without link */
                     <div className="relative overflow-hidden rounded-lg h-[350px] w-[250px] md:h-[450px] md:w-[350px]">
                       <Image
                         src={event.image}
@@ -135,7 +98,7 @@ export function EventsSection() {
                         className="object-cover transition-transform duration-300 group-hover:scale-105"
                       />
                     </div>
-                  </Link>
+                  )}
 
                   {/* Event Info - Outside the card */}
                   <div className="mt-4 text-left">

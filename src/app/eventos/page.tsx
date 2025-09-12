@@ -1,58 +1,10 @@
-import events1 from "@/app/assets/images/events1.png";
-import events2 from "@/app/assets/images/events2.png";
-import events3 from "@/app/assets/images/events3.png";
-import events4 from "@/app/assets/images/events4.png";
-import events5 from "@/app/assets/images/events5.png";
 import { Header } from "@/components/header";
-import Image, { StaticImageData } from "next/image";
-
-interface EventData {
-  id: number;
-  image: StaticImageData;
-  title: string;
-  date: string;
-  location: string;
-}
-
-const eventsData: EventData[] = [
-   {
-    id: 5,
-    image: events5,
-    title: "Lançamento do guia de eletromobilidade",
-    date: "2024",
-    location: "Insper"
-  },
-  {
-    id: 1,
-    image: events1,
-    title: "Lançamento do Observatório Nacional de Mobilidade Sustentável",
-    date: "2023",
-    location: "Insper"
-  },
-  {
-    id: 2,
-    image: events2,
-    title: "Climate Resiliency and Low-carbon Accessibility Seminar",
-    date: "2023",
-    location: "Insper"
-  },
-  {
-    id: 3,
-    image: events3,
-    title: "Evento realizado pelo Banco de Desenvolvimento da Am.Latina e Caribe/CAF e pelo Banco Interamericano de Desenvolvimento/BID",
-    date: "2023",
-    location: "Medellín"
-  },
-  {
-    id: 4,
-    image: events4,
-    title: "Apresentação do Observatório Nac. de Mobilidade Sustentável para a comunidade do Rio de Janeiro",
-    date: "2023",
-    location: "Museu do Amanhã"
-  }
-];
+import { getAllEvents } from "@/lib/data/events";
+import Image from "next/image";
 
 export default function Eventos() {
+  const eventsData = getAllEvents()
+
   return (
     <div className="bg-[#f9f9f6]">
       <Header className="bg-[#f9f9f6]" />
@@ -74,13 +26,13 @@ export default function Eventos() {
         <div className="flex flex-wrap gap-6 justify-center xl:justify-start">
           {eventsData.map((event) => (
             <div key={event.id} className="flex flex-col items-start text-left w-[320px] group">
-              <div className="relative overflow-hidden rounded-md">
+              <div className="relative overflow-hidden rounded-md h-[380px] w-[320px]">
                 <Image
                   src={event.image}
                   alt={event.title}
-                  width={320}
-                  height={213}
-                  className="rounded-md transition-transform duration-300 group-hover:scale-105"
+                  fill
+                  className="object-cover object-center rounded-md transition-transform duration-300 group-hover:scale-105"
+                  sizes="320px"
                 />
               </div>
               <h3 className="mt-4 text-sm font-medium">{event.title}</h3>
