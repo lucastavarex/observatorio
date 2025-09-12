@@ -6,6 +6,12 @@ import events5 from "@/app/assets/images/events5.png"
 import events6 from "@/app/assets/images/events6.png"
 import events8 from "@/app/assets/images/events8.png"
 import events9 from "@/app/assets/images/events9.png"
+import transmitted1 from "@/app/assets/images/transmitted1.png"
+import transmitted3 from "@/app/assets/images/transmitted3.png"
+import transmitted4 from "@/app/assets/images/transmitted4.png"
+import transmitted5 from "@/app/assets/images/transmitted5.png"
+import transmitted6 from "@/app/assets/images/transmitted6.png"
+import transmitted7 from "@/app/assets/images/transmitted7.png"
 import video7 from "@/app/assets/images/video7.png"
 import { StaticImageData } from "next/image"
 
@@ -17,7 +23,8 @@ export interface EventData {
   href?: string
   showInHome: boolean
   date: string
-  location: string
+  isTransmitted?: boolean
+  location?: string
 }
 
 export const eventsData: EventData[] = [
@@ -102,6 +109,85 @@ export const eventsData: EventData[] = [
     showInHome: false,
     date: '2025',
     location: 'Brasília'
+  },
+
+  //TRANSMITIDOS
+  {
+    id: 'transmitted1',
+    isTransmitted: true,
+    title: 'Soluções baseadas na natureza e mobilidade urbana',
+    description: 'Sexta da Mobilidade',
+    image: transmitted1,
+    showInHome: false,
+    date: '2025',
+    location: 'Sexta da Mobilidade',
+    href: 'https://youtu.be/IfodUOjixfk'
+  },
+  {
+    id: 'transmitted2',
+    isTransmitted: true,
+    title: 'Dados e Mobilidade Urbana',
+    description: 'Sexta da Mobilidade',
+    image: transmitted1,
+    showInHome: false,
+    date: '2025',
+    location: 'Sexta da Mobilidade',
+    href: 'https://youtu.be/81MLQuaW0aY'
+  },
+  {
+    id: 'transmitted3',
+    isTransmitted: true,
+    title: 'Soluções brasileiras para o futuro da Mobilidade, o caso do Aeromóvel',
+    description: 'Sexta da Mobilidade',
+    image: transmitted3,
+    showInHome: false,
+    date: '2025',
+    location: 'Sexta da Mobilidade',
+    href: 'https://youtu.be/rAv5NNZWByQ'
+  },
+  {
+    id: 'transmitted4',
+    isTransmitted: true,
+    title: 'COP 30: o que precisamos para descarbonizar a mobilidade urbana',
+    description: 'Sexta da Mobilidade',
+    image: transmitted4,
+    showInHome: false,
+    date: '2025',
+    location: 'Sexta da Mobilidade',
+    href: 'https://youtu.be/wWF66SLgErs'
+  },
+  {
+    id: 'transmitted5',
+    isTransmitted: true,
+    title: 'Como São Paulo se locomove: debates dos principais resultados da pesquisa Origem e Destino da Região Metropolitana de São Paulo (RMSP)',
+    description: 'Sexta da Mobilidade',
+    image: transmitted5,
+    showInHome: false,
+    date: '2025',
+    location: 'Sexta da Mobilidade',
+    href: 'https://youtu.be/z8mLOna5ry4'
+  },
+  {
+    id: 'transmitted6',
+    isTransmitted: true,
+    title: 'Segurança viária e visão 0 - Como eliminar mortes/feridos graves na cidade',
+    description: 'Sexta da Mobilidade',
+    image: transmitted6,
+    showInHome: false,
+    date: '2025',
+    location: 'Sexta da Mobilidade',
+    href: 'https://www.youtube.com/watch?v=yk3ffu7kuys&list=PLw0ygoHfe_jMvdGpI8WhU1-CIVEWm1-k-&index=7'
+  },
+  {
+    id: 'transmitted7',
+    isTransmitted: true,
+    title: 'Combustíveis alternativos e a descarbonização',
+    description: 'Sexta da Mobilidade',
+    image: transmitted7,
+    showInHome: false,
+    date: '2025',
+    location: 'Sexta da Mobilidade',
+    href: 'https://www.youtube.com/watch?v=-J_Ol823NFc&list=PLw0ygoHfe_jMvdGpI8WhU1-CIVEWm1-k-&index=8'
   },
 ]
 

@@ -201,13 +201,13 @@ export function Header({ isBgDark = false, className }: HeaderProps) {
               </NavigationMenuLink>
             </NavigationMenuItem>
             
-            {/* <NavigationMenuItem>
+            <NavigationMenuItem>
               <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
                 <Link href="/videos" className={pathname === "/videos" ? activeTextClass : inactiveTextClass}>
-                  VideoCast
+                  Vídeos
                 </Link>
               </NavigationMenuLink>
-            </NavigationMenuItem> */}
+            </NavigationMenuItem>
             
             <NavigationMenuItem>
               <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>

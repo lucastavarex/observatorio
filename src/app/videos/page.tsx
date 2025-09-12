@@ -1,8 +1,7 @@
-import video1 from "@/app/assets/images/video1.png";
-import video2 from "@/app/assets/images/video2.png";
-import video3 from "@/app/assets/images/video3.png";
-import video4 from "@/app/assets/images/video4.png";
-import video5 from "@/app/assets/images/video5.png";
+import aula1 from "@/app/assets/images/aula1.png";
+import aula2 from "@/app/assets/images/aula2.png";
+import aula3 from "@/app/assets/images/aula3.png";
+import aula4 from "@/app/assets/images/aula4.png";
 import { Header } from "@/components/header";
 import Image, { StaticImageData } from "next/image";
 
@@ -11,44 +10,42 @@ interface VideoData {
   image: StaticImageData;
   title: string;
   date: string;
-  location: string;
+  format?: string;
+  href?: string;
 }
 
 const videosData: VideoData[] = [
   {
     id: 1,
-    image: video1,
-    title: "Lançamento do Observatório Nacional de Mobilidade Sustentável",
-    date: "2023",
-    location: "Insper"
+    image: aula1,
+    title: "Transporte público: Professor Rodrigo Tortoriello",
+    date: "2025",
+    format: "Aula",
+    href:"https://www.youtube.com/watch?v=THjcpBcWXVc&list=PLw0ygoHfe_jMnF_9uHlZTxwOpOpl1Mfvb&index=17&t=37s&ab_channel=Insper"
   },
   {
     id: 2,
-    image: video2,
-    title: "Climate Resiliency and Low-carbon Accessibility Seminar",
-    date: "2023",
-    location: "Insper"
+    image: aula2,
+    title: "Explorando a Mobilidade Ativa: Professora Helena Coelho",
+    date: "2025",
+    format: "Aula",
+    href:"https://www.youtube.com/watch?v=xJjdg5mv4LA&list=PLw0ygoHfe_jMnF_9uHlZTxwOpOpl1Mfvb&index=18&t=48s&ab_channel=Insper"
   },
   {
     id: 3,
-    image: video3,
+    image: aula3,
     title: "Evento realizado pelo Banco de Desenvolvimento da Am.Latina e Caribe/CAF e pelo Banco Interamericano de Desenvolvimento/BID",
-    date: "2023",
-    location: "Medellín"
+    date: "2025",
+    format: "Aula",
+    href:"https://www.youtube.com/watch?v=r-KXgkDMwMs&list=PLw0ygoHfe_jMnF_9uHlZTxwOpOpl1Mfvb&index=19&t=248s&ab_channel=Insper"
   },
   {
     id: 4,
-    image: video4,
+    image: aula4,
     title: "Apresentação do Observatório Nac. de Mobilidade Sustentável para a comunidade do Rio de Janeiro",
-    date: "2023",
-    location: "Museu do Amanhã"
-  },
-  {
-    id: 5,
-    image: video5,
-    title: "Lançamento do guia de eletromobilidade",
-    date: "2024",
-    location: "Insper"
+    date: "2025",
+    format: "Aula",
+    href:"https://www.youtube.com/watch?v=rCcztslulJY&list=PLw0ygoHfe_jMnF_9uHlZTxwOpOpl1Mfvb&index=20&t=2953s&ab_channel=Insper"
   }
 ];
 
@@ -62,29 +59,29 @@ export default function Videos() {
         <div className="flex items-end justify-between mb-16">
           <div>
             <h2 className="text-4xl font-medium leading-none">
-             Desafios e oportunidades
+             Vídeos aulas
             </h2>
-            <p className="text-4xl text-gray-400 leading-none font-medium">da mobilidade urbana</p>
+            <p className="text-4xl text-gray-400 leading-none font-medium">Assíncronas</p>
           </div>
           <div className="hidden md:block h-[1.2px] flex-grow mx-16 bg-gray-300" />
           <div className="hidden md:block w-4 h-4 bg-[#C2181A]" />
         </div>
 
         {/* Cards com espaçamento fixo e quebra automática */}
-        <div className="flex flex-wrap gap-6 justify-center xl:justify-start">
+        <div className="flex flex-wrap gap-6 justify-start xl:justify-start">
           {videosData.map((video) => (
-            <div key={video.id} className="flex flex-col items-start text-left w-[320px] group">
-              <div className="relative overflow-hidden rounded-md">
+            <div key={video.id} className="flex flex-col items-start text-left w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] xl:w-[680px] group">
+              <div className="relative overflow-hidden rounded-md h-[200px] sm:h-[250px] md:h-[300px] lg:h-[350px] xl:h-[380px] w-full">
                 <Image
                   src={video.image}
                   alt={video.title}
-                  width={320}
-                  height={213}
-                  className="rounded-md transition-transform duration-300 group-hover:scale-105"
+                  fill
+                  className="object-cover object-center rounded-md transition-transform duration-300 group-hover:scale-105"
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, (max-width: 1280px) 33vw, 680px"
                 />
               </div>
               <h3 className="mt-4 text-sm font-medium">{video.title}</h3>
-              <p className="text-xs text-gray-600 mt-2">{video.date} • {video.location}</p>
+              <p className="text-xs text-gray-600 mt-2">{video.date} • {video.format}</p>
             </div>
           ))}
         </div>

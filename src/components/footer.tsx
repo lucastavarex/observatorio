@@ -128,6 +128,14 @@ export function Footer() {
                 Eventos
               </Link>
             </div>
+            <div className="flex flex-col gap-2">
+              <Link 
+                href="/videos" 
+                className="text-gray-600 hover:text-gray-800 transition-colors text-sm font-medium"
+              >
+                Vídeos
+              </Link>
+            </div>
 
             <div className="flex flex-col gap-2">
               <Link 

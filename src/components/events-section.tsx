@@ -74,20 +74,39 @@ export function EventsSection() {
               {events.map((event) => (
                 <SwiperSlide key={event.id} className="!w-[250px] md:!w-[350px] group relative">
                   {event.href ? (
-                    <Link
-                      href={event.href}
-                      className="block"
-                    >
-                      {/* Event Card */}
-                      <div className="relative overflow-hidden rounded-lg h-[350px] w-[250px] md:h-[450px] md:w-[350px]">
-                        <Image
-                          src={event.image}
-                          alt={event.title}
-                          fill
-                          className="object-cover transition-transform duration-300 group-hover:scale-105"
-                        />
-                      </div>
-                    </Link>
+                    event.href.startsWith('http') ? (
+                      <a
+                        href={event.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="block"
+                      >
+                        {/* Event Card */}
+                        <div className="relative overflow-hidden rounded-lg h-[350px] w-[250px] md:h-[450px] md:w-[350px]">
+                          <Image
+                            src={event.image}
+                            alt={event.title}
+                            fill
+                            className="object-cover transition-transform duration-300 group-hover:scale-105"
+                          />
+                        </div>
+                      </a>
+                    ) : (
+                      <Link
+                        href={event.href}
+                        className="block"
+                      >
+                        {/* Event Card */}
+                        <div className="relative overflow-hidden rounded-lg h-[350px] w-[250px] md:h-[450px] md:w-[350px]">
+                          <Image
+                            src={event.image}
+                            alt={event.title}
+                            fill
+                            className="object-cover transition-transform duration-300 group-hover:scale-105"
+                          />
+                        </div>
+                      </Link>
+                    )
                   ) : (
                     /* Event Card without link */
                     <div className="relative overflow-hidden rounded-lg h-[350px] w-[250px] md:h-[450px] md:w-[350px]">
