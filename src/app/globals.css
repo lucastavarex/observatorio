@@ -146,3 +146,13 @@
     min-height: 600px;
   }
 }
+
+/* Custom toast styles */
+.toast-custom [data-description] {
+  color: #000000 !important;
+  opacity: 1 !important;
+}
+
+.dark .toast-custom [data-description] {
+  color: #ffffff !important;
+}

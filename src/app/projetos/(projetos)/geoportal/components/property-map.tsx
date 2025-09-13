@@ -1,13 +1,16 @@
 "use client"
 import { Button } from "@/components/ui/button"
-import { Menu, X } from "lucide-react"
+import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip"
+import { Layers, Menu, X } from "lucide-react"
 import mapboxgl from "mapbox-gl"
 import "mapbox-gl/dist/mapbox-gl.css"
 import { useEffect, useRef, useState } from "react"
+import { toast } from "sonner"
 import { cityLayersConfig } from "../lib/city-layers"
 import { createStyledLayer } from "../lib/layer-styles"
 import { CityCombobox } from "./city-combobox"
 import { CityLayers } from "./city-layers"
+import { CityLayersComparison } from "./city-layers-comparison"
 import { CollapsibleLegend } from "./collapsible-legend"
 
 mapboxgl.accessToken = process.env.NEXT_PUBLIC_MAPBOX_TOKEN
@@ -75,6 +78,9 @@ export default function PropertyMap() {
   const [selectedCity, setSelectedCity] = useState("São Paulo")
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [selectedLayers, setSelectedLayers] = useState<string[]>([])
+  const [isComparisonMode, setIsComparisonMode] = useState(false)
+  const [selectedLayer1, setSelectedLayer1] = useState<string | null>(null)
+  const [selectedLayer2, setSelectedLayer2] = useState<string | null>(null)
   const [mapLoaded, setMapLoaded] = useState(false)
   const [layerLoadingStates, setLayerLoadingStates] = useState<Record<string, 'loading' | 'loaded' | 'error'>>({})
   const [layerOpacities, setLayerOpacities] = useState<Record<string, number>>({})
@@ -253,6 +259,8 @@ export default function PropertyMap() {
     setSelectedCity(city)
     // Reset selected layers when changing city
     setSelectedLayers([])
+    setSelectedLayer1(null)
+    setSelectedLayer2(null)
     // Reset layer opacities when changing city
     setLayerOpacities({})
     
@@ -289,6 +297,201 @@ export default function PropertyMap() {
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen)
+  }
+
+  const toggleComparisonMode = () => {
+    if (!isComparisonMode) {
+      // Switching to comparison mode - clear all existing layers first
+      clearAllLayers()
+      setIsComparisonMode(true)
+      setSelectedLayers([])
+      setSelectedLayer1(null)
+      setSelectedLayer2(null)
+      
+      // Show success toast
+      toast.success("Modo de Comparação Ativado", {
+        description: "Selecione 2 camadas diferentes para comparação",
+        duration: 4000,
+      })
+    } else {
+      // Switching back to normal mode - clear comparison mode selections
+      clearAllLayers()
+      setIsComparisonMode(false)
+      setSelectedLayer1(null)
+      setSelectedLayer2(null)
+      setSelectedLayers([])
+      
+      // Show info toast
+      toast.info("Modo de Comparação Desativado", {
+        description: "Voltando ao modo normal de visualização",
+        duration: 3000,
+      })
+    }
+  }
+
+  const clearAllLayers = () => {
+    if (!map.current || !mapLoaded) return
+
+    const cityLayers = cityLayersConfig[selectedCity] || []
+    
+    // Remove all existing layers and sources
+    cityLayers.forEach(layer => {
+      if (layer.tilesetId && map.current?.getLayer(layer.id)) {
+        // Remove hover handlers first
+        removeHoverHandlers(layer.id)
+        map.current.removeLayer(layer.id)
+      }
+      if (layer.tilesetId && map.current?.getSource(layer.id)) {
+        map.current.removeSource(layer.id)
+      }
+    })
+    
+    // Reset all states
+    setLayerLoadingStates({})
+    setLayerOpacities({})
+    
+    // Clear popup
+    if (popupRef.current) {
+      popupRef.current.remove()
+      popupRef.current = null
+    }
+    setHoveredFeature(null)
+  }
+
+  const handleLayer1Change = (layerId: string | null) => {
+    // Remove previous layer first if exists
+    if (selectedLayer1 && map.current && mapLoaded) {
+      removeComparisonLayer(selectedLayer1)
+    }
+    
+    setSelectedLayer1(layerId)
+    
+    // Add new layer if provided
+    if (layerId) {
+      handleComparisonLayerChange(layerId, true)
+    }
+  }
+
+  const handleLayer2Change = (layerId: string | null) => {
+    // Remove previous layer first if exists
+    if (selectedLayer2 && map.current && mapLoaded) {
+      removeComparisonLayer(selectedLayer2)
+    }
+    
+    setSelectedLayer2(layerId)
+    
+    // Add new layer if provided
+    if (layerId) {
+      handleComparisonLayerChange(layerId, false)
+    }
+  }
+
+  const handleComparisonLayerChange = (layerId: string, isLayer1: boolean) => {
+    if (!map.current || !mapLoaded) return
+    
+    const cityLayers = cityLayersConfig[selectedCity] || []
+    const layerConfig = cityLayers.find(l => l.id === layerId)
+    
+    if (layerConfig?.tilesetId && layerConfig?.sourceLayer) {
+      console.log(`Adding comparison layer: ${layerId}`, { isLayer1, tilesetId: layerConfig.tilesetId, sourceLayer: layerConfig.sourceLayer })
+      
+      // Set loading state
+      setLayerLoadingStates(prev => ({ ...prev, [layerId]: 'loading' }))
+      
+      try {
+        // Add source
+        map.current!.addSource(layerId, {
+          type: 'vector',
+          url: `mapbox://${layerConfig.tilesetId}`
+        })
+        
+        // Check if layer has custom style
+        let layerConfigToAdd: mapboxgl.AnyLayer
+        
+        if (layerConfig.hasCustomStyle) {
+          // Use custom style from Mapbox Studio
+          const customStyle = createStyledLayer(layerId, layerConfig.sourceLayer, layerConfig.tilesetId)
+          if (customStyle) {
+            layerConfigToAdd = {
+              ...customStyle,
+              layout: {
+                ...customStyle.layout,
+                visibility: 'visible'
+              }
+            }
+            console.log(`Using custom style for comparison layer: ${layerId}`)
+          } else {
+            // Fallback to default style if custom style not found
+            layerConfigToAdd = createDefaultLayerConfig(layerId, { 
+              layerType: layerConfig.layerType, 
+              sourceLayer: layerConfig.sourceLayer 
+            })
+            console.log(`Custom style not found, using default for comparison layer: ${layerId}`)
+          }
+        } else {
+          // Use default style
+          layerConfigToAdd = createDefaultLayerConfig(layerId, { 
+            layerType: layerConfig.layerType, 
+            sourceLayer: layerConfig.sourceLayer 
+          })
+          console.log(`Using default style for comparison layer: ${layerId}`)
+        }
+        
+        map.current!.addLayer(layerConfigToAdd)
+        
+        // Add hover functionality for this layer
+        addHoverHandlers(layerId, layerConfig.name)
+        
+        // Set default opacity for the layer
+        const defaultOpacity = 50
+        setLayerOpacities(prev => ({ ...prev, [layerId]: defaultOpacity }))
+        updateLayerOpacity(layerId, defaultOpacity)
+        
+        console.log(`Successfully added comparison layer: ${layerId}`)
+        
+        // Set loaded state
+        setLayerLoadingStates(prev => ({ ...prev, [layerId]: 'loaded' }))
+        
+      } catch (error) {
+        console.error(`Error adding comparison layer ${layerId}:`, error)
+        setLayerLoadingStates(prev => ({ ...prev, [layerId]: 'error' }))
+      }
+    }
+  }
+
+  const removeComparisonLayer = (layerId: string) => {
+    if (!map.current || !mapLoaded) return
+
+    const cityLayers = cityLayersConfig[selectedCity] || []
+    const layerConfig = cityLayers.find(l => l.id === layerId)
+    
+    if (layerConfig?.tilesetId) {
+      console.log(`Removing comparison layer: ${layerId}`)
+      
+      // Remove hover handlers first
+      removeHoverHandlers(layerId)
+      
+      if (map.current?.getLayer(layerId)) {
+        map.current.removeLayer(layerId)
+      }
+      if (map.current?.getSource(layerId)) {
+        map.current.removeSource(layerId)
+      }
+      
+      // Update loading state
+      setLayerLoadingStates(prev => {
+        const newState = { ...prev }
+        delete newState[layerId]
+        return newState
+      })
+      
+      // Remove opacity
+      setLayerOpacities(prev => {
+        const newState = { ...prev }
+        delete newState[layerId]
+        return newState
+      })
+    }
   }
 
   const handleLayersChange = (layers: string[]) => {
@@ -437,14 +640,27 @@ export default function PropertyMap() {
           </div>
 
           <div className="flex-1 overflow-y-auto!">
-            <CityLayers
-              selectedCity={selectedCity}
-              selectedLayers={selectedLayers}
-              onLayersChange={handleLayersChange}
-              layerLoadingStates={layerLoadingStates}
-              layerOpacities={layerOpacities}
-              onOpacityChange={handleOpacityChange}
-            />
+            {isComparisonMode ? (
+              <CityLayersComparison
+                selectedCity={selectedCity}
+                selectedLayer1={selectedLayer1}
+                selectedLayer2={selectedLayer2}
+                onLayer1Change={handleLayer1Change}
+                onLayer2Change={handleLayer2Change}
+                layerLoadingStates={layerLoadingStates}
+                layerOpacities={layerOpacities}
+                onOpacityChange={handleOpacityChange}
+              />
+            ) : (
+              <CityLayers
+                selectedCity={selectedCity}
+                selectedLayers={selectedLayers}
+                onLayersChange={handleLayersChange}
+                layerLoadingStates={layerLoadingStates}
+                layerOpacities={layerOpacities}
+                onOpacityChange={handleOpacityChange}
+              />
+            )}
           </div>
         </div>
       </div>
@@ -455,6 +671,27 @@ export default function PropertyMap() {
          selectedCity={selectedCity}
          cityLayersConfig={cityLayersConfig}
        />
+       <div className="absolute top-32 right-4 z-9">
+        <Tooltip>
+          <TooltipTrigger asChild>
+            <button
+              onClick={toggleComparisonMode}
+              className={`p-2 rounded-md outline-none border transition-colors ${
+                isComparisonMode 
+                  ? 'bg-primary  hover:bg-primary/90 border-primary text-white' 
+                  : 'bg-white hover:bg-gray-50 cursor-pointer border-gray-200 text-gray-700'
+              }`}
+            >
+              <Layers className="w-5 h-5"/>
+            </button>
+          </TooltipTrigger>
+          <TooltipContent side="left">
+            <p>{isComparisonMode ? 'Sair do Modo de Comparação' : 'Comparar Camadas'}</p>
+          </TooltipContent>
+        </Tooltip>
+        </div>
+
+
 
       {isMenuOpen && <div className="fixed inset-0 bg-opacity-50 z-5 md:hidden" onClick={toggleMenu} />}
     </div>

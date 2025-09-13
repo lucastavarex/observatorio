@@ -17,9 +17,17 @@ const Toaster = ({ ...props }: ToasterProps) => {
           "--normal-border": "var(--border)",
         } as React.CSSProperties
       }
+      toastOptions={{
+        style: {
+          background: 'var(--popover)',
+          border: '1px solid var(--border)',
+        },
+        className: 'toast-custom',
+      }}
       {...props}
     />
   )
 }
 
 export { Toaster }
+
