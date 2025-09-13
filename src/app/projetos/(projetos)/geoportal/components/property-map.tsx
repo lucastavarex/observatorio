@@ -8,7 +8,7 @@ import { cityLayersConfig } from "../lib/city-layers"
 import { createStyledLayer } from "../lib/layer-styles"
 import { CityCombobox } from "./city-combobox"
 import { CityLayers } from "./city-layers"
-import { MapLegend } from "./map-legend"
+import { CollapsibleLegend } from "./collapsible-legend"
 
 mapboxgl.accessToken = process.env.NEXT_PUBLIC_MAPBOX_TOKEN
 
@@ -450,20 +450,11 @@ export default function PropertyMap() {
       </div>
 
        {/* legends */}
-       {selectedLayers.length > 0 && (
-         <div className="top-20 right-4 absolute z-10">
-           <div className="h-auto max-h-[calc(100vh-220px)] overflow-y-auto w-60 bg-white rounded-lg shadow-xl p-4">
-             <div className="mb-4">
-               <h3 className="text-lg font-semibold text-gray-900 mb-2">Legenda</h3>
-               <MapLegend 
-                 selectedLayers={selectedLayers}
-                 selectedCity={selectedCity}
-                 cityLayersConfig={cityLayersConfig}
-               />
-             </div>
-           </div>
-         </div>
-       )}
+       <CollapsibleLegend 
+         selectedLayers={selectedLayers}
+         selectedCity={selectedCity}
+         cityLayersConfig={cityLayersConfig}
+       />
 
       {isMenuOpen && <div className="fixed inset-0 bg-opacity-50 z-5 md:hidden" onClick={toggleMenu} />}
     </div>
