@@ -1,9 +1,10 @@
 "use client"
 
-import { Badge } from "@/components/ui/badge"
+import { Slider } from "@/components/ui/slider"
 import { Switch } from "@/components/ui/switch"
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip"
-import { Info } from "lucide-react"
+import { Eye, Info } from "lucide-react"
+import { useState } from "react"
 import { cityLayersConfig } from "../lib/city-layers"
 
 interface CityLayersProps {
@@ -15,13 +16,22 @@ interface CityLayersProps {
 
 export function CityLayers({ selectedCity, selectedLayers, onLayersChange, layerLoadingStates = {} }: CityLayersProps) {
   const cityLayers = cityLayersConfig[selectedCity] || []
+  const [layerOpacities, setLayerOpacities] = useState<Record<string, number>>({})
 
   const handleLayerToggle = (layerId: string, checked: boolean) => {
     if (checked) {
       onLayersChange([...selectedLayers, layerId])
+      // Set default opacity when layer is enabled
+      if (!(layerId in layerOpacities)) {
+        setLayerOpacities(prev => ({ ...prev, [layerId]: 50 }))
+      }
     } else {
       onLayersChange(selectedLayers.filter(id => id !== layerId))
     }
+  }
+
+  const handleOpacityChange = (layerId: string, value: number[]) => {
+    setLayerOpacities(prev => ({ ...prev, [layerId]: value[0] }))
   }
 
   if (cityLayers.length === 0) {
@@ -40,10 +50,10 @@ export function CityLayers({ selectedCity, selectedLayers, onLayersChange, layer
         return (
           <div key={layer.id}>
             <div className={`px-4 gap-4 flex items-center justify-between py-3 transition-colors ${isSelected ? 'bg-gray-50 border-l-4 border-l-gray-500' : 'hover:bg-gray-50'}`}>
-              <div className="flex-1 min-w-0">
+              <div className="flex-1 min-w-0 flex flex-col gap-2">
                 <label
                   htmlFor={`layer-${layer.id}`}
-                  className="text-sm cursor-pointer text-black leading-relaxed block"
+                  className="text-sm flex flex-row items-center gap-2 cursor-pointer text-black leading-relaxed"
                 >
                   <div className="flex items-center gap-2">
                     <span className={`block truncate ${isSelected ? 'font-semibold' : 'font-medium'}`}>{layer.name}</span>
@@ -51,10 +61,7 @@ export function CityLayers({ selectedCity, selectedLayers, onLayersChange, layer
                   {layer.description && (
                     <Tooltip>
                       <TooltipTrigger asChild>
-                        <Badge variant="secondary" className="mt-1 rounded-full text-xs inline-flex items-center gap-1">
-                          <Info className="w-3 h-3" />
-                          Info
-                        </Badge>
+                          <Info className="w-4 h-4" />
                       </TooltipTrigger>
                       <TooltipContent side="right" className="max-w-xs">
                         <p>{layer.description}</p>
@@ -62,6 +69,33 @@ export function CityLayers({ selectedCity, selectedLayers, onLayersChange, layer
                     </Tooltip>
                   )}
                 </label>
+                {/* Opacity slider */}
+                {isSelected && (
+                  <div className="mt-2 space-y-2">
+                    <div className="flex items-center justify-between">
+                      <div className="flex items-center gap-2">
+                        <Eye className="w-4 h-4 text-gray-500" />
+                        <span className="text-xs text-gray-600 font-medium">Opacidade</span>
+                      </div>
+                      <span className="text-xs text-gray-500 font-mono">
+                        {layerOpacities[layer.id] || 50}%
+                      </span>
+                    </div>
+                    <Slider
+                      className="w-full"
+                      value={[layerOpacities[layer.id] || 50]}
+                      onValueChange={(value) => handleOpacityChange(layer.id, value)}
+                      max={100}
+                      step={1}
+                      aria-label={`Ajustar opacidade da camada ${layer.name}`}
+                    />
+                    <div className="flex justify-between text-xs text-gray-400">
+                      <span>Transparente</span>
+                      <span>Opaco</span>
+                    </div>
+                  </div>
+                )}
+                
               </div>
               <Switch
                 className="cursor-pointer flex-shrink-0 ml-2"
