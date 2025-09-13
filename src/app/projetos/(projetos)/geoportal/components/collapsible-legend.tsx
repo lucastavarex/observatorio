@@ -1,7 +1,8 @@
 "use client"
 
 import { Button } from "@/components/ui/button"
-import { ChevronDown, ChevronUp, Info } from "lucide-react"
+import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip"
+import { ChevronUp, LayoutList } from "lucide-react"
 import { useState } from "react"
 import { MapLegend } from "./map-legend"
 
@@ -32,16 +33,21 @@ export function CollapsibleLegend({ selectedLayers, selectedCity, cityLayersConf
     <div className="top-20 right-4 absolute z-10">
       {isCollapsed ? (
         // Collapsed state - just the button
-        <Button
-          onClick={toggleCollapse}
-          variant="outline"
-          size="sm"
-          className="bg-white shadow-xl hover:bg-gray-50 border-gray-200"
-        >
-          <Info className="w-4 h-4 mr-2" />
-          Legenda
-          <ChevronDown className="w-4 h-4 ml-2" />
-        </Button>
+        <Tooltip>
+          <TooltipTrigger asChild>
+            <button
+              onClick={toggleCollapse}
+              // variant="outline"
+              // size="sm"
+              className="bg-white p-2 rounded-md outline-none hover:bg-gray-50 border-gray-200"
+            >
+              <LayoutList className="w-5 h-5"/>
+            </button>
+          </TooltipTrigger>
+          <TooltipContent side="left">
+            <p>Legenda</p>
+          </TooltipContent>
+        </Tooltip>
       ) : (
          // Expanded state - full legend box
          <div className="h-auto max-h-[calc(100vh-220px)] overflow-y-auto w-60 bg-white rounded-lg shadow-xl p-4">
