@@ -14,12 +14,36 @@ mapboxgl.accessToken = process.env.NEXT_PUBLIC_MAPBOX_TOKEN
 // Helper function to create default layer configuration
 function createDefaultLayerConfig(layerId: string, layerConfig: { layerType?: 'fill' | 'line' | 'circle' | 'symbol'; sourceLayer: string }): mapboxgl.AnyLayer {
   const layerType = layerConfig.layerType || 'fill'
-  const paint = layerType === 'fill' ? {
-    'fill-color': '#007cbf',
-    'fill-opacity': 0.7,
-    'fill-outline-color': '#000',
-    'fill-outline-width': 1
-  } : {}
+  const defaultOpacity = 0.5 // 50% opacity as default
+  
+  let paint: Record<string, unknown> = {}
+  
+  if (layerType === 'fill') {
+    paint = {
+      'fill-color': '#007cbf',
+      'fill-opacity': defaultOpacity,
+      'fill-outline-color': '#000',
+      'fill-outline-width': 1
+    }
+  } else if (layerType === 'line') {
+    paint = {
+      'line-color': '#007cbf',
+      'line-opacity': defaultOpacity,
+      'line-width': 2
+    }
+  } else if (layerType === 'circle') {
+    paint = {
+      'circle-color': '#007cbf',
+      'circle-opacity': defaultOpacity,
+      'circle-radius': 5
+    }
+  } else if (layerType === 'symbol') {
+    paint = {
+      'text-color': '#007cbf',
+      'text-opacity': defaultOpacity,
+      'icon-opacity': defaultOpacity
+    }
+  }
   
   return {
     id: layerId,
@@ -52,6 +76,7 @@ export default function PropertyMap() {
   const [selectedLayers, setSelectedLayers] = useState<string[]>([])
   const [mapLoaded, setMapLoaded] = useState(false)
   const [layerLoadingStates, setLayerLoadingStates] = useState<Record<string, 'loading' | 'loaded' | 'error'>>({})
+  const [layerOpacities, setLayerOpacities] = useState<Record<string, number>>({})
   const [, setHoveredFeature] = useState<{
     feature: mapboxgl.MapboxGeoJSONFeature
     layerName: string
@@ -168,6 +193,46 @@ export default function PropertyMap() {
     }
   }
 
+  // Function to update layer opacity
+  const updateLayerOpacity = (layerId: string, opacity: number) => {
+    if (!map.current || !map.current.getLayer(layerId)) return
+
+    const layer = map.current.getLayer(layerId)
+    if (!layer) return
+
+    const opacityValue = opacity / 100 // Convert percentage to 0-1 range
+
+    try {
+      // Update fill-opacity for fill layers
+      if (layer.type === 'fill') {
+        map.current.setPaintProperty(layerId, 'fill-opacity', opacityValue)
+      }
+      // Update line-opacity for line layers
+      else if (layer.type === 'line') {
+        map.current.setPaintProperty(layerId, 'line-opacity', opacityValue)
+      }
+      // Update circle-opacity for circle layers
+      else if (layer.type === 'circle') {
+        map.current.setPaintProperty(layerId, 'circle-opacity', opacityValue)
+      }
+      // Update text-opacity for symbol layers
+      else if (layer.type === 'symbol') {
+        map.current.setPaintProperty(layerId, 'text-opacity', opacityValue)
+        map.current.setPaintProperty(layerId, 'icon-opacity', opacityValue)
+      }
+      
+      console.log(`Updated opacity for layer ${layerId} to ${opacity}%`)
+    } catch (error) {
+      console.error(`Error updating opacity for layer ${layerId}:`, error)
+    }
+  }
+
+  // Function to handle opacity changes
+  const handleOpacityChange = (layerId: string, opacity: number) => {
+    setLayerOpacities(prev => ({ ...prev, [layerId]: opacity }))
+    updateLayerOpacity(layerId, opacity)
+  }
+
   useEffect(() => {
     if (!mapContainer.current) return
     map.current = new mapboxgl.Map({
@@ -187,6 +252,8 @@ export default function PropertyMap() {
     setSelectedCity(city)
     // Reset selected layers when changing city
     setSelectedLayers([])
+    // Reset layer opacities when changing city
+    setLayerOpacities({})
     
     // Remove all existing custom layers and sources when changing city
     if (map.current && mapLoaded) {
@@ -312,6 +379,11 @@ export default function PropertyMap() {
             // Add hover functionality for this layer
             addHoverHandlers(layerId, layerConfig.name)
             
+            // Set default opacity for the layer
+            const defaultOpacity = 50
+            setLayerOpacities(prev => ({ ...prev, [layerId]: defaultOpacity }))
+            updateLayerOpacity(layerId, defaultOpacity)
+            
             console.log(`Successfully added layer: ${layerId}`)
             
             // Set loaded state
@@ -369,6 +441,8 @@ export default function PropertyMap() {
               selectedLayers={selectedLayers}
               onLayersChange={handleLayersChange}
               layerLoadingStates={layerLoadingStates}
+              layerOpacities={layerOpacities}
+              onOpacityChange={handleOpacityChange}
             />
           </div>
         </div>

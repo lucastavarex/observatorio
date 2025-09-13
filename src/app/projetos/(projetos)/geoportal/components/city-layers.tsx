@@ -12,26 +12,43 @@ interface CityLayersProps {
   selectedLayers: string[]
   onLayersChange: (layers: string[]) => void
   layerLoadingStates?: Record<string, 'loading' | 'loaded' | 'error'>
+  layerOpacities?: Record<string, number>
+  onOpacityChange?: (layerId: string, opacity: number) => void
 }
 
-export function CityLayers({ selectedCity, selectedLayers, onLayersChange, layerLoadingStates = {} }: CityLayersProps) {
+export function CityLayers({ selectedCity, selectedLayers, onLayersChange, layerLoadingStates = {}, layerOpacities = {}, onOpacityChange }: CityLayersProps) {
   const cityLayers = cityLayersConfig[selectedCity] || []
-  const [layerOpacities, setLayerOpacities] = useState<Record<string, number>>({})
+  const [localOpacities, setLocalOpacities] = useState<Record<string, number>>({})
 
   const handleLayerToggle = (layerId: string, checked: boolean) => {
     if (checked) {
       onLayersChange([...selectedLayers, layerId])
       // Set default opacity when layer is enabled
-      if (!(layerId in layerOpacities)) {
-        setLayerOpacities(prev => ({ ...prev, [layerId]: 50 }))
+      const defaultOpacity = 50
+      if (!(layerId in layerOpacities) && !(layerId in localOpacities)) {
+        setLocalOpacities(prev => ({ ...prev, [layerId]: defaultOpacity }))
+        onOpacityChange?.(layerId, defaultOpacity)
       }
     } else {
       onLayersChange(selectedLayers.filter(id => id !== layerId))
+      // Clean up local opacity when layer is disabled
+      setLocalOpacities(prev => {
+        const newState = { ...prev }
+        delete newState[layerId]
+        return newState
+      })
     }
   }
 
   const handleOpacityChange = (layerId: string, value: number[]) => {
-    setLayerOpacities(prev => ({ ...prev, [layerId]: value[0] }))
+    const opacity = value[0]
+    setLocalOpacities(prev => ({ ...prev, [layerId]: opacity }))
+    onOpacityChange?.(layerId, opacity)
+  }
+
+  // Get current opacity value (prioritize prop over local state)
+  const getCurrentOpacity = (layerId: string) => {
+    return layerOpacities[layerId] ?? localOpacities[layerId] ?? 50
   }
 
   if (cityLayers.length === 0) {
@@ -78,12 +95,12 @@ export function CityLayers({ selectedCity, selectedLayers, onLayersChange, layer
                         <span className="text-xs text-gray-600 font-medium">Opacidade</span>
                       </div>
                       <span className="text-xs text-gray-500 font-mono">
-                        {layerOpacities[layer.id] || 50}%
+                        {getCurrentOpacity(layer.id)}%
                       </span>
                     </div>
                     <Slider
                       className="w-full"
-                      value={[layerOpacities[layer.id] || 50]}
+                      value={[getCurrentOpacity(layer.id)]}
                       onValueChange={(value) => handleOpacityChange(layer.id, value)}
                       max={100}
                       step={1}
