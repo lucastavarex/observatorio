@@ -3,6 +3,8 @@ import { Button } from "@/components/ui/button"
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip"
 import { Layers, Menu, X } from "lucide-react"
 import mapboxgl from "mapbox-gl"
+import mapboxglCompare from "mapbox-gl-compare"
+import "mapbox-gl-compare/dist/mapbox-gl-compare.css"
 import "mapbox-gl/dist/mapbox-gl.css"
 import { useEffect, useRef, useState } from "react"
 import { toast } from "sonner"
@@ -73,7 +75,13 @@ const cityCoordinates: Record<string, [number, number]> = {
 
 export default function PropertyMap() {
   const mapContainer = useRef<HTMLDivElement>(null)
+  const beforeMapContainer = useRef<HTMLDivElement>(null)
+  const afterMapContainer = useRef<HTMLDivElement>(null)
+  const comparisonContainer = useRef<HTMLDivElement>(null)
   const map = useRef<mapboxgl.Map | null>(null)
+  const beforeMap = useRef<mapboxgl.Map | null>(null)
+  const afterMap = useRef<mapboxgl.Map | null>(null)
+  const compare = useRef<mapboxglCompare | null>(null)
   const [zoom] = useState(10.5)
   const [selectedCity, setSelectedCity] = useState("São Paulo")
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -93,19 +101,20 @@ export default function PropertyMap() {
   const eventHandlersRef = useRef<Map<string, { mouseenter: () => void; mouseleave: () => void; mousemove: (e: mapboxgl.MapLayerMouseEvent) => void }>>(new Map())
 
   // Function to add hover handlers for a layer
-  const addHoverHandlers = (layerId: string, layerName: string) => {
-    if (!map.current) return
+  const addHoverHandlers = (layerId: string, layerName: string, targetMap?: mapboxgl.Map) => {
+    const mapInstance = targetMap || map.current
+    if (!mapInstance) return
 
     // Create event handler functions
     const mouseenterHandler = () => {
-      if (map.current) {
-        map.current.getCanvas().style.cursor = 'pointer'
+      if (mapInstance) {
+        mapInstance.getCanvas().style.cursor = 'pointer'
       }
     }
 
     const mouseleaveHandler = () => {
-      if (map.current) {
-        map.current.getCanvas().style.cursor = ''
+      if (mapInstance) {
+        mapInstance.getCanvas().style.cursor = ''
       }
       // Remove popup when mouse leaves
       if (popupRef.current) {
@@ -116,7 +125,7 @@ export default function PropertyMap() {
     }
 
     const mousemoveHandler = (e: mapboxgl.MapLayerMouseEvent) => {
-      if (!map.current || !e.features || e.features.length === 0) return
+      if (!mapInstance || !e.features || e.features.length === 0) return
 
       const feature = e.features[0]
       const coordinates = e.lngLat.toArray() as [number, number]
@@ -165,7 +174,7 @@ export default function PropertyMap() {
 
       popup.setLngLat(coordinates)
         .setDOMContent(popupContent)
-        .addTo(map.current)
+        .addTo(mapInstance)
 
       popupRef.current = popup
       setHoveredFeature({ feature, layerName, coordinates })
@@ -179,21 +188,22 @@ export default function PropertyMap() {
     })
 
     // Add event listeners
-    map.current.on('mouseenter', layerId, mouseenterHandler)
-    map.current.on('mouseleave', layerId, mouseleaveHandler)
-    map.current.on('mousemove', layerId, mousemoveHandler)
+    mapInstance.on('mouseenter', layerId, mouseenterHandler)
+    mapInstance.on('mouseleave', layerId, mouseleaveHandler)
+    mapInstance.on('mousemove', layerId, mousemoveHandler)
   }
 
   // Function to remove hover handlers for a layer
-  const removeHoverHandlers = (layerId: string) => {
-    if (!map.current) return
+  const removeHoverHandlers = (layerId: string, targetMap?: mapboxgl.Map) => {
+    const mapInstance = targetMap || map.current
+    if (!mapInstance) return
 
     const handlers = eventHandlersRef.current.get(layerId)
     if (handlers) {
       // Remove event listeners using the stored handler functions
-      map.current.off('mouseenter', layerId, handlers.mouseenter)
-      map.current.off('mouseleave', layerId, handlers.mouseleave)
-      map.current.off('mousemove', layerId, handlers.mousemove)
+      mapInstance.off('mouseenter', layerId, handlers.mouseenter)
+      mapInstance.off('mouseleave', layerId, handlers.mouseleave)
+      mapInstance.off('mousemove', layerId, handlers.mousemove)
       
       // Remove from stored handlers
       eventHandlersRef.current.delete(layerId)
@@ -201,10 +211,11 @@ export default function PropertyMap() {
   }
 
   // Function to update layer opacity
-  const updateLayerOpacity = (layerId: string, opacity: number) => {
-    if (!map.current || !map.current.getLayer(layerId)) return
+  const updateLayerOpacity = (layerId: string, opacity: number, targetMap?: mapboxgl.Map) => {
+    const mapInstance = targetMap || map.current
+    if (!mapInstance || !mapInstance.getLayer(layerId)) return
 
-    const layer = map.current.getLayer(layerId)
+    const layer = mapInstance.getLayer(layerId)
     if (!layer) return
 
     const opacityValue = opacity / 100 // Convert percentage to 0-1 range
@@ -212,20 +223,20 @@ export default function PropertyMap() {
     try {
       // Update fill-opacity for fill layers
       if (layer.type === 'fill') {
-        map.current.setPaintProperty(layerId, 'fill-opacity', opacityValue)
+        mapInstance.setPaintProperty(layerId, 'fill-opacity', opacityValue)
       }
       // Update line-opacity for line layers
       else if (layer.type === 'line') {
-        map.current.setPaintProperty(layerId, 'line-opacity', opacityValue)
+        mapInstance.setPaintProperty(layerId, 'line-opacity', opacityValue)
       }
       // Update circle-opacity for circle layers
       else if (layer.type === 'circle') {
-        map.current.setPaintProperty(layerId, 'circle-opacity', opacityValue)
+        mapInstance.setPaintProperty(layerId, 'circle-opacity', opacityValue)
       }
       // Update text-opacity for symbol layers
       else if (layer.type === 'symbol') {
-        map.current.setPaintProperty(layerId, 'text-opacity', opacityValue)
-        map.current.setPaintProperty(layerId, 'icon-opacity', opacityValue)
+        mapInstance.setPaintProperty(layerId, 'text-opacity', opacityValue)
+        mapInstance.setPaintProperty(layerId, 'icon-opacity', opacityValue)
       }
       
       console.log(`Updated opacity for layer ${layerId} to ${opacity}%`)
@@ -236,12 +247,29 @@ export default function PropertyMap() {
 
   // Function to handle opacity changes
   const handleOpacityChange = (layerId: string, opacity: number) => {
+    console.log(`handleOpacityChange called: layerId=${layerId}, opacity=${opacity}, isComparisonMode=${isComparisonMode}`)
     setLayerOpacities(prev => ({ ...prev, [layerId]: opacity }))
-    updateLayerOpacity(layerId, opacity)
+    
+    if (isComparisonMode) {
+      // In comparison mode, update opacity on the map that contains the layer
+      if (beforeMap.current && beforeMap.current.getLayer(layerId)) {
+        console.log(`Updating opacity for layer ${layerId} on beforeMap`)
+        updateLayerOpacity(layerId, opacity, beforeMap.current)
+      }
+      if (afterMap.current && afterMap.current.getLayer(layerId)) {
+        console.log(`Updating opacity for layer ${layerId} on afterMap`)
+        updateLayerOpacity(layerId, opacity, afterMap.current)
+      }
+    } else {
+      // In normal mode, update opacity on the main map
+      updateLayerOpacity(layerId, opacity)
+    }
   }
 
+  // Initialize single map
   useEffect(() => {
-    if (!mapContainer.current) return
+    if (!mapContainer.current || isComparisonMode) return
+    
     map.current = new mapboxgl.Map({
       container: mapContainer.current,
       style: "mapbox://styles/mapbox/streets-v11",
@@ -252,8 +280,108 @@ export default function PropertyMap() {
     map.current.on('load', () => {
       setMapLoaded(true)
     })
-    return () => map.current?.remove()
-  }, [zoom, selectedCity])
+    
+    return () => {
+      if (map.current) {
+        map.current.remove()
+        map.current = null
+      }
+    }
+  }, [zoom, selectedCity, isComparisonMode])
+
+  // Initialize comparison maps
+  useEffect(() => {
+    if (!isComparisonMode || !beforeMapContainer.current || !afterMapContainer.current || !comparisonContainer.current) return
+
+    // Clean up existing maps
+    if (beforeMap.current) beforeMap.current.remove()
+    if (afterMap.current) afterMap.current.remove()
+    if (compare.current) compare.current.remove()
+
+    beforeMap.current = new mapboxgl.Map({
+      container: beforeMapContainer.current,
+      style: "mapbox://styles/mapbox/streets-v11",
+      center: cityCoordinates[selectedCity],
+      zoom,
+    })
+
+    afterMap.current = new mapboxgl.Map({
+      container: afterMapContainer.current,
+      style: "mapbox://styles/mapbox/streets-v11",
+      center: cityCoordinates[selectedCity],
+      zoom,
+    })
+
+    // Add navigation controls to both maps
+    beforeMap.current.addControl(new mapboxgl.NavigationControl(), "bottom-right")
+    afterMap.current.addControl(new mapboxgl.NavigationControl(), "bottom-right")
+
+    // Initialize comparison
+    const isMobile = window.innerWidth < 768 // md breakpoint
+    compare.current = new mapboxglCompare(
+      beforeMap.current,
+      afterMap.current,
+      comparisonContainer.current,
+      {
+        orientation: isMobile ? 'horizontal' : 'vertical',
+        // mousemove: true,
+        // touchmove: true
+      }
+    )
+
+    // Set map loaded when both maps are ready
+    let mapsLoaded = 0
+    const onMapLoad = () => {
+      mapsLoaded++
+      if (mapsLoaded === 2) {
+        setMapLoaded(true)
+      }
+    }
+
+    beforeMap.current.on('load', onMapLoad)
+    afterMap.current.on('load', onMapLoad)
+
+    // Handle window resize to update orientation
+    let currentOrientation = isMobile ? 'horizontal' : 'vertical'
+    const handleResize = () => {
+      if (compare.current) {
+        const isMobile = window.innerWidth < 768
+        const newOrientation = isMobile ? 'horizontal' : 'vertical'
+        
+        // Only update if orientation changed
+        if (currentOrientation !== newOrientation) {
+          currentOrientation = newOrientation
+          compare.current.remove()
+          compare.current = new mapboxglCompare(
+            beforeMap.current!,
+            afterMap.current!,
+            comparisonContainer.current!,
+            {
+              orientation: newOrientation,
+            }
+          )
+        }
+      }
+    }
+
+    window.addEventListener('resize', handleResize)
+
+    return () => {
+      window.removeEventListener('resize', handleResize)
+      if (compare.current) {
+        compare.current.remove()
+        compare.current = null
+      }
+      if (beforeMap.current) {
+        beforeMap.current.remove()
+        beforeMap.current = null
+      }
+      if (afterMap.current) {
+        afterMap.current.remove()
+        afterMap.current = null
+      }
+    }
+  }, [zoom, selectedCity, isComparisonMode])
 
   const handleCityChange = (city: string) => {
     setSelectedCity(city)
@@ -264,34 +392,33 @@ export default function PropertyMap() {
     // Reset layer opacities when changing city
     setLayerOpacities({})
     
-    // Remove all existing custom layers and sources when changing city
-    if (map.current && mapLoaded) {
-      const cityLayers = cityLayersConfig[selectedCity] || []
-      cityLayers.forEach(layer => {
-        if (layer.tilesetId && map.current?.getLayer(layer.id)) {
-          // Remove hover handlers first
-          removeHoverHandlers(layer.id)
-          map.current.removeLayer(layer.id)
-        }
-        if (layer.tilesetId && map.current?.getSource(layer.id)) {
-          map.current.removeSource(layer.id)
-        }
-      })
-      // Reset loading states and clear popup
-      setLayerLoadingStates({})
-      if (popupRef.current) {
-        popupRef.current.remove()
-        popupRef.current = null
-      }
-      setHoveredFeature(null)
-    }
+    // Clear all layers when changing city
+    clearAllLayers()
     
-    if (map.current) {
-      map.current.flyTo({
-        center: cityCoordinates[city],
-        zoom: 10.5,
-        duration: 2000,
-      })
+    // Fly to new city on the appropriate map(s)
+    if (isComparisonMode) {
+      if (beforeMap.current) {
+        beforeMap.current.flyTo({
+          center: cityCoordinates[city],
+          zoom: 10.5,
+          duration: 2000,
+        })
+      }
+      if (afterMap.current) {
+        afterMap.current.flyTo({
+          center: cityCoordinates[city],
+          zoom: 10.5,
+          duration: 2000,
+        })
+      }
+    } else {
+      if (map.current) {
+        map.current.flyTo({
+          center: cityCoordinates[city],
+          zoom: 10.5,
+          duration: 2000,
+        })
+      }
     }
   }
 
@@ -307,6 +434,7 @@ export default function PropertyMap() {
       setSelectedLayers([])
       setSelectedLayer1(null)
       setSelectedLayer2(null)
+      setMapLoaded(false) // Reset map loaded state
       
       // Show success toast
       toast.success("Modo de Comparação Ativado", {
@@ -320,6 +448,7 @@ export default function PropertyMap() {
       setSelectedLayer1(null)
       setSelectedLayer2(null)
       setSelectedLayers([])
+      setMapLoaded(false) // Reset map loaded state
       
       // Show info toast
       toast.info("Modo de Comparação Desativado", {
@@ -330,21 +459,45 @@ export default function PropertyMap() {
   }
 
   const clearAllLayers = () => {
-    if (!map.current || !mapLoaded) return
-
     const cityLayers = cityLayersConfig[selectedCity] || []
     
-    // Remove all existing layers and sources
-    cityLayers.forEach(layer => {
-      if (layer.tilesetId && map.current?.getLayer(layer.id)) {
-        // Remove hover handlers first
-        removeHoverHandlers(layer.id)
-        map.current.removeLayer(layer.id)
-      }
-      if (layer.tilesetId && map.current?.getSource(layer.id)) {
-        map.current.removeSource(layer.id)
-      }
-    })
+    // Clear single map layers
+    if (map.current && mapLoaded) {
+      cityLayers.forEach(layer => {
+        if (layer.tilesetId && map.current?.getLayer(layer.id)) {
+          removeHoverHandlers(layer.id, map.current)
+          map.current.removeLayer(layer.id)
+        }
+        if (layer.tilesetId && map.current?.getSource(layer.id)) {
+          map.current.removeSource(layer.id)
+        }
+      })
+    }
+    
+    // Clear comparison map layers
+    if (beforeMap.current && afterMap.current && mapLoaded) {
+      cityLayers.forEach(layer => {
+        if (layer.tilesetId) {
+          // Clear from before map
+          if (beforeMap.current?.getLayer(layer.id)) {
+            removeHoverHandlers(layer.id, beforeMap.current)
+            beforeMap.current.removeLayer(layer.id)
+          }
+          if (beforeMap.current?.getSource(layer.id)) {
+            beforeMap.current.removeSource(layer.id)
+          }
+          
+          // Clear from after map
+          if (afterMap.current?.getLayer(layer.id)) {
+            removeHoverHandlers(layer.id, afterMap.current)
+            afterMap.current.removeLayer(layer.id)
+          }
+          if (afterMap.current?.getSource(layer.id)) {
+            afterMap.current.removeSource(layer.id)
+          }
+        }
+      })
+    }
     
     // Reset all states
     setLayerLoadingStates({})
@@ -360,7 +513,7 @@ export default function PropertyMap() {
 
   const handleLayer1Change = (layerId: string | null) => {
     // Remove previous layer first if exists
-    if (selectedLayer1 && map.current && mapLoaded) {
+    if (selectedLayer1 && beforeMap.current && afterMap.current && mapLoaded) {
       removeComparisonLayer(selectedLayer1)
     }
     
@@ -374,7 +527,7 @@ export default function PropertyMap() {
 
   const handleLayer2Change = (layerId: string | null) => {
     // Remove previous layer first if exists
-    if (selectedLayer2 && map.current && mapLoaded) {
+    if (selectedLayer2 && beforeMap.current && afterMap.current && mapLoaded) {
       removeComparisonLayer(selectedLayer2)
     }
     
@@ -387,7 +540,7 @@ export default function PropertyMap() {
   }
 
   const handleComparisonLayerChange = (layerId: string, isLayer1: boolean) => {
-    if (!map.current || !mapLoaded) return
+    if (!beforeMap.current || !afterMap.current || !mapLoaded) return
     
     const cityLayers = cityLayersConfig[selectedCity] || []
     const layerConfig = cityLayers.find(l => l.id === layerId)
@@ -399,8 +552,11 @@ export default function PropertyMap() {
       setLayerLoadingStates(prev => ({ ...prev, [layerId]: 'loading' }))
       
       try {
+        // Determine target map
+        const targetMap = isLayer1 ? beforeMap.current : afterMap.current
+        
         // Add source
-        map.current!.addSource(layerId, {
+        targetMap!.addSource(layerId, {
           type: 'vector',
           url: `mapbox://${layerConfig.tilesetId}`
         })
@@ -437,15 +593,15 @@ export default function PropertyMap() {
           console.log(`Using default style for comparison layer: ${layerId}`)
         }
         
-        map.current!.addLayer(layerConfigToAdd)
+        targetMap!.addLayer(layerConfigToAdd)
         
         // Add hover functionality for this layer
-        addHoverHandlers(layerId, layerConfig.name)
+        addHoverHandlers(layerId, layerConfig.name, targetMap)
         
         // Set default opacity for the layer
         const defaultOpacity = 50
         setLayerOpacities(prev => ({ ...prev, [layerId]: defaultOpacity }))
-        updateLayerOpacity(layerId, defaultOpacity)
+        updateLayerOpacity(layerId, defaultOpacity, targetMap)
         
         console.log(`Successfully added comparison layer: ${layerId}`)
         
@@ -460,7 +616,7 @@ export default function PropertyMap() {
   }
 
   const removeComparisonLayer = (layerId: string) => {
-    if (!map.current || !mapLoaded) return
+    if (!beforeMap.current || !afterMap.current || !mapLoaded) return
 
     const cityLayers = cityLayersConfig[selectedCity] || []
     const layerConfig = cityLayers.find(l => l.id === layerId)
@@ -468,14 +624,20 @@ export default function PropertyMap() {
     if (layerConfig?.tilesetId) {
       console.log(`Removing comparison layer: ${layerId}`)
       
-      // Remove hover handlers first
-      removeHoverHandlers(layerId)
-      
-      if (map.current?.getLayer(layerId)) {
-        map.current.removeLayer(layerId)
-      }
-      if (map.current?.getSource(layerId)) {
-        map.current.removeSource(layerId)
+      // Remove from both maps
+      const mapsToClean = [beforeMap.current, afterMap.current]
+      for (const mapInstance of mapsToClean) {
+        if (mapInstance) {
+          // Remove hover handlers first
+          removeHoverHandlers(layerId, mapInstance)
+          
+          if (mapInstance.getLayer(layerId)) {
+            mapInstance.removeLayer(layerId)
+          }
+          if (mapInstance.getSource(layerId)) {
+            mapInstance.removeSource(layerId)
+          }
+        }
       }
       
       // Update loading state
@@ -511,7 +673,7 @@ export default function PropertyMap() {
           console.log(`Removing layer: ${layerId}`)
           
           // Remove hover handlers first
-          removeHoverHandlers(layerId)
+          removeHoverHandlers(layerId, map.current!)
           
           if (map.current?.getLayer(layerId)) {
             map.current.removeLayer(layerId)
@@ -521,6 +683,12 @@ export default function PropertyMap() {
           }
           // Update loading state
           setLayerLoadingStates(prev => {
+            const newState = { ...prev }
+            delete newState[layerId]
+            return newState
+          })
+          // Remove opacity state
+          setLayerOpacities(prev => {
             const newState = { ...prev }
             delete newState[layerId]
             return newState
@@ -581,12 +749,12 @@ export default function PropertyMap() {
             map.current!.addLayer(layerConfigToAdd)
             
             // Add hover functionality for this layer
-            addHoverHandlers(layerId, layerConfig.name)
+            addHoverHandlers(layerId, layerConfig.name, map.current!)
             
             // Set default opacity for the layer
             const defaultOpacity = 50
             setLayerOpacities(prev => ({ ...prev, [layerId]: defaultOpacity }))
-            updateLayerOpacity(layerId, defaultOpacity)
+            updateLayerOpacity(layerId, defaultOpacity, map.current!)
             
             console.log(`Successfully added layer: ${layerId}`)
             
@@ -608,7 +776,26 @@ export default function PropertyMap() {
 
   return (
     <div className="relative w-full h-screen min-h-lvh">
-      <div ref={mapContainer} className="w-full h-full" />
+      {isComparisonMode ? (
+        <div 
+          ref={comparisonContainer} 
+          className="w-full h-full"
+          style={{ position: 'relative' }}
+        >
+          <div 
+            ref={beforeMapContainer} 
+            className="w-full h-full"
+            style={{ position: 'absolute', top: 0, bottom: 0, width: '100%' }}
+          />
+          <div 
+            ref={afterMapContainer} 
+            className="w-full h-full"
+            style={{ position: 'absolute', top: 0, bottom: 0, width: '100%' }}
+          />
+        </div>
+      ) : (
+        <div ref={mapContainer} className="w-full h-full" />
+      )}
 
       <Button
         variant="outline"
