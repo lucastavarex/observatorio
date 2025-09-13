@@ -8,6 +8,7 @@ import { cityLayersConfig } from "../lib/city-layers"
 import { createStyledLayer } from "../lib/layer-styles"
 import { CityCombobox } from "./city-combobox"
 import { CityLayers } from "./city-layers"
+import { MapLegend } from "./map-legend"
 
 mapboxgl.accessToken = process.env.NEXT_PUBLIC_MAPBOX_TOKEN
 
@@ -415,12 +416,12 @@ export default function PropertyMap() {
         {isMenuOpen ? <X className="h-4 w-4" /> : <Menu className="h-4 w-4" />}
       </Button>
 
-      <div className="absolute top-4 right-4 z-10 w-60 md:w-60 max-md:left-20 max-md:right-4 max-md:w-auto">
+      <div className="absolute top-4 right-4 z-10 w-60 md:w-60 max-md:left-20 max-md:right-4 max-md:w-auto shadow-xl">
         <CityCombobox value={selectedCity} onValueChange={handleCityChange} placeholder="Selecionar cidade..." />
       </div>
 
       <div
-        className={`absolute bg-white top-6 left-6 z-10 overflow-y-auto! w-80 rounded-lg lg:min-h-[calc(100vh-48px)] max-h-[calc(100vh-48px)] shadow-lg transition-transform duration-300 ease-in-out
+        className={`absolute bg-white top-6 left-6 z-20 overflow-y-auto! w-80 rounded-lg lg:min-h-[calc(100vh-48px)] max-h-[calc(100vh-48px)] shadow-lg transition-transform duration-300 ease-in-out
           max-md:top-20 max-md:left-4 max-md:right-4 max-md:w-auto max-md:max-h-[calc(100vh-100px)]
           ${isMenuOpen ? "max-md:translate-x-0" : "max-md:-translate-x-full max-md:opacity-0"}
           md:translate-x-0 md:opacity-100
@@ -447,6 +448,22 @@ export default function PropertyMap() {
           </div>
         </div>
       </div>
+
+       {/* legends */}
+       {selectedLayers.length > 0 && (
+         <div className="top-20 right-4 absolute z-10">
+           <div className="h-auto max-h-[calc(100vh-220px)] overflow-y-auto w-60 bg-white rounded-lg shadow-xl p-4">
+             <div className="mb-4">
+               <h3 className="text-lg font-semibold text-gray-900 mb-2">Legenda</h3>
+               <MapLegend 
+                 selectedLayers={selectedLayers}
+                 selectedCity={selectedCity}
+                 cityLayersConfig={cityLayersConfig}
+               />
+             </div>
+           </div>
+         </div>
+       )}
 
       {isMenuOpen && <div className="fixed inset-0 bg-opacity-50 z-5 md:hidden" onClick={toggleMenu} />}
     </div>
