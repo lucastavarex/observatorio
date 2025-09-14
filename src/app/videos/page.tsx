@@ -67,20 +67,20 @@ export default function Videos() {
           <div className="hidden md:block w-4 h-4 bg-[#C2181A]" />
         </div>
 
-        {/* Cards com espaçamento fixo e quebra automática */}
-        <div className="flex flex-wrap gap-6 justify-start xl:justify-start">
+        {/* Grid responsivo com tamanhos fixos */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {videosData.map((video) => (
-            <div key={video.id} className="flex flex-col items-start text-left w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] xl:w-[680px] group">
-              <div className="relative overflow-hidden rounded-md h-[200px] sm:h-[250px] md:h-[300px] lg:h-[350px] xl:h-[380px] w-full">
+            <div key={video.id} className="flex flex-col items-start text-left group">
+              <div className="relative overflow-hidden rounded-md w-full aspect-[7/4]">
                 <Image
                   src={video.image}
                   alt={video.title}
                   fill
                   className="object-cover object-center rounded-md transition-transform duration-300 group-hover:scale-105"
-                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, (max-width: 1280px) 33vw, 680px"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                 />
               </div>
-              <h3 className="mt-4 text-sm font-medium">{video.title}</h3>
+              <h3 className="mt-4 text-sm font-medium line-clamp-2">{video.title}</h3>
               <p className="text-xs text-gray-600 mt-2">{video.date} • {video.format}</p>
             </div>
           ))}

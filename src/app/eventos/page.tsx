@@ -75,10 +75,10 @@ export default function Eventos() {
           <div className="hidden md:block w-4 h-4 bg-[#C2181A]" />
         </div>
 
-        {/* Cards com espaçamento fixo e quebra automática */}
-        <div className="flex flex-wrap gap-6 justify-center xl:justify-start">
+        {/* Grid responsivo com tamanhos fixos */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {eventsDataTransmitted.map((event) => (
-            <div key={event.id} className="flex flex-col items-start text-left w-[320px] group">
+            <div key={event.id} className="flex flex-col items-start text-left group">
               {event.href ? (
                 <a
                   href={event.href}
@@ -86,28 +86,28 @@ export default function Eventos() {
                   rel={event.href.startsWith('http') ? 'noopener noreferrer' : undefined}
                   className="block w-full"
                 >
-                  <div className="relative overflow-hidden rounded-md h-[380px] w-[320px] cursor-pointer">
+                  <div className="relative overflow-hidden rounded-md w-full aspect-[7/4] cursor-pointer">
                     <Image
                       src={event.image}
                       alt={event.title}
                       fill
                       className="object-cover object-center rounded-md transition-transform duration-300 group-hover:scale-105"
-                      sizes="320px"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                     />
                   </div>
                 </a>
               ) : (
-                <div className="relative overflow-hidden rounded-md h-[380px] w-[320px]">
+                <div className="relative overflow-hidden rounded-md w-full aspect-[7/4]">
                   <Image
                     src={event.image}
                     alt={event.title}
                     fill
                     className="object-cover object-center rounded-md transition-transform duration-300 group-hover:scale-105"
-                    sizes="320px"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                   />
                 </div>
               )}
-              <h3 className="mt-4 text-sm font-medium">{event.title}</h3>
+              <h3 className="mt-4 text-sm font-medium line-clamp-2">{event.title}</h3>
               <p className="text-xs text-gray-600 mt-2">{event.date} • {event.location}</p>
             </div>
           ))}
