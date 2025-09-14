@@ -1,5 +1,6 @@
 @import "tailwindcss";
 @import "tw-animate-css";
+@import "mapbox-gl-compare/dist/mapbox-gl-compare.css";
 
 @custom-variant dark (&:is(.dark *));
 

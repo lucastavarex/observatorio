@@ -3,8 +3,6 @@ import { Button } from "@/components/ui/button"
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip"
 import { Layers, Menu, X } from "lucide-react"
 import mapboxgl from "mapbox-gl"
-import mapboxglCompare from "mapbox-gl-compare"
-import "mapbox-gl-compare/dist/mapbox-gl-compare.css"
 import "mapbox-gl/dist/mapbox-gl.css"
 import { useEffect, useRef, useState } from "react"
 import { toast } from "sonner"
@@ -15,12 +13,32 @@ import { CityLayers } from "./city-layers"
 import { CityLayersComparison } from "./city-layers-comparison"
 import { CollapsibleLegend } from "./collapsible-legend"
 
+// Dynamic import for mapbox-gl-compare to avoid SSR issues
+type MapboxCompareInstance = {
+  setSlider: (slider: number) => void
+  on: (event: string, callback: () => void) => void
+  off: (event: string, callback: () => void) => void
+  remove: () => void
+}
+
+let mapboxglCompare: (new (
+  before: mapboxgl.Map,
+  after: mapboxgl.Map,
+  container: HTMLElement,
+  options?: { orientation?: 'vertical' | 'horizontal'; mousemove?: boolean; touchmove?: boolean }
+) => MapboxCompareInstance) | null = null
+if (typeof window !== 'undefined') {
+  import('mapbox-gl-compare').then(module => {
+    mapboxglCompare = module.default
+  })
+}
+
 mapboxgl.accessToken = process.env.NEXT_PUBLIC_MAPBOX_TOKEN
 
 // Helper function to create default layer configuration
 function createDefaultLayerConfig(layerId: string, layerConfig: { layerType?: 'fill' | 'line' | 'circle' | 'symbol'; sourceLayer: string }): mapboxgl.AnyLayer {
   const layerType = layerConfig.layerType || 'fill'
-  const defaultOpacity = 0.5 // 50% opacity as default
+  const defaultOpacity = 0.8 // 80% opacity as default
   
   let paint: Record<string, unknown> = {}
   
@@ -81,7 +99,7 @@ export default function PropertyMap() {
   const map = useRef<mapboxgl.Map | null>(null)
   const beforeMap = useRef<mapboxgl.Map | null>(null)
   const afterMap = useRef<mapboxgl.Map | null>(null)
-  const compare = useRef<mapboxglCompare | null>(null)
+  const compare = useRef<MapboxCompareInstance | null>(null)
   const [zoom] = useState(10.5)
   const [selectedCity, setSelectedCity] = useState("São Paulo")
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -316,18 +334,27 @@ export default function PropertyMap() {
     beforeMap.current.addControl(new mapboxgl.NavigationControl(), "bottom-right")
     afterMap.current.addControl(new mapboxgl.NavigationControl(), "bottom-right")
 
-    // Initialize comparison
-    const isMobile = window.innerWidth < 768 // md breakpoint
-    compare.current = new mapboxglCompare(
-      beforeMap.current,
-      afterMap.current,
-      comparisonContainer.current,
-      {
-        orientation: isMobile ? 'horizontal' : 'vertical',
-        // mousemove: true,
-        // touchmove: true
+    // Initialize comparison with dynamic import
+    const initializeComparison = async () => {
+      if (!mapboxglCompare) {
+        const compareModule = await import('mapbox-gl-compare')
+        mapboxglCompare = compareModule.default
       }
-    )
+      
+      const isMobile = window.innerWidth < 768 // md breakpoint
+      compare.current = new mapboxglCompare(
+        beforeMap.current!,
+        afterMap.current!,
+        comparisonContainer.current!,
+        {
+          orientation: isMobile ? 'horizontal' : 'vertical',
+          // mousemove: true,
+          // touchmove: true
+        }
+      )
+    }
+
+    initializeComparison()
 
     // Set map loaded when both maps are ready
     let mapsLoaded = 0
@@ -342,16 +369,24 @@ export default function PropertyMap() {
     afterMap.current.on('load', onMapLoad)
 
     // Handle window resize to update orientation
+    const isMobile = window.innerWidth < 768 // md breakpoint
     let currentOrientation = isMobile ? 'horizontal' : 'vertical'
-    const handleResize = () => {
+    const handleResize = async () => {
       if (compare.current) {
-        const isMobile = window.innerWidth < 768
-        const newOrientation = isMobile ? 'horizontal' : 'vertical'
+        const isMobileResize = window.innerWidth < 768
+        const newOrientation = isMobileResize ? 'horizontal' : 'vertical'
         
         // Only update if orientation changed
         if (currentOrientation !== newOrientation) {
           currentOrientation = newOrientation
           compare.current.remove()
+          
+          // Ensure mapboxglCompare is loaded
+          if (!mapboxglCompare) {
+            const compareModule = await import('mapbox-gl-compare')
+            mapboxglCompare = compareModule.default
+          }
+          
           compare.current = new mapboxglCompare(
             beforeMap.current!,
             afterMap.current!,
@@ -599,7 +634,7 @@ export default function PropertyMap() {
         addHoverHandlers(layerId, layerConfig.name, targetMap)
         
         // Set default opacity for the layer
-        const defaultOpacity = 50
+        const defaultOpacity = 80
         setLayerOpacities(prev => ({ ...prev, [layerId]: defaultOpacity }))
         updateLayerOpacity(layerId, defaultOpacity, targetMap)
         
@@ -752,7 +787,7 @@ export default function PropertyMap() {
             addHoverHandlers(layerId, layerConfig.name, map.current!)
             
             // Set default opacity for the layer
-            const defaultOpacity = 50
+            const defaultOpacity = 80
             setLayerOpacities(prev => ({ ...prev, [layerId]: defaultOpacity }))
             updateLayerOpacity(layerId, defaultOpacity, map.current!)
             

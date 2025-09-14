@@ -50,7 +50,7 @@ export function CityLayersComparison({
         }
         onLayer1Change(layerId)
         // Set default opacity when layer is enabled
-        const defaultOpacity = 50
+        const defaultOpacity = 80
         if (!(layerId in layerOpacities) && !(layerId in localOpacities)) {
           setLocalOpacities(prev => ({ ...prev, [layerId]: defaultOpacity }))
           onOpacityChange?.(layerId, defaultOpacity)
@@ -72,7 +72,7 @@ export function CityLayersComparison({
         }
         onLayer2Change(layerId)
         // Set default opacity when layer is enabled
-        const defaultOpacity = 50
+        const defaultOpacity = 80
         if (!(layerId in layerOpacities) && !(layerId in localOpacities)) {
           setLocalOpacities(prev => ({ ...prev, [layerId]: defaultOpacity }))
           onOpacityChange?.(layerId, defaultOpacity)
@@ -107,7 +107,7 @@ export function CityLayersComparison({
 
   // Get current opacity value (prioritize prop over local state)
   const getCurrentOpacity = (layerId: string) => {
-    return layerOpacities[layerId] ?? localOpacities[layerId] ?? 50
+    return layerOpacities[layerId] ?? localOpacities[layerId] ?? 80
   }
 
   if (cityLayers.length === 0) {
