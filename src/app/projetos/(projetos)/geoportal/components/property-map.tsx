@@ -921,12 +921,13 @@ export default function PropertyMap() {
         `}
       >
         <div className="p-4 border-b md:hidden">
+          <button className="z-20 pb-4 flex pt-2 hover:cursor-pointer text-sm mr-2 bg-transparent p-0 flex-row items-center gap-2" onClick={() => router.back()}><ChevronLeftIcon className="w-5 h-5" /> Voltar</button>
           <h2 className="text-lg font-semibold">Selecione as camadas</h2>
         </div>
 
         <div className="flex flex-col h-full">
           <div className="md:p-4">
-          <button className="z-20 pb-4 pt-2 hover:cursor-pointer text-sm mr-2 bg-transparent p-0 flex flex-row items-center gap-2" onClick={() => router.back()}><ChevronLeftIcon className="w-5 h-5" /> Voltar</button>
+          <button className="z-20 pb-4 hidden md:flex pt-2 hover:cursor-pointer text-sm mr-2 bg-transparent p-0 flex-row items-center gap-2" onClick={() => router.back()}><ChevronLeftIcon className="w-5 h-5" /> Voltar</button>
             <h2 className="text-xl font-bold text-gray-900 hidden md:block">Selecione as camadas</h2>
           </div>
 
