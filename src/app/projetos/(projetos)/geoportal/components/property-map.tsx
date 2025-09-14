@@ -889,7 +889,7 @@ export default function PropertyMap() {
 
        {/* legends */}
        <CollapsibleLegend 
-         selectedLayers={selectedLayers}
+         selectedLayers={isComparisonMode ? [selectedLayer1, selectedLayer2].filter(Boolean) as string[] : selectedLayers}
          selectedCity={selectedCity}
          cityLayersConfig={cityLayersConfig}
        />
