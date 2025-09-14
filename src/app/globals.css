@@ -157,3 +157,11 @@
 .dark .toast-custom [data-description] {
   color: #ffffff !important;
 }
+
+.mapboxgl-ctrl-bottom-right{
+  display: none !important;
+
+}
+.mapboxgl-ctrl .mapboxgl-ctrl-attrib .mapboxgl-compact{
+  display: none !important;
+}

@@ -1,7 +1,7 @@
 "use client"
 import { Button } from "@/components/ui/button"
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip"
-import { Layers, Menu, X } from "lucide-react"
+import { Compass, Layers, Menu, Minus, Plus, X } from "lucide-react"
 import mapboxgl from "mapbox-gl"
 import "mapbox-gl/dist/mapbox-gl.css"
 import { useEffect, useRef, useState } from "react"
@@ -284,6 +284,77 @@ export default function PropertyMap() {
     }
   }
 
+  // Zoom in functionality
+  const handleZoomIn = () => {
+    if (isComparisonMode) {
+      if (beforeMap.current) {
+        beforeMap.current.zoomIn()
+      }
+      if (afterMap.current) {
+        afterMap.current.zoomIn()
+      }
+    } else {
+      if (map.current) {
+        map.current.zoomIn()
+      }
+    }
+  }
+
+  // Zoom out functionality
+  const handleZoomOut = () => {
+    if (isComparisonMode) {
+      if (beforeMap.current) {
+        beforeMap.current.zoomOut()
+      }
+      if (afterMap.current) {
+        afterMap.current.zoomOut()
+      }
+    } else {
+      if (map.current) {
+        map.current.zoomOut()
+      }
+    }
+  }
+
+  // Recenter map functionality
+  const handleRecenter = () => {
+    const center = cityCoordinates[selectedCity]
+    const zoomLevel = 10.5
+    const pitch = 0 // Reset to flat view
+    const bearing = 0 // Reset to north-up orientation
+    
+    if (isComparisonMode) {
+      if (beforeMap.current) {
+        beforeMap.current.flyTo({
+          center,
+          zoom: zoomLevel,
+          pitch,
+          bearing,
+          duration: 2000,
+        })
+      }
+      if (afterMap.current) {
+        afterMap.current.flyTo({
+          center,
+          zoom: zoomLevel,
+          pitch,
+          bearing,
+          duration: 2000,
+        })
+      }
+    } else {
+      if (map.current) {
+        map.current.flyTo({
+          center,
+          zoom: zoomLevel,
+          pitch,
+          bearing,
+          duration: 2000,
+        })
+      }
+    }
+  }
+
   // Initialize single map
   useEffect(() => {
     if (!mapContainer.current || isComparisonMode) return
@@ -294,7 +365,6 @@ export default function PropertyMap() {
       center: cityCoordinates[selectedCity],
       zoom,
     })
-    map.current.addControl(new mapboxgl.NavigationControl(), "bottom-right")
     map.current.on('load', () => {
       setMapLoaded(true)
     })
@@ -329,10 +399,6 @@ export default function PropertyMap() {
       center: cityCoordinates[selectedCity],
       zoom,
     })
-
-    // Add navigation controls to both maps
-    beforeMap.current.addControl(new mapboxgl.NavigationControl(), "bottom-right")
-    afterMap.current.addControl(new mapboxgl.NavigationControl(), "bottom-right")
 
     // Initialize comparison with dynamic import
     const initializeComparison = async () => {
@@ -911,6 +977,54 @@ export default function PropertyMap() {
             <p>{isComparisonMode ? 'Sair do Modo de Comparação' : 'Comparar Camadas'}</p>
           </TooltipContent>
         </Tooltip>
+        </div>
+
+        {/* Custom zoom and recenter buttons */}
+        <div className="absolute bottom-4 right-4 z-10 flex flex-col gap-2">
+          {/* Zoom In Button */}
+          <Tooltip>
+            <TooltipTrigger asChild>
+              <button
+                onClick={handleZoomIn}
+                className="w-12 h-12 bg-white rounded-full shadow-lg hover:shadow-xl transition-all duration-200 flex items-center justify-center hover:bg-gray-50 border border-gray-200"
+              >
+                <Plus className="w-5 h-5" />
+              </button>
+            </TooltipTrigger>
+            <TooltipContent side="left">
+              <p>Zoom In</p>
+            </TooltipContent>
+          </Tooltip>
+
+          {/* Zoom Out Button */}
+          <Tooltip>
+            <TooltipTrigger asChild>
+              <button
+                onClick={handleZoomOut}
+                className="w-12 h-12 bg-white rounded-full shadow-lg hover:shadow-xl transition-all duration-200 flex items-center justify-center hover:bg-gray-50 border border-gray-200"
+              >
+                <Minus className="w-5 h-5" />
+              </button>
+            </TooltipTrigger>
+            <TooltipContent side="left">
+              <p>Zoom Out</p>
+            </TooltipContent>
+          </Tooltip>
+
+          {/* Recenter Button */}
+          <Tooltip>
+            <TooltipTrigger asChild>
+              <button
+                onClick={handleRecenter}
+                className="w-12 h-12 bg-white rounded-full shadow-lg hover:shadow-xl transition-all duration-200 flex items-center justify-center hover:bg-gray-50 border border-gray-200"
+              >
+                <Compass className="w-5 h-5" />
+              </button>
+            </TooltipTrigger>
+            <TooltipContent side="left">
+              <p>Reset Map View</p>
+            </TooltipContent>
+          </Tooltip>
         </div>
 
 
