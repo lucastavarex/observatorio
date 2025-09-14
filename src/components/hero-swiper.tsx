@@ -61,8 +61,11 @@ const slides: SlideData[] = [
 export function HeroSwiper() {
   const [activeIndex, setActiveIndex] = useState(0)
   const [progress, setProgress] = useState(0)
+  const [isVisible, setIsVisible] = useState(true)
   const swiperRef = useRef<{ swiper: SwiperType }>(null)
   const progressIntervalRef = useRef<NodeJS.Timeout | null>(null)
+  const sectionRef = useRef<HTMLElement>(null)
+  const videoRefs = useRef<HTMLVideoElement[]>([])
 
   const handleSlideChange = (swiper: SwiperType) => {
     // Handle loop properly by using realIndex instead of activeIndex
@@ -74,7 +77,21 @@ export function HeroSwiper() {
       clearInterval(progressIntervalRef.current)
     }
     
-    // Start progress animation
+    // Start progress animation after a small delay to ensure state is updated
+    setTimeout(() => {
+      if (isVisible) {
+        startProgressAnimation()
+      }
+    }, 50)
+  }
+
+  const startProgressAnimation = () => {
+    // Clear any existing interval first
+    if (progressIntervalRef.current) {
+      clearInterval(progressIntervalRef.current)
+      progressIntervalRef.current = null
+    }
+    
     const startTime = Date.now()
     const duration = 10000 // 10 seconds
     
@@ -86,9 +103,26 @@ export function HeroSwiper() {
       if (newProgress >= 100) {
         if (progressIntervalRef.current) {
           clearInterval(progressIntervalRef.current)
+          progressIntervalRef.current = null
         }
       }
     }, 16) // ~60fps
+  }
+
+  const pauseAllVideos = () => {
+    videoRefs.current.forEach(video => {
+      if (video && !video.paused) {
+        video.pause()
+      }
+    })
+  }
+
+  const playAllVideos = () => {
+    videoRefs.current.forEach(video => {
+      if (video && video.paused) {
+        video.play().catch(console.error)
+      }
+    })
   }
 
   const handlePrevSlide = () => {
@@ -103,6 +137,60 @@ export function HeroSwiper() {
     }
   }
 
+  // Intersection Observer to detect visibility
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        const visible = entry.isIntersecting
+        setIsVisible(visible)
+        
+        if (visible) {
+          // Resume videos and progress when visible
+          playAllVideos()
+          if (swiperRef.current) {
+            swiperRef.current.swiper.autoplay.start()
+          }
+          // Only start progress if not already running
+          if (!progressIntervalRef.current) {
+            startProgressAnimation()
+          }
+        } else {
+          // Pause videos and progress when not visible
+          pauseAllVideos()
+          if (swiperRef.current) {
+            swiperRef.current.swiper.autoplay.stop()
+          }
+          if (progressIntervalRef.current) {
+            clearInterval(progressIntervalRef.current)
+            progressIntervalRef.current = null
+          }
+        }
+      },
+      {
+        threshold: 0.5, // Trigger when 50% of the component is visible
+        rootMargin: '0px'
+      }
+    )
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current)
+    }
+
+    return () => {
+      observer.disconnect()
+    }
+  }, [])
+
+  // Start progress animation on mount
+  useEffect(() => {
+    // Start progress animation after component mounts
+    const timer = setTimeout(() => {
+      startProgressAnimation()
+    }, 100)
+
+    return () => clearTimeout(timer)
+  }, [])
+
   // Cleanup interval on unmount
   useEffect(() => {
     return () => {
@@ -113,7 +201,7 @@ export function HeroSwiper() {
   }, [])
 
   return (
-    <section className="relative h-screen overflow-hidden">
+    <section ref={sectionRef} className="relative h-screen overflow-hidden">
       <Swiper
         ref={swiperRef}
         modules={[Autoplay, Navigation]}
@@ -135,6 +223,11 @@ export function HeroSwiper() {
               <div className="absolute inset-0">
                 {slide.videoSrc ? (
                   <video
+                    ref={(el) => {
+                      if (el) {
+                        videoRefs.current[slide.id - 1] = el
+                      }
+                    }}
                     autoPlay
                     muted
                     loop
