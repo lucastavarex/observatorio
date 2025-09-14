@@ -31,6 +31,12 @@ export function NoticiasSection() {
     setHoveredIndex(null)
   }
 
+  const handleNewsClick = (link?: string) => {
+    if (link) {
+      window.open(link, '_blank', 'noopener,noreferrer')
+    }
+  }
+
   return (
     <section className="py-16 bg-gray-50 pb-24">
       <div ref={containerRef} onMouseMove={handleMouseMove}>
@@ -71,9 +77,10 @@ export function NoticiasSection() {
           {newsData.map((item, index) => (
             <div key={item.id}>
                                                            <div 
-                                className="flex items-start py-8 group hover:bg-black md:hover:bg-black transition-all duration-300 cursor-pointer"
+                                className={`flex items-start py-8 group hover:bg-black md:hover:bg-black transition-all duration-300 ${item.link ? 'cursor-pointer' : 'cursor-default'}`}
                                 onMouseEnter={() => handleMouseEnter(item.image, index)}
                                 onMouseLeave={handleMouseLeave}
+                                onClick={() => handleNewsClick(item.link)}
                               >
                                  {/* Plus Icon */}
                  <div className="flex-shrink-0 mr-4 mt-1 px-4 lg:px-16">
