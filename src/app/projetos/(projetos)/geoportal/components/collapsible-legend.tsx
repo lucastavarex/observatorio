@@ -19,15 +19,13 @@ interface CollapsibleLegendProps {
 }
 
 export function CollapsibleLegend({ selectedLayers, selectedCity, cityLayersConfig }: CollapsibleLegendProps) {
-  const [isCollapsed, setIsCollapsed] = useState(false)
+  const [isCollapsed, setIsCollapsed] = useState(true)
 
   const toggleCollapse = () => {
     setIsCollapsed(!isCollapsed)
   }
 
-  if (selectedLayers.length === 0) {
-    return null
-  }
+  const hasLayers = selectedLayers.length > 0
 
   return (
     <div className="top-20 right-4 absolute z-10">
@@ -36,16 +34,19 @@ export function CollapsibleLegend({ selectedLayers, selectedCity, cityLayersConf
         <Tooltip>
           <TooltipTrigger asChild>
             <button
-              onClick={toggleCollapse}
-              // variant="outline"
-              // size="sm"
-              className="bg-white p-2 rounded-md outline-none hover:bg-gray-50 border-gray-200"
+              onClick={hasLayers ? toggleCollapse : undefined}
+              disabled={!hasLayers}
+              className={`p-2 rounded-md outline-none border-gray-200 ${
+                hasLayers 
+                  ? "bg-white hover:bg-gray-50 cursor-pointer" 
+                  : "bg-gray-100 cursor-not-allowed opacity-50"
+              }`}
             >
               <LayoutList className="w-5 h-5"/>
             </button>
           </TooltipTrigger>
           <TooltipContent side="left">
-            <p>Legenda</p>
+            <p>{hasLayers ? "Legenda" : "Legenda / Selecione uma camada"}</p>
           </TooltipContent>
         </Tooltip>
       ) : (
@@ -54,24 +55,32 @@ export function CollapsibleLegend({ selectedLayers, selectedCity, cityLayersConf
            <div className="flex items-center justify-between mb-4">
              <h3 
                className="text-lg font-semibold text-gray-900 cursor-pointer hover:text-gray-700 transition-colors"
-               onClick={toggleCollapse}
+               onClick={hasLayers ? toggleCollapse : undefined}
              >
                Legenda
              </h3>
              <Button
-               onClick={toggleCollapse}
+               onClick={hasLayers ? toggleCollapse : undefined}
                variant="ghost"
                size="sm"
                className="h-8 w-8 p-0 hover:bg-gray-100"
+               disabled={!hasLayers}
              >
                <ChevronUp className="w-4 h-4" />
              </Button>
            </div>
-          <MapLegend 
-            selectedLayers={selectedLayers}
-            selectedCity={selectedCity}
-            cityLayersConfig={cityLayersConfig}
-          />
+          {hasLayers ? (
+            <MapLegend 
+              selectedLayers={selectedLayers}
+              selectedCity={selectedCity}
+              cityLayersConfig={cityLayersConfig}
+            />
+          ) : (
+            <div className="text-center text-gray-500 py-8">
+              <LayoutList className="w-12 h-12 mx-auto mb-2 opacity-50" />
+              <p>Selecione uma camada para ver a legenda</p>
+            </div>
+          )}
         </div>
       )}
     </div>

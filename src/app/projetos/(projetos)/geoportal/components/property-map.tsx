@@ -898,10 +898,10 @@ export default function PropertyMap() {
           <TooltipTrigger asChild>
             <button
               onClick={toggleComparisonMode}
-              className={`p-2 rounded-md outline-none border transition-colors ${
+              className={`p-2 rounded-md outline-none transition-colors ${
                 isComparisonMode 
                   ? 'bg-primary  hover:bg-primary/90 border-primary text-white' 
-                  : 'bg-white hover:bg-gray-50 cursor-pointer border-gray-200 text-gray-700'
+                  : 'bg-white hover:bg-gray-50 cursor-pointer'
               }`}
             >
               <Layers className="w-5 h-5"/>
