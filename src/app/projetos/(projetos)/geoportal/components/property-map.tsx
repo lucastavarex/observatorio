@@ -984,7 +984,7 @@ export default function PropertyMap() {
         </div>
 
         {/* Custom zoom and recenter buttons */}
-        <div className="fixed bottom-4 right-4 z-10 flex flex-col gap-2">
+        <div className="fixed bottom-4 right-4 z-5 flex flex-col gap-2">
           {/* Zoom In Button */}
           <Tooltip>
             <TooltipTrigger asChild>

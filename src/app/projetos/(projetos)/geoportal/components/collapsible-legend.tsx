@@ -51,7 +51,7 @@ export function CollapsibleLegend({ selectedLayers, selectedCity, cityLayersConf
         </Tooltip>
       ) : (
          // Expanded state - full legend box
-         <div className="h-auto max-h-[calc(100vh-220px)] overflow-y-auto w-60 bg-white rounded-lg shadow-xl p-4">
+         <div className="h-auto max-h-[calc(100vh-100px)] overflow-y-auto w-60 bg-white rounded-lg shadow-xl p-4">
            <div className="flex items-center justify-between mb-4">
              <h3 
                className="text-lg font-semibold text-gray-900 cursor-pointer hover:text-gray-700 transition-colors"
