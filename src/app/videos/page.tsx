@@ -70,7 +70,13 @@ export default function Videos() {
         {/* Grid responsivo com tamanhos fixos */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {videosData.map((video) => (
-            <div key={video.id} className="flex flex-col items-start text-left group">
+            <a 
+              key={video.id} 
+              href={video.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex flex-col items-start text-left group cursor-pointer"
+            >
               <div className="relative overflow-hidden rounded-md w-full aspect-[7/4]">
                 <Image
                   src={video.image}
@@ -82,7 +88,7 @@ export default function Videos() {
               </div>
               <h3 className="mt-4 text-sm font-medium line-clamp-2">{video.title}</h3>
               <p className="text-xs text-gray-600 mt-2">{video.date} • {video.format}</p>
-            </div>
+            </a>
           ))}
         </div>
       </div>
