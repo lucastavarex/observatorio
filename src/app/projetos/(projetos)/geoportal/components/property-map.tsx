@@ -1,9 +1,10 @@
 "use client"
 import { Button } from "@/components/ui/button"
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip"
-import { Compass, Layers, Menu, Minus, Plus, X } from "lucide-react"
+import { ChevronLeftIcon, Compass, Layers, Menu, Minus, Plus, X } from "lucide-react"
 import mapboxgl from "mapbox-gl"
 import "mapbox-gl/dist/mapbox-gl.css"
+import { useRouter } from "next/navigation"
 import { useEffect, useRef, useState } from "react"
 import { toast } from "sonner"
 import { cityLayersConfig } from "../lib/city-layers"
@@ -92,6 +93,7 @@ const cityCoordinates: Record<string, [number, number]> = {
 }
 
 export default function PropertyMap() {
+  const router = useRouter()
   const mapContainer = useRef<HTMLDivElement>(null)
   const beforeMapContainer = useRef<HTMLDivElement>(null)
   const afterMapContainer = useRef<HTMLDivElement>(null)
@@ -117,7 +119,7 @@ export default function PropertyMap() {
   } | null>(null)
   const popupRef = useRef<mapboxgl.Popup | null>(null)
   const eventHandlersRef = useRef<Map<string, { mouseenter: () => void; mouseleave: () => void; mousemove: (e: mapboxgl.MapLayerMouseEvent) => void }>>(new Map())
-
+  
   // Function to add hover handlers for a layer
   const addHoverHandlers = (layerId: string, layerName: string, targetMap?: mapboxgl.Map) => {
     const mapInstance = targetMap || map.current
@@ -924,6 +926,7 @@ export default function PropertyMap() {
 
         <div className="flex flex-col h-full">
           <div className="md:p-4">
+          <button className="z-20 pb-4 pt-2 hover:cursor-pointer text-sm mr-2 bg-transparent p-0 flex flex-row items-center gap-2" onClick={() => router.back()}><ChevronLeftIcon className="w-5 h-5" /> Voltar</button>
             <h2 className="text-xl font-bold text-gray-900 hidden md:block">Selecione as camadas</h2>
           </div>
 
@@ -980,7 +983,7 @@ export default function PropertyMap() {
         </div>
 
         {/* Custom zoom and recenter buttons */}
-        <div className="absolute bottom-4 right-4 z-10 flex flex-col gap-2">
+        <div className="fixed bottom-4 right-4 z-10 flex flex-col gap-2">
           {/* Zoom In Button */}
           <Tooltip>
             <TooltipTrigger asChild>
