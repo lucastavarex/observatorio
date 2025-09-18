@@ -27,11 +27,10 @@ export default function ChartsPage() {
   const [selectedCities, setSelectedCities] = React.useState<string[]>(["Anápolis", "Aparecida de Goiânia", "Aracaju","Barueri","Belo Horizonte"])
   const [selectedVariables, setSelectedVariables] = React.useState<string[]>([
     "Valor da Tarifa",
-    "Estudantes de Rede Pública - Percentual de Desconto",
     "Frota de Táxis",
     "Agentes de Trânsito em Exercício",
-   
-    "Percentual de Vagas de Estacionamento para Deficientes"
+    "Frota de ônibus",
+    "Idade Média da Frota de Ônibus"
   ])
   const [globalFilter, setGlobalFilter] = React.useState<string>("")
   
