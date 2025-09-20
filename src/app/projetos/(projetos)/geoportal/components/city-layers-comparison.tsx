@@ -43,6 +43,11 @@ export function CityLayersComparison({
   const [accordionValue, setAccordionValue] = useState<string[]>(["layer1", "layer2"])
 
   const handleLayerToggle = (layerId: string, checked: boolean, isLayer1: boolean) => {
+    // Prevent selection if layer is already selected in the other section
+    if (checked && isLayerDisabled(layerId, isLayer1)) {
+      return
+    }
+
     if (checked) {
       if (isLayer1) {
         // Se está selecionando na camada 1, remove da camada 2 se estiver lá
@@ -129,6 +134,15 @@ export function CityLayersComparison({
     return layerOpacities[layerId] ?? localOpacities[layerId] ?? 80
   }
 
+  // Check if a layer is disabled (already selected in the other section)
+  const isLayerDisabled = (layerId: string, isLayer1: boolean) => {
+    if (isLayer1) {
+      return selectedLayer2 === layerId
+    } else {
+      return selectedLayer1 === layerId
+    }
+  }
+
   const triggerAttention = (targetLayer: 'layer1' | 'layer2') => {
     setAttentionState({ target: targetLayer, show: true })
     
@@ -188,20 +202,23 @@ export function CityLayersComparison({
             <div className="space-y-0">
               {cityLayers.map((layer, index) => {
                 const isSelected = selectedLayer1 === layer.id
+                const isDisabled = isLayerDisabled(layer.id, true)
                 
                 return (
                   <div key={`layer1-${layer.id}`}>
                     <div className={`px-4 gap-4 flex items-center justify-between py-3 transition-colors ${
                       isSelected 
                         ? 'bg-blue-50 border-l-4 border-l-blue-500' 
-                        : attentionState.show && attentionState.target === 'layer1'
-                          ? 'bg-flicker hover:bg-blue-50'
-                          : 'hover:bg-gray-50'
+                        : isDisabled
+                          ? 'bg-gray-100 opacity-50 cursor-not-allowed'
+                          : attentionState.show && attentionState.target === 'layer1'
+                            ? 'bg-flicker hover:bg-blue-50'
+                            : 'hover:bg-gray-50'
                     }`}>
                       <div className="flex-1 min-w-0 flex flex-col gap-2">
                         <label
                           htmlFor={`layer-1-${layer.id}`}
-                          className="text-sm flex flex-row items-center gap-2 cursor-pointer text-black leading-relaxed"
+                          className={`text-sm flex flex-row items-center gap-2 text-black leading-relaxed ${isDisabled ? 'cursor-not-allowed' : 'cursor-pointer'}`}
                           style={{ color: '#000000' }}
                         >
                           <div className="flex items-center gap-2">
@@ -250,7 +267,7 @@ export function CityLayersComparison({
                         id={`layer-1-${layer.id}`}
                         checked={isSelected}
                         onCheckedChange={(checked) => handleLayerToggle(layer.id, checked, true)}
-                        disabled={layerLoadingStates[layer.id] === 'loading'}
+                        disabled={layerLoadingStates[layer.id] === 'loading' || isDisabled}
                       />
                     </div>
                     {index !== cityLayers.length - 1 && (
@@ -272,20 +289,23 @@ export function CityLayersComparison({
             <div className="space-y-0">
               {cityLayers.map((layer, index) => {
                 const isSelected = selectedLayer2 === layer.id
+                const isDisabled = isLayerDisabled(layer.id, false)
                 
                 return (
                   <div key={`layer2-${layer.id}`}>
                     <div className={`px-4 gap-4 flex items-center justify-between py-3 transition-colors ${
                       isSelected 
                         ? 'bg-blue-50 border-l-4 border-l-blue-500' 
-                        : attentionState.show && attentionState.target === 'layer2'
-                          ? 'bg-flicker hover:bg-blue-50'
-                          : 'hover:bg-gray-50'
+                        : isDisabled
+                          ? 'bg-gray-100 opacity-50 cursor-not-allowed'
+                          : attentionState.show && attentionState.target === 'layer2'
+                            ? 'bg-flicker hover:bg-blue-50'
+                            : 'hover:bg-gray-50'
                     }`}>
                       <div className="flex-1 min-w-0 flex flex-col gap-2">
                         <label
                           htmlFor={`layer-2-${layer.id}`}
-                          className="text-sm flex flex-row items-center gap-2 cursor-pointer text-black leading-relaxed"
+                          className={`text-sm flex flex-row items-center gap-2 text-black leading-relaxed ${isDisabled ? 'cursor-not-allowed' : 'cursor-pointer'}`}
                           style={{ color: '#000000' }}
                         >
                           <div className="flex items-center gap-2">
@@ -334,7 +354,7 @@ export function CityLayersComparison({
                         id={`layer-2-${layer.id}`}
                         checked={isSelected}
                         onCheckedChange={(checked) => handleLayerToggle(layer.id, checked, false)}
-                        disabled={layerLoadingStates[layer.id] === 'loading'}
+                        disabled={layerLoadingStates[layer.id] === 'loading' || isDisabled}
                       />
                     </div>
                     {index !== cityLayers.length - 1 && (
