@@ -10,7 +10,7 @@ import { Slider } from "@/components/ui/slider"
 import { Switch } from "@/components/ui/switch"
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip"
 import { Eye, Info } from "lucide-react"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { cityLayersConfig } from "../lib/city-layers"
 
 interface CityLayersComparisonProps {
@@ -36,6 +36,11 @@ export function CityLayersComparison({
 }: CityLayersComparisonProps) {
   const cityLayers = cityLayersConfig[selectedCity] || []
   const [localOpacities, setLocalOpacities] = useState<Record<string, number>>({})
+  const [attentionState, setAttentionState] = useState<{target: 'layer1' | 'layer2' | null, show: boolean}>({
+    target: null,
+    show: false
+  })
+  const [accordionValue, setAccordionValue] = useState<string[]>(["layer1", "layer2"])
 
   const handleLayerToggle = (layerId: string, checked: boolean, isLayer1: boolean) => {
     if (checked) {
@@ -61,6 +66,10 @@ export function CityLayersComparison({
           setLocalOpacities(prev => ({ ...prev, [layerId]: defaultOpacity }))
           onOpacityChange?.(layerId, defaultOpacity)
         }
+        // Trigger attention to layer2 if it's not selected
+        if (!selectedLayer2) {
+          triggerAttention('layer2')
+        }
       } else {
         // Se está selecionando na camada 2, remove da camada 1 se estiver lá
         if (selectedLayer1 === layerId) {
@@ -82,6 +91,10 @@ export function CityLayersComparison({
         if (!(layerId in layerOpacities) && !(layerId in localOpacities)) {
           setLocalOpacities(prev => ({ ...prev, [layerId]: defaultOpacity }))
           onOpacityChange?.(layerId, defaultOpacity)
+        }
+        // Trigger attention to layer1 if it's not selected
+        if (!selectedLayer1) {
+          triggerAttention('layer1')
         }
       }
     } else {
@@ -116,6 +129,29 @@ export function CityLayersComparison({
     return layerOpacities[layerId] ?? localOpacities[layerId] ?? 80
   }
 
+  const triggerAttention = (targetLayer: 'layer1' | 'layer2') => {
+    setAttentionState({ target: targetLayer, show: true })
+    
+    // Close the selected layer accordion and open the target layer accordion
+    if (targetLayer === 'layer1') {
+      setAccordionValue(['layer1']) // Only layer1 open
+    } else {
+      setAccordionValue(['layer2']) // Only layer2 open
+    }
+    
+    // Clear attention after 3 seconds
+    setTimeout(() => {
+      setAttentionState(prev => ({ ...prev, show: false }))
+    }, 3000)
+  }
+
+  // Clear attention when both layers are selected
+  useEffect(() => {
+    if (selectedLayer1 && selectedLayer2) {
+      setAttentionState({ target: null, show: false })
+    }
+  }, [selectedLayer1, selectedLayer2])
+
   if (cityLayers.length === 0) {
     return (
       <div className="px-4 py-8 text-center">
@@ -125,8 +161,24 @@ export function CityLayersComparison({
   }
 
   return (
-    <div className="space-y-0">
-      <Accordion type="multiple" defaultValue={["layer1", "layer2"]} className="w-full">
+    <>
+      <style jsx>{`
+        .bg-flicker {
+          animation: bgFlicker 1.5s ease-in-out infinite;
+        }
+        
+        @keyframes bgFlicker {
+          0%, 100% { background-color: rgb(219 234 254); } /* bg-blue-100 */
+          50% { background-color: rgb(239 246 255); } /* bg-blue-50 */
+        }
+      `}</style>
+      <div className="space-y-0">
+      <Accordion 
+        type="multiple" 
+        value={accordionValue}
+        onValueChange={setAccordionValue}
+        className="w-full"
+      >
         <AccordionItem value="layer1" className="border-b">
           <AccordionTrigger className="text-left cursor-pointer px-4 font-semibold py-3 hover:no-underline text-base">
             Camada da esquerda
@@ -139,14 +191,21 @@ export function CityLayersComparison({
                 
                 return (
                   <div key={`layer1-${layer.id}`}>
-                    <div className={`px-4 gap-4 flex items-center justify-between py-3 transition-colors ${isSelected ? 'bg-blue-50 border-l-4 border-l-blue-500' : 'hover:bg-gray-50'}`}>
+                    <div className={`px-4 gap-4 flex items-center justify-between py-3 transition-colors ${
+                      isSelected 
+                        ? 'bg-blue-50 border-l-4 border-l-blue-500' 
+                        : attentionState.show && attentionState.target === 'layer1'
+                          ? 'bg-flicker hover:bg-blue-50'
+                          : 'hover:bg-gray-50'
+                    }`}>
                       <div className="flex-1 min-w-0 flex flex-col gap-2">
                         <label
                           htmlFor={`layer-1-${layer.id}`}
                           className="text-sm flex flex-row items-center gap-2 cursor-pointer text-black leading-relaxed"
+                          style={{ color: '#000000' }}
                         >
                           <div className="flex items-center gap-2">
-                            <span className={`block truncate ${isSelected ? 'font-semibold' : 'font-medium'}`}>{layer.name}</span>
+                            <span className={`block truncate ${isSelected ? 'font-semibold' : 'font-medium'}`} style={{ color: '#000000' }}>{layer.name}</span>
                           </div>
                           {layer.description && (
                             <Tooltip>
@@ -216,14 +275,21 @@ export function CityLayersComparison({
                 
                 return (
                   <div key={`layer2-${layer.id}`}>
-                    <div className={`px-4 gap-4 flex items-center justify-between py-3 transition-colors ${isSelected ? 'bg-blue-50 border-l-4 border-l-blue-500' : 'hover:bg-gray-50'}`}>
+                    <div className={`px-4 gap-4 flex items-center justify-between py-3 transition-colors ${
+                      isSelected 
+                        ? 'bg-blue-50 border-l-4 border-l-blue-500' 
+                        : attentionState.show && attentionState.target === 'layer2'
+                          ? 'bg-flicker hover:bg-blue-50'
+                          : 'hover:bg-gray-50'
+                    }`}>
                       <div className="flex-1 min-w-0 flex flex-col gap-2">
                         <label
                           htmlFor={`layer-2-${layer.id}`}
                           className="text-sm flex flex-row items-center gap-2 cursor-pointer text-black leading-relaxed"
+                          style={{ color: '#000000' }}
                         >
                           <div className="flex items-center gap-2">
-                            <span className={`block truncate ${isSelected ? 'font-semibold' : 'font-medium'}`}>{layer.name}</span>
+                            <span className={`block truncate ${isSelected ? 'font-semibold' : 'font-medium'}`} style={{ color: '#000000' }}>{layer.name}</span>
                           </div>
                           {layer.description && (
                             <Tooltip>
@@ -281,6 +347,7 @@ export function CityLayersComparison({
           </AccordionContent>
         </AccordionItem>
       </Accordion>
-    </div>
+      </div>
+    </>
   )
 }
