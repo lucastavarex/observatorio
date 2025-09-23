@@ -114,9 +114,9 @@ export function ProjectsSection() {
                     className="block"
                   >
                     {/* Project Card */}
-                    <div className="bg-[#ECECEC] rounded-lg p-6 h-[250px] md:h-[350px] flex items-center justify-center">
+                    <div className="bg-[#ECECEC] p-6 h-[250px] md:h-[350px] flex items-center justify-center">
                       {/* Image Container */}
-                      <div className="relative overflow-hidden rounded-md bg-white shadow-sm w-full">
+                      <div className="relative overflow-hidden bg-white shadow-sm w-full">
                         <div className="aspect-video relative">
                           <Image
                             src={project.image}

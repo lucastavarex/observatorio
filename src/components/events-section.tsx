@@ -82,7 +82,7 @@ export function EventsSection() {
                         className="block"
                       >
                         {/* Event Card */}
-                        <div className="relative overflow-hidden rounded-lg h-[350px] w-[250px] md:h-[450px] md:w-[350px]">
+                        <div className="relative overflow-hidden h-[350px] w-[250px] md:h-[450px] md:w-[350px]">
                           <Image
                             src={event.image}
                             alt={event.title}
@@ -97,7 +97,7 @@ export function EventsSection() {
                         className="block"
                       >
                         {/* Event Card */}
-                        <div className="relative overflow-hidden rounded-lg h-[350px] w-[250px] md:h-[450px] md:w-[350px]">
+                        <div className="relative overflow-hidden h-[350px] w-[250px] md:h-[450px] md:w-[350px]">
                           <Image
                             src={event.image}
                             alt={event.title}
@@ -109,7 +109,7 @@ export function EventsSection() {
                     )
                   ) : (
                     /* Event Card without link */
-                    <div className="relative overflow-hidden rounded-lg h-[350px] w-[250px] md:h-[450px] md:w-[350px]">
+                    <div className="relative overflow-hidden h-[350px] w-[250px] md:h-[450px] md:w-[350px]">
                       <Image
                         src={event.image}
                         alt={event.title}

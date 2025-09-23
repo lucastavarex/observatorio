@@ -27,7 +27,7 @@ export default function Cursos() {
           {courses.map((course: Course) => (
             <div
               key={course.id}
-              className="relative rounded-xl overflow-hidden group h-[400px] cursor-pointer"
+              className="relative overflow-hidden group h-[400px] cursor-pointer"
               onClick={() => {
                 if (course.href) {
                   window.open(course.href, '_blank', 'noopener,noreferrer');

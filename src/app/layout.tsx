@@ -1,15 +1,14 @@
 import { ConditionalFooter } from "@/components/conditional-footer";
 import { Toaster } from "@/components/ui/sonner";
 import type { Metadata } from "next";
-import { Plus_Jakarta_Sans } from "next/font/google";
+import { Inter } from "next/font/google";
 import { headers } from 'next/headers';
 import "./globals.css";
 
-const plusJakartaSans = Plus_Jakarta_Sans({
-  variable: "--font-plus-jakarta-sans",
+const inter = Inter({
+  variable: "--font-inter",
   subsets: ["latin"],
-  weight: ["200", "300", "400", "500", "600", "700", "800"],
-  style: ["normal", "italic"],
+  fallback: ["Arial", "sans-serif"],
 });
 
 export const metadata: Metadata = {
@@ -25,7 +24,7 @@ export default async function RootLayout({
     // Note: Nonce is generated in middleware but not enforced in current CSP policy
   const nonce = (await headers()).get('x-nonce') ?? undefined
   return (
-    <html lang="pt-BR" className={plusJakartaSans.className}>
+    <html lang="pt-BR" className={inter.className}>
       <body className="antialiased">
         <main className="">{children}</main>
         <Toaster />

@@ -143,13 +143,13 @@ export default function Publicacoes() {
         <div className="flex flex-wrap justify-center md:justify-start gap-10 md:gap-6">
           {filteredPublications.map((publication) => (
             <div key={publication.id} className="flex flex-col items-start text-left max-w-[320px] group">
-              <div className="relative overflow-hidden rounded-md">
+              <div className="relative overflow-hidden ">
                 <Image
                   src={publication.image}
                   alt={publication.alt}
                   width={320}
                   height={480}
-                  className="rounded-md transition-transform duration-300 group-hover:scale-105"
+                  className=" transition-transform duration-300 group-hover:scale-105"
                 />
               </div>
               <h3 className="mt-4 font-regular text-sm">{publication.title}</h3>

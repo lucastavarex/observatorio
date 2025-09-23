@@ -195,12 +195,12 @@ export default function Sobre() {
               {events.map((event) => (
                 <SwiperSlide key={event.id} className="!w-[250px] md:!w-[350px] group relative ">
                   {/* Event Card */}
-                  <div className="relative overflow-hidden rounded-lg h-[350px] w-[250px] md:h-[450px] md:w-[350px]">
+                  <div className="relative overflow-hidden h-[350px] w-[250px] md:h-[450px] md:w-[350px]">
                     <Image
                       src={event.image}
                       alt={event.title}
                       fill
-                      className="object-cover transition-transform duration-300 group-hover:scale-105"
+                      className="object-cover transition-transform duration-300 group-hover:scale-105 rounded-none"
                     />
                   </div>
 
@@ -257,12 +257,12 @@ export default function Sobre() {
               {events.map((event) => (
                 <SwiperSlide key={event.id} className="!w-[250px] md:!w-[350px] group relative ">
                   {/* Event Card */}
-                  <div className="relative overflow-hidden rounded-lg h-[350px] w-[250px] md:h-[450px] md:w-[350px]">
+                  <div className="relative overflow-hidden h-[350px] w-[250px] md:h-[450px] md:w-[350px]">
                     <Image
                       src={event.image}
                       alt={event.title}
                       fill
-                      className="object-cover transition-transform duration-300 group-hover:scale-105"
+                      className="object-cover transition-transform duration-300 group-hover:scale-105 rounded-none"
                     />
                   </div>
 
@@ -319,12 +319,12 @@ export default function Sobre() {
               {events.map((event) => (
                 <SwiperSlide key={event.id} className="!w-[250px] md:!w-[350px] group relative ">
                   {/* Event Card */}
-                  <div className="relative overflow-hidden rounded-lg h-[350px] w-[250px] md:h-[450px] md:w-[350px]">
+                  <div className="relative overflow-hidden h-[350px] w-[250px] md:h-[450px] md:w-[350px]">
                     <Image
                       src={event.image}
                       alt={event.title}
                       fill
-                      className="object-cover transition-transform duration-300 group-hover:scale-105"
+                      className="object-cover transition-transform duration-300 group-hover:scale-105 rounded-none"
                     />
                   </div>
 

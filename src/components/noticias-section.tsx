@@ -66,7 +66,7 @@ export function NoticiasSection() {
                height={160}
                src={hoveredImage} 
                alt="News preview"
-               className="w-86 h-60 object-cover rounded-xl shadow-lg"
+               className="w-86 h-60 object-cover shadow-lg"
              />
            </div>
          )}

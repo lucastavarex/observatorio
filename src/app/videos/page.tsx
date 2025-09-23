@@ -77,12 +77,12 @@ export default function Videos() {
               rel="noopener noreferrer"
               className="flex flex-col items-start text-left group cursor-pointer"
             >
-              <div className="relative overflow-hidden rounded-md w-full aspect-[7/4]">
+              <div className="relative overflow-hidden w-full aspect-[7/4]">
                 <Image
                   src={video.image}
                   alt={video.title}
                   fill
-                  className="object-cover object-center rounded-md transition-transform duration-300 group-hover:scale-105"
+                  className="object-cover object-center transition-transform duration-300 group-hover:scale-105"
                   sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                 />
               </div>

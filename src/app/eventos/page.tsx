@@ -34,23 +34,23 @@ export default function Eventos() {
                   rel={event.href.startsWith('http') ? 'noopener noreferrer' : undefined}
                   className="block w-full"
                 >
-                  <div className="relative overflow-hidden rounded-md h-[380px] w-[320px] cursor-pointer">
+                  <div className="relative overflow-hidden h-[380px] w-[320px] cursor-pointer">
                     <Image
                       src={event.image}
                       alt={event.title}
                       fill
-                      className="object-cover object-center rounded-md transition-transform duration-300 group-hover:scale-105"
+                      className="object-cover object-center transition-transform duration-300 group-hover:scale-105"
                       sizes="320px"
                     />
                   </div>
                 </a>
               ) : (
-                <div className="relative overflow-hidden rounded-md h-[380px] w-[320px]">
+                <div className="relative overflow-hidden h-[380px] w-[320px]">
                   <Image
                     src={event.image}
                     alt={event.title}
                     fill
-                    className="object-cover object-center rounded-md transition-transform duration-300 group-hover:scale-105"
+                    className="object-cover object-center transition-transform duration-300 group-hover:scale-105"
                     sizes="320px"
                   />
                 </div>
@@ -86,23 +86,23 @@ export default function Eventos() {
                   rel={event.href.startsWith('http') ? 'noopener noreferrer' : undefined}
                   className="block w-full"
                 >
-                  <div className="relative overflow-hidden rounded-md w-full aspect-[7/4] cursor-pointer">
+                  <div className="relative overflow-hidden w-full aspect-[7/4] cursor-pointer">
                     <Image
                       src={event.image}
                       alt={event.title}
                       fill
-                      className="object-cover object-center rounded-md transition-transform duration-300 group-hover:scale-105"
+                      className="object-cover object-center transition-transform duration-300 group-hover:scale-105"
                       sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                     />
                   </div>
                 </a>
               ) : (
-                <div className="relative overflow-hidden rounded-md w-full aspect-[7/4]">
+                <div className="relative overflow-hidden w-full aspect-[7/4]">
                   <Image
                     src={event.image}
                     alt={event.title}
                     fill
-                    className="object-cover object-center rounded-md transition-transform duration-300 group-hover:scale-105"
+                    className="object-cover object-center transition-transform duration-300 group-hover:scale-105"
                     sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                   />
                 </div>
