@@ -1,181 +1,14 @@
 "use client"
 
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
 import { Button } from "@/components/ui/button"
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog"
+import { getCitiesByGroup, getModalData, type CityData, type ModalData } from "@/lib/data/catalogo-utils"
 import { ChevronDown, ChevronUp } from "lucide-react"
 import { useState } from "react"
 
-// Data array with cities and their data availability
-const citiesData = [
-  {
-    cidade: "Rio de Janeiro",
-    gtfs: true,
-    gpsEmbarcados: true,
-    bilhetagem: false,
-    arquivosVetoriais: true,
-  },
-  {
-    cidade: "Niterói",
-    gtfs: true,
-    gpsEmbarcados: true,
-    bilhetagem: false,
-    arquivosVetoriais: true,
-  },
-  {
-    cidade: "São Paulo",
-    gtfs: false,
-    gpsEmbarcados: true,
-    bilhetagem: true,
-    arquivosVetoriais: false,
-  },
-  {
-    cidade: "Salvador",
-    gtfs: false,
-    gpsEmbarcados: false,
-    bilhetagem: true,
-    arquivosVetoriais: true,
-  },
-  {
-    cidade: "Santo André",
-    gtfs: true,
-    gpsEmbarcados: true,
-    bilhetagem: false,
-    arquivosVetoriais: false,
-  },
-  {
-    cidade: "Campinas",
-    gtfs: false,
-    gpsEmbarcados: true,
-    bilhetagem: false,
-    arquivosVetoriais: false,
-  },
-  {
-    cidade: "Recife",
-    gtfs: false,
-    gpsEmbarcados: false,
-    bilhetagem: true,
-    arquivosVetoriais: false,
-  },
-]
-
-// Fake data for modal content - multiple sources per data type
-const modalData = {
-  GTFS: {
-    title: "GTFS",
-    subtitle: "Dados GTFS do transporte público da cidade do Rio: rotas, horários e paradas.",
-    sources: [
-      {
-        name: "Dataverse",
-        description:
-          "Repositório de dados com bases, metadados e informações organizadas para facilitar sua consulta, citação e reuso.",
-        actionText: "Acesse",
-        actionType: "download",
-        actionUrl: "#",
-      },
-      {
-        name: "Prefeitura",
-        description:
-          "Fonte original dos dados, geralmente hospedada em portais institucionais das prefeituras ou órgãos públicos responsáveis.",
-        actionText: "Acesse",
-        actionType: "download",
-        actionUrl: "#",
-      },
-      {
-        name: "GeoPortal",
-        description:
-          "Acesso a mapas interativos e camadas geográficas relacionadas ao tema. Ideal para explorar os dados espacializados no território.",
-        actionText: "Acesse",
-        actionType: "link",
-        actionUrl: "https://geoportal.exemplo.com",
-      },
-    ],
-  },
-  "GPS embarcados": {
-    title: "GPS embarcados",
-    subtitle: "Dados de localização em tempo real dos veículos do transporte público da cidade.",
-    sources: [
-      {
-        name: "API Municipal",
-        description:
-          "Interface de programação que fornece dados de GPS em tempo real dos veículos, atualizada a cada 30 segundos.",
-        actionText: "Acesse",
-        actionType: "link",
-        actionUrl: "https://api.exemplo.com/gps",
-      },
-      {
-        name: "Dataverse",
-        description: "Dados históricos de GPS organizados e documentados para análises e pesquisas acadêmicas.",
-        actionText: "Acesse",
-        actionType: "download",
-        actionUrl: "#",
-      },
-      {
-        name: "Portal de Dados Abertos",
-        description: "Conjunto de dados de mobilidade urbana disponibilizados pela administração pública municipal.",
-        actionText: "Acesse",
-        actionType: "download",
-        actionUrl: "#",
-      },
-    ],
-  },
-  Bilhetagem: {
-    title: "Bilhetagem",
-    subtitle: "Dados de validações e uso do sistema de transporte público da cidade.",
-    sources: [
-      {
-        name: "Operadora do Sistema",
-        description: "Relatórios oficiais da empresa responsável pelo sistema de bilhetagem eletrônica da cidade.",
-        actionText: "Acesse",
-        actionType: "download",
-        actionUrl: "#",
-      },
-      {
-        name: "Secretaria de Transportes",
-        description:
-          "Dados consolidados e tratados pela secretaria municipal responsável pela gestão do transporte público.",
-        actionText: "Acesse",
-        actionType: "link",
-        actionUrl: "https://transportes.exemplo.com",
-      },
-      {
-        name: "Dataverse",
-        description: "Base de dados acadêmica com informações de bilhetagem organizadas para pesquisa e análise.",
-        actionText: "Acesse",
-        actionType: "download",
-        actionUrl: "#",
-      },
-    ],
-  },
-  "Arquivos vetoriais": {
-    title: "Arquivos vetoriais",
-    subtitle: "Mapas e geometrias das rotas e infraestrutura de transporte da cidade.",
-    sources: [
-      {
-        name: "GeoPortal Municipal",
-        description:
-          "Plataforma oficial de dados geoespaciais da prefeitura com camadas vetoriais do sistema de transporte.",
-        actionText: "Acesse",
-        actionType: "link",
-        actionUrl: "https://geo.exemplo.com",
-      },
-      {
-        name: "IBGE",
-        description:
-          "Dados geográficos oficiais do Instituto Brasileiro de Geografia e Estatística relacionados ao transporte urbano.",
-        actionText: "Acesse",
-        actionType: "download",
-        actionUrl: "#",
-      },
-      {
-        name: "OpenStreetMap",
-        description: "Dados colaborativos de mapeamento aberto com informações detalhadas sobre rotas e paradas.",
-        actionText: "Acesse",
-        actionType: "link",
-        actionUrl: "https://openstreetmap.org",
-      },
-    ],
-  },
-}
+// Get real data from JSON
+const citiesData: CityData[] = getCitiesByGroup('Dados Abertos')
 
 type SortOrder = "asc" | "desc" | null
 type SortField = "cidade" | "gtfs" | "gpsEmbarcados" | "bilhetagem" | "arquivosVetoriais"
@@ -184,9 +17,10 @@ interface ModalState {
   isOpen: boolean
   cidade: string
   dataType: string
+  modalData: ModalData | null
 }
 
-export default function CatalogoDeDadosCidadesParceiras() {
+export default function CatalogoDeDadosCidadesComDadosAbertos() {
   const [sortField, setSortField] = useState<SortField>("cidade")
   const [sortOrder, setSortOrder] = useState<SortOrder>(null)
   const [sortedData, setSortedData] = useState(citiesData)
@@ -194,13 +28,26 @@ export default function CatalogoDeDadosCidadesParceiras() {
     isOpen: false,
     cidade: "",
     dataType: "",
+    modalData: null,
   })
 
   const handleDownload = (cidade: string, dataType: string) => {
+    // Map display names to data types
+    const dataTypeMap: Record<string, string> = {
+      'GTFS': 'GTFS',
+      'GPS embarcados': 'GPS Embarcados', 
+      'Bilhetagem': 'Bilhetagem',
+      'Arquivos vetoriais': 'Outros Arquivos Vetoriais'
+    }
+    
+    const mappedDataType = dataTypeMap[dataType] || dataType
+    const modalData = getModalData(cidade, mappedDataType, 'Dados Abertos')
+    
     setModalState({
       isOpen: true,
       cidade,
       dataType,
+      modalData,
     })
   }
 
@@ -255,7 +102,7 @@ export default function CatalogoDeDadosCidadesParceiras() {
     }
   }
 
-  const currentModalData = modalData[modalState.dataType as keyof typeof modalData]
+  const currentModalData = modalState.modalData
 
   return (
     <div className="w-full mx-auto px-4 2xl:px-16">
@@ -466,43 +313,187 @@ export default function CatalogoDeDadosCidadesParceiras() {
 
       {/* Modal */}
       <Dialog open={modalState.isOpen} onOpenChange={(open) => setModalState((prev) => ({ ...prev, isOpen: open }))}>
-        <DialogContent className="md:max-w-2xl! overflow-y-auto md:p-10">
+        <DialogContent className="w-[95vw] max-w-2xl max-h-[90vh] overflow-y-auto p-4 md:p-10">
           <DialogHeader>
-            <DialogTitle className="text-2xl font-bold text-gray-900">{currentModalData?.title}</DialogTitle>
-            <DialogDescription className="text-gray-600 text-base leading-relaxed">
+            <DialogTitle className="text-xl md:text-2xl font-bold text-gray-900">{currentModalData?.title}</DialogTitle>
+            <DialogDescription className="text-gray-600 text-sm md:text-base leading-relaxed">
               {currentModalData?.subtitle}
             </DialogDescription>
-         <div className="my-3 h-[1px]! flex-grow  bg-gray-100" />
+            <div className="my-3 h-[1px] flex-grow bg-gray-100" />
           </DialogHeader>
 
-                     <div className="space-y-0 -mt-6">
-             {currentModalData?.sources.map((source, index) => (
-               <div key={index}>
-                 <div className="flex items-center justify-between md:gap-24 gap-4 py-4">
-                   <div className="flex-1">
-                     <h3 className="font-semibold text-gray-900 mb-2">{source.name}</h3>
-                     <p className="text-gray-600 text-sm leading-relaxed">{source.description}</p>
-                   </div>
-                   <Button
-                     onClick={() => {
-                       if (source.actionType === "download") {
-                         console.log(`Downloading from ${source.name} for ${modalState.cidade}`)
-                         // Simulate download
-                       } else {
-                         window.open(source.actionUrl, "_blank")
-                       }
-                     }}
-                     className=" px-6 py-2 min-w-[100px] shrink-0"
-                   >
-                     {source.actionText}
-                   </Button>
-                 </div>
-                 {index < currentModalData.sources.length - 1 && (
-                   <div className="h-[1.2px] flex-grow bg-gray-100" />
-                 )}
-               </div>
-             ))}
-           </div>
+          <div className="space-y-0 -mt-6">
+            {currentModalData?.sources.map((source, index) => (
+              <div key={index}>
+                <div className="py-4">
+                  {/* Check if we have multiple datasets for accordion */}
+                  {source.datasets && source.datasets.length > 1 ? (
+                    /* Use Accordion for multiple datasets */
+                    <div className="w-full">
+                      {/* Mobile Layout */}
+                      <div className="block md:hidden">
+                        <div className="mb-3">
+                          <h3 className="font-semibold text-gray-900 mb-2">{source.name}</h3>
+                          <p className="text-gray-600 text-sm leading-relaxed mb-3">{source.description}</p>
+                        </div>
+                        <Accordion type="single" collapsible className="w-full">
+                          <AccordionItem value="datasets" className="border-none">
+                            <AccordionTrigger className="w-full px-4 py-3 bg-primary text-white hover:bg-primary/90 rounded-md flex items-center justify-center gap-2 hover:no-underline text-sm">
+                              Ver datasets ({source.datasets.length})
+                            </AccordionTrigger>
+                            <AccordionContent>
+                              <div className="mt-3 space-y-2">
+                                {source.datasets.map((dataset, datasetIndex) => (
+                                  <div key={datasetIndex} className="flex flex-col sm:flex-row sm:items-center gap-2 p-3 bg-gray-50 rounded">
+                                    <span className={`text-sm flex-1 ${dataset.isDisabled ? 'text-gray-400' : 'text-gray-600'}`}>
+                                      {dataset.titulo_dado || 'Dataset'}
+                                    </span>
+                                    <Button
+                                      size="sm"
+                                      disabled={dataset.isDisabled}
+                                      onClick={() => {
+                                        if (dataset.isDisabled) return
+                                        window.open(dataset.link, "_blank")
+                                      }}
+                                      className={`w-full sm:w-auto ${dataset.isDisabled ? 'cursor-not-allowed opacity-50' : 'bg-primary hover:bg-primary/90 text-white'}`}
+                                    >
+                                      Acesse
+                                    </Button>
+                                  </div>
+                                ))}
+                              </div>
+                            </AccordionContent>
+                          </AccordionItem>
+                        </Accordion>
+                      </div>
+
+                      {/* Desktop Layout */}
+                      <div className="hidden md:block">
+                        <Accordion type="single" collapsible className="w-full">
+                          <AccordionItem value="datasets" className="border-none">
+                            <div className="flex items-start justify-between gap-6">
+                              <div className="flex-1">
+                                <h3 className="font-semibold text-gray-900 mb-2">{source.name}</h3>
+                                <p className="text-gray-600 text-sm leading-relaxed">{source.description}</p>
+                              </div>
+                              <AccordionTrigger className="px-6 py-2 min-w-[140px] bg-primary text-white hover:bg-primary/90 rounded-md flex items-center justify-center gap-2 hover:no-underline">
+                                Ver datasets ({source.datasets.length})
+                              </AccordionTrigger>
+                            </div>
+                            <AccordionContent>
+                              <div className="mt-4 space-y-2">
+                                {source.datasets.map((dataset, datasetIndex) => (
+                                  <div key={datasetIndex} className="flex items-center justify-between p-3 bg-gray-50 rounded">
+                                    <span className={`text-sm ${dataset.isDisabled ? 'text-gray-400' : 'text-gray-600'}`}>
+                                      {dataset.titulo_dado || 'Dataset'}
+                                    </span>
+                                    <Button
+                                      size="sm"
+                                      disabled={dataset.isDisabled}
+                                      onClick={() => {
+                                        if (dataset.isDisabled) return
+                                        window.open(dataset.link, "_blank")
+                                      }}
+                                      className={dataset.isDisabled ? 'cursor-not-allowed opacity-50' : 'bg-primary hover:bg-primary/90 text-white'}
+                                    >
+                                      Acesse
+                                    </Button>
+                                  </div>
+                                ))}
+                              </div>
+                            </AccordionContent>
+                          </AccordionItem>
+                        </Accordion>
+                      </div>
+                    </div>
+                  ) : (
+                    /* Regular layout for single dataset or no specific datasets */
+                    <div>
+                      {/* Mobile Layout */}
+                      <div className="block md:hidden">
+                        <div className="mb-3">
+                          <h3 className="font-semibold text-gray-900 mb-2">{source.name}</h3>
+                          <p className="text-gray-600 text-sm leading-relaxed">{source.description}</p>
+                        </div>
+                        <div className="space-y-2">
+                          {/* Main action button */}
+                          <Button
+                            disabled={source.isDisabled}
+                            onClick={() => {
+                              if (source.isDisabled) return
+                              window.open(source.actionUrl, "_blank")
+                            }}
+                            className={`w-full py-3 ${source.isDisabled ? 'cursor-not-allowed opacity-50' : ''}`}
+                          >
+                            {source.actionText}
+                          </Button>
+                          
+                          {/* Individual dataset buttons when there's only one */}
+                          {source.datasets && source.datasets.length === 1 && source.datasets[0].titulo_dado && (
+                            <Button
+                              size="sm"
+                              variant="outline"
+                              disabled={source.datasets[0].isDisabled}
+                              onClick={() => {
+                                const dataset = source.datasets![0]
+                                if (dataset.isDisabled) return
+                                window.open(dataset.link, "_blank")
+                              }}
+                              className={`w-full py-2 text-sm ${source.datasets[0].isDisabled ? 'cursor-not-allowed opacity-50' : ''}`}
+                            >
+                              {source.datasets[0].titulo_dado}
+                            </Button>
+                          )}
+                        </div>
+                      </div>
+
+                      {/* Desktop Layout */}
+                      <div className="hidden md:flex items-start justify-between gap-6">
+                        <div className="flex-1">
+                          <h3 className="font-semibold text-gray-900 mb-2">{source.name}</h3>
+                          <p className="text-gray-600 text-sm leading-relaxed">{source.description}</p>
+                        </div>
+                        
+                        <div className="flex flex-col gap-2 shrink-0">
+                          {/* Main action button */}
+                          <Button
+                            disabled={source.isDisabled}
+                            onClick={() => {
+                              if (source.isDisabled) return
+                              window.open(source.actionUrl, "_blank")
+                            }}
+                            className={`px-6 py-2 min-w-[100px] ${source.isDisabled ? 'cursor-not-allowed opacity-50' : ''}`}
+                          >
+                            {source.actionText}
+                          </Button>
+                          
+                          {/* Individual dataset buttons when there's only one */}
+                          {source.datasets && source.datasets.length === 1 && source.datasets[0].titulo_dado && (
+                            <Button
+                              size="sm"
+                              variant="outline"
+                              disabled={source.datasets[0].isDisabled}
+                              onClick={() => {
+                                const dataset = source.datasets![0]
+                                if (dataset.isDisabled) return
+                                window.open(dataset.link, "_blank")
+                              }}
+                              className={`text-xs ${source.datasets[0].isDisabled ? 'cursor-not-allowed opacity-50' : ''}`}
+                            >
+                              {source.datasets[0].titulo_dado}
+                            </Button>
+                          )}
+                        </div>
+                      </div>
+                    </div>
+                  )}
+                </div>
+                {index < currentModalData.sources.length - 1 && (
+                  <div className="h-[1.2px] flex-grow bg-gray-100" />
+                )}
+              </div>
+            ))}
+          </div>
         </DialogContent>
       </Dialog>
     </div>
