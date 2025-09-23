@@ -428,8 +428,8 @@ export default function CatalogoDeDadosCidadesComDadosAbertos() {
                             {source.actionText}
                           </Button>
                           
-                          {/* Individual dataset buttons when there's only one */}
-                          {source.datasets && source.datasets.length === 1 && source.datasets[0].titulo_dado && (
+                          {/* Individual dataset buttons when there's only one and different from main button */}
+                          {source.datasets && source.datasets.length === 1 && source.datasets[0].titulo_dado && source.datasets[0].link !== source.actionUrl && (
                             <Button
                               size="sm"
                               variant="outline"
@@ -467,8 +467,8 @@ export default function CatalogoDeDadosCidadesComDadosAbertos() {
                      {source.actionText}
                    </Button>
                           
-                          {/* Individual dataset buttons when there's only one */}
-                          {source.datasets && source.datasets.length === 1 && source.datasets[0].titulo_dado && (
+                          {/* Individual dataset buttons when there's only one and different from main button */}
+                          {source.datasets && source.datasets.length === 1 && source.datasets[0].titulo_dado && source.datasets[0].link !== source.actionUrl && (
                             <Button
                               size="sm"
                               variant="outline"

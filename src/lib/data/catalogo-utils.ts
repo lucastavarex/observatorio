@@ -82,12 +82,14 @@ export function getCitiesByGroup(group: 'Cidade Parceira' | 'Dados Abertos'): Ci
     
     const cityData = citiesMap.get(cityName)!
     
-    // Check if data is available (not missing links)
-    const hasValidData = item.data.some(d => 
-      d.link && 
-      d.link !== 'Missing link (dataverse)' && 
-      d.link !== 'Missing link (geoportal)'
-    )
+    // Check if data is available in DataVerse or GeoPortal only
+    // Ignore Prefeitura/Fonte links for availability check
+    const hasValidData = (item.tipo_botao === 'Dataverse' || item.tipo_botao === 'Geoportal') && 
+      item.data.some(d => 
+        d.link && 
+        d.link !== 'Missing link (dataverse)' && 
+        d.link !== 'Missing link (geoportal)'
+      )
     
     if (hasValidData) {
       // Type assertion for dynamic property assignment

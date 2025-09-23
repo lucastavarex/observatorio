@@ -10,6 +10,11 @@ import { useState } from "react"
 // Get real data from JSON
 const citiesData: CityData[] = getCitiesByGroup('Cidade Parceira')
 
+// // Debug: Log some cities to check the logic
+// console.log('Cities data (Parceiras):')
+// console.log('Abreu e Lima:', citiesData.find(c => c.cidade === 'Abreu e Lima'))
+// console.log('Campinas:', citiesData.find(c => c.cidade === 'Campinas'))
+
 
 type SortOrder = "asc" | "desc" | null
 type SortField = "cidade" | "gtfs" | "gpsEmbarcados" | "bilhetagem" | "arquivosVetoriais"
@@ -429,8 +434,8 @@ export default function CatalogoDeDadosCidadesParceiras() {
                             {source.actionText}
                           </Button>
                           
-                          {/* Individual dataset buttons when there's only one */}
-                          {source.datasets && source.datasets.length === 1 && source.datasets[0].titulo_dado && (
+                          {/* Individual dataset buttons when there's only one and different from main button */}
+                          {source.datasets && source.datasets.length === 1 && source.datasets[0].titulo_dado && source.datasets[0].link !== source.actionUrl && (
                             <Button
                               size="sm"
                               variant="outline"
@@ -468,8 +473,8 @@ export default function CatalogoDeDadosCidadesParceiras() {
                             {source.actionText}
                           </Button>
                           
-                          {/* Individual dataset buttons when there's only one */}
-                          {source.datasets && source.datasets.length === 1 && source.datasets[0].titulo_dado && (
+                          {/* Individual dataset buttons when there's only one and different from main button */}
+                          {source.datasets && source.datasets.length === 1 && source.datasets[0].titulo_dado && source.datasets[0].link !== source.actionUrl && (
                             <Button
                               size="sm"
                               variant="outline"
