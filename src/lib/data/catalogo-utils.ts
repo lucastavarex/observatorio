@@ -90,7 +90,8 @@ export function getCitiesByGroup(group: 'Cidade Parceira' | 'Dados Abertos'): Ci
     )
     
     if (hasValidData) {
-      ;(cityData as any)[dataTypeKey] = true
+      // Type assertion for dynamic property assignment
+      ;(cityData as unknown as Record<string, boolean>)[dataTypeKey] = true
     }
   })
   

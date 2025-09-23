@@ -322,9 +322,9 @@ export default function CatalogoDeDadosCidadesComDadosAbertos() {
             <div className="my-3 h-[1px] flex-grow bg-gray-100" />
           </DialogHeader>
 
-          <div className="space-y-0 -mt-6">
-            {currentModalData?.sources.map((source, index) => (
-              <div key={index}>
+                     <div className="space-y-0 -mt-6">
+             {currentModalData?.sources.map((source, index) => (
+               <div key={index}>
                 <div className="py-4">
                   {/* Check if we have multiple datasets for accordion */}
                   {source.datasets && source.datasets.length > 1 ? (
@@ -449,23 +449,23 @@ export default function CatalogoDeDadosCidadesComDadosAbertos() {
 
                       {/* Desktop Layout */}
                       <div className="hidden md:flex items-start justify-between gap-6">
-                        <div className="flex-1">
-                          <h3 className="font-semibold text-gray-900 mb-2">{source.name}</h3>
-                          <p className="text-gray-600 text-sm leading-relaxed">{source.description}</p>
-                        </div>
+                   <div className="flex-1">
+                     <h3 className="font-semibold text-gray-900 mb-2">{source.name}</h3>
+                     <p className="text-gray-600 text-sm leading-relaxed">{source.description}</p>
+                   </div>
                         
                         <div className="flex flex-col gap-2 shrink-0">
                           {/* Main action button */}
-                          <Button
+                   <Button
                             disabled={source.isDisabled}
-                            onClick={() => {
+                     onClick={() => {
                               if (source.isDisabled) return
-                              window.open(source.actionUrl, "_blank")
-                            }}
+                         window.open(source.actionUrl, "_blank")
+                     }}
                             className={`px-6 py-2 min-w-[100px] ${source.isDisabled ? 'cursor-not-allowed opacity-50' : ''}`}
-                          >
-                            {source.actionText}
-                          </Button>
+                   >
+                     {source.actionText}
+                   </Button>
                           
                           {/* Individual dataset buttons when there's only one */}
                           {source.datasets && source.datasets.length === 1 && source.datasets[0].titulo_dado && (
@@ -487,13 +487,13 @@ export default function CatalogoDeDadosCidadesComDadosAbertos() {
                       </div>
                     </div>
                   )}
-                </div>
-                {index < currentModalData.sources.length - 1 && (
-                  <div className="h-[1.2px] flex-grow bg-gray-100" />
-                )}
-              </div>
-            ))}
-          </div>
+                 </div>
+                 {index < currentModalData.sources.length - 1 && (
+                   <div className="h-[1.2px] flex-grow bg-gray-100" />
+                 )}
+               </div>
+             ))}
+           </div>
         </DialogContent>
       </Dialog>
     </div>
