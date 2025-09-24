@@ -14,12 +14,42 @@ export interface CityLayersConfig {
 
 export const cityLayersConfig: CityLayersConfig = {
   "Rio de Janeiro": [
-    { id: "gps-sample", name: "Amostra de GPS", description: "Dados de localização GPS coletados em tempo real" },
-    { id: "bus-routes", name: "Rotas de ônibus", description: "Rede completa de linhas e rotas de ônibus municipais" },
-    { id: "heat-island-area", name: "Ilha de calor (Área)", description: "Zonas de temperatura elevada identificadas por satélite" },
-    { id: "heat-island-points", name: "Ilha de calor (Pontos)", description: "Pontos específicos de medição de temperatura urbana" },
-    { id: "air-quality-area", name: "Qualidade do ar (Área)", description: "Mapa de qualidade do ar por região da cidade" },
-    { id: "air-quality-points", name: "Qualidade do ar (Pontos)", description: "Estações de monitoramento da qualidade do ar" },
+    { 
+      id: "renda", 
+      name: "Renda", 
+      description: "Renda per capita por bairro",
+      tilesetId: "observatorio-nacional.3pcgkauc",
+      sourceLayer: "renda_rio-4ks1k8",
+      layerType: "fill",
+      hasCustomStyle: true
+    },
+    { 
+      id: "rotas-onibus", 
+      name: "Rotas de ônibus", 
+      description: "Rotas de ônibus por bairro",
+      tilesetId: "observatorio-nacional.7qsr7w57",
+      sourceLayer: "rotas_onibus-5yarkv",
+      layerType: "fill",
+      hasCustomStyle: true
+    },
+    { 
+      id: "heatmap-bilhetagem", 
+      name: "Heatmap Bilhetagem", 
+      description: "Heatmap bilhetagem por bairro",
+      tilesetId: "observatorio-nacional.6mbl4ycd",
+      sourceLayer: "heatmap_bilhetagem_rio-59w42o",
+      layerType: "fill",
+      hasCustomStyle: true
+    },
+    { 
+      id: "population-rio", 
+      name: "População Rio", 
+      description: "Heatmap bilhetagem por bairro",
+      tilesetId: "observatorio-nacional.4sg21k6q",
+      sourceLayer: "populacao_rio-19sjpd",
+      layerType: "fill",
+      hasCustomStyle: true
+    },
   ],
   "São Paulo": [
     { 

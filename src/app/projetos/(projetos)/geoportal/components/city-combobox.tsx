@@ -18,6 +18,10 @@ const cities = [
     label: "Rio de Janeiro",
   },
   {
+    value: "Recife",
+    label: "Recife",
+  },
+  {
     value: "Belo Horizonte",
     label: "Belo Horizonte",
   },
@@ -32,6 +36,10 @@ const cities = [
   {
     value: "Salvador",
     label: "Salvador",
+  },
+  {
+    value: "Campinas",
+    label: "Campinas",
   },
   {
     value: "Porto Alegre",

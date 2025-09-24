@@ -89,7 +89,9 @@ const cityCoordinates: Record<string, [number, number]> = {
   "Niteroi": [-43.12084, -22.89277],
   "Santo André": [-46.19209, -23.67494],
   "Salvador": [-38.51101, -12.97162],
+  "Recife": [-34.87722, -8.05556],
   "Porto Alegre": [-51.2177, -30.0326],
+  "Campinas": [-47.87694, -22.90684],
 }
 
 export default function PropertyMap() {

@@ -57,6 +57,105 @@ export const layerStyles: Record<string, LayerStyle> = {
         1, "#0095ff"
       ]
     }
+  },
+  "renda_rio-4ks1k8": {
+     "type": "fill",
+    "source": "composite",
+    "id": "renda_rio-4ks1k8",
+    "paint": {
+      "fill-opacity": 0.7,
+      "fill-color": [
+        "step",
+        [
+          "get",
+          "Renda Domiciliar Média (R$)"
+        ],
+        "#fff7fb",
+        1500,
+        "#ece2f0",
+        6000,
+        "#a6bddb",
+        13000,
+        "#3690c0",
+        25000,
+        "#02818a",
+        95000,
+        "#014636"
+      ]
+    },
+    "source-layer": "renda_rio-4ks1k8"
+  },
+  "rotas_onibus-5yarkv": {
+    "layout": {
+      "visibility": "none"
+    },
+    "type": "line",
+    "source": "composite",
+    "id": "rotas-onibus-5yarkv",
+    "paint": {
+      "line-color": "#cb181d"
+    },
+    "source-layer": "rotas_onibus-5yarkv"
+  },
+  "heatmap_bilhetagem_rio-59w42o": {
+    "type": "fill",
+    "source": "composite",
+    "id": "heatmap-bilhetagem-rio-59w42o",
+    "paint": {
+      "fill-color": [
+        "step",
+        [
+          "get",
+          "Número de Passageiros"
+        ],
+        "#000004",
+        5,
+        "#420a68",
+        25,
+        "#932667",
+        50,
+        "#dd513a",
+        100,
+        "#fca50a",
+        18043,
+        "#fcffa4"
+      ]
+    },
+    "source-layer": "heatmap_bilhetagem_rio-59w42o",
+    "layout": {
+      "visibility": "none"
+    }
+  },
+  "populacao_rio-19sjpd": 
+  {
+    "layout": {
+      "visibility": "none"
+    },
+    "type": "fill",
+    "source": "composite",
+    "id": "populacao-rio-19sjpd",
+    "paint": {
+      "fill-opacity": 0.7,
+      "fill-color": [
+        "step",
+        [
+          "get",
+          "População (2022)"
+        ],
+        "#f7fcf5",
+        500,
+        "#e5f5e0",
+        1000,
+        "#a1d99b",
+        2500,
+        "#41ab5d",
+        5000,
+        "#006d2c",
+        12281,
+        "#00441b"
+      ]
+    },
+    "source-layer": "populacao_rio-19sjpd"
   }
 }
 
