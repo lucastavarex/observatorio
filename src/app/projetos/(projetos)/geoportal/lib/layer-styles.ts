@@ -347,7 +347,138 @@ export const layerStyles: Record<string, LayerStyle> = {
     },
     "slot": "",
     "source-layer": "rotas_onibus_agregado-4r2tni"
+  },
+   // ================== END BELO HORIZONTE ==================
+
+   // ================== START NITERÓI ==================
+   "renda-987gzt":
+   {
+    "type": "fill",
+    "source": "composite",
+    "id": "renda-987gzt",
+    "paint": {
+      "fill-opacity": 0.7,
+      "fill-color": [
+        "step",
+        [
+          "get",
+          "Renda Domiciliar Média (R$)"
+        ],
+        "#ece2f0",
+        3400,
+        "#a6bddb",
+        5400,
+        "#3690c0",
+        8800,
+        "#02818a",
+        14960,
+        "#014636",
+        28550.3109,
+        "#014636"
+      ]
+    },
+    "slot": "",
+    "source-layer": "renda-987gzt",
+    "layout": {
+      "visibility": "none"
+    }
+  },
+  "populacao_nit-3oog1f":
+  {
+    "layout": {
+      "visibility": "none"
+    },
+    "type": "fill",
+    "source": "composite",
+    "id": "populacao-nit-3oog1f",
+    "paint": {
+      "fill-opacity": 0.7,
+      "fill-color": [
+        "step",
+        [
+          "get",
+          "População (2022)"
+        ],
+        "#f7fcf5",
+        500,
+        "#e5f5e0",
+        1000,
+        "#a1d99b",
+        3500,
+        "#41ab5d",
+        7000,
+        "#006d2c",
+        11250,
+        "#00441b"
+      ]
+    },
+    "slot": "",
+    "source-layer": "populacao_nit-3oog1f"
+  },
+  "heatmap-2eyldb":
+   {
+    "layout": {
+      "visibility": "none"
+    },
+    "type": "fill",
+    "source": "composite",
+    "id": "heatmap-2eyldb",
+    "paint": {
+      "fill-opacity": 0.7,
+      "fill-outline-color": "#000000",
+      "fill-color": [
+        "step",
+        [
+          "get",
+          "Passageiros"
+        ],
+        "#000004",
+        30,
+        "#420a68",
+        150,
+        "#932667",
+        400,
+        "#dd513a",
+        900,
+        "#fca50a",
+        19475,
+        "#fcffa4"
+      ]
+    },
+    "slot": "",
+    "source-layer": "heatmap-2eyldb"
+  },
+  "rotas_onibus-7wlr7f":
+   {
+    "type": "line",
+    "source": "composite",
+    "id": "rotas-onibus-7wlr7f",
+    "paint": {
+      "line-color": "#cb181d"
+    },
+    "slot": "",
+    "source-layer": "rotas_onibus-7wlr7f",
+    "layout": {
+      "visibility": "none"
+    }
   }
+
+   // ================== END NITERÓI ==================
+
+   // ================== START SANTO ANDRÉ ==================
+   // ================== END SANTO ANDRÉ ==================
+
+   // ================== START SALVADOR ==================
+   // ================== END SALVADOR ==================
+
+   // ================== START SALVADOR ==================
+   // ================== END SALVADOR ==================
+
+   // ================== START CAMPINAS ==================
+   // ================== END CAMPINAS ==================
+
+   // ================== START PORTO ALEGRE ==================
+   // ================== END PORTO ALEGRE ==================
 }
 
 // Helper function to get layer style by source layer name

@@ -116,6 +116,45 @@ export const cityLayersConfig: CityLayersConfig = {
       hasCustomStyle: true
     },
   ],
+  "Niteroi": [
+    {
+      id: "renda-987gzt",
+      name: "Renda Niteroi",
+      description: "Renda per capita por bairro",
+      tilesetId: "observatorio-nacional.5gkcci9a",
+      sourceLayer: "renda-987gzt",
+      hasCustomStyle: true
+    },
+    {
+      id: "populacao_nit-3oog1f",
+      name: "População Niteroi",
+      description: "População por bairro",
+      tilesetId: "observatorio-nacional.cfffhdz0",
+      sourceLayer: "populacao_nit-3oog1f",
+      hasCustomStyle: true
+    },
+    {
+      id: "heatmap-2eyldb",
+      name: "Heatmap Niteroi",
+      description: "Heatmap Niteroi por bairro",
+      tilesetId: "observatorio-nacional.1h9a91is",
+      sourceLayer: "heatmap-2eyldb",
+      hasCustomStyle: true
+    },
+    {
+      id: "rotas_onibus-7wlr7f",
+      name: "Rotas de ônibus",
+      description: "Rotas de ônibus por bairro",
+      tilesetId: "observatorio-nacional.950xc6k6",
+      sourceLayer: "rotas_onibus-7wlr7f",
+      hasCustomStyle: true
+    },
+   
+  ],
+  "Santo André": [],
+  "Salvador": [],
+  "Campinas": [],
+  "Porto Alegre": [],
   "São Paulo": [
     { 
       id: "density", 
