@@ -371,7 +371,7 @@ export default function PropertyMap() {
   // Initialize single map
   useEffect(() => {
     if (!mapContainer.current || isComparisonMode) return
-    
+
     map.current = new mapboxgl.Map({
       container: mapContainer.current,
       style: "mapbox://styles/mapbox/dark-v11",
@@ -381,14 +381,14 @@ export default function PropertyMap() {
     map.current.on('load', () => {
       setMapLoaded(true)
     })
-    
+
     return () => {
       if (map.current) {
         map.current.remove()
         map.current = null
       }
     }
-  }, [zoom, selectedCity, isComparisonMode])
+  }, [zoom, isComparisonMode])
 
   // Initialize comparison maps
   useEffect(() => {
@@ -495,45 +495,64 @@ export default function PropertyMap() {
         afterMap.current = null
       }
     }
-  }, [zoom, selectedCity, isComparisonMode])
+  }, [zoom, isComparisonMode])
 
   const handleCityChange = (city: string) => {
-    setSelectedCity(city)
     // Reset selected layers when changing city
     setSelectedLayers([])
     setSelectedLayer1(null)
     setSelectedLayer2(null)
     // Reset layer opacities when changing city
     setLayerOpacities({})
-    
+
     // Clear all layers when changing city
     clearAllLayers()
-    
-    // Fly to new city on the appropriate map(s)
+
+    // Fly to new city on the appropriate map(s) BEFORE updating state
+    const flyPromises = []
+
     if (isComparisonMode) {
-      if (beforeMap.current) {
-        beforeMap.current.flyTo({
-          center: cityCoordinates[city],
-          zoom: 10.5,
-          duration: 2000,
-        })
+      if (beforeMap.current && beforeMap.current.isStyleLoaded()) {
+        flyPromises.push(
+          new Promise<void>((resolve) => {
+            beforeMap.current!.flyTo({
+              center: cityCoordinates[city],
+              zoom: 10.5,
+              duration: 2000,
+            })
+            setTimeout(resolve, 2000) // Wait for animation to complete
+          })
+        )
       }
-      if (afterMap.current) {
-        afterMap.current.flyTo({
-          center: cityCoordinates[city],
-          zoom: 10.5,
-          duration: 2000,
-        })
+      if (afterMap.current && afterMap.current.isStyleLoaded()) {
+        flyPromises.push(
+          new Promise<void>((resolve) => {
+            afterMap.current!.flyTo({
+              center: cityCoordinates[city],
+              zoom: 10.5,
+              duration: 2000,
+            })
+            setTimeout(resolve, 2000) // Wait for animation to complete
+          })
+        )
       }
     } else {
-      if (map.current) {
-        map.current.flyTo({
-          center: cityCoordinates[city],
-          zoom: 10.5,
-          duration: 2000,
-        })
+      if (map.current && map.current.isStyleLoaded()) {
+        flyPromises.push(
+          new Promise<void>((resolve) => {
+            map.current!.flyTo({
+              center: cityCoordinates[city],
+              zoom: 10.5,
+              duration: 2000,
+            })
+            setTimeout(resolve, 2000) // Wait for animation to complete
+          })
+        )
       }
     }
+
+    // Update state after fly animation starts
+    setSelectedCity(city)
   }
 
   const toggleMenu = () => {

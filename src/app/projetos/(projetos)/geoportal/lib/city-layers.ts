@@ -285,6 +285,7 @@ export const cityLayersConfig: CityLayersConfig = {
       description: "Sinistros por bairro",
       tilesetId: "observatorio-nacional.a7e3m719",
       sourceLayer: "sinistros_poa-8mfstv",
+      layerType: "fill",
       hasCustomStyle: true
     },
   ],
