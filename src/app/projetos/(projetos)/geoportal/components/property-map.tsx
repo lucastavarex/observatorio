@@ -365,7 +365,7 @@ export default function PropertyMap() {
     
     map.current = new mapboxgl.Map({
       container: mapContainer.current,
-      style: "mapbox://styles/mapbox/streets-v11",
+      style: "mapbox://styles/mapbox/dark-v11",
       center: cityCoordinates[selectedCity],
       zoom,
     })
@@ -392,14 +392,14 @@ export default function PropertyMap() {
 
     beforeMap.current = new mapboxgl.Map({
       container: beforeMapContainer.current,
-      style: "mapbox://styles/mapbox/streets-v11",
+      style: "mapbox://styles/mapbox/dark-v11",
       center: cityCoordinates[selectedCity],
       zoom,
     })
 
     afterMap.current = new mapboxgl.Map({
       container: afterMapContainer.current,
-      style: "mapbox://styles/mapbox/streets-v11",
+      style: "mapbox://styles/mapbox/dark-v11",
       center: cityCoordinates[selectedCity],
       zoom,
     })
