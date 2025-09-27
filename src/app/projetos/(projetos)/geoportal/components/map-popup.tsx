@@ -45,19 +45,7 @@ export function MapPopup({ feature, layerName, onClose }: MapPopupProps) {
   const displayProperties = getDisplayProperties()
 
   if (displayProperties.length === 0) {
-    return (
-      <Card>
-        <CardHeader className="pb-2">
-          <CardTitle className="text-sm flex items-center gap-2">
-            <Info className="w-4 h-4" />
-            {layerName}
-          </CardTitle>
-        </CardHeader>
-        <CardContent>
-          <p className="text-sm text-gray-500">Nenhuma informação disponível para esta área.</p>
-        </CardContent>
-      </Card>
-    )
+    return null
   }
 
   return (

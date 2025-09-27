@@ -157,6 +157,23 @@ export default function PropertyMap() {
         popupRef.current.remove()
       }
 
+      // Check if there are any properties to display
+      const displayProperties = Object.entries(feature.properties || {})
+        .filter(([key, value]) => {
+          const excludeKeys = ['id', 'geometry', 'type', 'coordinates']
+          return !excludeKeys.includes(key.toLowerCase()) &&
+                 value !== null &&
+                 value !== undefined &&
+                 value !== ''
+        })
+        .slice(0, 8)
+
+      // Only create popup if there are properties to display
+      if (displayProperties.length === 0) {
+        setHoveredFeature(null)
+        return
+      }
+
       // Create new popup
       const popup = new mapboxgl.Popup({
         closeButton: false,
@@ -170,17 +187,9 @@ export default function PropertyMap() {
         <div class="p-2 min-w-50">
           <h3 class="font-semibold text-sm mb-2">${layerName}</h3>
           <div class="space-y-1 overflow-y-auto">
-            ${Object.entries(feature.properties || {})
-              .filter(([key, value]) => {
-                const excludeKeys = ['id', 'geometry', 'type', 'coordinates']
-                return !excludeKeys.includes(key.toLowerCase()) && 
-                       value !== null && 
-                       value !== undefined &&
-                       value !== ''
-              })
-              .slice(0, 8)
+            ${displayProperties
               .map(([key, value]) => {
-                const formattedValue = typeof value === 'number' 
+                const formattedValue = typeof value === 'number'
                   ? (Number.isInteger(value) ? value.toLocaleString() : value.toFixed(2))
                   : String(value)
                 return `
