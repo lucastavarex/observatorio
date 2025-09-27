@@ -14,7 +14,7 @@ interface CollapsibleLegendProps {
     name: string
     description?: string
     layerType?: 'fill' | 'line' | 'circle' | 'symbol'
-    hasCustomStyle?: boolean
+    sourceLayer?: string
   }>>
 }
 

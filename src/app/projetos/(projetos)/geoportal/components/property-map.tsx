@@ -105,7 +105,7 @@ export default function PropertyMap() {
   const afterMap = useRef<mapboxgl.Map | null>(null)
   const compare = useRef<MapboxCompareInstance | null>(null)
   const [zoom] = useState(10.5)
-  const [selectedCity, setSelectedCity] = useState("São Paulo")
+  const [selectedCity, setSelectedCity] = useState("Rio de Janeiro")
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [selectedLayers, setSelectedLayers] = useState<string[]>([])
   const [isComparisonMode, setIsComparisonMode] = useState(false)
@@ -666,36 +666,27 @@ export default function PropertyMap() {
           url: `mapbox://${layerConfig.tilesetId}`
         })
         
-        // Check if layer has custom style
+        // Try to use custom style first, fallback to default
         let layerConfigToAdd: mapboxgl.AnyLayer
-        
-        if (layerConfig.hasCustomStyle) {
-          // Use custom style from Mapbox Studio
-          const customStyle = createStyledLayer(layerId, layerConfig.sourceLayer, layerConfig.tilesetId)
-          if (customStyle) {
-            layerConfigToAdd = {
-              ...customStyle,
-              layout: {
-                ...customStyle.layout,
-                visibility: 'visible'
-              }
+
+        // Always try to get custom style first
+        const customStyle = createStyledLayer(layerId, layerConfig.sourceLayer, layerConfig.tilesetId)
+        if (customStyle) {
+          layerConfigToAdd = {
+            ...customStyle,
+            layout: {
+              ...customStyle.layout,
+              visibility: 'visible'
             }
-            console.log(`Using custom style for comparison layer: ${layerId}`)
-          } else {
-            // Fallback to default style if custom style not found
-            layerConfigToAdd = createDefaultLayerConfig(layerId, { 
-              layerType: layerConfig.layerType, 
-              sourceLayer: layerConfig.sourceLayer 
-            })
-            console.log(`Custom style not found, using default for comparison layer: ${layerId}`)
           }
+          console.log(`Using custom style for comparison layer: ${layerId}`)
         } else {
-          // Use default style
-          layerConfigToAdd = createDefaultLayerConfig(layerId, { 
-            layerType: layerConfig.layerType, 
-            sourceLayer: layerConfig.sourceLayer 
+          // Fallback to default style if custom style not found
+          layerConfigToAdd = createDefaultLayerConfig(layerId, {
+            layerType: layerConfig.layerType,
+            sourceLayer: layerConfig.sourceLayer
           })
-          console.log(`Using default style for comparison layer: ${layerId}`)
+          console.log(`Custom style not found, using default for comparison layer: ${layerId}`)
         }
         
         targetMap!.addLayer(layerConfigToAdd)
@@ -819,36 +810,27 @@ export default function PropertyMap() {
               url: `mapbox://${layerConfig.tilesetId}`
             })
             
-            // Check if layer has custom style
+            // Try to use custom style first, fallback to default
             let layerConfigToAdd: mapboxgl.AnyLayer
-            
-            if (layerConfig.hasCustomStyle) {
-              // Use custom style from Mapbox Studio
-              const customStyle = createStyledLayer(layerId, layerConfig.sourceLayer, layerConfig.tilesetId)
-              if (customStyle) {
-                layerConfigToAdd = {
-                  ...customStyle,
-                  layout: {
-                    ...customStyle.layout,
-                    visibility: 'visible'
-                  }
+
+            // Always try to get custom style first
+            const customStyle = createStyledLayer(layerId, layerConfig.sourceLayer, layerConfig.tilesetId)
+            if (customStyle) {
+              layerConfigToAdd = {
+                ...customStyle,
+                layout: {
+                  ...customStyle.layout,
+                  visibility: 'visible'
                 }
-                console.log(`Using custom style for layer: ${layerId}`)
-              } else {
-                // Fallback to default style if custom style not found
-                layerConfigToAdd = createDefaultLayerConfig(layerId, { 
-                  layerType: layerConfig.layerType, 
-                  sourceLayer: layerConfig.sourceLayer 
-                })
-                console.log(`Custom style not found, using default for layer: ${layerId}`)
               }
+              console.log(`Using custom style for layer: ${layerId}`)
             } else {
-              // Use default style
-              layerConfigToAdd = createDefaultLayerConfig(layerId, { 
-                layerType: layerConfig.layerType, 
-                sourceLayer: layerConfig.sourceLayer 
+              // Fallback to default style if custom style not found
+              layerConfigToAdd = createDefaultLayerConfig(layerId, {
+                layerType: layerConfig.layerType,
+                sourceLayer: layerConfig.sourceLayer
               })
-              console.log(`Using default style for layer: ${layerId}`)
+              console.log(`Custom style not found, using default for layer: ${layerId}`)
             }
             
             map.current!.addLayer(layerConfigToAdd)

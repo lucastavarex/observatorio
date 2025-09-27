@@ -123,6 +123,7 @@ export const cityLayersConfig: CityLayersConfig = {
       description: "Renda per capita por bairro",
       tilesetId: "observatorio-nacional.5gkcci9a",
       sourceLayer: "renda-987gzt",
+      layerType: "fill",
       hasCustomStyle: true
     },
     {
@@ -131,6 +132,7 @@ export const cityLayersConfig: CityLayersConfig = {
       description: "População por bairro",
       tilesetId: "observatorio-nacional.cfffhdz0",
       sourceLayer: "populacao_nit-3oog1f",
+      layerType: "fill",
       hasCustomStyle: true
     },
     {
@@ -139,6 +141,7 @@ export const cityLayersConfig: CityLayersConfig = {
       description: "Heatmap Niteroi por bairro",
       tilesetId: "observatorio-nacional.1h9a91is",
       sourceLayer: "heatmap-2eyldb",
+      layerType: "fill",
       hasCustomStyle: true
     },
     {
@@ -147,6 +150,7 @@ export const cityLayersConfig: CityLayersConfig = {
       description: "Rotas de ônibus por bairro",
       tilesetId: "observatorio-nacional.950xc6k6",
       sourceLayer: "rotas_onibus-7wlr7f",
+      layerType: "line",
       hasCustomStyle: true
     },
    
@@ -158,6 +162,7 @@ export const cityLayersConfig: CityLayersConfig = {
       description: "Sinistros por bairro",
       tilesetId: "observatorio-nacional.4d7kb4n8",
       sourceLayer: "sinistros-9fw8gm",
+      layerType: "fill",
       hasCustomStyle: true
     },
     {
@@ -166,6 +171,7 @@ export const cityLayersConfig: CityLayersConfig = {
       description: "Rotas de ônibus por bairro",
       tilesetId: "observatorio-nacional.2hyb7w6t",
       sourceLayer: "rotas_onibus_sad-7n78wu",
+      layerType: "line",
       hasCustomStyle: true
     },
   ],
@@ -176,6 +182,7 @@ export const cityLayersConfig: CityLayersConfig = {
       description: "Ciclovia por bairro",
       tilesetId: "observatorio-nacional.awa9a5ko",
       sourceLayer: "ciclovia_tipo-bfdvvr",
+      layerType: "line",
       hasCustomStyle: true
     },
     {
@@ -184,6 +191,7 @@ export const cityLayersConfig: CityLayersConfig = {
       description: "Rotas de ônibus por bairro",
       tilesetId: "observatorio-nacional.95abndc3",
       sourceLayer: "rotas_ottrans-4esuj9",
+      layerType: "line",
       hasCustomStyle: true
     },
     {
@@ -192,6 +200,7 @@ export const cityLayersConfig: CityLayersConfig = {
       description: "Ciclovia por bairro",
       tilesetId: "observatorio-nacional.6wfgd2uh",
       sourceLayer: "ciclovia-2zvxww",
+      layerType: "line",
       hasCustomStyle: true
     },
     {
@@ -200,6 +209,7 @@ export const cityLayersConfig: CityLayersConfig = {
       description: "Renda per capita por bairro",
       tilesetId: "observatorio-nacional.8e78qgxw",
       sourceLayer: "renda_ssa-72km6n",
+      layerType: "fill",
       hasCustomStyle: true
     },
     {
@@ -208,6 +218,7 @@ export const cityLayersConfig: CityLayersConfig = {
       description: "População por bairro",
       tilesetId: "observatorio-nacional.9zwcybiu",
       sourceLayer: "populacao_ssa-dgk2gr",
+      layerType: "fill",
       hasCustomStyle: true
     },
   ],
@@ -218,6 +229,7 @@ export const cityLayersConfig: CityLayersConfig = {
       description: "População por bairro",
       tilesetId: "observatorio-nacional.cv6id9vn",
       sourceLayer: "populacao_cam-dhn9nh",
+      layerType: "fill",
       hasCustomStyle: true
     },
     {
@@ -226,6 +238,7 @@ export const cityLayersConfig: CityLayersConfig = {
       description: "Renda per capita por bairro",
       tilesetId: "observatorio-nacional.5eawzxg0",
       sourceLayer: "renda-2bxm7u",
+      layerType: "fill",
       hasCustomStyle: true
     },
     {
@@ -234,6 +247,7 @@ export const cityLayersConfig: CityLayersConfig = {
       description: "Rotas de ônibus por bairro",
       tilesetId: "observatorio-nacional.6tqhobb3",
       sourceLayer: "rotas_onibus-178ot7",
+      layerType: "line",
       hasCustomStyle: true
     },
   ],
@@ -244,6 +258,7 @@ export const cityLayersConfig: CityLayersConfig = {
       description: "Renda per capita por bairro",
       tilesetId: "observatorio-nacional.6nhij7jq",
       sourceLayer: "renda_poa-0cq519",
+      layerType: "fill",
       hasCustomStyle: true
     },
     {
@@ -252,6 +267,7 @@ export const cityLayersConfig: CityLayersConfig = {
       description: "População por bairro",
       tilesetId: "observatorio-nacional.cvh9drji",
       sourceLayer: "populacao_poa-6gb3pv",
+      layerType: "fill",
       hasCustomStyle: true
     },
     {
@@ -260,6 +276,7 @@ export const cityLayersConfig: CityLayersConfig = {
       description: "Vitimas por bairro",
       tilesetId: "observatorio-nacional.2fbdewky",
       sourceLayer: "vitimas_poa-84wkxk",
+      layerType: "circle",
       hasCustomStyle: true
     },
     {
