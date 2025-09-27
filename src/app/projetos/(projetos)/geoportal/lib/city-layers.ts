@@ -211,8 +211,66 @@ export const cityLayersConfig: CityLayersConfig = {
       hasCustomStyle: true
     },
   ],
-  "Campinas": [],
-  "Porto Alegre": [],
+  "Campinas": [
+    {
+      id: "populacao_cam-dhn9nh",
+      name: "População Campinas",
+      description: "População por bairro",
+      tilesetId: "observatorio-nacional.cv6id9vn",
+      sourceLayer: "populacao_cam-dhn9nh",
+      hasCustomStyle: true
+    },
+    {
+      id: "renda-2bxm7u",
+      name: "Renda Campinas",
+      description: "Renda per capita por bairro",
+      tilesetId: "observatorio-nacional.5eawzxg0",
+      sourceLayer: "renda-2bxm7u",
+      hasCustomStyle: true
+    },
+    {
+      id: "rotas_onibus-178ot7",
+      name: "Rotas de ônibus",
+      description: "Rotas de ônibus por bairro",
+      tilesetId: "observatorio-nacional.6tqhobb3",
+      sourceLayer: "rotas_onibus-178ot7",
+      hasCustomStyle: true
+    },
+  ],
+  "Porto Alegre": [
+    {
+      id: "renda_poa-0cq519",
+      name: "Renda Porto Alegre",
+      description: "Renda per capita por bairro",
+      tilesetId: "observatorio-nacional.6nhij7jq",
+      sourceLayer: "renda_poa-0cq519",
+      hasCustomStyle: true
+    },
+    {
+      id: "populacao_poa-6gb3pv",
+      name: "População Porto Alegre",
+      description: "População por bairro",
+      tilesetId: "observatorio-nacional.cvh9drji",
+      sourceLayer: "populacao_poa-6gb3pv",
+      hasCustomStyle: true
+    },
+    {
+      id: "vitimas_poa-84wkxk",
+      name: "Vitimas Porto Alegre",
+      description: "Vitimas por bairro",
+      tilesetId: "observatorio-nacional.2fbdewky",
+      sourceLayer: "vitimas_poa-84wkxk",
+      hasCustomStyle: true
+    },
+    {
+      id: "sinistros_poa-8mfstv",
+      name: "Sinistros Porto Alegre",
+      description: "Sinistros por bairro",
+      tilesetId: "observatorio-nacional.a7e3m719",
+      sourceLayer: "sinistros_poa-8mfstv",
+      hasCustomStyle: true
+    },
+  ],
   "São Paulo": [
     { 
       id: "density", 

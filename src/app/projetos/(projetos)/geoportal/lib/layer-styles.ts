@@ -711,17 +711,203 @@ export const layerStyles: Record<string, LayerStyle> = {
     "slot": "",
     "source-layer": "populacao_ssa-dgk2gr"
   },
-  
 
-   // ================== END SALVADOR ==================
 
-   // ================== START SALVADOR ==================
    // ================== END SALVADOR ==================
 
    // ================== START CAMPINAS ==================
+   "populacao_cam-dhn9nh":
+    {
+    "layout": {
+      "visibility": "none"
+    },
+    "type": "fill",
+    "source": "composite",
+    "id": "populacao-cam-dhn9nh",
+    "paint": {
+      "fill-opacity": 0.7,
+      "fill-color": [
+        "step",
+        [
+          "get",
+          "População (2022)"
+        ],
+        "#f7fcf5",
+        300,
+        "#e5f5e0",
+        900,
+        "#a1d99b",
+        1500,
+        "#41ab5d",
+        2500,
+        "#006d2c",
+        4471,
+        "#00441b"
+      ]
+    },
+    "slot": "",
+    "source-layer": "populacao_cam-dhn9nh"
+  },
+  "renda-2bxm7u":
+ {
+    "layout": {
+      "visibility": "none"
+    },
+    "type": "fill",
+    "source": "composite",
+    "id": "renda-2bxm7u",
+    "paint": {
+      "fill-opacity": 0.7,
+      "fill-color": [
+        "step",
+        [
+          "get",
+          "Renda Domiciliar Média (R$)"
+        ],
+        "#fff7fb",
+        3500,
+        "#ece2f0",
+        4500,
+        "#a6bddb",
+        6000,
+        "#3690c0",
+        10000,
+        "#02818a",
+        46000,
+        "#014636"
+      ]
+    },
+    "slot": "",
+    "source-layer": "renda-2bxm7u"
+  },
+  "rotas_onibus-178ot7":
+   {
+    "type": "line",
+    "source": "composite",
+    "id": "rotas-onibus-178ot7",
+    "paint": {
+      "line-color": "#cb181d"
+    },
+    "slot": "",
+    "source-layer": "rotas_onibus-178ot7",
+    "layout": {
+      "visibility": "none"
+    }
+  },
    // ================== END CAMPINAS ==================
 
    // ================== START PORTO ALEGRE ==================
+   "renda_poa-0cq519":
+   {
+    "layout": {
+      "visibility": "none"
+    },
+    "type": "fill",
+    "source": "composite",
+    "id": "renda-poa-0cq519 (1)",
+    "paint": {
+      "fill-opacity": 0.7,
+      "fill-color": [
+        "step",
+        [
+          "get",
+          "Renda Domiciliar Média (R$)"
+        ],
+        "#fff7fb",
+        1500,
+        "#ece2f0",
+        4000,
+        "#a6bddb",
+        7500,
+        "#3690c0",
+        15000,
+        "#02818a",
+        31000,
+        "#014636"
+      ]
+    },
+    "slot": "",
+    "source-layer": "renda_poa-0cq519"
+  },
+  "populacao_poa-6gb3pv":
+   {
+    "layout": {
+      "visibility": "none"
+    },
+    "type": "fill",
+    "source": "composite",
+    "id": "populacao-poa-6gb3pv",
+    "paint": {
+      "fill-opacity": 0.7,
+      "fill-color": [
+        "step",
+        [
+          "get",
+          "População (2022)"
+        ],
+        "#f7fcf5",
+        500,
+        "#e5f5e0",
+        1000,
+        "#a1d99b",
+        2000,
+        "#41ab5d",
+        3000,
+        "#006d2c",
+        5400,
+        "#00441b"
+      ]
+    },
+    "slot": "",
+    "source-layer": "populacao_poa-6gb3pv"
+  },
+  "vitimas_poa-84wkxk":
+   {
+    "layout": {
+      "visibility": "none"
+    },
+    "type": "circle",
+    "source": "composite",
+    "id": "vitimas-poa-84wkxk",
+    "paint": {
+      "circle-color": "#e31a1c",
+      "circle-radius": 2
+    },
+    "slot": "",
+    "source-layer": "vitimas_poa-84wkxk"
+  },
+  "sinistros_poa-8mfstv":
+ {
+    "layout": {
+      "visibility": "none"
+    },
+    "type": "fill",
+    "source": "composite",
+    "id": "sinistros-poa-8mfstv",
+    "paint": {
+      "fill-color": [
+        "step",
+        [
+          "get",
+          "Total Feridos"
+        ],
+        "#ffeda0",
+        5,
+        "#fed976",
+        9,
+        "#800026",
+        10,
+        "#feb24c",
+        20,
+        "#fc4e2a",
+        40,
+        "#e31a1c"
+      ]
+    },
+    "slot": "",
+    "source-layer": "sinistros_poa-8mfstv"
+  }
+
    // ================== END PORTO ALEGRE ==================
 }
 
