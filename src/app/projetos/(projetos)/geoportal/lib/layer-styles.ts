@@ -461,14 +461,258 @@ export const layerStyles: Record<string, LayerStyle> = {
     "layout": {
       "visibility": "none"
     }
-  }
+  },
 
    // ================== END NITERÓI ==================
 
    // ================== START SANTO ANDRÉ ==================
+   "sinistros-9fw8gm": {
+    "layout": {
+      "visibility": "none"
+    },
+    "type": "fill",
+    "source": "composite",
+    "id": "sinistros-9fw8gm",
+    "paint": {
+      "fill-color": [
+        "step",
+        [
+          "get",
+          "Total Vítimas (2023)"
+        ],
+        "#ffeda0",
+        5,
+        "#feb24c",
+        10,
+        "#fc4e2a",
+        25,
+        "#e31a1c",
+        96,
+        "#800026"
+      ]
+    },
+    "slot": "",
+    "source-layer": "sinistros-9fw8gm"
+  },
+  "rotas_onibus_sad-7n78wu":
+   {
+    "layout": {
+      "visibility": "none"
+    },
+    "type": "line",
+    "source": "composite",
+    "id": "rotas-onibus-sad-7n78wu",
+    "paint": {
+      "line-color": "#cb181d"
+    },
+    "slot": "",
+    "source-layer": "rotas_onibus_sad-7n78wu"
+  },
+
    // ================== END SANTO ANDRÉ ==================
 
    // ================== START SALVADOR ==================
+   "ciclovia_tipo-bfdvvr":
+    {
+    "type": "line",
+    "source": "composite",
+    "id": "ciclovia-tipo-bfdvvr",
+    "paint": {
+      "line-color": [
+        "case",
+        [
+          "match",
+          [
+            "get",
+            "tipo"
+          ],
+          [
+            "Ciclofaixa"
+          ],
+          true,
+          false
+        ],
+        "#bebada",
+        [
+          "match",
+          [
+            "get",
+            "tipo"
+          ],
+          [
+            "Misto"
+          ],
+          true,
+          false
+        ],
+        "#fb8072",
+        [
+          "match",
+          [
+            "get",
+            "tipo"
+          ],
+          [
+            "Ciclovia",
+            "Ciclovia "
+          ],
+          true,
+          false
+        ],
+        "#8dd3c7",
+        [
+          "match",
+          [
+            "get",
+            "tipo"
+          ],
+          [
+            "Via compartilhada"
+          ],
+          true,
+          false
+        ],
+        "#80b1d3",
+        [
+          "match",
+          [
+            "get",
+            "tipo"
+          ],
+          [
+            "Misto"
+          ],
+          true,
+          false
+        ],
+        "#fdb462",
+        [
+          "match",
+          [
+            "get",
+            "tipo"
+          ],
+          [
+            "Ciclorrota"
+          ],
+          true,
+          false
+        ],
+        "#b3de69",
+        [
+          "match",
+          [
+            "get",
+            "tipo"
+          ],
+          [
+            "Ciclovia em canteiro central"
+          ],
+          true,
+          false
+        ],
+        "#fccde5",
+        "#000000"
+      ],
+      "line-width": 3
+    },
+    "slot": "",
+    "source-layer": "ciclovia_tipo-bfdvvr"
+  },
+  "rotas_ottrans-4esuj9":
+   {
+    "layout": {
+      "visibility": "none"
+    },
+    "type": "line",
+    "source": "composite",
+    "id": "rotas-ottrans-4esuj9",
+    "paint": {
+      "line-color": "#cb181d"
+    },
+    "slot": "",
+    "source-layer": "rotas_ottrans-4esuj9"
+  },
+   "ciclovia-2zvxww":
+    {
+    "layout": {
+      "visibility": "none"
+    },
+    "type": "line",
+    "source": "composite",
+    "id": "ciclovia-2zvxww",
+    "paint": {
+      "line-color": "#006d2c"
+    },
+    "slot": "",
+    "source-layer": "ciclovia-2zvxww"
+  },
+  "renda_ssa-72km6n":
+   {
+    "layout": {
+      "visibility": "none"
+    },
+    "type": "fill",
+    "source": "composite",
+    "id": "renda-ssa-72km6n",
+    "paint": {
+      "fill-opacity": 0.7,
+      "fill-color": [
+        "step",
+        [
+          "get",
+          "Renda Domiciliar Média (R$)"
+        ],
+        "#fff7fb",
+        1500,
+        "#ece2f0",
+        3000,
+        "#a6bddb",
+        9000,
+        "#3690c0",
+        15000,
+        "#02818a",
+        46000,
+        "#014636"
+      ]
+    },
+    "slot": "",
+    "source-layer": "renda_ssa-72km6n"
+  },
+  "populacao_ssa-dgk2gr":
+   {
+    "layout": {
+      "visibility": "none"
+    },
+    "type": "fill",
+    "source": "composite",
+    "id": "populacao-ssa-dgk2gr",
+    "paint": {
+      "fill-opacity": 0.7,
+      "fill-color": [
+        "step",
+        [
+          "get",
+          "População (2022)"
+        ],
+        "#f7fcf5",
+        500,
+        "#e5f5e0",
+        1000,
+        "#a1d99b",
+        2500,
+        "#41ab5d",
+        5000,
+        "#006d2c",
+        12281,
+        "#00441b"
+      ]
+    },
+    "slot": "",
+    "source-layer": "populacao_ssa-dgk2gr"
+  },
+  
+
    // ================== END SALVADOR ==================
 
    // ================== START SALVADOR ==================

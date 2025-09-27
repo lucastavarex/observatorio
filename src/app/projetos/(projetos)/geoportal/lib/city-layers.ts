@@ -151,8 +151,66 @@ export const cityLayersConfig: CityLayersConfig = {
     },
    
   ],
-  "Santo André": [],
-  "Salvador": [],
+  "Santo André": [
+    {
+      id: "sinistros-9fw8gm",
+      name: "Sinistros Santo André",
+      description: "Sinistros por bairro",
+      tilesetId: "observatorio-nacional.4d7kb4n8",
+      sourceLayer: "sinistros-9fw8gm",
+      hasCustomStyle: true
+    },
+    {
+      id: "rotas_onibus_sad-7n78wu",
+      name: "Rotas de ônibus Santo André",
+      description: "Rotas de ônibus por bairro",
+      tilesetId: "observatorio-nacional.2hyb7w6t",
+      sourceLayer: "rotas_onibus_sad-7n78wu",
+      hasCustomStyle: true
+    },
+  ],
+  "Salvador": [
+    {
+      id: "ciclovia_tipo-bfdvvr",
+      name: "Ciclovia",
+      description: "Ciclovia por bairro",
+      tilesetId: "observatorio-nacional.awa9a5ko",
+      sourceLayer: "ciclovia_tipo-bfdvvr",
+      hasCustomStyle: true
+    },
+    {
+      id: "rotas_ottrans-4esuj9",
+      name: "Rotas de ônibus",
+      description: "Rotas de ônibus por bairro",
+      tilesetId: "observatorio-nacional.95abndc3",
+      sourceLayer: "rotas_ottrans-4esuj9",
+      hasCustomStyle: true
+    },
+    {
+      id: "ciclovia-2zvxww",
+      name: "Ciclovia",
+      description: "Ciclovia por bairro",
+      tilesetId: "observatorio-nacional.6wfgd2uh",
+      sourceLayer: "ciclovia-2zvxww",
+      hasCustomStyle: true
+    },
+    {
+      id: "renda_ssa-72km6n",
+      name: "Renda Salvador",
+      description: "Renda per capita por bairro",
+      tilesetId: "observatorio-nacional.8e78qgxw",
+      sourceLayer: "renda_ssa-72km6n",
+      hasCustomStyle: true
+    },
+    {
+      id: "populacao_ssa-dgk2gr",
+      name: "População Salvador",
+      description: "População por bairro",
+      tilesetId: "observatorio-nacional.9zwcybiu",
+      sourceLayer: "populacao_ssa-dgk2gr",
+      hasCustomStyle: true
+    },
+  ],
   "Campinas": [],
   "Porto Alegre": [],
   "São Paulo": [

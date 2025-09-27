@@ -87,7 +87,7 @@ const cityCoordinates: Record<string, [number, number]> = {
   "Rio de Janeiro": [-43.43852, -22.91464],
   "Belo Horizonte": [-43.9388, -19.9167],
   "Niteroi": [-43.12084, -22.89277],
-  "Santo André": [-46.19209, -23.67494],
+  "Santo André": [-46.52735, -23.65600],
   "Salvador": [-38.51101, -12.97162],
   "Recife": [-34.87722, -8.05556],
   "Porto Alegre": [-51.2177, -30.0326],
