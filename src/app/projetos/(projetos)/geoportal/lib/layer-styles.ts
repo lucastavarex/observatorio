@@ -5,6 +5,7 @@ export interface LayerStyle {
   'source-layer': string
   paint: Record<string, unknown>
   layout?: Record<string, unknown>
+  slot?: string
 }
 
 export const layerStyles: Record<string, LayerStyle> = {
@@ -58,6 +59,7 @@ export const layerStyles: Record<string, LayerStyle> = {
       ]
     }
   },
+  // ================== START RIO DE JANEIRO ==================
   "renda_rio-4ks1k8": {
      "type": "fill",
     "source": "composite",
@@ -156,6 +158,195 @@ export const layerStyles: Record<string, LayerStyle> = {
       ]
     },
     "source-layer": "populacao_rio-19sjpd"
+  },
+  // ================== END RIO DE JANEIRO ==================
+  // ================== START RECIFE ==================
+  "populacao_rec-08mi0e": 
+   {
+    "layout": {
+      "visibility": "none"
+    },
+    "type": "fill",
+    "source": "composite",
+    "id": "populacao-rec-08mi0e",
+    "paint": {
+      "fill-opacity": 0.7,
+      "fill-color": [
+        "step",
+        [
+          "get",
+          "População (2022)"
+        ],
+        "#f7fcf5",
+        500,
+        "#e5f5e0",
+        1500,
+        "#a1d99b",
+        3000,
+        "#41ab5d",
+        4500,
+        "#006d2c",
+        6800,
+        "#00441b"
+      ]
+    },
+    "source-layer": "populacao_rec-08mi0e"
+  },
+  "renda_rec-bcpy1l":{
+     "layout": {
+      "visibility": "none"
+    },
+    "type": "fill",
+    "source": "composite",
+    "id": "renda-rec-bcpy1l",
+    "paint": {
+      "fill-opacity": 0.7,
+      "fill-color": [
+        "step",
+        [
+          "get",
+          "Renda Domiciliar Média (R$)"
+        ],
+        "#fff7fb",
+        1500,
+        "#ece2f0",
+        3000,
+        "#a6bddb",
+        5500,
+        "#3690c0",
+        12500,
+        "#02818a",
+        45000,
+        "#014636"
+      ]
+    },
+    "source-layer": "renda_rec-bcpy1l"
+  },
+  
+  // ================== END RECIFE ==================
+  // ================== START BELO HORIZONTE ==================
+  "populacao-a5w87s":
+  {
+    "layout": {
+      "visibility": "none"
+    },
+    "type": "fill",
+    "source": "composite",
+    "id": "populacao-a5w87s",
+    "paint": {
+      "fill-opacity": 0.7,
+      "fill-color": [
+        "step",
+        [
+          "get",
+          "População (2022)"
+        ],
+        "#f7fcf5",
+        250,
+        "#e5f5e0",
+        1000,
+        "#a1d99b",
+        2000,
+        "#41ab5d",
+        2500,
+        "#006d2c",
+        6681,
+        "#00441b"
+      ]
+    },
+    "source-layer": "populacao-a5w87s"
+  },
+  "renda-42uz5h":
+   {
+    "layout": {
+      "visibility": "none"
+    },
+    "type": "fill",
+    "source": "composite",
+    "id": "renda-42uz5h",
+    "paint": {
+      "fill-opacity": 0.7,
+      "fill-color": [
+        "step",
+        [
+          "get",
+          "Renda Domiciliar Média (R$)"
+        ],
+        "#fff7fb",
+        3000,
+        "#ece2f0",
+        4000,
+        "#a6bddb",
+        5500,
+        "#3690c0",
+        10000,
+        "#02818a",
+        78299,
+        "#014636"
+      ]
+    },
+    "source-layer": "renda-42uz5h"
+  },
+  "heatmap_embarques-b8mehl":
+   {
+    "layout": {
+      "visibility": "none"
+    },
+    "type": "fill",
+    "source": "composite",
+    "id": "heatmap-embarques-b8mehl",
+    "paint": {
+      "fill-opacity": 0.7,
+      "fill-outline-color": "#000000",
+      "fill-color": [
+        "step",
+        [
+          "get",
+          "Média de Embarques (dia útil)"
+        ],
+        "#000004",
+        150,
+        "#420a68",
+        250,
+        "#932667",
+        400,
+        "#dd513a",
+        700,
+        "#fca50a",
+        6144,
+        "#fcffa4"
+      ]
+    },
+    "slot": "",
+    "source-layer": "heatmap_embarques-b8mehl"
+  },
+  "ciclovia-48ed00":
+   {
+    "layout": {
+      "visibility": "none"
+    },
+    "type": "line",
+    "source": "composite",
+    "id": "ciclovia-48ed00",
+    "paint": {
+      "line-color": "#006d2c"
+    },
+    "slot": "",
+    "source-layer": "ciclovia-48ed00"
+  },
+  "rotas_onibus_agregado-4r2tni":
+   {
+    "layout": {
+      "visibility": "none"
+    },
+    "type": "line",
+    "source": "composite",
+    "id": "rotas-onibus-agregado-4r2tni",
+    "paint": {
+      "line-color": "#cb181d"
+    },
+    "slot": "",
+    "source-layer": "rotas_onibus_agregado-4r2tni"
   }
 }
 

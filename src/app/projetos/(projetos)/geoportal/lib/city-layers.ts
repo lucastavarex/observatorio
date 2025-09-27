@@ -51,6 +51,71 @@ export const cityLayersConfig: CityLayersConfig = {
       hasCustomStyle: true
     },
   ],
+  "Recife": [
+    { 
+      id: "populacao-rec-08mi0e", 
+      name: "População Recife", 
+      description: "População por bairro/distrito",
+      tilesetId: "observatorio-nacional.5f7qyfuo",
+      sourceLayer: "populacao_rec-08mi0e",
+      layerType: "fill",
+      hasCustomStyle: true
+    },
+    { 
+      id: "renda-rec-bcpy1l", 
+      name: "Renda Recife", 
+      description: "Renda per capita por bairro",
+      tilesetId: "observatorio-nacional.8kla8qks",
+      sourceLayer: "renda_rec-bcpy1l",
+      layerType: "fill",
+      hasCustomStyle: true
+    },
+  ],
+  "Belo Horizonte": [
+    { 
+      id: "populacao-a5w87s", 
+      name: "Densidade Populacional", 
+      description: "Densidade populacional por bairro/distrito",
+      tilesetId: "observatorio-nacional.a9leemjp",
+      sourceLayer: "populacao-a5w87s",
+      layerType: "fill",
+      hasCustomStyle: true
+    },
+    { 
+      id: "renda-42uz5h", 
+      name: "Renda Belo Horizonte", 
+      description: "Renda per capita por bairro",
+      tilesetId: "observatorio-nacional.64v29dp1",
+      sourceLayer: "renda-42uz5h",
+      layerType: "fill",
+      hasCustomStyle: true
+    },
+    {
+      id: "heatmap_embarques-b8mehl",
+      name: "Heatmap Embarques",
+      description: "Heatmap embarques por bairro",
+      tilesetId: "observatorio-nacional.be236ew7",
+      sourceLayer: "heatmap_embarques-b8mehl",
+      layerType: "fill",
+      hasCustomStyle: true
+    },
+    { 
+      id: "ciclovia-48ed00",
+      name: "Ciclovia",
+      description: "Ciclovia por bairro",
+      tilesetId: "observatorio-nacional.duoax0n7",
+      sourceLayer: "ciclovia-48ed00",
+      layerType: "line",
+      hasCustomStyle: true
+    },
+    { id: "rotas_onibus_agregado-4r2tni", name: "Rotas de ônibus agregado", 
+      description: "Rotas consolidadas por corredores principais",
+      tilesetId: "observatorio-nacional.4g9kkgvq",
+      sourceLayer: "rotas_onibus_agregado-4r2tni",
+      layerType: "line",
+      hasCustomStyle: true
+    },
+  ],
   "São Paulo": [
     { 
       id: "density", 
@@ -101,29 +166,5 @@ export const cityLayersConfig: CityLayersConfig = {
       sourceLayer: "populacao_distritos-4x07ah",
       layerType: "fill"
      },
-  ],
-  "Belo Horizonte": [
-    { id: "bike-lanes", name: "Ciclovia", description: "Rede de ciclovias e infraestrutura para bicicletas" },
-    { id: "bus-routes", name: "Rotas de ônibus", description: "Sistema de transporte público por ônibus" },
-    { id: "bus-routes-aggregated", name: "Rotas de ônibus agregado", description: "Rotas consolidadas por corredores principais" },
-  ],
-  "Niteroi": [
-    { id: "bus-routes", name: "Rotas de ônibus", description: "Sistema de transporte público municipal" },
-  ],
-  "Santo André": [
-    { id: "intercity-bus-lines", name: "Linhas de ônibus intermunicipais", description: "Conectividade com municípios vizinhos" },
-    { id: "city-bus-lines", name: "Linhas de ônibus municipais", description: "Transporte público dentro do município" },
-    { id: "traffic-accidents", name: "Sinistros de trânsito", description: "Registro de acidentes e ocorrências de trânsito" },
-  ],
-  "Salvador": [
-    { id: "bike-lanes", name: "Ciclovia", description: "Infraestrutura para mobilidade ativa" },
-    { id: "ottrans-routes", name: "Rotas ottrans", description: "Sistema de transporte público integrado" },
-  ],
-  "Porto Alegre": [
-    { id: "motorcycle-accessibility-2023", name: "Acessibilidade de moto 2023", description: "Análise de acessibilidade para motociclistas" },
-    { id: "motorcycle-accidents-grid", name: "Grid acidentes de moto", description: "Distribuição espacial de acidentes com motos" },
-    { id: "pedestrians-grid", name: "Grid pedestres", description: "Análise da mobilidade pedestre por região" },
-    { id: "pedestrian-victims-2023", name: "Pedestres vítimas 2023", description: "Registro de pedestres vítimas de acidentes" },
-    { id: "taxi-points", name: "Pontos de táxi", description: "Localização dos pontos de táxi oficiais" },
   ],
 }
