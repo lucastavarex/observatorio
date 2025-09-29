@@ -1,7 +1,7 @@
 [
   {
     "grupo_cidade": "Cidade Parceira",
-    "nome_cidade": "Abreu e Lima",
+    "nome_cidade": "Abreu e Lima*",
     "tipo_dado": "GTFS",
     "tipo_botao": "Dataverse",
     "nome_botao": "Dataverse",
@@ -15,7 +15,7 @@
   },
   {
     "grupo_cidade": "Cidade Parceira",
-    "nome_cidade": "Abreu e Lima",
+    "nome_cidade": "Abreu e Lima*",
     "tipo_dado": "GTFS",
     "tipo_botao": "Fonte",
     "nome_botao": "Prefeitura",
@@ -29,7 +29,7 @@
   },
   {
     "grupo_cidade": "Cidade Parceira",
-    "nome_cidade": "Abreu e Lima",
+    "nome_cidade": "Abreu e Lima*",
     "tipo_dado": "GTFS",
     "tipo_botao": "Geoportal",
     "nome_botao": "GeoPortal",
@@ -43,7 +43,7 @@
   },
   {
     "grupo_cidade": "Cidade Parceira",
-    "nome_cidade": "Abreu e Lima",
+    "nome_cidade": "Abreu e Lima*",
     "tipo_dado": "Bilhetagem",
     "tipo_botao": "Dataverse",
     "nome_botao": "Dataverse",
@@ -69,7 +69,7 @@
   },
   {
     "grupo_cidade": "Cidade Parceira",
-    "nome_cidade": "Abreu e Lima",
+    "nome_cidade": "Abreu e Lima*",
     "tipo_dado": "Bilhetagem",
     "tipo_botao": "Fonte",
     "nome_botao": "Prefeitura",
@@ -83,7 +83,7 @@
   },
   {
     "grupo_cidade": "Cidade Parceira",
-    "nome_cidade": "Abreu e Lima",
+    "nome_cidade": "Abreu e Lima*",
     "tipo_dado": "Bilhetagem",
     "tipo_botao": "Geoportal",
     "nome_botao": "GeoPortal",
@@ -97,7 +97,7 @@
   },
   {
     "grupo_cidade": "Cidade Parceira",
-    "nome_cidade": "Abreu e Lima",
+    "nome_cidade": "Abreu e Lima*",
     "tipo_dado": "GPS Embarcados",
     "tipo_botao": "Dataverse",
     "nome_botao": "Dataverse",
@@ -111,7 +111,7 @@
   },
   {
     "grupo_cidade": "Cidade Parceira",
-    "nome_cidade": "Abreu e Lima",
+    "nome_cidade": "Abreu e Lima*",
     "tipo_dado": "GPS Embarcados",
     "tipo_botao": "Fonte",
     "nome_botao": "Prefeitura",
@@ -125,7 +125,7 @@
   },
   {
     "grupo_cidade": "Cidade Parceira",
-    "nome_cidade": "Abreu e Lima",
+    "nome_cidade": "Abreu e Lima*",
     "tipo_dado": "GPS Embarcados",
     "tipo_botao": "Geoportal",
     "nome_botao": "GeoPortal",
@@ -139,7 +139,7 @@
   },
   {
     "grupo_cidade": "Cidade Parceira",
-    "nome_cidade": "Abreu e Lima",
+    "nome_cidade": "Abreu e Lima*",
     "tipo_dado": "Outros Arquivos Vetoriais",
     "tipo_botao": "Dataverse",
     "nome_botao": "Dataverse",
@@ -157,7 +157,7 @@
   },
   {
     "grupo_cidade": "Cidade Parceira",
-    "nome_cidade": "Abreu e Lima",
+    "nome_cidade": "Abreu e Lima*",
     "tipo_dado": "Outros Arquivos Vetoriais",
     "tipo_botao": "Fonte",
     "nome_botao": "Prefeitura",
@@ -171,7 +171,7 @@
   },
   {
     "grupo_cidade": "Cidade Parceira",
-    "nome_cidade": "Abreu e Lima",
+    "nome_cidade": "Abreu e Lima*",
     "tipo_dado": "Outros Arquivos Vetoriais",
     "tipo_botao": "Geoportal",
     "nome_botao": "GeoPortal",
@@ -185,7 +185,7 @@
   },
   {
     "grupo_cidade": "Cidade Parceira",
-    "nome_cidade": "Araçoiaba",
+    "nome_cidade": "Araçoiaba*",
     "tipo_dado": "GTFS",
     "tipo_botao": "Dataverse",
     "nome_botao": "Dataverse",
@@ -199,7 +199,7 @@
   },
   {
     "grupo_cidade": "Cidade Parceira",
-    "nome_cidade": "Araçoiaba",
+    "nome_cidade": "Araçoiaba*",
     "tipo_dado": "GTFS",
     "tipo_botao": "Fonte",
     "nome_botao": "Prefeitura",
@@ -213,7 +213,7 @@
   },
   {
     "grupo_cidade": "Cidade Parceira",
-    "nome_cidade": "Araçoiaba",
+    "nome_cidade": "Araçoiaba*",
     "tipo_dado": "GTFS",
     "tipo_botao": "Geoportal",
     "nome_botao": "GeoPortal",
@@ -227,7 +227,7 @@
   },
   {
     "grupo_cidade": "Cidade Parceira",
-    "nome_cidade": "Araçoiaba",
+    "nome_cidade": "Araçoiaba*",
     "tipo_dado": "Bilhetagem",
     "tipo_botao": "Dataverse",
     "nome_botao": "Dataverse",
@@ -253,7 +253,7 @@
   },
   {
     "grupo_cidade": "Cidade Parceira",
-    "nome_cidade": "Araçoiaba",
+    "nome_cidade": "Araçoiaba*",
     "tipo_dado": "Bilhetagem",
     "tipo_botao": "Fonte",
     "nome_botao": "Prefeitura",
@@ -267,7 +267,7 @@
   },
   {
     "grupo_cidade": "Cidade Parceira",
-    "nome_cidade": "Araçoiaba",
+    "nome_cidade": "Araçoiaba*",
     "tipo_dado": "Bilhetagem",
     "tipo_botao": "Geoportal",
     "nome_botao": "GeoPortal",
@@ -281,7 +281,7 @@
   },
   {
     "grupo_cidade": "Cidade Parceira",
-    "nome_cidade": "Araçoiaba",
+    "nome_cidade": "Araçoiaba*",
     "tipo_dado": "GPS Embarcados",
     "tipo_botao": "Dataverse",
     "nome_botao": "Dataverse",
@@ -295,7 +295,7 @@
   },
   {
     "grupo_cidade": "Cidade Parceira",
-    "nome_cidade": "Araçoiaba",
+    "nome_cidade": "Araçoiaba*",
     "tipo_dado": "GPS Embarcados",
     "tipo_botao": "Fonte",
     "nome_botao": "Prefeitura",
@@ -309,7 +309,7 @@
   },
   {
     "grupo_cidade": "Cidade Parceira",
-    "nome_cidade": "Araçoiaba",
+    "nome_cidade": "Araçoiaba*",
     "tipo_dado": "GPS Embarcados",
     "tipo_botao": "Geoportal",
     "nome_botao": "GeoPortal",
@@ -323,7 +323,7 @@
   },
   {
     "grupo_cidade": "Cidade Parceira",
-    "nome_cidade": "Araçoiaba",
+    "nome_cidade": "Araçoiaba*",
     "tipo_dado": "Outros Arquivos Vetoriais",
     "tipo_botao": "Dataverse",
     "nome_botao": "Dataverse",
@@ -341,7 +341,7 @@
   },
   {
     "grupo_cidade": "Cidade Parceira",
-    "nome_cidade": "Araçoiaba",
+    "nome_cidade": "Araçoiaba*",
     "tipo_dado": "Outros Arquivos Vetoriais",
     "tipo_botao": "Fonte",
     "nome_botao": "Prefeitura",
@@ -355,7 +355,7 @@
   },
   {
     "grupo_cidade": "Cidade Parceira",
-    "nome_cidade": "Araçoiaba",
+    "nome_cidade": "Araçoiaba*",
     "tipo_dado": "Outros Arquivos Vetoriais",
     "tipo_botao": "Geoportal",
     "nome_botao": "GeoPortal",
@@ -537,7 +537,7 @@
   },
   {
     "grupo_cidade": "Cidade Parceira",
-    "nome_cidade": "Cabo de Santo Agostinho",
+    "nome_cidade": "Cabo de Santo Agostinho*",
     "tipo_dado": "GTFS",
     "tipo_botao": "Dataverse",
     "nome_botao": "Dataverse",
@@ -551,7 +551,7 @@
   },
   {
     "grupo_cidade": "Cidade Parceira",
-    "nome_cidade": "Cabo de Santo Agostinho",
+    "nome_cidade": "Cabo de Santo Agostinho*",
     "tipo_dado": "GTFS",
     "tipo_botao": "Fonte",
     "nome_botao": "Prefeitura",
@@ -565,7 +565,7 @@
   },
   {
     "grupo_cidade": "Cidade Parceira",
-    "nome_cidade": "Cabo de Santo Agostinho",
+    "nome_cidade": "Cabo de Santo Agostinho*",
     "tipo_dado": "GTFS",
     "tipo_botao": "Geoportal",
     "nome_botao": "GeoPortal",
@@ -579,7 +579,7 @@
   },
   {
     "grupo_cidade": "Cidade Parceira",
-    "nome_cidade": "Cabo de Santo Agostinho",
+    "nome_cidade": "Cabo de Santo Agostinho*",
     "tipo_dado": "Bilhetagem",
     "tipo_botao": "Dataverse",
     "nome_botao": "Dataverse",
@@ -605,7 +605,7 @@
   },
   {
     "grupo_cidade": "Cidade Parceira",
-    "nome_cidade": "Cabo de Santo Agostinho",
+    "nome_cidade": "Cabo de Santo Agostinho*",
     "tipo_dado": "Bilhetagem",
     "tipo_botao": "Fonte",
     "nome_botao": "Prefeitura",
@@ -619,7 +619,7 @@
   },
   {
     "grupo_cidade": "Cidade Parceira",
-    "nome_cidade": "Cabo de Santo Agostinho",
+    "nome_cidade": "Cabo de Santo Agostinho*",
     "tipo_dado": "Bilhetagem",
     "tipo_botao": "Geoportal",
     "nome_botao": "GeoPortal",
@@ -633,7 +633,7 @@
   },
   {
     "grupo_cidade": "Cidade Parceira",
-    "nome_cidade": "Cabo de Santo Agostinho",
+    "nome_cidade": "Cabo de Santo Agostinho*",
     "tipo_dado": "GPS Embarcados",
     "tipo_botao": "Dataverse",
     "nome_botao": "Dataverse",
@@ -647,7 +647,7 @@
   },
   {
     "grupo_cidade": "Cidade Parceira",
-    "nome_cidade": "Cabo de Santo Agostinho",
+    "nome_cidade": "Cabo de Santo Agostinho*",
     "tipo_dado": "GPS Embarcados",
     "tipo_botao": "Fonte",
     "nome_botao": "Prefeitura",
@@ -661,7 +661,7 @@
   },
   {
     "grupo_cidade": "Cidade Parceira",
-    "nome_cidade": "Cabo de Santo Agostinho",
+    "nome_cidade": "Cabo de Santo Agostinho*",
     "tipo_dado": "GPS Embarcados",
     "tipo_botao": "Geoportal",
     "nome_botao": "GeoPortal",
@@ -675,7 +675,7 @@
   },
   {
     "grupo_cidade": "Cidade Parceira",
-    "nome_cidade": "Cabo de Santo Agostinho",
+    "nome_cidade": "Cabo de Santo Agostinho*",
     "tipo_dado": "Outros Arquivos Vetoriais",
     "tipo_botao": "Dataverse",
     "nome_botao": "Dataverse",
@@ -693,7 +693,7 @@
   },
   {
     "grupo_cidade": "Cidade Parceira",
-    "nome_cidade": "Cabo de Santo Agostinho",
+    "nome_cidade": "Cabo de Santo Agostinho*",
     "tipo_dado": "Outros Arquivos Vetoriais",
     "tipo_botao": "Fonte",
     "nome_botao": "Prefeitura",
@@ -707,7 +707,7 @@
   },
   {
     "grupo_cidade": "Cidade Parceira",
-    "nome_cidade": "Cabo de Santo Agostinho",
+    "nome_cidade": "Cabo de Santo Agostinho*",
     "tipo_dado": "Outros Arquivos Vetoriais",
     "tipo_botao": "Geoportal",
     "nome_botao": "GeoPortal",
@@ -721,7 +721,7 @@
   },
   {
     "grupo_cidade": "Cidade Parceira",
-    "nome_cidade": "Camaragibe",
+    "nome_cidade": "Camaragibe*",
     "tipo_dado": "GTFS",
     "tipo_botao": "Dataverse",
     "nome_botao": "Dataverse",
@@ -735,7 +735,7 @@
   },
   {
     "grupo_cidade": "Cidade Parceira",
-    "nome_cidade": "Camaragibe",
+    "nome_cidade": "Camaragibe*",
     "tipo_dado": "GTFS",
     "tipo_botao": "Fonte",
     "nome_botao": "Prefeitura",
@@ -749,7 +749,7 @@
   },
   {
     "grupo_cidade": "Cidade Parceira",
-    "nome_cidade": "Camaragibe",
+    "nome_cidade": "Camaragibe*",
     "tipo_dado": "GTFS",
     "tipo_botao": "Geoportal",
     "nome_botao": "GeoPortal",
@@ -763,7 +763,7 @@
   },
   {
     "grupo_cidade": "Cidade Parceira",
-    "nome_cidade": "Camaragibe",
+    "nome_cidade": "Camaragibe*",
     "tipo_dado": "Bilhetagem",
     "tipo_botao": "Dataverse",
     "nome_botao": "Dataverse",
@@ -789,7 +789,7 @@
   },
   {
     "grupo_cidade": "Cidade Parceira",
-    "nome_cidade": "Camaragibe",
+    "nome_cidade": "Camaragibe*",
     "tipo_dado": "Bilhetagem",
     "tipo_botao": "Fonte",
     "nome_botao": "Prefeitura",
@@ -803,7 +803,7 @@
   },
   {
     "grupo_cidade": "Cidade Parceira",
-    "nome_cidade": "Camaragibe",
+    "nome_cidade": "Camaragibe*",
     "tipo_dado": "Bilhetagem",
     "tipo_botao": "Geoportal",
     "nome_botao": "GeoPortal",
@@ -817,7 +817,7 @@
   },
   {
     "grupo_cidade": "Cidade Parceira",
-    "nome_cidade": "Camaragibe",
+    "nome_cidade": "Camaragibe*",
     "tipo_dado": "GPS Embarcados",
     "tipo_botao": "Dataverse",
     "nome_botao": "Dataverse",
@@ -831,7 +831,7 @@
   },
   {
     "grupo_cidade": "Cidade Parceira",
-    "nome_cidade": "Camaragibe",
+    "nome_cidade": "Camaragibe*",
     "tipo_dado": "GPS Embarcados",
     "tipo_botao": "Fonte",
     "nome_botao": "Prefeitura",
@@ -845,7 +845,7 @@
   },
   {
     "grupo_cidade": "Cidade Parceira",
-    "nome_cidade": "Camaragibe",
+    "nome_cidade": "Camaragibe*",
     "tipo_dado": "GPS Embarcados",
     "tipo_botao": "Geoportal",
     "nome_botao": "GeoPortal",
@@ -859,7 +859,7 @@
   },
   {
     "grupo_cidade": "Cidade Parceira",
-    "nome_cidade": "Camaragibe",
+    "nome_cidade": "Camaragibe*",
     "tipo_dado": "Outros Arquivos Vetoriais",
     "tipo_botao": "Dataverse",
     "nome_botao": "Dataverse",
@@ -877,7 +877,7 @@
   },
   {
     "grupo_cidade": "Cidade Parceira",
-    "nome_cidade": "Camaragibe",
+    "nome_cidade": "Camaragibe*",
     "tipo_dado": "Outros Arquivos Vetoriais",
     "tipo_botao": "Fonte",
     "nome_botao": "Prefeitura",
@@ -891,7 +891,7 @@
   },
   {
     "grupo_cidade": "Cidade Parceira",
-    "nome_cidade": "Camaragibe",
+    "nome_cidade": "Camaragibe*",
     "tipo_dado": "Outros Arquivos Vetoriais",
     "tipo_botao": "Geoportal",
     "nome_botao": "GeoPortal",
@@ -1078,7 +1078,7 @@
   },
   {
     "grupo_cidade": "Cidade Parceira",
-    "nome_cidade": "Igarassu",
+    "nome_cidade": "Igarassu*",
     "tipo_dado": "GTFS",
     "tipo_botao": "Dataverse",
     "nome_botao": "Dataverse",
@@ -1092,7 +1092,7 @@
   },
   {
     "grupo_cidade": "Cidade Parceira",
-    "nome_cidade": "Igarassu",
+    "nome_cidade": "Igarassu*",
     "tipo_dado": "GTFS",
     "tipo_botao": "Fonte",
     "nome_botao": "Prefeitura",
@@ -1106,7 +1106,7 @@
   },
   {
     "grupo_cidade": "Cidade Parceira",
-    "nome_cidade": "Igarassu",
+    "nome_cidade": "Igarassu*",
     "tipo_dado": "GTFS",
     "tipo_botao": "Geoportal",
     "nome_botao": "GeoPortal",
@@ -1120,7 +1120,7 @@
   },
   {
     "grupo_cidade": "Cidade Parceira",
-    "nome_cidade": "Igarassu",
+    "nome_cidade": "Igarassu*",
     "tipo_dado": "Bilhetagem",
     "tipo_botao": "Dataverse",
     "nome_botao": "Dataverse",
@@ -1146,7 +1146,7 @@
   },
   {
     "grupo_cidade": "Cidade Parceira",
-    "nome_cidade": "Igarassu",
+    "nome_cidade": "Igarassu*",
     "tipo_dado": "Bilhetagem",
     "tipo_botao": "Fonte",
     "nome_botao": "Prefeitura",
@@ -1160,7 +1160,7 @@
   },
   {
     "grupo_cidade": "Cidade Parceira",
-    "nome_cidade": "Igarassu",
+    "nome_cidade": "Igarassu*",
     "tipo_dado": "Bilhetagem",
     "tipo_botao": "Geoportal",
     "nome_botao": "GeoPortal",
@@ -1174,7 +1174,7 @@
   },
   {
     "grupo_cidade": "Cidade Parceira",
-    "nome_cidade": "Igarassu",
+    "nome_cidade": "Igarassu*",
     "tipo_dado": "GPS Embarcados",
     "tipo_botao": "Dataverse",
     "nome_botao": "Dataverse",
@@ -1188,7 +1188,7 @@
   },
   {
     "grupo_cidade": "Cidade Parceira",
-    "nome_cidade": "Igarassu",
+    "nome_cidade": "Igarassu*",
     "tipo_dado": "GPS Embarcados",
     "tipo_botao": "Fonte",
     "nome_botao": "Prefeitura",
@@ -1202,7 +1202,7 @@
   },
   {
     "grupo_cidade": "Cidade Parceira",
-    "nome_cidade": "Igarassu",
+    "nome_cidade": "Igarassu*",
     "tipo_dado": "GPS Embarcados",
     "tipo_botao": "Geoportal",
     "nome_botao": "GeoPortal",
@@ -1216,7 +1216,7 @@
   },
   {
     "grupo_cidade": "Cidade Parceira",
-    "nome_cidade": "Igarassu",
+    "nome_cidade": "Igarassu*",
     "tipo_dado": "Outros Arquivos Vetoriais",
     "tipo_botao": "Dataverse",
     "nome_botao": "Dataverse",
@@ -1234,7 +1234,7 @@
   },
   {
     "grupo_cidade": "Cidade Parceira",
-    "nome_cidade": "Igarassu",
+    "nome_cidade": "Igarassu*",
     "tipo_dado": "Outros Arquivos Vetoriais",
     "tipo_botao": "Fonte",
     "nome_botao": "Prefeitura",
@@ -1248,7 +1248,7 @@
   },
   {
     "grupo_cidade": "Cidade Parceira",
-    "nome_cidade": "Igarassu",
+    "nome_cidade": "Igarassu*",
     "tipo_dado": "Outros Arquivos Vetoriais",
     "tipo_botao": "Geoportal",
     "nome_botao": "GeoPortal",
@@ -1262,7 +1262,7 @@
   },
   {
     "grupo_cidade": "Cidade Parceira",
-    "nome_cidade": "Ilha de Itamaracá",
+    "nome_cidade": "Ilha de Itamaracá*",
     "tipo_dado": "GTFS",
     "tipo_botao": "Dataverse",
     "nome_botao": "Dataverse",
@@ -1276,7 +1276,7 @@
   },
   {
     "grupo_cidade": "Cidade Parceira",
-    "nome_cidade": "Ilha de Itamaracá",
+    "nome_cidade": "Ilha de Itamaracá*",
     "tipo_dado": "GTFS",
     "tipo_botao": "Fonte",
     "nome_botao": "Prefeitura",
@@ -1290,7 +1290,7 @@
   },
   {
     "grupo_cidade": "Cidade Parceira",
-    "nome_cidade": "Ilha de Itamaracá",
+    "nome_cidade": "Ilha de Itamaracá*",
     "tipo_dado": "GTFS",
     "tipo_botao": "Geoportal",
     "nome_botao": "GeoPortal",
@@ -1304,7 +1304,7 @@
   },
   {
     "grupo_cidade": "Cidade Parceira",
-    "nome_cidade": "Ilha de Itamaracá",
+    "nome_cidade": "Ilha de Itamaracá*",
     "tipo_dado": "Bilhetagem",
     "tipo_botao": "Dataverse",
     "nome_botao": "Dataverse",
@@ -1330,7 +1330,7 @@
   },
   {
     "grupo_cidade": "Cidade Parceira",
-    "nome_cidade": "Ilha de Itamaracá",
+    "nome_cidade": "Ilha de Itamaracá*",
     "tipo_dado": "Bilhetagem",
     "tipo_botao": "Fonte",
     "nome_botao": "Prefeitura",
@@ -1344,7 +1344,7 @@
   },
   {
     "grupo_cidade": "Cidade Parceira",
-    "nome_cidade": "Ilha de Itamaracá",
+    "nome_cidade": "Ilha de Itamaracá*",
     "tipo_dado": "Bilhetagem",
     "tipo_botao": "Geoportal",
     "nome_botao": "GeoPortal",
@@ -1358,7 +1358,7 @@
   },
   {
     "grupo_cidade": "Cidade Parceira",
-    "nome_cidade": "Ilha de Itamaracá",
+    "nome_cidade": "Ilha de Itamaracá*",
     "tipo_dado": "GPS Embarcados",
     "tipo_botao": "Dataverse",
     "nome_botao": "Dataverse",
@@ -1372,7 +1372,7 @@
   },
   {
     "grupo_cidade": "Cidade Parceira",
-    "nome_cidade": "Ilha de Itamaracá",
+    "nome_cidade": "Ilha de Itamaracá*",
     "tipo_dado": "GPS Embarcados",
     "tipo_botao": "Fonte",
     "nome_botao": "Prefeitura",
@@ -1386,7 +1386,7 @@
   },
   {
     "grupo_cidade": "Cidade Parceira",
-    "nome_cidade": "Ilha de Itamaracá",
+    "nome_cidade": "Ilha de Itamaracá*",
     "tipo_dado": "GPS Embarcados",
     "tipo_botao": "Geoportal",
     "nome_botao": "GeoPortal",
@@ -1400,7 +1400,7 @@
   },
   {
     "grupo_cidade": "Cidade Parceira",
-    "nome_cidade": "Ilha de Itamaracá",
+    "nome_cidade": "Ilha de Itamaracá*",
     "tipo_dado": "Outros Arquivos Vetoriais",
     "tipo_botao": "Dataverse",
     "nome_botao": "Dataverse",
@@ -1418,7 +1418,7 @@
   },
   {
     "grupo_cidade": "Cidade Parceira",
-    "nome_cidade": "Ilha de Itamaracá",
+    "nome_cidade": "Ilha de Itamaracá*",
     "tipo_dado": "Outros Arquivos Vetoriais",
     "tipo_botao": "Fonte",
     "nome_botao": "Prefeitura",
@@ -1432,7 +1432,7 @@
   },
   {
     "grupo_cidade": "Cidade Parceira",
-    "nome_cidade": "Ilha de Itamaracá",
+    "nome_cidade": "Ilha de Itamaracá*",
     "tipo_dado": "Outros Arquivos Vetoriais",
     "tipo_botao": "Geoportal",
     "nome_botao": "GeoPortal",
@@ -1446,7 +1446,7 @@
   },
   {
     "grupo_cidade": "Cidade Parceira",
-    "nome_cidade": "Ipojuca",
+    "nome_cidade": "Ipojuca*",
     "tipo_dado": "GTFS",
     "tipo_botao": "Dataverse",
     "nome_botao": "Dataverse",
@@ -1460,7 +1460,7 @@
   },
   {
     "grupo_cidade": "Cidade Parceira",
-    "nome_cidade": "Ipojuca",
+    "nome_cidade": "Ipojuca*",
     "tipo_dado": "GTFS",
     "tipo_botao": "Fonte",
     "nome_botao": "Prefeitura",
@@ -1474,7 +1474,7 @@
   },
   {
     "grupo_cidade": "Cidade Parceira",
-    "nome_cidade": "Ipojuca",
+    "nome_cidade": "Ipojuca*",
     "tipo_dado": "GTFS",
     "tipo_botao": "Geoportal",
     "nome_botao": "GeoPortal",
@@ -1488,7 +1488,7 @@
   },
   {
     "grupo_cidade": "Cidade Parceira",
-    "nome_cidade": "Ipojuca",
+    "nome_cidade": "Ipojuca*",
     "tipo_dado": "Bilhetagem",
     "tipo_botao": "Dataverse",
     "nome_botao": "Dataverse",
@@ -1514,7 +1514,7 @@
   },
   {
     "grupo_cidade": "Cidade Parceira",
-    "nome_cidade": "Ipojuca",
+    "nome_cidade": "Ipojuca*",
     "tipo_dado": "Bilhetagem",
     "tipo_botao": "Fonte",
     "nome_botao": "Prefeitura",
@@ -1528,7 +1528,7 @@
   },
   {
     "grupo_cidade": "Cidade Parceira",
-    "nome_cidade": "Ipojuca",
+    "nome_cidade": "Ipojuca*",
     "tipo_dado": "Bilhetagem",
     "tipo_botao": "Geoportal",
     "nome_botao": "GeoPortal",
@@ -1542,7 +1542,7 @@
   },
   {
     "grupo_cidade": "Cidade Parceira",
-    "nome_cidade": "Ipojuca",
+    "nome_cidade": "Ipojuca*",
     "tipo_dado": "GPS Embarcados",
     "tipo_botao": "Dataverse",
     "nome_botao": "Dataverse",
@@ -1556,7 +1556,7 @@
   },
   {
     "grupo_cidade": "Cidade Parceira",
-    "nome_cidade": "Ipojuca",
+    "nome_cidade": "Ipojuca*",
     "tipo_dado": "GPS Embarcados",
     "tipo_botao": "Fonte",
     "nome_botao": "Prefeitura",
@@ -1570,7 +1570,7 @@
   },
   {
     "grupo_cidade": "Cidade Parceira",
-    "nome_cidade": "Ipojuca",
+    "nome_cidade": "Ipojuca*",
     "tipo_dado": "GPS Embarcados",
     "tipo_botao": "Geoportal",
     "nome_botao": "GeoPortal",
@@ -1584,7 +1584,7 @@
   },
   {
     "grupo_cidade": "Cidade Parceira",
-    "nome_cidade": "Ipojuca",
+    "nome_cidade": "Ipojuca*",
     "tipo_dado": "Outros Arquivos Vetoriais",
     "tipo_botao": "Dataverse",
     "nome_botao": "Dataverse",
@@ -1602,7 +1602,7 @@
   },
   {
     "grupo_cidade": "Cidade Parceira",
-    "nome_cidade": "Ipojuca",
+    "nome_cidade": "Ipojuca*",
     "tipo_dado": "Outros Arquivos Vetoriais",
     "tipo_botao": "Fonte",
     "nome_botao": "Prefeitura",
@@ -1616,7 +1616,7 @@
   },
   {
     "grupo_cidade": "Cidade Parceira",
-    "nome_cidade": "Ipojuca",
+    "nome_cidade": "Ipojuca*",
     "tipo_dado": "Outros Arquivos Vetoriais",
     "tipo_botao": "Geoportal",
     "nome_botao": "GeoPortal",
@@ -1630,7 +1630,7 @@
   },
   {
     "grupo_cidade": "Cidade Parceira",
-    "nome_cidade": "Itapissuma",
+    "nome_cidade": "Itapissuma*",
     "tipo_dado": "GTFS",
     "tipo_botao": "Dataverse",
     "nome_botao": "Dataverse",
@@ -1644,7 +1644,7 @@
   },
   {
     "grupo_cidade": "Cidade Parceira",
-    "nome_cidade": "Itapissuma",
+    "nome_cidade": "Itapissuma*",
     "tipo_dado": "GTFS",
     "tipo_botao": "Fonte",
     "nome_botao": "Prefeitura",
@@ -1658,7 +1658,7 @@
   },
   {
     "grupo_cidade": "Cidade Parceira",
-    "nome_cidade": "Itapissuma",
+    "nome_cidade": "Itapissuma*",
     "tipo_dado": "GTFS",
     "tipo_botao": "Geoportal",
     "nome_botao": "GeoPortal",
@@ -1672,7 +1672,7 @@
   },
   {
     "grupo_cidade": "Cidade Parceira",
-    "nome_cidade": "Itapissuma",
+    "nome_cidade": "Itapissuma*",
     "tipo_dado": "Bilhetagem",
     "tipo_botao": "Dataverse",
     "nome_botao": "Dataverse",
@@ -1698,7 +1698,7 @@
   },
   {
     "grupo_cidade": "Cidade Parceira",
-    "nome_cidade": "Itapissuma",
+    "nome_cidade": "Itapissuma*",
     "tipo_dado": "Bilhetagem",
     "tipo_botao": "Fonte",
     "nome_botao": "Prefeitura",
@@ -1712,7 +1712,7 @@
   },
   {
     "grupo_cidade": "Cidade Parceira",
-    "nome_cidade": "Itapissuma",
+    "nome_cidade": "Itapissuma*",
     "tipo_dado": "Bilhetagem",
     "tipo_botao": "Geoportal",
     "nome_botao": "GeoPortal",
@@ -1726,7 +1726,7 @@
   },
   {
     "grupo_cidade": "Cidade Parceira",
-    "nome_cidade": "Itapissuma",
+    "nome_cidade": "Itapissuma*",
     "tipo_dado": "GPS Embarcados",
     "tipo_botao": "Dataverse",
     "nome_botao": "Dataverse",
@@ -1740,7 +1740,7 @@
   },
   {
     "grupo_cidade": "Cidade Parceira",
-    "nome_cidade": "Itapissuma",
+    "nome_cidade": "Itapissuma*",
     "tipo_dado": "GPS Embarcados",
     "tipo_botao": "Fonte",
     "nome_botao": "Prefeitura",
@@ -1754,7 +1754,7 @@
   },
   {
     "grupo_cidade": "Cidade Parceira",
-    "nome_cidade": "Itapissuma",
+    "nome_cidade": "Itapissuma*",
     "tipo_dado": "GPS Embarcados",
     "tipo_botao": "Geoportal",
     "nome_botao": "GeoPortal",
@@ -1768,7 +1768,7 @@
   },
   {
     "grupo_cidade": "Cidade Parceira",
-    "nome_cidade": "Itapissuma",
+    "nome_cidade": "Itapissuma*",
     "tipo_dado": "Outros Arquivos Vetoriais",
     "tipo_botao": "Dataverse",
     "nome_botao": "Dataverse",
@@ -1786,7 +1786,7 @@
   },
   {
     "grupo_cidade": "Cidade Parceira",
-    "nome_cidade": "Itapissuma",
+    "nome_cidade": "Itapissuma*",
     "tipo_dado": "Outros Arquivos Vetoriais",
     "tipo_botao": "Fonte",
     "nome_botao": "Prefeitura",
@@ -1800,7 +1800,7 @@
   },
   {
     "grupo_cidade": "Cidade Parceira",
-    "nome_cidade": "Itapissuma",
+    "nome_cidade": "Itapissuma*",
     "tipo_dado": "Outros Arquivos Vetoriais",
     "tipo_botao": "Geoportal",
     "nome_botao": "GeoPortal",
@@ -1814,7 +1814,7 @@
   },
   {
     "grupo_cidade": "Cidade Parceira",
-    "nome_cidade": "Jaboatão dos Guararapes",
+    "nome_cidade": "Jaboatão dos Guararapes*",
     "tipo_dado": "GTFS",
     "tipo_botao": "Dataverse",
     "nome_botao": "Dataverse",
@@ -1828,7 +1828,7 @@
   },
   {
     "grupo_cidade": "Cidade Parceira",
-    "nome_cidade": "Jaboatão dos Guararapes",
+    "nome_cidade": "Jaboatão dos Guararapes*",
     "tipo_dado": "GTFS",
     "tipo_botao": "Fonte",
     "nome_botao": "Prefeitura",
@@ -1842,7 +1842,7 @@
   },
   {
     "grupo_cidade": "Cidade Parceira",
-    "nome_cidade": "Jaboatão dos Guararapes",
+    "nome_cidade": "Jaboatão dos Guararapes*",
     "tipo_dado": "GTFS",
     "tipo_botao": "Geoportal",
     "nome_botao": "GeoPortal",
@@ -1856,7 +1856,7 @@
   },
   {
     "grupo_cidade": "Cidade Parceira",
-    "nome_cidade": "Jaboatão dos Guararapes",
+    "nome_cidade": "Jaboatão dos Guararapes*",
     "tipo_dado": "Bilhetagem",
     "tipo_botao": "Dataverse",
     "nome_botao": "Dataverse",
@@ -1882,7 +1882,7 @@
   },
   {
     "grupo_cidade": "Cidade Parceira",
-    "nome_cidade": "Jaboatão dos Guararapes",
+    "nome_cidade": "Jaboatão dos Guararapes*",
     "tipo_dado": "Bilhetagem",
     "tipo_botao": "Fonte",
     "nome_botao": "Prefeitura",
@@ -1896,7 +1896,7 @@
   },
   {
     "grupo_cidade": "Cidade Parceira",
-    "nome_cidade": "Jaboatão dos Guararapes",
+    "nome_cidade": "Jaboatão dos Guararapes*",
     "tipo_dado": "Bilhetagem",
     "tipo_botao": "Geoportal",
     "nome_botao": "GeoPortal",
@@ -1910,7 +1910,7 @@
   },
   {
     "grupo_cidade": "Cidade Parceira",
-    "nome_cidade": "Jaboatão dos Guararapes",
+    "nome_cidade": "Jaboatão dos Guararapes*",
     "tipo_dado": "GPS Embarcados",
     "tipo_botao": "Dataverse",
     "nome_botao": "Dataverse",
@@ -1924,7 +1924,7 @@
   },
   {
     "grupo_cidade": "Cidade Parceira",
-    "nome_cidade": "Jaboatão dos Guararapes",
+    "nome_cidade": "Jaboatão dos Guararapes*",
     "tipo_dado": "GPS Embarcados",
     "tipo_botao": "Fonte",
     "nome_botao": "Prefeitura",
@@ -1938,7 +1938,7 @@
   },
   {
     "grupo_cidade": "Cidade Parceira",
-    "nome_cidade": "Jaboatão dos Guararapes",
+    "nome_cidade": "Jaboatão dos Guararapes*",
     "tipo_dado": "GPS Embarcados",
     "tipo_botao": "Geoportal",
     "nome_botao": "GeoPortal",
@@ -1952,7 +1952,7 @@
   },
   {
     "grupo_cidade": "Cidade Parceira",
-    "nome_cidade": "Jaboatão dos Guararapes",
+    "nome_cidade": "Jaboatão dos Guararapes*",
     "tipo_dado": "Outros Arquivos Vetoriais",
     "tipo_botao": "Dataverse",
     "nome_botao": "Dataverse",
@@ -1970,7 +1970,7 @@
   },
   {
     "grupo_cidade": "Cidade Parceira",
-    "nome_cidade": "Jaboatão dos Guararapes",
+    "nome_cidade": "Jaboatão dos Guararapes*",
     "tipo_dado": "Outros Arquivos Vetoriais",
     "tipo_botao": "Fonte",
     "nome_botao": "Prefeitura",
@@ -1984,7 +1984,7 @@
   },
   {
     "grupo_cidade": "Cidade Parceira",
-    "nome_cidade": "Jaboatão dos Guararapes",
+    "nome_cidade": "Jaboatão dos Guararapes*",
     "tipo_dado": "Outros Arquivos Vetoriais",
     "tipo_botao": "Geoportal",
     "nome_botao": "GeoPortal",
@@ -1998,7 +1998,7 @@
   },
   {
     "grupo_cidade": "Cidade Parceira",
-    "nome_cidade": "Moreno",
+    "nome_cidade": "Moreno*",
     "tipo_dado": "GTFS",
     "tipo_botao": "Dataverse",
     "nome_botao": "Dataverse",
@@ -2012,7 +2012,7 @@
   },
   {
     "grupo_cidade": "Cidade Parceira",
-    "nome_cidade": "Moreno",
+    "nome_cidade": "Moreno*",
     "tipo_dado": "GTFS",
     "tipo_botao": "Fonte",
     "nome_botao": "Prefeitura",
@@ -2026,7 +2026,7 @@
   },
   {
     "grupo_cidade": "Cidade Parceira",
-    "nome_cidade": "Moreno",
+    "nome_cidade": "Moreno*",
     "tipo_dado": "GTFS",
     "tipo_botao": "Geoportal",
     "nome_botao": "GeoPortal",
@@ -2040,7 +2040,7 @@
   },
   {
     "grupo_cidade": "Cidade Parceira",
-    "nome_cidade": "Moreno",
+    "nome_cidade": "Moreno*",
     "tipo_dado": "Bilhetagem",
     "tipo_botao": "Dataverse",
     "nome_botao": "Dataverse",
@@ -2066,7 +2066,7 @@
   },
   {
     "grupo_cidade": "Cidade Parceira",
-    "nome_cidade": "Moreno",
+    "nome_cidade": "Moreno*",
     "tipo_dado": "Bilhetagem",
     "tipo_botao": "Fonte",
     "nome_botao": "Prefeitura",
@@ -2080,7 +2080,7 @@
   },
   {
     "grupo_cidade": "Cidade Parceira",
-    "nome_cidade": "Moreno",
+    "nome_cidade": "Moreno*",
     "tipo_dado": "Bilhetagem",
     "tipo_botao": "Geoportal",
     "nome_botao": "GeoPortal",
@@ -2094,7 +2094,7 @@
   },
   {
     "grupo_cidade": "Cidade Parceira",
-    "nome_cidade": "Moreno",
+    "nome_cidade": "Moreno*",
     "tipo_dado": "GPS Embarcados",
     "tipo_botao": "Dataverse",
     "nome_botao": "Dataverse",
@@ -2108,7 +2108,7 @@
   },
   {
     "grupo_cidade": "Cidade Parceira",
-    "nome_cidade": "Moreno",
+    "nome_cidade": "Moreno*",
     "tipo_dado": "GPS Embarcados",
     "tipo_botao": "Fonte",
     "nome_botao": "Prefeitura",
@@ -2122,7 +2122,7 @@
   },
   {
     "grupo_cidade": "Cidade Parceira",
-    "nome_cidade": "Moreno",
+    "nome_cidade": "Moreno*",
     "tipo_dado": "GPS Embarcados",
     "tipo_botao": "Geoportal",
     "nome_botao": "GeoPortal",
@@ -2136,7 +2136,7 @@
   },
   {
     "grupo_cidade": "Cidade Parceira",
-    "nome_cidade": "Moreno",
+    "nome_cidade": "Moreno*",
     "tipo_dado": "Outros Arquivos Vetoriais",
     "tipo_botao": "Dataverse",
     "nome_botao": "Dataverse",
@@ -2154,7 +2154,7 @@
   },
   {
     "grupo_cidade": "Cidade Parceira",
-    "nome_cidade": "Moreno",
+    "nome_cidade": "Moreno*",
     "tipo_dado": "Outros Arquivos Vetoriais",
     "tipo_botao": "Fonte",
     "nome_botao": "Prefeitura",
@@ -2168,7 +2168,7 @@
   },
   {
     "grupo_cidade": "Cidade Parceira",
-    "nome_cidade": "Moreno",
+    "nome_cidade": "Moreno*",
     "tipo_dado": "Outros Arquivos Vetoriais",
     "tipo_botao": "Geoportal",
     "nome_botao": "GeoPortal",
@@ -2376,7 +2376,7 @@
   },
   {
     "grupo_cidade": "Cidade Parceira",
-    "nome_cidade": "Olinda",
+    "nome_cidade": "Olinda*",
     "tipo_dado": "GTFS",
     "tipo_botao": "Dataverse",
     "nome_botao": "Dataverse",
@@ -2390,7 +2390,7 @@
   },
   {
     "grupo_cidade": "Cidade Parceira",
-    "nome_cidade": "Olinda",
+    "nome_cidade": "Olinda*",
     "tipo_dado": "GTFS",
     "tipo_botao": "Fonte",
     "nome_botao": "Prefeitura",
@@ -2404,7 +2404,7 @@
   },
   {
     "grupo_cidade": "Cidade Parceira",
-    "nome_cidade": "Olinda",
+    "nome_cidade": "Olinda*",
     "tipo_dado": "GTFS",
     "tipo_botao": "Geoportal",
     "nome_botao": "GeoPortal",
@@ -2418,7 +2418,7 @@
   },
   {
     "grupo_cidade": "Cidade Parceira",
-    "nome_cidade": "Olinda",
+    "nome_cidade": "Olinda*",
     "tipo_dado": "Bilhetagem",
     "tipo_botao": "Dataverse",
     "nome_botao": "Dataverse",
@@ -2444,7 +2444,7 @@
   },
   {
     "grupo_cidade": "Cidade Parceira",
-    "nome_cidade": "Olinda",
+    "nome_cidade": "Olinda*",
     "tipo_dado": "Bilhetagem",
     "tipo_botao": "Fonte",
     "nome_botao": "Prefeitura",
@@ -2458,7 +2458,7 @@
   },
   {
     "grupo_cidade": "Cidade Parceira",
-    "nome_cidade": "Olinda",
+    "nome_cidade": "Olinda*",
     "tipo_dado": "Bilhetagem",
     "tipo_botao": "Geoportal",
     "nome_botao": "GeoPortal",
@@ -2472,7 +2472,7 @@
   },
   {
     "grupo_cidade": "Cidade Parceira",
-    "nome_cidade": "Olinda",
+    "nome_cidade": "Olinda*",
     "tipo_dado": "GPS Embarcados",
     "tipo_botao": "Dataverse",
     "nome_botao": "Dataverse",
@@ -2486,7 +2486,7 @@
   },
   {
     "grupo_cidade": "Cidade Parceira",
-    "nome_cidade": "Olinda",
+    "nome_cidade": "Olinda*",
     "tipo_dado": "GPS Embarcados",
     "tipo_botao": "Fonte",
     "nome_botao": "Prefeitura",
@@ -2500,7 +2500,7 @@
   },
   {
     "grupo_cidade": "Cidade Parceira",
-    "nome_cidade": "Olinda",
+    "nome_cidade": "Olinda*",
     "tipo_dado": "GPS Embarcados",
     "tipo_botao": "Geoportal",
     "nome_botao": "GeoPortal",
@@ -2514,7 +2514,7 @@
   },
   {
     "grupo_cidade": "Cidade Parceira",
-    "nome_cidade": "Olinda",
+    "nome_cidade": "Olinda*",
     "tipo_dado": "Outros Arquivos Vetoriais",
     "tipo_botao": "Dataverse",
     "nome_botao": "Dataverse",
@@ -2532,7 +2532,7 @@
   },
   {
     "grupo_cidade": "Cidade Parceira",
-    "nome_cidade": "Olinda",
+    "nome_cidade": "Olinda*",
     "tipo_dado": "Outros Arquivos Vetoriais",
     "tipo_botao": "Fonte",
     "nome_botao": "Prefeitura",
@@ -2546,7 +2546,7 @@
   },
   {
     "grupo_cidade": "Cidade Parceira",
-    "nome_cidade": "Olinda",
+    "nome_cidade": "Olinda*",
     "tipo_dado": "Outros Arquivos Vetoriais",
     "tipo_botao": "Geoportal",
     "nome_botao": "GeoPortal",
@@ -2560,7 +2560,7 @@
   },
   {
     "grupo_cidade": "Cidade Parceira",
-    "nome_cidade": "Paulista",
+    "nome_cidade": "Paulista*",
     "tipo_dado": "GTFS",
     "tipo_botao": "Dataverse",
     "nome_botao": "Dataverse",
@@ -2574,7 +2574,7 @@
   },
   {
     "grupo_cidade": "Cidade Parceira",
-    "nome_cidade": "Paulista",
+    "nome_cidade": "Paulista*",
     "tipo_dado": "GTFS",
     "tipo_botao": "Fonte",
     "nome_botao": "Prefeitura",
@@ -2588,7 +2588,7 @@
   },
   {
     "grupo_cidade": "Cidade Parceira",
-    "nome_cidade": "Paulista",
+    "nome_cidade": "Paulista*",
     "tipo_dado": "GTFS",
     "tipo_botao": "Geoportal",
     "nome_botao": "GeoPortal",
@@ -2602,7 +2602,7 @@
   },
   {
     "grupo_cidade": "Cidade Parceira",
-    "nome_cidade": "Paulista",
+    "nome_cidade": "Paulista*",
     "tipo_dado": "Bilhetagem",
     "tipo_botao": "Dataverse",
     "nome_botao": "Dataverse",
@@ -2628,7 +2628,7 @@
   },
   {
     "grupo_cidade": "Cidade Parceira",
-    "nome_cidade": "Paulista",
+    "nome_cidade": "Paulista*",
     "tipo_dado": "Bilhetagem",
     "tipo_botao": "Fonte",
     "nome_botao": "Prefeitura",
@@ -2642,7 +2642,7 @@
   },
   {
     "grupo_cidade": "Cidade Parceira",
-    "nome_cidade": "Paulista",
+    "nome_cidade": "Paulista*",
     "tipo_dado": "Bilhetagem",
     "tipo_botao": "Geoportal",
     "nome_botao": "GeoPortal",
@@ -2656,7 +2656,7 @@
   },
   {
     "grupo_cidade": "Cidade Parceira",
-    "nome_cidade": "Paulista",
+    "nome_cidade": "Paulista*",
     "tipo_dado": "GPS Embarcados",
     "tipo_botao": "Dataverse",
     "nome_botao": "Dataverse",
@@ -2670,7 +2670,7 @@
   },
   {
     "grupo_cidade": "Cidade Parceira",
-    "nome_cidade": "Paulista",
+    "nome_cidade": "Paulista*",
     "tipo_dado": "GPS Embarcados",
     "tipo_botao": "Fonte",
     "nome_botao": "Prefeitura",
@@ -2684,7 +2684,7 @@
   },
   {
     "grupo_cidade": "Cidade Parceira",
-    "nome_cidade": "Paulista",
+    "nome_cidade": "Paulista*",
     "tipo_dado": "GPS Embarcados",
     "tipo_botao": "Geoportal",
     "nome_botao": "GeoPortal",
@@ -2698,7 +2698,7 @@
   },
   {
     "grupo_cidade": "Cidade Parceira",
-    "nome_cidade": "Paulista",
+    "nome_cidade": "Paulista*",
     "tipo_dado": "Outros Arquivos Vetoriais",
     "tipo_botao": "Dataverse",
     "nome_botao": "Dataverse",
@@ -2716,7 +2716,7 @@
   },
   {
     "grupo_cidade": "Cidade Parceira",
-    "nome_cidade": "Paulista",
+    "nome_cidade": "Paulista*",
     "tipo_dado": "Outros Arquivos Vetoriais",
     "tipo_botao": "Fonte",
     "nome_botao": "Prefeitura",
@@ -2730,7 +2730,7 @@
   },
   {
     "grupo_cidade": "Cidade Parceira",
-    "nome_cidade": "Paulista",
+    "nome_cidade": "Paulista*",
     "tipo_dado": "Outros Arquivos Vetoriais",
     "tipo_botao": "Geoportal",
     "nome_botao": "GeoPortal",
@@ -2940,7 +2940,7 @@
   },
   {
     "grupo_cidade": "Cidade Parceira",
-    "nome_cidade": "Recife",
+    "nome_cidade": "Recife*",
     "tipo_dado": "Bilhetagem",
     "tipo_botao": "Geoportal",
     "nome_botao": "GeoPortal",
@@ -2954,7 +2954,7 @@
   },
   {
     "grupo_cidade": "Cidade Parceira",
-    "nome_cidade": "Recife",
+    "nome_cidade": "Recife*",
     "tipo_dado": "Bilhetagem",
     "tipo_botao": "Fonte",
     "nome_botao": "Dados Abertos",
@@ -2968,7 +2968,7 @@
   },
   {
     "grupo_cidade": "Cidade Parceira",
-    "nome_cidade": "Recife",
+    "nome_cidade": "Recife*",
     "tipo_dado": "Bilhetagem",
     "tipo_botao": "Dataverse",
     "nome_botao": "Dataverse",
@@ -2991,7 +2991,7 @@
   },
   {
     "grupo_cidade": "Cidade Parceira",
-    "nome_cidade": "Recife",
+    "nome_cidade": "Recife*",
     "tipo_dado": "GTFS",
     "tipo_botao": "Geoportal",
     "nome_botao": "GeoPortal",
@@ -3005,7 +3005,7 @@
   },
   {
     "grupo_cidade": "Cidade Parceira",
-    "nome_cidade": "Recife",
+    "nome_cidade": "Recife*",
     "tipo_dado": "GTFS",
     "tipo_botao": "Fonte",
     "nome_botao": "Dados Abertos",
@@ -3019,7 +3019,7 @@
   },
   {
     "grupo_cidade": "Cidade Parceira",
-    "nome_cidade": "Recife",
+    "nome_cidade": "Recife*",
     "tipo_dado": "GTFS",
     "tipo_botao": "Dataverse",
     "nome_botao": "Dataverse",
@@ -3033,7 +3033,6 @@
   },
   {
     "grupo_cidade": "Cidade Parceira",
-    "nome_cidade": "Recife",
     "tipo_dado": "GPS",
     "tipo_botao": "Geoportal",
     "data": [
@@ -3044,7 +3043,6 @@
   },
   {
     "grupo_cidade": "Cidade Parceira",
-    "nome_cidade": "Recife",
     "tipo_dado": "GPS",
     "tipo_botao": "Fonte",
     "data": [
@@ -3055,7 +3053,6 @@
   },
   {
     "grupo_cidade": "Cidade Parceira",
-    "nome_cidade": "Recife",
     "tipo_dado": "GPS",
     "tipo_botao": "Dataverse",
     "data": [
@@ -3066,7 +3063,7 @@
   },
   {
     "grupo_cidade": "Cidade Parceira",
-    "nome_cidade": "Recife",
+    "nome_cidade": "Recife*",
     "tipo_dado": "Outros Arquivos Vetoriais",
     "tipo_botao": "Geoportal",
     "nome_botao": "GeoPortal",
@@ -3080,7 +3077,7 @@
   },
   {
     "grupo_cidade": "Cidade Parceira",
-    "nome_cidade": "Recife",
+    "nome_cidade": "Recife*",
     "tipo_dado": "Outros Arquivos Vetoriais",
     "tipo_botao": "Fonte",
     "nome_botao": "Dados Abertos",
@@ -3094,7 +3091,7 @@
   },
   {
     "grupo_cidade": "Cidade Parceira",
-    "nome_cidade": "Recife",
+    "nome_cidade": "Recife*",
     "tipo_dado": "Outros Arquivos Vetoriais",
     "tipo_botao": "Dataverse",
     "nome_botao": "Dataverse",
@@ -3615,7 +3612,7 @@
   },
   {
     "grupo_cidade": "Cidade Parceira",
-    "nome_cidade": "São Lourenço da Mata",
+    "nome_cidade": "São Lourenço da Mata*",
     "tipo_dado": "GTFS",
     "tipo_botao": "Dataverse",
     "nome_botao": "Dataverse",
@@ -3629,7 +3626,7 @@
   },
   {
     "grupo_cidade": "Cidade Parceira",
-    "nome_cidade": "São Lourenço da Mata",
+    "nome_cidade": "São Lourenço da Mata*",
     "tipo_dado": "GTFS",
     "tipo_botao": "Fonte",
     "nome_botao": "Prefeitura",
@@ -3643,7 +3640,7 @@
   },
   {
     "grupo_cidade": "Cidade Parceira",
-    "nome_cidade": "São Lourenço da Mata",
+    "nome_cidade": "São Lourenço da Mata*",
     "tipo_dado": "GTFS",
     "tipo_botao": "Geoportal",
     "nome_botao": "GeoPortal",
@@ -3657,7 +3654,7 @@
   },
   {
     "grupo_cidade": "Cidade Parceira",
-    "nome_cidade": "São Lourenço da Mata",
+    "nome_cidade": "São Lourenço da Mata*",
     "tipo_dado": "Bilhetagem",
     "tipo_botao": "Dataverse",
     "nome_botao": "Dataverse",
@@ -3683,7 +3680,7 @@
   },
   {
     "grupo_cidade": "Cidade Parceira",
-    "nome_cidade": "São Lourenço da Mata",
+    "nome_cidade": "São Lourenço da Mata*",
     "tipo_dado": "Bilhetagem",
     "tipo_botao": "Fonte",
     "nome_botao": "Prefeitura",
@@ -3697,7 +3694,7 @@
   },
   {
     "grupo_cidade": "Cidade Parceira",
-    "nome_cidade": "São Lourenço da Mata",
+    "nome_cidade": "São Lourenço da Mata*",
     "tipo_dado": "Bilhetagem",
     "tipo_botao": "Geoportal",
     "nome_botao": "GeoPortal",
@@ -3711,7 +3708,7 @@
   },
   {
     "grupo_cidade": "Cidade Parceira",
-    "nome_cidade": "São Lourenço da Mata",
+    "nome_cidade": "São Lourenço da Mata*",
     "tipo_dado": "GPS Embarcados",
     "tipo_botao": "Dataverse",
     "nome_botao": "Dataverse",
@@ -3725,7 +3722,7 @@
   },
   {
     "grupo_cidade": "Cidade Parceira",
-    "nome_cidade": "São Lourenço da Mata",
+    "nome_cidade": "São Lourenço da Mata*",
     "tipo_dado": "GPS Embarcados",
     "tipo_botao": "Fonte",
     "nome_botao": "Prefeitura",
@@ -3739,7 +3736,7 @@
   },
   {
     "grupo_cidade": "Cidade Parceira",
-    "nome_cidade": "São Lourenço da Mata",
+    "nome_cidade": "São Lourenço da Mata*",
     "tipo_dado": "GPS Embarcados",
     "tipo_botao": "Geoportal",
     "nome_botao": "GeoPortal",
@@ -3753,7 +3750,7 @@
   },
   {
     "grupo_cidade": "Cidade Parceira",
-    "nome_cidade": "São Lourenço da Mata",
+    "nome_cidade": "São Lourenço da Mata*",
     "tipo_dado": "Outros Arquivos Vetoriais",
     "tipo_botao": "Dataverse",
     "nome_botao": "Dataverse",
@@ -3771,7 +3768,7 @@
   },
   {
     "grupo_cidade": "Cidade Parceira",
-    "nome_cidade": "São Lourenço da Mata",
+    "nome_cidade": "São Lourenço da Mata*",
     "tipo_dado": "Outros Arquivos Vetoriais",
     "tipo_botao": "Fonte",
     "nome_botao": "Prefeitura",
@@ -3785,7 +3782,7 @@
   },
   {
     "grupo_cidade": "Cidade Parceira",
-    "nome_cidade": "São Lourenço da Mata",
+    "nome_cidade": "São Lourenço da Mata*",
     "tipo_dado": "Outros Arquivos Vetoriais",
     "tipo_botao": "Geoportal",
     "nome_botao": "GeoPortal",
