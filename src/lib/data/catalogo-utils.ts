@@ -68,7 +68,7 @@ export function getCitiesByGroup(group: 'Cidade Parceira' | 'Dados Abertos'): Ci
     const cityName = item.nome_cidade
     const dataTypeKey = DATA_TYPE_MAPPING[item.tipo_dado]
     
-    if (!dataTypeKey) return
+    if (!dataTypeKey || !cityName) return
     
     if (!citiesMap.has(cityName)) {
       citiesMap.set(cityName, {
@@ -180,7 +180,9 @@ export function getModalData(cityName: string, dataType: string, group: 'Cidade 
 export function getAllCities() {
   const allCities = new Set<string>()
   catalogoData.forEach(item => {
-    allCities.add(item.nome_cidade)
+    if (item.nome_cidade) {
+      allCities.add(item.nome_cidade)
+    }
   })
   return Array.from(allCities).sort()
 }
