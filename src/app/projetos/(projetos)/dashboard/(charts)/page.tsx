@@ -20,7 +20,7 @@ export default function ChartsPage() {
   
   // Year selection
   const availableYears = [2019, 2020, 2021, 2022, 2023, 2024]
-  const [selectedYearIndex, setSelectedYearIndex] = React.useState<number[]>([4]) // Default to 2023 (index 3)
+  const [selectedYearIndex, setSelectedYearIndex] = React.useState<number[]>([5]) // Default to 2024
   const selectedYear = availableYears[selectedYearIndex[0]]
   
   // Start with some default selections to match the images

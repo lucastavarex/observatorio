@@ -16,18 +16,18 @@ export function useDashboardData(selectedFilter: string, year?: number) {
     loadData()
   }, [])
 
-  // Get table data for the selected variable (ALWAYS uses 2023 data for table)
+  // Get table data for the selected variable and year
   const data = React.useMemo(() => {
     if (!selectedFilter) return []
     
-    return getTableData(selectedFilter).map((item, index) => ({
+    return getTableData(selectedFilter, year).map((item, index) => ({
       id: item.codigo || `${item.municipio}-${index}`,
       municipio: item.municipio,
       unidadeFederativa: item.uf,
       value: item.value,
       label_pergunta: item.label_pergunta
     }))
-  }, [selectedFilter])
+  }, [selectedFilter, year])
 
   // Get statistics for the selected variable (uses year parameter for charts)
   const stats = React.useMemo(() => {

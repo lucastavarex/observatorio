@@ -13,7 +13,7 @@ export default function DashboardContent() {
   const [selectedFilter, setSelectedFilter] = React.useState<string>("Valor Arrecadado com Multas de Trânsito")
   const [globalFilter, setGlobalFilter] = React.useState<string>("")
   const [selectedYear, setSelectedYear] = React.useState<string>("2024")
-  const { data, stats, isLoading } = useDashboardData(selectedFilter)
+  const { data, isLoading } = useDashboardData(selectedFilter, parseInt(selectedYear))
 
   // Get available years for the selected variable
   const availableYears = React.useMemo(() => {
@@ -24,7 +24,7 @@ export default function DashboardContent() {
         if (variables.includes(selectedFilter)) {
           years.push(year.toString())
         }
-      } catch (error) {
+      } catch {
         // Skip years without data
       }
     }
@@ -35,7 +35,7 @@ export default function DashboardContent() {
   const completenessPercentage = React.useMemo(() => {
     try {
       return getVariableCityFillPercentage(selectedFilter, parseInt(selectedYear))
-    } catch (error) {
+    } catch {
       return 0
     }
   }, [selectedFilter, selectedYear])
@@ -57,7 +57,7 @@ export default function DashboardContent() {
       // Get the question from the data
       const variableData = cityWithData.data.find(item => item.label === variableName)
       return variableData?.label_pergunta || "Pergunta não disponível para esta variável"
-    } catch (error) {
+    } catch {
       return "Pergunta não disponível"
     }
   }

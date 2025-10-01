@@ -77,12 +77,18 @@ export function getAvailableVariables(year?: number): string[] {
   const data = year ? getPEMOBDataByYear(year) : pemobData
   if (data.length === 0) return []
   
-  // Get all unique labels from the data arrays, but only those with is_dashboard: true
+  // Get all unique labels from the data arrays, but only those with is_dashboard: true and non-zero values
   const allLabels = new Set<string>()
   data.forEach(city => {
     city.data.forEach(item => {
-      // Only include variables that are marked for dashboard display and have valid labels
-      if (item.is_dashboard === true && item.label && typeof item.label === 'string' && item.label.trim() !== '') {
+      // Only include variables that are marked for dashboard display, have valid labels, and non-zero values
+      if (item.is_dashboard === true && 
+          item.label && 
+          typeof item.label === 'string' && 
+          item.label.trim() !== '' &&
+          item.value !== null && 
+          item.value !== undefined && 
+          item.value !== 0) {
         allLabels.add(item.label.trim())
       }
     })
@@ -158,8 +164,8 @@ export function searchPEMOBCities(query: string, year?: number): string[] {
     .sort()
 }
 
-// Get formatted data for table display (ALWAYS uses 2023 data)
-export function getTableData(variableName: string): Array<{
+// Get formatted data for table display for a specific year
+export function getTableData(variableName: string, year?: number): Array<{
   municipio: string
   uf: string
   value: number | null
@@ -171,7 +177,10 @@ export function getTableData(variableName: string): Array<{
     return []
   }
   
-  return pemobDataTable
+  // Use specific year data or fallback to 2023 for table
+  const data = year ? getPEMOBDataByYear(year) : pemobDataTable
+  
+  return data
     .map(city => {
       const dataItem = city.data.find(item => 
         item.label === variableName && item.is_dashboard === true
