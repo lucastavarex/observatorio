@@ -31,15 +31,15 @@ const publicacoesItems = [
     description: "Explore nossa coleção de livros sobre mobilidade urbana e desenvolvimento sustentável",
   },
   {
-    title: "Artigos científicos",
-    href: "/publicacoes?tipo=artigos",
-    description: "Acesse artigos científicos e pesquisas sobre mobilidade urbana",
+    title: "Policy Papers",
+    href: "/publicacoes?tipo=policy_paper",
+    description: "Acesse Policy Papers sobre mobilidade urbana",
   },
-  {
-    title: "Notas técnicas",
-    href: "/publicacoes?tipo=notas",
-    description: "Consulte notas técnicas e documentos especializados em mobilidade",
-  },
+  // {
+  //   title: "Notas técnicas",
+  //   href: "/publicacoes?tipo=notas",
+  //   description: "Consulte notas técnicas e documentos especializados em mobilidade",
+  // },
 ]
 
 export function Footer() {

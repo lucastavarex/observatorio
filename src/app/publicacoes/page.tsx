@@ -1,11 +1,15 @@
 "use client"
 
+import publi_princ_conc from "@/app/assets/images/publi_princ_conc.png";
 import publicacao1 from "@/app/assets/images/publicacao1.png";
 import publicacao2 from "@/app/assets/images/publicacao2.png";
 import publicacao3 from "@/app/assets/images/publicacao3.png";
+import publicacao4 from "@/app/assets/images/publicacao4.png";
+import publicacao5 from "@/app/assets/images/publicacao5.png";
 import { Header } from "@/components/header";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
+import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 
@@ -13,10 +17,11 @@ import { useEffect, useState } from "react";
 interface Publication {
   id: string;
   title: string;
-  description: string;
+  description?: string;
   image: typeof publicacao1 | typeof publicacao2 | typeof publicacao3;
   alt: string;
-  tipo: "livros" | "artigos" | "notas";
+  tipo: "livros" | "policy_paper" | "notas";
+  link?: string;
 }
 
 const publications: Publication[] = [
@@ -26,7 +31,8 @@ const publications: Publication[] = [
     description: "Este Guia foi elaborado pelo Núcleo de Mobilidade Urbana do Centro de Estudos das Cidades – Laboratório Arq.Futuro do Insper, com apoio e cooperação técnica do Itaú Unibanco.",
     image: publicacao1,
     alt: "Guia de Eletromobilidade",
-    tipo: "livros"
+    tipo: "livros",
+    link: "https://repositorio-api.insper.edu.br/server/api/core/bitstreams/72e76cf4-e9b7-4a57-a9c5-2441c178db7c/content"
   },
   {
     id: "2",
@@ -34,7 +40,8 @@ const publications: Publication[] = [
     description: "O Guia de Mobilidade Humana tem o propósito de fornecer orientação prática a partir de referências relevantes baseadas em dados e evidências, experiências de gestão no setor da mobilidade e na literatura disponível.",
     image: publicacao2,
     alt: "Guia de Mobilidade Humana",
-    tipo: "livros"
+    tipo: "livros",
+    link: "https://repositorio.insper.edu.br/entities/publication/f0dcb9c3-8d56-4cf5-8149-a0c93cadd739"
   },
   {
     id: "3",
@@ -42,23 +49,42 @@ const publications: Publication[] = [
     description: "Documento para apoiar a elaboração de programas de governo com foco em mobilidade urbana sustentável para as eleições municipais de 2024.",
     image: publicacao3,
     alt: "Mobilidade Humana",
-    tipo: "notas"
+    tipo: "livros",
+    link: "https://repositorio-api.insper.edu.br/server/api/core/bitstreams/74ba137c-45f8-4f98-b20e-9462e8dbb76a/content"
   },
   {
     id: "4",
-    title: "Análise de Indicadores de Mobilidade Urbana",
-    description: "Estudo comparativo dos indicadores de mobilidade urbana entre diferentes cidades brasileiras, com foco em sustentabilidade e eficiência.",
-    image: publicacao3,
-    alt: "Análise de Indicadores",
-    tipo: "artigos"
+    title: "Coalizão dos Transportes",
+    description: "Como tornar o setor de transporte um contribuidor ativo para a redução das emissões brasileiras.",
+    image: publicacao4,
+    alt: "Coalizão dos Transportes",
+    tipo: "livros",
+    link: "https://cdn.cnt.org.br/diretorioVirtual/23c3a08d-9fd6-4d8d-ba5c-3e935eed10fa.pdf"
   },
   {
     id: "5",
-    title: "Políticas Públicas para Mobilidade Sustentável",
-    description: "Revisão das políticas públicas implementadas em cidades brasileiras para promoção da mobilidade sustentável e redução de emissões.",
-    image: publicacao3,
-    alt: "Políticas Públicas",
-    tipo: "artigos"
+    title: "Avaliação do impacto da Faixa Azul nos sinistros de trânsito em São Paulo",
+    description: "Avaliação do impacto da Faixa Azul nos sinistros de trânsito em São Paulo",
+    image: publicacao5,
+    alt: "Avaliação do impacto da Faixa Azul nos sinistros de trânsito em São Paulo",
+    tipo: "policy_paper",
+    link: "https://repositorio.insper.edu.br/entities/publication/36ec3e70-30bd-4c24-92bb-515e18f233be"
+  },
+  {
+    id: "6",
+    title: "Coalizão dos transportes: como tornar o setor de transportes um contribuidor ativo para a redução das emissões brasileiras (Estudo Completo)",
+    image: publicacao4,
+    alt: "Avaliação do impacto da Faixa Azul nos sinistros de trânsito em São Paulo",
+    tipo: "livros",
+    link: "https://insper-my.sharepoint.com/:b:/g/personal/laboratorioarqfuturo_insper_edu_br/EUOiGLEG4FVBraJ11KmGal0BHEm-HERqa9eUrzPYdG_wHQ?e=d1rYFj"
+  },
+  {
+    id: "7",
+    title: "Coalizão dos transportes: como tornar o setor de transportes um contribuidor ativo para a redução das emissões brasileiras (Relatório Síntese)",
+    image: publi_princ_conc,
+    alt: "Avaliação do impacto da Faixa Azul nos sinistros de trânsito em São Paulo",
+    tipo: "livros",
+    link: "https://insper-my.sharepoint.com/:b:/g/personal/laboratorioarqfuturo_insper_edu_br/EbQUkLDHw9BKsRjutjw0kfABvgvfNXh3QfvGciMOU2ULbQ?e=rB6tWf"
   }
 ];
 
@@ -125,18 +151,18 @@ export default function Publicacoes() {
           </Button>
           <Button 
             variant="secondary"
-            onClick={() => handleFilterClick("artigos")}
-            className={`${activeFilter === "artigos" ?  'bg-[#EAEAEA] text-black hover:bg-[#EAEAEA]' : 'text-black/40 hover:text-black hover:bg-[#EAEAEA]'}`}
+            onClick={() => handleFilterClick("policy_paper")}
+            className={`${activeFilter === "policy_paper" ?  'bg-[#EAEAEA] text-black hover:bg-[#EAEAEA]' : 'text-black/40 hover:text-black hover:bg-[#EAEAEA]'}`}
           >
-            Artigos científicos
+            Policy Papers
           </Button>
-          <Button 
+          {/* <Button 
             variant="secondary"
             onClick={() => handleFilterClick("notas")}
             className={`${activeFilter === "notas" ? 'bg-[#EAEAEA] text-black hover:bg-[#EAEAEA]' : 'text-black/40 hover:text-black hover:bg-[#EAEAEA]'}`}
           >
             Notas técnicas
-          </Button>
+          </Button> */}
         </div>
 
         {/* Publications Grid */}
@@ -144,6 +170,7 @@ export default function Publicacoes() {
           {filteredPublications.map((publication) => (
             <div key={publication.id} className="flex flex-col items-start text-left max-w-[320px] group">
               <div className="relative overflow-hidden ">
+                <Link target="_blank" href={publication.link || ""}>
                 <Image
                   src={publication.image}
                   alt={publication.alt}
@@ -151,6 +178,7 @@ export default function Publicacoes() {
                   height={480}
                   className=" transition-transform duration-300 group-hover:scale-105"
                 />
+                </Link>
               </div>
               <h3 className="mt-4 font-regular text-sm">{publication.title}</h3>
               <p className="text-xs text-gray-600 mt-2">

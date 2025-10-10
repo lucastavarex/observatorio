@@ -12,30 +12,30 @@ interface ImpactNumber {
 
 const impactNumbers: ImpactNumber[] = [
   {
-    value: 63,
+    value: 10000,
     suffix: "gb",
     label: "de dados coletados",
     duration: 2000,
   },
   {
-    value: 20,
+    value: 22,
     label: "municípios com dados",
     duration: 1500,
   },
   {
-    value: 150,
+    value: 205,
     suffix: "+",
     label: "alunos/educação executiva",
     duration: 1800,
   },
   {
-    value: 37,
+    value: 47,
     suffix: "+",
     label: "horas de eventos realizados",
     duration: 1600,
   },
   {
-    value: 2000,
+    value: 1010,
     suffix: "+",
     label: "participantes em eventos",
     duration: 2200,
@@ -108,11 +108,11 @@ export function ImpactNumbersSection() {
   const isInView = useInView(ref);
 
   // Create individual counters for each impact number
-  const counter1 = useCounter(63, 2000);
-  const counter2 = useCounter(20, 1500);
-  const counter3 = useCounter(150, 1800);
-  const counter4 = useCounter(37, 1600);
-  const counter5 = useCounter(2000, 2200);
+  const counter1 = useCounter(10000, 2000);
+  const counter2 = useCounter(22, 1500);
+  const counter3 = useCounter(205, 1800);
+  const counter4 = useCounter(47, 1600);
+  const counter5 = useCounter(1010, 2200);
 
   const counters = [counter1, counter2, counter3, counter4, counter5];
 
