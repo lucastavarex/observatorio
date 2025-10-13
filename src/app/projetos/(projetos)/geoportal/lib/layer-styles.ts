@@ -320,33 +320,70 @@ export const layerStyles: Record<string, LayerStyle> = {
     "slot": "",
     "source-layer": "heatmap_embarques-b8mehl"
   },
-  "ciclovia-48ed00":
+  "bhe_ciclovia":
    {
     "layout": {
       "visibility": "none"
     },
     "type": "line",
     "source": "composite",
-    "id": "ciclovia-48ed00",
+    "id": "bhe-ciclovia",
     "paint": {
-      "line-color": "#006d2c"
+      "line-width": 3,
+      "line-color": [
+        "match",
+        [
+          "get",
+          "Tipo"
+        ],
+        [
+          "Ciclofaixa"
+        ],
+        "#e41a1c",
+        [
+          "Ciclovia"
+        ],
+        "#4daf4a",
+        [
+          "Ciclorrua"
+        ],
+        "#377eb8",
+        [
+          "Calcada Cp",
+          "Compartilh",
+          "Cvia Calca"
+        ],
+        "#ff7f00",
+        [
+          "Cvia Cante",
+          "Zona 30",
+          "Cfaix+Z30",
+          "Cv+Z30"
+        ],
+        "#984ea3",
+        [
+          "Cvia+Cfaix"
+        ],
+        "#f9e806",
+        "#000000"
+      ]
     },
     "slot": "",
-    "source-layer": "ciclovia-48ed00"
+    "source-layer": "bhe_ciclovia"
   },
-  "rotas_onibus_agregado-4r2tni":
+  "bhe_rotas_onibus":
    {
     "layout": {
       "visibility": "none"
     },
-    "type": "line",
+       "type": "line",
     "source": "composite",
-    "id": "rotas-onibus-agregado-4r2tni",
+    "id": "bhe-rotas-onibus",
     "paint": {
       "line-color": "#cb181d"
     },
     "slot": "",
-    "source-layer": "rotas_onibus_agregado-4r2tni"
+    "source-layer": "bhe_rotas_onibus"
   },
    // ================== END BELO HORIZONTE ==================
 

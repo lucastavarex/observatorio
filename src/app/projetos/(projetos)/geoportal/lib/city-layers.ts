@@ -100,18 +100,18 @@ export const cityLayersConfig: CityLayersConfig = {
       hasCustomStyle: true
     },
     { 
-      id: "ciclovia-48ed00",
+      id: "bhe_ciclovia",
       name: "Ciclovia",
       description: "Ciclovia por bairro",
-      tilesetId: "observatorio-nacional.duoax0n7",
-      sourceLayer: "ciclovia-48ed00",
+      tilesetId: "observatorio-nacional.4b3xv5u1",
+      sourceLayer: "bhe_ciclovia",
       layerType: "line",
       hasCustomStyle: true
     },
-    { id: "rotas_onibus_agregado-4r2tni", name: "Rotas de ônibus agregado", 
+    { id: "bhe_rotas_onibus", name: "Rotas de ônibus agregado", 
       description: "Rotas consolidadas por corredores principais",
-      tilesetId: "observatorio-nacional.4g9kkgvq",
-      sourceLayer: "rotas_onibus_agregado-4r2tni",
+      tilesetId: "observatorio-nacional.6tx22262",
+      sourceLayer: "bhe_rotas_onibus",
       layerType: "line",
       hasCustomStyle: true
     },
