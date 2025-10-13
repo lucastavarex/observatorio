@@ -386,6 +386,108 @@ export const layerStyles: Record<string, LayerStyle> = {
     "source-layer": "bhe_rotas_onibus"
   },
    // ================== END BELO HORIZONTE ==================
+   // ================== START FORTALEZA ==================
+   "frt_income_hh-26qfm4":
+   {
+     "layout": {
+      "visibility": "none"
+    },
+    "type": "fill",
+    "source": "composite",
+    "id": "frt-income-hh-26qfm4",
+    "paint": {
+      "fill-opacity": 0.7,
+      "fill-color": [
+        "step",
+        [
+          "get",
+          "Renda Domiciliar Média (R$)"
+        ],
+        "#fff7fb",
+        2000,
+        "#ece2f0",
+        3500,
+        "#a6bddb",
+        5000,
+        "#3690c0",
+        7500,
+        "#02818a",
+        10000,
+        "#014636"
+      ]
+    },
+    "slot": "",
+    "source-layer": "frt_income_hh-26qfm4"
+   },
+   "frt_pop-9wsvgo":{
+     "layout": {
+      "visibility": "none"
+    },
+    "type": "fill",
+    "source": "composite",
+    "id": "frt-pop-9wsvgo",
+    "paint": {
+      "fill-opacity": 0.7,
+      "fill-color": [
+        "step",
+        [
+          "get",
+          "População (2022)"
+        ],
+        "#f7fcf5",
+        500,
+        "#e5f5e0",
+        1000,
+        "#a1d99b",
+        2000,
+        "#41ab5d",
+        3000,
+        "#006d2c",
+        5000,
+        "#00441b"
+      ]
+    },
+    "slot": "",
+    "source-layer": "frt_pop-9wsvgo"
+   },
+   "frt_ciclovia_ciclomapas":
+   {
+     "layout": {
+      "visibility": "none"
+    },
+    "type": "line",
+    "source": "composite",
+    "id": "frt-ciclovia-ciclomapas",
+    "paint": {
+      "line-width": 3,
+      "line-color": [
+        "match",
+        [
+          "get",
+          "Tipo"
+        ],
+        [
+          "Ciclofaixa"
+        ],
+        "#e41a1c",
+        [
+          "Ciclorrota"
+        ],
+        "#377eb8",
+        [
+          "Ciclovia"
+        ],
+        "#4daf4a",
+        [
+          "Calçada compartilhada"
+        ],
+        "#f9e806",
+        "#000000"
+      ]
+    },
+    "slot": "",
+    "source-layer": "frt_ciclovia_ciclomapas"
+   },
 
    // ================== START NITERÓI ==================
    "renda-987gzt":
@@ -817,21 +919,86 @@ export const layerStyles: Record<string, LayerStyle> = {
     "slot": "",
     "source-layer": "renda-2bxm7u"
   },
-  "rotas_onibus-178ot7":
+  "cam_rotas_onibus":
    {
-    "type": "line",
+      "type": "line",
     "source": "composite",
-    "id": "rotas-onibus-178ot7",
+    "id": "cam-rotas-onibus",
     "paint": {
+      "line-width": 3,
       "line-color": "#cb181d"
     },
     "slot": "",
-    "source-layer": "rotas_onibus-178ot7",
+    "source-layer": "cam_rotas_onibus",
     "layout": {
       "visibility": "none"
     }
   },
    // ================== END CAMPINAS ==================
+// ================== START CURITIBA ==================
+"cur_pop-ddf53z":
+{
+    "type": "fill",
+    "source": "composite",
+    "id": "cur-pop-ddf53z",
+    "paint": {
+      "fill-opacity": 0.7,
+      "fill-color": [
+        "step",
+        [
+          "get",
+          "População (2022)"
+        ],
+        "#f7fcf5",
+        250,
+        "#e5f5e0",
+        500,
+        "#a1d99b",
+        1000,
+        "#41ab5d",
+        2500,
+        "#006d2c",
+        5000,
+        "#00441b"
+      ]
+    },
+    "slot": "",
+    "source-layer": "cur_pop-ddf53z"
+},
+"cur_income_hh-b297ww":
+{
+   "type": "fill",
+    "source": "composite",
+    "id": "cur-income-hh-b297ww",
+    "paint": {
+      "fill-opacity": 0.7,
+      "fill-color": [
+        "step",
+        [
+          "get",
+          "Renda Domiciliar Média (R$)"
+        ],
+        "#fff7fb",
+        2000,
+        "#ece2f0",
+        4000,
+        "#a6bddb",
+        6000,
+        "#3690c0",
+        10000,
+        "#02818a",
+        15000,
+        "#014636"
+      ]
+    },
+    "slot": "",
+    "source-layer": "cur_income_hh-b297ww",
+    "layout": {
+      "visibility": "none"
+    }
+},
+// ================== END CURITIBA ==================
+
 
    // ================== START PORTO ALEGRE ==================
    "renda_poa-0cq519":

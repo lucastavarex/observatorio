@@ -116,6 +116,35 @@ export const cityLayersConfig: CityLayersConfig = {
       hasCustomStyle: true
     },
   ],
+  "Fortaleza": [
+    {
+      id: "frt_income_hh-26qfm4",
+      name: "Renda Fortaleza",
+      description: "Renda per capita por bairro",
+      tilesetId: "observatorio-nacional.d0fxoy3e",
+      sourceLayer: "frt_income_hh-26qfm4",
+      layerType: "fill",
+      hasCustomStyle: true
+    },
+    {
+      id: "frt_pop-9wsvgo",
+      name: "População Fortaleza",
+      description: "População por bairro",
+      tilesetId: "observatorio-nacional.8p48v3df",
+      sourceLayer: "frt_pop-9wsvgo",
+      layerType: "fill",
+      hasCustomStyle: true
+    },
+    {
+      id: "frt_ciclovia_ciclomapas",
+      name: "Ciclovia Fortaleza",
+      description: "Ciclovia",
+      tilesetId: "observatorio-nacional.6yi62vyd",
+      sourceLayer: "frt_ciclovia_ciclomapas",
+      layerType: "line",
+      hasCustomStyle: true
+    },
+  ],
   "Niteroi": [
     {
       id: "renda-987gzt",
@@ -242,12 +271,32 @@ export const cityLayersConfig: CityLayersConfig = {
       hasCustomStyle: true
     },
     {
-      id: "rotas_onibus-178ot7",
+      id: "cam_rotas_onibus",
       name: "Rotas de ônibus",
       description: "Rotas de ônibus por bairro",
-      tilesetId: "observatorio-nacional.6tqhobb3",
-      sourceLayer: "rotas_onibus-178ot7",
+      tilesetId: "observatorio-nacional.b5gy4hyf",
+      sourceLayer: "cam_rotas_onibus",
       layerType: "line",
+      hasCustomStyle: true
+    },
+  ],
+  "Curitiba": [
+    {
+      id: "cur_pop-ddf53z",
+      name: "População Curitiba",
+      description: "População por bairro",
+      tilesetId: "observatorio-nacional.d5c4yfux",
+      sourceLayer: "cur_pop-ddf53z",
+      layerType: "fill",
+      hasCustomStyle: true
+    },
+    {
+      id: "cur_income_hh-b297ww",
+      name: "Renda Porto Alegre",
+      description: "Renda per capita por bairro",
+      tilesetId: "observatorio-nacional.dnfgnx3h",
+      sourceLayer: "cur_income_hh-b297ww",
+      layerType: "fill",
       hasCustomStyle: true
     },
   ],

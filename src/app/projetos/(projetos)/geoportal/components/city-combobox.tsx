@@ -26,6 +26,14 @@ const cities = [
     label: "Belo Horizonte",
   },
   {
+    value: "Fortaleza",
+    label: "Fortaleza",
+  },
+  {
+    value: "Curitiba",
+    label: "Curitiba",
+  },
+  {
     value: "Niteroi",
     label: "Niterói",
   },
