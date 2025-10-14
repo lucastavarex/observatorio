@@ -116,6 +116,26 @@ export const cityLayersConfig: CityLayersConfig = {
       hasCustomStyle: true
     },
   ],
+  "Goiânia": [
+    {
+      id: "populacao_goi-5r0vfu",
+      name: "População Goiânia",
+      description: "População por bairro",
+      tilesetId: "observatorio-nacional.0359v92t",
+      sourceLayer: "populacao_goi-5r0vfu",
+      layerType: "fill",
+      hasCustomStyle: true
+    },
+    {
+      id: "renda_goi-8q2sqk",
+      name: "Renda Goiânia",
+      description: "Renda per capita por bairro",
+      tilesetId: "observatorio-nacional.0gzs6kdr",
+      sourceLayer: "renda_goi-8q2sqk",
+      layerType: "fill",
+      hasCustomStyle: true
+    },
+  ],
   "Fortaleza": [
     {
       id: "frt_income_hh-26qfm4",

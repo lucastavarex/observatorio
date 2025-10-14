@@ -386,6 +386,72 @@ export const layerStyles: Record<string, LayerStyle> = {
     "source-layer": "bhe_rotas_onibus"
   },
    // ================== END BELO HORIZONTE ==================
+   // ================== START GOIÂNIA ==================
+   "populacao_goi-5r0vfu":
+   {
+    "layout": {
+      "visibility": "none"
+    },
+    "type": "fill",
+    "source": "composite",
+    "id": "populacao-goi-5r0vfu",
+    "paint": {
+      "fill-opacity": 0.7,
+      "fill-color": [
+        "step",
+        [
+          "get",
+          "População (2022)"
+        ],
+        "#f7fcf5",
+        50,
+        "#e5f5e0",
+        200,
+        "#a1d99b",
+        800,
+        "#41ab5d",
+        1200,
+        "#006d2c",
+        2000,
+        "#00441b"
+      ]
+    },
+    "slot": "",
+    "source-layer": "populacao_goi-5r0vfu"
+   },
+   "renda_goi-8q2sqk":
+   {
+     "layout": {
+      "visibility": "none"
+    },
+    "type": "fill",
+    "source": "composite",
+    "id": "renda-goi-8q2sqk",
+    "paint": {
+      "fill-opacity": 0.7,
+      "fill-color": [
+        "step",
+        [
+          "get",
+          "Renda Domiciliar Média (R$)"
+        ],
+        "#fff7fb",
+        2000,
+        "#ece2f0",
+        3500,
+        "#a6bddb",
+        5000,
+        "#3690c0",
+        7500,
+        "#02818a",
+        12000,
+        "#014636"
+      ]
+    },
+    "slot": "",
+    "source-layer": "renda_goi-8q2sqk"
+   },
+   // ================== END GOIÂNIA ==================
    // ================== START FORTALEZA ==================
    "frt_income_hh-26qfm4":
    {

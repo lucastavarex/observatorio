@@ -9,10 +9,10 @@ import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover
 import { cn } from "@/lib/utils"
 
 const cities = [
-  // {
-  //   value: "São Paulo",
-  //   label: "São Paulo",
-  // },
+  {
+    value: "São Paulo",
+    label: "São Paulo",
+  },
   {
     value: "Rio de Janeiro",
     label: "Rio de Janeiro",
@@ -24,6 +24,10 @@ const cities = [
   {
     value: "Belo Horizonte",
     label: "Belo Horizonte",
+  },
+  {
+    value: "Goiânia",
+    label: "Goiânia",
   },
   {
     value: "Fortaleza",
