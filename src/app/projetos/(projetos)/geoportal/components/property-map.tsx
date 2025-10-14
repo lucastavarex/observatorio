@@ -83,6 +83,7 @@ function createDefaultLayerConfig(layerId: string, layerConfig: { layerType?: 'f
 }
 
 const cityCoordinates: Record<string, [number, number]> = {
+  "Brasil": [-51.97005, -13.69895], // Center of Brazil
   "São Paulo": [-46.6388, -23.5505],
   "Rio de Janeiro": [-43.43852, -22.91464],
   "Belo Horizonte": [-43.9388, -19.9167],
@@ -97,6 +98,22 @@ const cityCoordinates: Record<string, [number, number]> = {
   "Goiânia": [-49.333, -16.631]
 }
 
+const cityZoomLevels: Record<string, number> = {
+  "Brasil": 3.5,
+  "São Paulo": 10.5,
+  "Rio de Janeiro": 10.5,
+  "Belo Horizonte": 11,
+  "Fortaleza": 11,
+  "Curitiba": 11,
+  "Niteroi": 12,
+  "Santo André": 12,
+  "Salvador": 11,
+  "Recife": 11.5,
+  "Porto Alegre": 11,
+  "Campinas": 11.5,
+  "Goiânia": 11
+}
+
 export default function PropertyMap() {
   const router = useRouter()
   const mapContainer = useRef<HTMLDivElement>(null)
@@ -108,7 +125,7 @@ export default function PropertyMap() {
   const afterMap = useRef<mapboxgl.Map | null>(null)
   const compare = useRef<MapboxCompareInstance | null>(null)
   const [zoom] = useState(10.5)
-  const [selectedCity, setSelectedCity] = useState("Rio de Janeiro")
+  const [selectedCity, setSelectedCity] = useState("")
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [selectedLayers, setSelectedLayers] = useState<string[]>([])
   const [isComparisonMode, setIsComparisonMode] = useState(false)
@@ -332,41 +349,52 @@ export default function PropertyMap() {
     }
   }
 
+  // Helper function for recenter with pitch and bearing reset
+  const safeFlyToWithReset = (mapInstance: mapboxgl.Map, center: [number, number], zoom: number) => {
+    const executeFly = () => {
+      mapInstance.flyTo({
+        center,
+        zoom,
+        pitch: 0, // Reset to flat view
+        bearing: 0, // Reset to north-up orientation
+        duration: 2000,
+        essential: true
+      })
+    }
+
+    // Check if map is loaded and style is loaded
+    if (mapInstance.loaded() && mapInstance.isStyleLoaded()) {
+      executeFly()
+    } else {
+      // Wait for the map to be ready
+      const onLoad = () => {
+        executeFly()
+        mapInstance.off('load', onLoad)
+        mapInstance.off('idle', onLoad)
+      }
+      
+      // Listen to both load and idle events
+      mapInstance.once('load', onLoad)
+      mapInstance.once('idle', onLoad)
+    }
+  }
+
   // Recenter map functionality
   const handleRecenter = () => {
-    const center = cityCoordinates[selectedCity]
-    const zoomLevel = 10.5
-    const pitch = 0 // Reset to flat view
-    const bearing = 0 // Reset to north-up orientation
+    const targetCity = selectedCity || "Brasil"
+    const center = cityCoordinates[targetCity]
+    const zoomLevel = cityZoomLevels[targetCity]
     
     if (isComparisonMode) {
       if (beforeMap.current) {
-        beforeMap.current.flyTo({
-          center,
-          zoom: zoomLevel,
-          pitch,
-          bearing,
-          duration: 2000,
-        })
+        safeFlyToWithReset(beforeMap.current, center, zoomLevel)
       }
       if (afterMap.current) {
-        afterMap.current.flyTo({
-          center,
-          zoom: zoomLevel,
-          pitch,
-          bearing,
-          duration: 2000,
-        })
+        safeFlyToWithReset(afterMap.current, center, zoomLevel)
       }
     } else {
       if (map.current) {
-        map.current.flyTo({
-          center,
-          zoom: zoomLevel,
-          pitch,
-          bearing,
-          duration: 2000,
-        })
+        safeFlyToWithReset(map.current, center, zoomLevel)
       }
     }
   }
@@ -375,11 +403,15 @@ export default function PropertyMap() {
   useEffect(() => {
     if (!mapContainer.current || isComparisonMode) return
 
+    const initialCity = selectedCity || "Brasil"
+    const initialCenter = cityCoordinates[initialCity]
+    const initialZoom = cityZoomLevels[initialCity]
+
     map.current = new mapboxgl.Map({
       container: mapContainer.current,
       style: "mapbox://styles/mapbox/dark-v11",
-      center: cityCoordinates[selectedCity],
-      zoom,
+      center: initialCenter,
+      zoom: initialZoom,
     })
     map.current.on('load', () => {
       setMapLoaded(true)
@@ -391,6 +423,7 @@ export default function PropertyMap() {
         map.current = null
       }
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [zoom, isComparisonMode])
 
   // Initialize comparison maps
@@ -402,18 +435,22 @@ export default function PropertyMap() {
     if (afterMap.current) afterMap.current.remove()
     if (compare.current) compare.current.remove()
 
+    const initialCity = selectedCity || "Brasil"
+    const initialCenter = cityCoordinates[initialCity]
+    const initialZoom = cityZoomLevels[initialCity]
+
     beforeMap.current = new mapboxgl.Map({
       container: beforeMapContainer.current,
       style: "mapbox://styles/mapbox/dark-v11",
-      center: cityCoordinates[selectedCity],
-      zoom,
+      center: initialCenter,
+      zoom: initialZoom,
     })
 
     afterMap.current = new mapboxgl.Map({
       container: afterMapContainer.current,
       style: "mapbox://styles/mapbox/dark-v11",
-      center: cityCoordinates[selectedCity],
-      zoom,
+      center: initialCenter,
+      zoom: initialZoom,
     })
 
     // Initialize comparison with dynamic import
@@ -498,7 +535,36 @@ export default function PropertyMap() {
         afterMap.current = null
       }
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [zoom, isComparisonMode])
+
+  // Helper function to safely execute flyTo when map is ready
+  const safeFlyTo = (mapInstance: mapboxgl.Map, center: [number, number], zoom: number) => {
+    const executeFly = () => {
+      mapInstance.flyTo({
+        center,
+        zoom,
+        duration: 2000,
+        essential: true
+      })
+    }
+
+    // Check if map is loaded and style is loaded
+    if (mapInstance.loaded() && mapInstance.isStyleLoaded()) {
+      executeFly()
+    } else {
+      // Wait for the map to be ready
+      const onLoad = () => {
+        executeFly()
+        mapInstance.off('load', onLoad)
+        mapInstance.off('idle', onLoad)
+      }
+      
+      // Listen to both load and idle events
+      mapInstance.once('load', onLoad)
+      mapInstance.once('idle', onLoad)
+    }
+  }
 
   const handleCityChange = (city: string) => {
     // Reset selected layers when changing city
@@ -511,50 +577,26 @@ export default function PropertyMap() {
     // Clear all layers when changing city
     clearAllLayers()
 
-    // Fly to new city on the appropriate map(s) BEFORE updating state
-    const flyPromises = []
+    // Determine target location - Brasil if no city selected
+    const targetCity = city || "Brasil"
+    const targetCenter = cityCoordinates[targetCity]
+    const targetZoom = cityZoomLevels[targetCity]
 
+    // Fly to new location on the appropriate map(s)
     if (isComparisonMode) {
-      if (beforeMap.current && beforeMap.current.isStyleLoaded()) {
-        flyPromises.push(
-          new Promise<void>((resolve) => {
-            beforeMap.current!.flyTo({
-              center: cityCoordinates[city],
-              zoom: 10.5,
-              duration: 2000,
-            })
-            setTimeout(resolve, 2000) // Wait for animation to complete
-          })
-        )
+      if (beforeMap.current) {
+        safeFlyTo(beforeMap.current, targetCenter, targetZoom)
       }
-      if (afterMap.current && afterMap.current.isStyleLoaded()) {
-        flyPromises.push(
-          new Promise<void>((resolve) => {
-            afterMap.current!.flyTo({
-              center: cityCoordinates[city],
-              zoom: 10.5,
-              duration: 2000,
-            })
-            setTimeout(resolve, 2000) // Wait for animation to complete
-          })
-        )
+      if (afterMap.current) {
+        safeFlyTo(afterMap.current, targetCenter, targetZoom)
       }
     } else {
-      if (map.current && map.current.isStyleLoaded()) {
-        flyPromises.push(
-          new Promise<void>((resolve) => {
-            map.current!.flyTo({
-              center: cityCoordinates[city],
-              zoom: 10.5,
-              duration: 2000,
-            })
-            setTimeout(resolve, 2000) // Wait for animation to complete
-          })
-        )
+      if (map.current) {
+        safeFlyTo(map.current, targetCenter, targetZoom)
       }
     }
 
-    // Update state after fly animation starts
+    // Update state
     setSelectedCity(city)
   }
 
@@ -595,7 +637,8 @@ export default function PropertyMap() {
   }
 
   const clearAllLayers = () => {
-    const cityLayers = cityLayersConfig[selectedCity] || []
+    const targetCity = selectedCity || "Brasil"
+    const cityLayers = cityLayersConfig[targetCity] || []
     
     // Clear single map layers
     if (map.current && mapLoaded) {
@@ -678,7 +721,8 @@ export default function PropertyMap() {
   const handleComparisonLayerChange = (layerId: string, isLayer1: boolean) => {
     if (!beforeMap.current || !afterMap.current || !mapLoaded) return
     
-    const cityLayers = cityLayersConfig[selectedCity] || []
+    const targetCity = selectedCity || "Brasil"
+    const cityLayers = cityLayersConfig[targetCity] || []
     const layerConfig = cityLayers.find(l => l.id === layerId)
     
     if (layerConfig?.tilesetId && layerConfig?.sourceLayer) {
@@ -745,7 +789,8 @@ export default function PropertyMap() {
   const removeComparisonLayer = (layerId: string) => {
     if (!beforeMap.current || !afterMap.current || !mapLoaded) return
 
-    const cityLayers = cityLayersConfig[selectedCity] || []
+    const targetCity = selectedCity || "Brasil"
+    const cityLayers = cityLayersConfig[targetCity] || []
     const layerConfig = cityLayers.find(l => l.id === layerId)
     
     if (layerConfig?.tilesetId) {
@@ -786,9 +831,10 @@ export default function PropertyMap() {
   const handleLayersChange = (layers: string[]) => {
     if (!map.current || !mapLoaded) return
     
-    console.log('Handling layers change:', { previous: selectedLayers, new: layers, city: selectedCity })
+    const targetCity = selectedCity || "Brasil"
+    console.log('Handling layers change:', { previous: selectedLayers, new: layers, city: targetCity })
     
-    const cityLayers = cityLayersConfig[selectedCity] || []
+    const cityLayers = cityLayersConfig[targetCity] || []
     const previousLayers = selectedLayers
     const newLayers = layers
     
@@ -925,7 +971,7 @@ export default function PropertyMap() {
       </Button>
 
       <div className="absolute top-4 right-4 z-10 w-60 md:w-60 max-md:left-20 max-md:right-4 max-md:w-auto shadow-xl">
-        <CityCombobox value={selectedCity} onValueChange={handleCityChange} placeholder="Selecionar cidade..." />
+        <CityCombobox value={selectedCity} onValueChange={handleCityChange} placeholder="Brasil" />
       </div>
 
       <div
@@ -949,7 +995,7 @@ export default function PropertyMap() {
           <div className="flex-1 overflow-y-auto!">
             {isComparisonMode ? (
               <CityLayersComparison
-                selectedCity={selectedCity}
+                selectedCity={selectedCity || "Brasil"}
                 selectedLayer1={selectedLayer1}
                 selectedLayer2={selectedLayer2}
                 onLayer1Change={handleLayer1Change}
@@ -960,7 +1006,7 @@ export default function PropertyMap() {
               />
             ) : (
               <CityLayers
-                selectedCity={selectedCity}
+                selectedCity={selectedCity || "Brasil"}
                 selectedLayers={selectedLayers}
                 onLayersChange={handleLayersChange}
                 layerLoadingStates={layerLoadingStates}
@@ -975,7 +1021,7 @@ export default function PropertyMap() {
        {/* legends */}
        <CollapsibleLegend 
          selectedLayers={isComparisonMode ? [selectedLayer1, selectedLayer2].filter(Boolean) as string[] : selectedLayers}
-         selectedCity={selectedCity}
+         selectedCity={selectedCity || "Brasil"}
          cityLayersConfig={cityLayersConfig}
        />
        <div className="absolute top-32 right-4 z-9">

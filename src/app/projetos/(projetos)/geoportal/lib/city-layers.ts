@@ -13,6 +13,13 @@ export interface CityLayersConfig {
 }
 
 export const cityLayersConfig: CityLayersConfig = {
+  "Brasil": [
+    {
+      id: "brasil-placeholder",
+      name: "Visualização Brasil",
+      description: "Selecione uma cidade para visualizar as camadas disponíveis",
+    }
+  ],
   "Rio de Janeiro": [
     { 
       id: "renda", 
