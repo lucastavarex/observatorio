@@ -24,11 +24,11 @@ export const cityLayersConfig: CityLayersConfig = {
       hasCustomStyle: true
     },
     { 
-      id: "rotas-onibus", 
+      id: "rio_rotas_onibus", 
       name: "Rotas de ônibus", 
       description: "Rotas de ônibus por bairro",
-      tilesetId: "observatorio-nacional.7qsr7w57",
-      sourceLayer: "rotas_onibus-5yarkv",
+      tilesetId: "observatorio-nacional.28tgojsu",
+      sourceLayer: "rio_rotas_onibus",
       layerType: "fill",
       hasCustomStyle: true
     },
@@ -50,6 +50,7 @@ export const cityLayersConfig: CityLayersConfig = {
       layerType: "fill",
       hasCustomStyle: true
     },
+    
   ],
   "Recife": [
     { 
@@ -68,6 +69,15 @@ export const cityLayersConfig: CityLayersConfig = {
       tilesetId: "observatorio-nacional.8kla8qks",
       sourceLayer: "renda_rec-bcpy1l",
       layerType: "fill",
+      hasCustomStyle: true
+    },
+    {
+      id: "rec_ciclovia_ciclomapas",
+      name: "Ciclovia Recife",
+      description: "Ciclovia por bairro",
+      tilesetId: "observatorio-nacional.a4t3w6aw",
+      sourceLayer: "rec_ciclovia_ciclomapas",
+      layerType: "line",
       hasCustomStyle: true
     },
   ],
@@ -215,40 +225,49 @@ export const cityLayersConfig: CityLayersConfig = {
       hasCustomStyle: true
     },
     {
-      id: "rotas_onibus_sad-7n78wu",
+      id: "sad_rotas_onibus_sad",
       name: "Rotas de ônibus Santo André",
       description: "Rotas de ônibus por bairro",
-      tilesetId: "observatorio-nacional.2hyb7w6t",
-      sourceLayer: "rotas_onibus_sad-7n78wu",
+      tilesetId: "observatorio-nacional.6zw64vh7",
+      sourceLayer: "sad_rotas_onibus_sad",
       layerType: "line",
       hasCustomStyle: true
     },
+    {
+      id: "populacao_sad-3il930",
+      name: "População Santo André",
+      description: "População por bairro",
+      tilesetId: "observatorio-nacional.6qfgdjkf",
+      sourceLayer: "populacao_sad-3il930",
+      layerType: "fill",
+      hasCustomStyle: true
+    },
+    {
+      id: "renda_sad-a9kjjx",
+      name: "Renda Santo André",
+      description: "Renda per capita por bairro",
+      tilesetId: "observatorio-nacional.86a15ap9",
+      sourceLayer: "renda_sad-a9kjjx",
+      layerType: "fill",
+      hasCustomStyle: true
+    }
   ],
   "Salvador": [
     {
-      id: "ciclovia_tipo-bfdvvr",
+      id: "ssa_ciclovia",
       name: "Ciclovia",
       description: "Ciclovia por bairro",
-      tilesetId: "observatorio-nacional.awa9a5ko",
-      sourceLayer: "ciclovia_tipo-bfdvvr",
+      tilesetId: "observatorio-nacional.dnhoztpu",
+      sourceLayer: "ssa_ciclovia",
       layerType: "line",
       hasCustomStyle: true
     },
     {
-      id: "rotas_ottrans-4esuj9",
+      id: "ssa_rotas_onibus_tipo",
       name: "Rotas de ônibus",
       description: "Rotas de ônibus por bairro",
-      tilesetId: "observatorio-nacional.95abndc3",
-      sourceLayer: "rotas_ottrans-4esuj9",
-      layerType: "line",
-      hasCustomStyle: true
-    },
-    {
-      id: "ciclovia-2zvxww",
-      name: "Ciclovia",
-      description: "Ciclovia por bairro",
-      tilesetId: "observatorio-nacional.6wfgd2uh",
-      sourceLayer: "ciclovia-2zvxww",
+      tilesetId: "observatorio-nacional.1y9z3zyw",
+      sourceLayer: "ssa_rotas_onibus_tipo",
       layerType: "line",
       hasCustomStyle: true
     },
@@ -364,6 +383,15 @@ export const cityLayersConfig: CityLayersConfig = {
       tilesetId: "observatorio-nacional.87rz20bn",
       sourceLayer: "poa_rotas_onibus",
       layerType: "fill",
+      hasCustomStyle: true
+    },
+    {
+      id: "poa_ciclovia_ciclomapas",
+      name: "Ciclovia Porto Alegre",
+      description: "Ciclovia por bairro",
+      tilesetId: "observatorio-nacional.cynb7d49",
+      sourceLayer: "poa_ciclovia_ciclomapas",
+      layerType: "line",
       hasCustomStyle: true
     },
   ],

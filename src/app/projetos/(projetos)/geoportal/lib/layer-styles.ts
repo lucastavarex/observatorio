@@ -88,16 +88,17 @@ export const layerStyles: Record<string, LayerStyle> = {
     "source-layer": "renda_rio-4ks1k8"
   },
   "rotas_onibus-5yarkv": {
-    "layout": {
-      "visibility": "none"
-    },
-    "type": "line",
+      "type": "line",
     "source": "composite",
-    "id": "rotas-onibus-5yarkv",
+    "id": "rio-rotas-onibus",
     "paint": {
       "line-color": "#cb181d"
     },
-    "source-layer": "rotas_onibus-5yarkv"
+    "slot": "",
+    "source-layer": "rio_rotas_onibus",
+    "layout": {
+      "visibility": "none"
+    }
   },
   "heatmap_bilhetagem_rio-59w42o": {
     "type": "fill",
@@ -222,7 +223,44 @@ export const layerStyles: Record<string, LayerStyle> = {
     },
     "source-layer": "renda_rec-bcpy1l"
   },
-  
+  "rec_ciclovia_ciclomapas":{
+      "type": "line",
+    "source": "composite",
+    "id": "rec-ciclovia-ciclomapas",
+    "slot": "",
+    "source-layer": "rec_ciclovia_ciclomapas",
+    "paint": {
+      "line-color": [
+        "match",
+        [
+          "get",
+          "Tipo"
+        ],
+        [
+          "Ciclovia"
+        ],
+        "#4daf4a",
+        [
+          "Ciclorrota"
+        ],
+        "#377eb8",
+        [
+          "Ciclofaixa"
+        ],
+        "#e41a1c",
+        [
+          "Calçada compartilhada"
+        ],
+        "#f9e806",
+        "#000000"
+      ],
+      "line-width": 3
+    },
+    "layout": {
+      "visibility": "none"
+    }
+  }
+  ,
   // ================== END RECIFE ==================
   // ================== START BELO HORIZONTE ==================
   "populacao-a5w87s":
@@ -700,158 +738,170 @@ export const layerStyles: Record<string, LayerStyle> = {
     "slot": "",
     "source-layer": "sinistros-9fw8gm"
   },
-  "rotas_onibus_sad-7n78wu":
+  "sad_rotas_onibus_sad":
    {
-    "layout": {
-      "visibility": "none"
-    },
     "type": "line",
     "source": "composite",
-    "id": "rotas-onibus-sad-7n78wu",
+    "id": "sad-rotas-onibus-sad",
     "paint": {
+      "line-width": 2,
       "line-color": "#cb181d"
     },
     "slot": "",
-    "source-layer": "rotas_onibus_sad-7n78wu"
+    "source-layer": "sad_rotas_onibus_sad",
+    "layout": {
+      "visibility": "none"
+    }
   },
+  "populacao_sad-3il930":
+   {
+     "type": "fill",
+    "source": "composite",
+    "id": "populacao-sad-3il930",
+    "paint": {
+      "fill-opacity": 0.7,
+      "fill-color": [
+        "step",
+        [
+          "get",
+          "População (2022)"
+        ],
+        "#f7fcf5",
+        100,
+        "#e5f5e0",
+        1000,
+        "#a1d99b",
+        2000,
+        "#41ab5d",
+        3000,
+        "#006d2c",
+        4000,
+        "#00441b"
+      ]
+    },
+    "slot": "",
+    "source-layer": "populacao_sad-3il930",
+    "layout": {
+      "visibility": "none"
+    }
+   },
+   "renda_sad-a9kjjx":
+   {
+     "type": "fill",
+    "source": "composite",
+    "id": "renda-sad-a9kjjx",
+    "paint": {
+      "fill-opacity": 0.7,
+      "fill-color": [
+        "step",
+        [
+          "get",
+          "Renda Domiciliar Média (R$)"
+        ],
+        "#fff7fb",
+        3000,
+        "#ece2f0",
+        4500,
+        "#a6bddb",
+        7000,
+        "#3690c0",
+        12000,
+        "#02818a",
+        20000,
+        "#014636"
+      ]
+    },
+    "slot": "",
+    "source-layer": "renda_sad-a9kjjx",
+    "layout": {
+      "visibility": "none"
+    }
+   },
 
    // ================== END SANTO ANDRÉ ==================
 
    // ================== START SALVADOR ==================
-   "ciclovia_tipo-bfdvvr":
+   "ssa_ciclovia":
     {
+    "layout": {
+      "visibility": "none"
+    },
     "type": "line",
     "source": "composite",
-    "id": "ciclovia-tipo-bfdvvr",
+    "id": "ssa-ciclovia",
     "paint": {
+      "line-width": 3,
       "line-color": [
-        "case",
+        "match",
         [
-          "match",
-          [
-            "get",
-            "tipo"
-          ],
-          [
-            "Ciclofaixa"
-          ],
-          true,
-          false
+          "get",
+          "Tipo"
         ],
-        "#bebada",
         [
-          "match",
-          [
-            "get",
-            "tipo"
-          ],
-          [
-            "Misto"
-          ],
-          true,
-          false
+          "Ciclovia",
+          "Ciclovia "
         ],
-        "#fb8072",
+        "#4daf4a",
         [
-          "match",
-          [
-            "get",
-            "tipo"
-          ],
-          [
-            "Ciclovia",
-            "Ciclovia "
-          ],
-          true,
-          false
+          "Ciclofaixa"
         ],
-        "#8dd3c7",
+        "#e41a1c",
         [
-          "match",
-          [
-            "get",
-            "tipo"
-          ],
-          [
-            "Via compartilhada"
-          ],
-          true,
-          false
+          "Ciclorrota"
         ],
-        "#80b1d3",
+        "#377eb8",
         [
-          "match",
-          [
-            "get",
-            "tipo"
-          ],
-          [
-            "Misto"
-          ],
-          true,
-          false
+          "Via compartilhada",
+          "Via Compartilhada"
         ],
-        "#fdb462",
+        "#f9e806",
         [
-          "match",
-          [
-            "get",
-            "tipo"
-          ],
-          [
-            "Ciclorrota"
-          ],
-          true,
-          false
+          "Misto"
         ],
-        "#b3de69",
+        "#984ea3",
         [
-          "match",
-          [
-            "get",
-            "tipo"
-          ],
-          [
-            "Ciclovia em canteiro central"
-          ],
-          true,
-          false
+          "Ciclovia em canteiro central"
         ],
-        "#fccde5",
+        "#ff7f00",
         "#000000"
-      ],
-      "line-width": 3
+      ]
     },
     "slot": "",
-    "source-layer": "ciclovia_tipo-bfdvvr"
+    "source-layer": "ssa_ciclovia"
   },
-  "rotas_ottrans-4esuj9":
+  "ssa_rotas_onibus_tipo":
    {
-    "layout": {
+     "layout": {
       "visibility": "none"
     },
     "type": "line",
     "source": "composite",
-    "id": "rotas-ottrans-4esuj9",
+    "id": "ssa-rotas-onibus-tipo",
     "paint": {
-      "line-color": "#cb181d"
+      "line-width": 2,
+      "line-color": [
+        "match",
+        [
+          "get",
+          "Tipo"
+        ],
+        [
+          "BRT"
+        ],
+        "#377eb8",
+        [
+          "OTTrans"
+        ],
+        "#4daf4a",
+        [
+          "Plataforma"
+        ],
+        "#f9e806",
+        "#000000"
+      ]
     },
     "slot": "",
-    "source-layer": "rotas_ottrans-4esuj9"
-  },
-   "ciclovia-2zvxww":
-    {
-    "layout": {
-      "visibility": "none"
-    },
-    "type": "line",
-    "source": "composite",
-    "id": "ciclovia-2zvxww",
-    "paint": {
-      "line-color": "#006d2c"
-    },
-    "slot": "",
-    "source-layer": "ciclovia-2zvxww"
+    "source-layer": "ssa_rotas_onibus_tipo"
   },
   "renda_ssa-72km6n":
    {
@@ -1194,6 +1244,43 @@ export const layerStyles: Record<string, LayerStyle> = {
     "source-layer": "poa_rotas_onibus"
 
     },
+    "poa_ciclovia_ciclomapas":{
+       "layout": {
+      "visibility": "none"
+    },
+    "type": "line",
+    "source": "composite",
+    "id": "poa-ciclovia-ciclomapas",
+    "paint": {
+      "line-width": 3,
+      "line-color": [
+        "match",
+        [
+          "get",
+          "Tipo"
+        ],
+        [
+          "Ciclofaixa"
+        ],
+        "#e41a1c",
+        [
+          "Ciclovia"
+        ],
+        "#4daf4a",
+        [
+          "Ciclorrota"
+        ],
+        "#377eb8",
+        [
+          "Calçada compartilhada"
+        ],
+        "#f9e806",
+        "#000000"
+      ]
+    },
+    "slot": "",
+    "source-layer": "poa_ciclovia_ciclomapas"
+    }
    // ================== END PORTO ALEGRE ==================
 }
 
