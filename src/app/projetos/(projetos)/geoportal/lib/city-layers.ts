@@ -194,11 +194,11 @@ export const cityLayersConfig: CityLayersConfig = {
       hasCustomStyle: true
     },
     {
-      id: "rotas_onibus-7wlr7f",
+      id: "nit_rotas_onibus",
       name: "Rotas de ônibus",
       description: "Rotas de ônibus por bairro",
-      tilesetId: "observatorio-nacional.950xc6k6",
-      sourceLayer: "rotas_onibus-7wlr7f",
+      tilesetId: "observatorio-nacional.72n238zt",
+      sourceLayer: "nit_rotas_onibus",
       layerType: "line",
       hasCustomStyle: true
     },
@@ -312,7 +312,7 @@ export const cityLayersConfig: CityLayersConfig = {
     },
     {
       id: "cur_income_hh-b297ww",
-      name: "Renda Porto Alegre",
+      name: "Renda Curitiba",
       description: "Renda per capita por bairro",
       tilesetId: "observatorio-nacional.dnfgnx3h",
       sourceLayer: "cur_income_hh-b297ww",
@@ -354,6 +354,15 @@ export const cityLayersConfig: CityLayersConfig = {
       description: "Sinistros por bairro",
       tilesetId: "observatorio-nacional.a7e3m719",
       sourceLayer: "sinistros_poa-8mfstv",
+      layerType: "fill",
+      hasCustomStyle: true
+    },
+    {
+      id: "poa_rotas_onibus",
+      name: "Rotas de ônibus Porto Alegre",
+      description: "Rotas de ônibus por bairro",
+      tilesetId: "observatorio-nacional.87rz20bn",
+      sourceLayer: "poa_rotas_onibus",
       layerType: "fill",
       hasCustomStyle: true
     },

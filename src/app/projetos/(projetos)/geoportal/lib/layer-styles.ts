@@ -653,16 +653,17 @@ export const layerStyles: Record<string, LayerStyle> = {
     "slot": "",
     "source-layer": "heatmap-2eyldb"
   },
-  "rotas_onibus-7wlr7f":
+  "nit_rotas_onibus":
    {
-    "type": "line",
+      "type": "line",
     "source": "composite",
-    "id": "rotas-onibus-7wlr7f",
+    "id": "nit-rotas-onibus",
     "paint": {
+      "line-width": 3,
       "line-color": "#cb181d"
     },
     "slot": "",
-    "source-layer": "rotas_onibus-7wlr7f",
+    "source-layer": "nit_rotas_onibus",
     "layout": {
       "visibility": "none"
     }
@@ -1176,8 +1177,23 @@ export const layerStyles: Record<string, LayerStyle> = {
     },
     "slot": "",
     "source-layer": "sinistros_poa-8mfstv"
-  }
+  },
+  "poa_rotas_onibus":
+  {
+    "layout": {
+      "visibility": "none"
+    },
+    "type": "line",
+    "source": "composite",
+    "id": "poa-rotas-onibus",
+    "paint": {
+      "line-width": 2,
+      "line-color": "#cb181d"
+    },
+    "slot": "",
+    "source-layer": "poa_rotas_onibus"
 
+    },
    // ================== END PORTO ALEGRE ==================
 }
 
