@@ -408,53 +408,40 @@ export const cityLayersConfig: CityLayersConfig = {
   ],
   "São Paulo": [
     { 
-      id: "density", 
-      name: "Densidade Populacional", 
-      description: "Densidade populacional por bairro/distrito",
-      tilesetId: "observatorio-nacional.3g2magjo",
-      sourceLayer: "density-2aws6m",
+     id: "spo_spo_ciclovias",
+      name: "Ciclovia São Paulo",
+      description: "Ciclovia por bairro",
+      tilesetId: "observatorio-nacional.c19gombg",
+      sourceLayer: "spo_spo_ciclovias",
+      layerType: "line",
+      hasCustomStyle: true
+    },
+    {
+      id: "spo_metro-74ojzn",
+      name: "Metro São Paulo",
+      description: "Metro por bairro",
+      tilesetId: "observatorio-nacional.75bso5it",
+      sourceLayer: "spo_metro-74ojzn",
+      layerType: "line",
+      hasCustomStyle: true
+    },
+    {
+      id: "renda_spo-ddwghj",
+      name: "Renda São Paulo",
+      description: "Renda per capita por bairro",
+      tilesetId: "observatorio-nacional.4gtkl59h",
+      sourceLayer: "renda_spo-ddwghj",
       layerType: "fill",
       hasCustomStyle: true
     },
-     { id: "geoses", name: "Geoses", 
-      description: "Sistema de informações geográficas socioeconômicas",
-      tilesetId: "observatorio-nacional.ah3u3vxi",
-      sourceLayer: "geoses-4hsw1f",
+    {
+      id: "populacao_spo-94zde5",
+      name: "População São Paulo",
+      description: "População por bairro",
+      tilesetId: "observatorio-nacional.8ttkr2wm",
+      sourceLayer: "populacao_spo-94zde5",
       layerType: "fill",
       hasCustomStyle: true
-     },
-    { 
-      id: "census-iptu", 
-      name: "IPTU Census", 
-      description: "Informações cadastrais e tributárias dos imóveis",
-      tilesetId: "observatorio-nacional.3lrt5ras",
-      sourceLayer: "sp_censo_iptu-5t7c18",
-      layerType: "fill"
     },
-    { 
-      id: "census", 
-      name: "General Census", 
-      description: "Dados demográficos do último censo IBGE",
-      tilesetId: "observatorio-nacional.arfcq5q5",
-      sourceLayer: "sp_censo-0inwjz",
-      layerType: "fill"
-    },
-    { id: "ubs-expenses", name: "Gastos UBS Distritos", 
-      description: "Distribuição de recursos para Unidades Básicas de Saúde",
-      tilesetId: "observatorio-nacional.a8auz7xs",
-      sourceLayer: "gastos_ubs_distritos-7ty5vi",
-      layerType: "fill"
-     },
-    { id: "deaths", name: "Óbitos", description: "Estatísticas de mortalidade por região",
-      tilesetId: "observatorio-nacional.ccitv4rk",
-      sourceLayer: "obitos-4e66rs",
-      layerType: "fill"
-     },
-    { id: "population-districts", name: "População Distritos",
-      description: "Distribuição populacional por distrito administrativo",
-      tilesetId: "observatorio-nacional.7ontnnzr",
-      sourceLayer: "populacao_distritos-4x07ah",
-      layerType: "fill"
-     },
   ],
 }

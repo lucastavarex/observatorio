@@ -9,56 +9,161 @@ export interface LayerStyle {
 }
 
 export const layerStyles: Record<string, LayerStyle> = {
-  "density-2aws6m": {
-    "type": "fill",
+  // ================== START SÃO PAULO ==================
+  "spo_spo_ciclovias": {
+       "type": "line",
     "source": "composite",
-    "id": "density-2aws6m",
+    "id": "spo-spo-ciclovias",
     "paint": {
-      "fill-color": [
-        "interpolate",
-        ["linear"],
-        ["get", "densidade_residencial"],
-        0, "hsl(180, 67%, 94%)",
-        0.01984, "hsl(182, 42%, 83%)",
-        0.0255, "#9ed0d2",
-        0.03169, "#78bcbf",
-        0.04121, "#4ea7ad",
-        271.09192388292587, "#00939c"
-      ],
-      "fill-outline-color": [
-        "interpolate",
-        ["linear"],
-        ["zoom"],
-        0, "#000000",
-        22, "#000000"
+      "line-width": 3,
+      "line-color": [
+        "match",
+        [
+          "get",
+          "tipo"
+        ],
+        [
+          "Ciclorrota"
+        ],
+        "#377eb8",
+        [
+          "Ciclofaixa"
+        ],
+        "#e41a1c",
+        [
+          "Ciclovia"
+        ],
+        "#4daf4a",
+        [
+          "Ciclopassarela"
+        ],
+        "#f9e806",
+        "#000000"
       ]
     },
-    "source-layer": "density-2aws6m"
-  },
-  "geoses-4hsw1f": {
-    "id": "geoses-4hsw1f",
-    "type": "fill",
-    "source": "composite",
-    "source-layer": "geoses-4hsw1f",
-    "paint": {
-      "fill-color": [
-        "interpolate",
-        ["linear"],
-        ["get", "GeoSES"],
-        -1, "#f72626",
-        -0.6108, "#f4590b",
-        -0.5257, "#f79c2b",
-        -0.4365, "#fda468",
-        -0.3505, "#fdd087",
-        -0.2572, "#feead2",
-        -0.1446, "#b8fefb",
-        -0.02289, "#a5f9fe",
-        0.2006, "#3fe7fd",
-        0.5087, "#07c0f2",
-        1, "#0095ff"
-      ]
+    "slot": "",
+    "source-layer": "spo_spo_ciclovias",
+    "layout": {
+      "visibility": "none"
     }
   },
+  "renda_spo-ddwghj":{
+     "layout": {
+      "visibility": "none"
+    },
+    "type": "fill",
+    "source": "composite",
+    "id": "renda-spo-ddwghj",
+    "paint": {
+      "fill-opacity": 0.7,
+      "fill-color": [
+        "step",
+        [
+          "get",
+          "Renda Domiciliar Média (R$)"
+        ],
+        "#fff7fb",
+        2000,
+        "#ece2f0",
+        4000,
+        "#a6bddb",
+        8000,
+        "#3690c0",
+        20000,
+        "#02818a",
+        98040,
+        "#014636"
+      ]
+    },
+    "slot": "",
+    "source-layer": "renda_spo-ddwghj"
+  },
+  "populacao_spo-94zde5":{
+      "layout": {
+      "visibility": "none"
+    },
+    "type": "fill",
+    "source": "composite",
+    "id": "populacao-spo-94zde5",
+    "paint": {
+      "fill-opacity": 0.7,
+      "fill-color": [
+        "step",
+        [
+          "get",
+          "População (2022)"
+        ],
+        "#f7fcf5",
+        100,
+        "#e5f5e0",
+        1000,
+        "#a1d99b",
+        2500,
+        "#41ab5d",
+        5000,
+        "#006d2c",
+        15000,
+        "#00441b"
+      ]
+    },
+    "slot": "",
+    "source-layer": "populacao_spo-94zde5"
+  },
+  "spo_metro-74ojzn":{
+     "id": "spo-metro-74ojzn",
+    "type": "line",
+    "paint": {
+      "line-color": [
+        "match",
+        [
+          "get",
+          "Linha"
+        ],
+        [
+          "Linha 1 - Azul"
+        ],
+        "#110df2",
+        [
+          "Linha 2 - Verde"
+        ],
+        "#067000",
+        [
+          "Linha 3 - Vermelha"
+        ],
+        "#e70808",
+        [
+          "Linha 4 - Amarela"
+        ],
+        "#f9e31f",
+        [
+          "Linha 5 - Lilás"
+        ],
+        "#ab02e8",
+        [
+          "Linha 15 - Prata"
+        ],
+        "rgba(0, 0, 0, 0.5)",
+        [
+          "interpolate",
+          [
+            "linear"
+          ],
+          [
+            "id"
+          ],
+          0,
+          "#000000",
+          1,
+          "#000000"
+        ]
+      ],
+      "line-width": 3
+    },
+    "source": "composite",
+    "source-layer": "spo_metro-74ojzn",
+    "slot": ""
+  },
+  // ================== END SÃO PAULO ==================
   // ================== START RIO DE JANEIRO ==================
   "renda_rio-4ks1k8": {
      "type": "fill",
@@ -87,7 +192,7 @@ export const layerStyles: Record<string, LayerStyle> = {
     },
     "source-layer": "renda_rio-4ks1k8"
   },
-  "rotas_onibus-5yarkv": {
+  "rio_rotas_onibus": {
       "type": "line",
     "source": "composite",
     "id": "rio-rotas-onibus",
