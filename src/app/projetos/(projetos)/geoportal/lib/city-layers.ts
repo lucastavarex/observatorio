@@ -15,9 +15,13 @@ export interface CityLayersConfig {
 export const cityLayersConfig: CityLayersConfig = {
   "Brasil": [
     {
-      id: "brasil-placeholder",
-      name: "Visualização Brasil",
-      description: "Selecione uma cidade para visualizar as camadas disponíveis",
+      id: "tarifa_zero", 
+      name: "Tarifa Zero", 
+      description: "Tarifa Zero Brasil",
+      tilesetId: "observatorio-nacional.0bzbtkfg",
+      sourceLayer: "insper_tarifa_zero_municipios-dwws9i",
+      layerType: "circle",
+      hasCustomStyle: true
     }
   ],
   "Rio de Janeiro": [

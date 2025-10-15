@@ -83,7 +83,7 @@ function createDefaultLayerConfig(layerId: string, layerConfig: { layerType?: 'f
 }
 
 const cityCoordinates: Record<string, [number, number]> = {
-  "Brasil": [-51.97005, -13.69895], // Center of Brazil
+  "Brasil": [-53.97005, -13.69895], // Center of Brazil
   "São Paulo": [-46.6388, -23.5505],
   "Rio de Janeiro": [-43.43852, -22.91464],
   "Belo Horizonte": [-43.9388, -19.9167],
