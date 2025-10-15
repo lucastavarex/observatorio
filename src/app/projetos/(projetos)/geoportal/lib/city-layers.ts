@@ -17,7 +17,7 @@ export const cityLayersConfig: CityLayersConfig = {
     {
       id: "tarifa_zero", 
       name: "Tarifa Zero", 
-      description: "Tarifa Zero Brasil",
+      description: "Municípios com tarifa zero integral, parcial por dias específicos (domingos/feriados) ou parcial por área geográfica (linhas específicas). Dados atualizados até outubro de 2025. Total de 134 municípios com tarifa zero integral e 8 com tarifa zero parcial.",
       tilesetId: "observatorio-nacional.0bzbtkfg",
       sourceLayer: "insper_tarifa_zero_municipios-dwws9i",
       layerType: "circle",
@@ -36,8 +36,8 @@ export const cityLayersConfig: CityLayersConfig = {
     },
     { 
       id: "rio_rotas_onibus", 
-      name: "Rotas de ônibus", 
-      description: "Rotas de ônibus por bairro",
+      name: "Rotas de Ônibus", 
+      description: "Traçado das linhas de ônibus municipais.",
       tilesetId: "observatorio-nacional.28tgojsu",
       sourceLayer: "rio_rotas_onibus",
       layerType: "fill",
@@ -45,8 +45,8 @@ export const cityLayersConfig: CityLayersConfig = {
     },
     { 
       id: "heatmap-bilhetagem", 
-      name: "Heatmap Bilhetagem", 
-      description: "Heatmap bilhetagem por bairro",
+      name: "Heatmap Embarques", 
+      description: "Contagem de embarques em grid 500x500m (agosto/2023).",
       tilesetId: "observatorio-nacional.6mbl4ycd",
       sourceLayer: "heatmap_bilhetagem_rio-59w42o",
       layerType: "fill",
@@ -54,20 +54,19 @@ export const cityLayersConfig: CityLayersConfig = {
     },
     { 
       id: "population-rio", 
-      name: "População Rio", 
-      description: "Heatmap bilhetagem por bairro",
+      name: "Densidade Populacional", 
+      description: "Densidade populacional em grid 500x500m",
       tilesetId: "observatorio-nacional.4sg21k6q",
       sourceLayer: "populacao_rio-19sjpd",
       layerType: "fill",
       hasCustomStyle: true
     },
-    
   ],
   "Recife": [
     { 
       id: "populacao-rec-08mi0e", 
-      name: "População Recife", 
-      description: "População por bairro/distrito",
+      name: "Densidade Populacional", 
+      description: "Contagem da população em grid 500x500m (2022).",
       tilesetId: "observatorio-nacional.5f7qyfuo",
       sourceLayer: "populacao_rec-08mi0e",
       layerType: "fill",
@@ -75,8 +74,8 @@ export const cityLayersConfig: CityLayersConfig = {
     },
     { 
       id: "renda-rec-bcpy1l", 
-      name: "Renda Recife", 
-      description: "Renda per capita por bairro",
+      name: "Renda Média", 
+      description: "Renda domiciliar média em grid 500x500m (2010, atualizada pelo IPCA para R$ de 2024)",
       tilesetId: "observatorio-nacional.8kla8qks",
       sourceLayer: "renda_rec-bcpy1l",
       layerType: "fill",
@@ -84,8 +83,8 @@ export const cityLayersConfig: CityLayersConfig = {
     },
     {
       id: "rec_ciclovia_ciclomapas",
-      name: "Ciclovia Recife",
-      description: "Ciclovia por bairro",
+      name: "Ciclovia",
+      description: "Traçado das ciclovias municipais.",
       tilesetId: "observatorio-nacional.a4t3w6aw",
       sourceLayer: "rec_ciclovia_ciclomapas",
       layerType: "line",
@@ -96,7 +95,7 @@ export const cityLayersConfig: CityLayersConfig = {
     { 
       id: "populacao-a5w87s", 
       name: "Densidade Populacional", 
-      description: "Densidade populacional por bairro/distrito",
+      description: "Contagem da população em grid 500x500m (2022).",
       tilesetId: "observatorio-nacional.a9leemjp",
       sourceLayer: "populacao-a5w87s",
       layerType: "fill",
@@ -104,8 +103,8 @@ export const cityLayersConfig: CityLayersConfig = {
     },
     { 
       id: "renda-42uz5h", 
-      name: "Renda Belo Horizonte", 
-      description: "Renda per capita por bairro",
+      name: "Renda Média", 
+      description: "Renda domiciliar média em grid 500x500m (2010, atualizada pelo IPCA para R$ de 2024)",
       tilesetId: "observatorio-nacional.64v29dp1",
       sourceLayer: "renda-42uz5h",
       layerType: "fill",
@@ -114,7 +113,7 @@ export const cityLayersConfig: CityLayersConfig = {
     {
       id: "heatmap_embarques-b8mehl",
       name: "Heatmap Embarques",
-      description: "Heatmap embarques por bairro",
+      description: "Contagem de embarques em grid 500x500m (agosto/2023).",
       tilesetId: "observatorio-nacional.be236ew7",
       sourceLayer: "heatmap_embarques-b8mehl",
       layerType: "fill",
@@ -123,14 +122,14 @@ export const cityLayersConfig: CityLayersConfig = {
     { 
       id: "bhe_ciclovia",
       name: "Ciclovia",
-      description: "Ciclovia por bairro",
+      description: "Traçado das ciclovias municipais.",
       tilesetId: "observatorio-nacional.4b3xv5u1",
       sourceLayer: "bhe_ciclovia",
       layerType: "line",
       hasCustomStyle: true
     },
-    { id: "bhe_rotas_onibus", name: "Rotas de ônibus agregado", 
-      description: "Rotas consolidadas por corredores principais",
+    { id: "bhe_rotas_onibus", name: "Rotas de Ônibus", 
+      description: "Traçado das linhas de ônibus municipais.",
       tilesetId: "observatorio-nacional.6tx22262",
       sourceLayer: "bhe_rotas_onibus",
       layerType: "line",
@@ -140,8 +139,8 @@ export const cityLayersConfig: CityLayersConfig = {
   "Goiânia": [
     {
       id: "populacao_goi-5r0vfu",
-      name: "População Goiânia",
-      description: "População por bairro",
+      name: "Densidade Populacional",
+      description: "Contagem da população em grid 500x500m (2022).",
       tilesetId: "observatorio-nacional.0359v92t",
       sourceLayer: "populacao_goi-5r0vfu",
       layerType: "fill",
@@ -149,8 +148,8 @@ export const cityLayersConfig: CityLayersConfig = {
     },
     {
       id: "renda_goi-8q2sqk",
-      name: "Renda Goiânia",
-      description: "Renda per capita por bairro",
+      name: "Renda Média",
+      description: "Renda domiciliar média em grid 500x500m (2010, atualizada pelo IPCA para R$ de 2024)",
       tilesetId: "observatorio-nacional.0gzs6kdr",
       sourceLayer: "renda_goi-8q2sqk",
       layerType: "fill",
@@ -160,8 +159,8 @@ export const cityLayersConfig: CityLayersConfig = {
   "Fortaleza": [
     {
       id: "frt_income_hh-26qfm4",
-      name: "Renda Fortaleza",
-      description: "Renda per capita por bairro",
+      name: "Renda Média",
+      description: "Renda domiciliar média em grid 500x500m (2010, atualizada pelo IPCA para R$ de 2024)",
       tilesetId: "observatorio-nacional.d0fxoy3e",
       sourceLayer: "frt_income_hh-26qfm4",
       layerType: "fill",
@@ -169,8 +168,8 @@ export const cityLayersConfig: CityLayersConfig = {
     },
     {
       id: "frt_pop-9wsvgo",
-      name: "População Fortaleza",
-      description: "População por bairro",
+      name: "Densidade Populacional",
+      description: "Contagem da população em grid 500x500m (2022).",
       tilesetId: "observatorio-nacional.8p48v3df",
       sourceLayer: "frt_pop-9wsvgo",
       layerType: "fill",
@@ -178,8 +177,8 @@ export const cityLayersConfig: CityLayersConfig = {
     },
     {
       id: "frt_ciclovia_ciclomapas",
-      name: "Ciclovia Fortaleza",
-      description: "Ciclovia",
+      name: "Ciclovia",
+      description: "Traçado das ciclovias municipais.",
       tilesetId: "observatorio-nacional.6yi62vyd",
       sourceLayer: "frt_ciclovia_ciclomapas",
       layerType: "line",
@@ -189,8 +188,8 @@ export const cityLayersConfig: CityLayersConfig = {
   "Niteroi": [
     {
       id: "renda-987gzt",
-      name: "Renda Niteroi",
-      description: "Renda per capita por bairro",
+      name: "Renda Média",
+      description: "Renda domiciliar média em grid 500x500m (2010, atualizada pelo IPCA para R$ de 2024)",
       tilesetId: "observatorio-nacional.5gkcci9a",
       sourceLayer: "renda-987gzt",
       layerType: "fill",
@@ -198,8 +197,8 @@ export const cityLayersConfig: CityLayersConfig = {
     },
     {
       id: "populacao_nit-3oog1f",
-      name: "População Niteroi",
-      description: "População por bairro",
+      name: "Densidade Populacional",
+      description: "Contagem da população em grid 500x500m (2022).",
       tilesetId: "observatorio-nacional.cfffhdz0",
       sourceLayer: "populacao_nit-3oog1f",
       layerType: "fill",
@@ -207,8 +206,8 @@ export const cityLayersConfig: CityLayersConfig = {
     },
     {
       id: "heatmap-2eyldb",
-      name: "Heatmap Niteroi",
-      description: "Heatmap Niteroi por bairro",
+      name: "Heatmap Embarques",
+      description: "Contagem de embarques em grid 500x500m (agosto/2023).",
       tilesetId: "observatorio-nacional.1h9a91is",
       sourceLayer: "heatmap-2eyldb",
       layerType: "fill",
@@ -216,20 +215,19 @@ export const cityLayersConfig: CityLayersConfig = {
     },
     {
       id: "nit_rotas_onibus",
-      name: "Rotas de ônibus",
-      description: "Rotas de ônibus por bairro",
+      name: "Rotas de Ônibus",
+      description: "Traçado das linhas de ônibus municipais.",
       tilesetId: "observatorio-nacional.72n238zt",
       sourceLayer: "nit_rotas_onibus",
       layerType: "line",
       hasCustomStyle: true
     },
-   
   ],
   "Santo André": [
     {
       id: "sinistros-9fw8gm",
-      name: "Sinistros Santo André",
-      description: "Sinistros por bairro",
+      name: "Sinistros de trânsito",
+      description: "Densidade de sinistros de trânsito em grid 250×250m (2022-24). Número total de vítimas.",
       tilesetId: "observatorio-nacional.4d7kb4n8",
       sourceLayer: "sinistros-9fw8gm",
       layerType: "fill",
@@ -237,8 +235,8 @@ export const cityLayersConfig: CityLayersConfig = {
     },
     {
       id: "sad_rotas_onibus_sad",
-      name: "Rotas de ônibus Santo André",
-      description: "Rotas de ônibus por bairro",
+      name: "Rotas de Ônibus",
+      description: "Traçado das linhas de ônibus municipais.",
       tilesetId: "observatorio-nacional.6zw64vh7",
       sourceLayer: "sad_rotas_onibus_sad",
       layerType: "line",
@@ -246,8 +244,8 @@ export const cityLayersConfig: CityLayersConfig = {
     },
     {
       id: "populacao_sad-3il930",
-      name: "População Santo André",
-      description: "População por bairro",
+      name: "Densidade Populacional",
+      description: "Contagem da população em grid 500x500m (2022).",
       tilesetId: "observatorio-nacional.6qfgdjkf",
       sourceLayer: "populacao_sad-3il930",
       layerType: "fill",
@@ -255,8 +253,8 @@ export const cityLayersConfig: CityLayersConfig = {
     },
     {
       id: "renda_sad-a9kjjx",
-      name: "Renda Santo André",
-      description: "Renda per capita por bairro",
+      name: "Renda Média",
+      description: "Renda domiciliar média em grid 500x500m (2010, atualizada pelo IPCA para R$ de 2024)",
       tilesetId: "observatorio-nacional.86a15ap9",
       sourceLayer: "renda_sad-a9kjjx",
       layerType: "fill",
@@ -267,7 +265,7 @@ export const cityLayersConfig: CityLayersConfig = {
     {
       id: "ssa_ciclovia",
       name: "Ciclovia",
-      description: "Ciclovia por bairro",
+      description: "Traçado das ciclovias municipais.",
       tilesetId: "observatorio-nacional.dnhoztpu",
       sourceLayer: "ssa_ciclovia",
       layerType: "line",
@@ -275,8 +273,8 @@ export const cityLayersConfig: CityLayersConfig = {
     },
     {
       id: "ssa_rotas_onibus_tipo",
-      name: "Rotas de ônibus",
-      description: "Rotas de ônibus por bairro",
+      name: "Rotas de Ônibus",
+      description: "Traçado das linhas de ônibus municipais.",
       tilesetId: "observatorio-nacional.1y9z3zyw",
       sourceLayer: "ssa_rotas_onibus_tipo",
       layerType: "line",
@@ -284,8 +282,8 @@ export const cityLayersConfig: CityLayersConfig = {
     },
     {
       id: "renda_ssa-72km6n",
-      name: "Renda Salvador",
-      description: "Renda per capita por bairro",
+      name: "Renda Média",
+      description: "Renda domiciliar média em grid 500x500m (2010, atualizada pelo IPCA para R$ de 2024)",
       tilesetId: "observatorio-nacional.8e78qgxw",
       sourceLayer: "renda_ssa-72km6n",
       layerType: "fill",
@@ -293,8 +291,8 @@ export const cityLayersConfig: CityLayersConfig = {
     },
     {
       id: "populacao_ssa-dgk2gr",
-      name: "População Salvador",
-      description: "População por bairro",
+      name: "Densidade Populacional",
+      description: "Contagem da população em grid 500x500m (2022).",
       tilesetId: "observatorio-nacional.9zwcybiu",
       sourceLayer: "populacao_ssa-dgk2gr",
       layerType: "fill",
@@ -304,8 +302,8 @@ export const cityLayersConfig: CityLayersConfig = {
   "Campinas": [
     {
       id: "populacao_cam-dhn9nh",
-      name: "População Campinas",
-      description: "População por bairro",
+      name: "Densidade Populacional",
+      description: "Contagem da população em grid 500x500m (2022).",
       tilesetId: "observatorio-nacional.cv6id9vn",
       sourceLayer: "populacao_cam-dhn9nh",
       layerType: "fill",
@@ -313,8 +311,8 @@ export const cityLayersConfig: CityLayersConfig = {
     },
     {
       id: "renda-2bxm7u",
-      name: "Renda Campinas",
-      description: "Renda per capita por bairro",
+      name: "Renda Média",
+      description: "Renda domiciliar média em grid 500x500m (2010, atualizada pelo IPCA para R$ de 2024)",
       tilesetId: "observatorio-nacional.5eawzxg0",
       sourceLayer: "renda-2bxm7u",
       layerType: "fill",
@@ -322,8 +320,8 @@ export const cityLayersConfig: CityLayersConfig = {
     },
     {
       id: "cam_rotas_onibus",
-      name: "Rotas de ônibus",
-      description: "Rotas de ônibus por bairro",
+      name: "Rotas de Ônibus",
+      description: "Traçado das linhas de ônibus municipais.",
       tilesetId: "observatorio-nacional.b5gy4hyf",
       sourceLayer: "cam_rotas_onibus",
       layerType: "line",
@@ -333,8 +331,8 @@ export const cityLayersConfig: CityLayersConfig = {
   "Curitiba": [
     {
       id: "cur_pop-ddf53z",
-      name: "População Curitiba",
-      description: "População por bairro",
+      name: "Densidade Populacional",
+      description: "Contagem da população em grid 500x500m (2022).",
       tilesetId: "observatorio-nacional.d5c4yfux",
       sourceLayer: "cur_pop-ddf53z",
       layerType: "fill",
@@ -342,8 +340,8 @@ export const cityLayersConfig: CityLayersConfig = {
     },
     {
       id: "cur_income_hh-b297ww",
-      name: "Renda Curitiba",
-      description: "Renda per capita por bairro",
+      name: "Renda Média",
+      description: "Renda domiciliar média em grid 500x500m (2010, atualizada pelo IPCA para R$ de 2024)",
       tilesetId: "observatorio-nacional.dnfgnx3h",
       sourceLayer: "cur_income_hh-b297ww",
       layerType: "fill",
@@ -353,8 +351,8 @@ export const cityLayersConfig: CityLayersConfig = {
   "Porto Alegre": [
     {
       id: "renda_poa-0cq519",
-      name: "Renda Porto Alegre",
-      description: "Renda per capita por bairro",
+      name: "Renda Média",
+      description: "Renda domiciliar média em grid 500x500m (2010, atualizada pelo IPCA para R$ de 2024)",
       tilesetId: "observatorio-nacional.6nhij7jq",
       sourceLayer: "renda_poa-0cq519",
       layerType: "fill",
@@ -362,8 +360,8 @@ export const cityLayersConfig: CityLayersConfig = {
     },
     {
       id: "populacao_poa-6gb3pv",
-      name: "População Porto Alegre",
-      description: "População por bairro",
+      name: "Densidade Populacional",
+      description: "Contagem da população em grid 500x500m (2022).",
       tilesetId: "observatorio-nacional.cvh9drji",
       sourceLayer: "populacao_poa-6gb3pv",
       layerType: "fill",
@@ -371,8 +369,8 @@ export const cityLayersConfig: CityLayersConfig = {
     },
     {
       id: "vitimas_poa-84wkxk",
-      name: "Vitimas Porto Alegre",
-      description: "Vitimas por bairro",
+      name: "Vítimas de sinistros de trânsito",
+      description: "Localização de atropelamentos de pedestres e veículos envolvidos no sinistro (2023).",
       tilesetId: "observatorio-nacional.2fbdewky",
       sourceLayer: "vitimas_poa-84wkxk",
       layerType: "circle",
@@ -380,8 +378,8 @@ export const cityLayersConfig: CityLayersConfig = {
     },
     {
       id: "sinistros_poa-8mfstv",
-      name: "Sinistros Porto Alegre",
-      description: "Sinistros por bairro",
+      name: "Sinistros de trânsito",
+      description: "Densidade de sinistros de trânsito em grid 250×250m (2023). Percentual do total de veículos envolvidos e total de feridos e mortos.",
       tilesetId: "observatorio-nacional.a7e3m719",
       sourceLayer: "sinistros_poa-8mfstv",
       layerType: "fill",
@@ -389,8 +387,8 @@ export const cityLayersConfig: CityLayersConfig = {
     },
     {
       id: "poa_rotas_onibus",
-      name: "Rotas de ônibus Porto Alegre",
-      description: "Rotas de ônibus por bairro",
+      name: "Rotas de Ônibus",
+      description: "Traçado das linhas de ônibus municipais.",
       tilesetId: "observatorio-nacional.87rz20bn",
       sourceLayer: "poa_rotas_onibus",
       layerType: "fill",
@@ -398,8 +396,8 @@ export const cityLayersConfig: CityLayersConfig = {
     },
     {
       id: "poa_ciclovia_ciclomapas",
-      name: "Ciclovia Porto Alegre",
-      description: "Ciclovia por bairro",
+      name: "Ciclovia",
+      description: "Traçado das ciclovias municipais.",
       tilesetId: "observatorio-nacional.cynb7d49",
       sourceLayer: "poa_ciclovia_ciclomapas",
       layerType: "line",
@@ -408,9 +406,9 @@ export const cityLayersConfig: CityLayersConfig = {
   ],
   "São Paulo": [
     { 
-     id: "spo_spo_ciclovias",
-      name: "Ciclovia São Paulo",
-      description: "Ciclovia por bairro",
+      id: "spo_spo_ciclovias",
+      name: "Ciclovia",
+      description: "Traçado das ciclovias municipais.",
       tilesetId: "observatorio-nacional.c19gombg",
       sourceLayer: "spo_spo_ciclovias",
       layerType: "line",
@@ -418,8 +416,8 @@ export const cityLayersConfig: CityLayersConfig = {
     },
     {
       id: "spo_metro-74ojzn",
-      name: "Metro São Paulo",
-      description: "Metro por bairro",
+      name: "Linhas de metrô",
+      description: "Linhas de metrô do município.",
       tilesetId: "observatorio-nacional.75bso5it",
       sourceLayer: "spo_metro-74ojzn",
       layerType: "line",
@@ -427,8 +425,8 @@ export const cityLayersConfig: CityLayersConfig = {
     },
     {
       id: "renda_spo-ddwghj",
-      name: "Renda São Paulo",
-      description: "Renda per capita por bairro",
+      name: "Renda Média",
+      description: "Renda domiciliar média em grid 500x500m (2010, atualizada pelo IPCA para R$ de 2024)",
       tilesetId: "observatorio-nacional.4gtkl59h",
       sourceLayer: "renda_spo-ddwghj",
       layerType: "fill",
@@ -436,8 +434,8 @@ export const cityLayersConfig: CityLayersConfig = {
     },
     {
       id: "populacao_spo-94zde5",
-      name: "População São Paulo",
-      description: "População por bairro",
+      name: "Densidade Populacional",
+      description: "Contagem da população em grid 500x500m (2022).",
       tilesetId: "observatorio-nacional.8ttkr2wm",
       sourceLayer: "populacao_spo-94zde5",
       layerType: "fill",
