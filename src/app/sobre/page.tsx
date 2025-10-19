@@ -1,12 +1,38 @@
 "use client"
 import { Header } from "@/components/header";
 
-import pessoa1 from "@/app/assets/images/pessoa1.png";
-import pessoa2 from "@/app/assets/images/pessoa2.png";
-import pessoa3 from "@/app/assets/images/pessoa3.png";
 import sobreIntro from "@/app/assets/images/sobre_intro.png";
 
-import Image from 'next/image';
+// Import team member images
+import adriano_borges from "@/app/assets/images/adriano_borges.png";
+import antonio_henrique from "@/app/assets/images/antonio_henrique.png";
+import denis_andia from "@/app/assets/images/denis_andia.png";
+import eliana_silva from "@/app/assets/images/eliana_silva.png";
+import gabriel_fajardo from "@/app/assets/images/gabriel_fajardo.png";
+import gabriela_vasconcelos from "@/app/assets/images/gabriela_vasconcelos.png";
+import helena_carvalho_coelho from "@/app/assets/images/helena_carvalho_coelho.png";
+import heloisa_escudeiro from "@/app/assets/images/heloisa_escudeiro.png";
+import ivanice_schutz from "@/app/assets/images/ivanice_schutz.png";
+import jose_police_neto from "@/app/assets/images/jose_police_neto.png";
+import laryssa_kruger from "@/app/assets/images/laryssa_kruger.png";
+import lucelio_moraes from "@/app/assets/images/lucelio_moraes.png";
+import luiz_pedro from "@/app/assets/images/luiz_pedro.png";
+import luiza_estagiaria from "@/app/assets/images/luiza_estagiaria.png";
+import maina_celidonio from "@/app/assets/images/maina_celidonio.png";
+import marcela_costa from "@/app/assets/images/marcela_costa.png";
+import mauricio_bouskela from "@/app/assets/images/mauricio_bouskela.png";
+import miguel_setas from "@/app/assets/images/miguel_setas.png";
+import paulina_insper from "@/app/assets/images/paulina_insper.png";
+import renata_ruggiero from "@/app/assets/images/renata_ruggiero.png";
+import ricardo_balestreri from "@/app/assets/images/ricardo_balestreri.png";
+import rinaldo_gama from "@/app/assets/images/rinaldo_gama.png";
+import rodnei from "@/app/assets/images/rodnei.png";
+import sergio_avelleda from "@/app/assets/images/sergio_avelleda.png";
+import tomas_alvim from "@/app/assets/images/tomas_alvim.png";
+import vanessa_duarte from "@/app/assets/images/vanessa_duarte.png";
+import vinicius_oike_reginatto from "@/app/assets/images/vinicius_oike_reginatto.png";
+
+import Image, { StaticImageData } from 'next/image';
 import { useEffect, useState } from 'react';
 import { FreeMode } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -15,50 +41,248 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/free-mode';
 
-interface Events {
+interface TeamMember {
   id: string
-  title: string
-  description: string
-  image: typeof pessoa1
-  email: string
+  name: string
+  role: string
+  image: StaticImageData
+  email?: string
 }
 
-const events: Events[] = [
+// Equipe Observatório
+const equipeObservatorio: TeamMember[] = [
   {
-    id: 'pessoa1',
-    title: 'Sérgio Avelleda ',
-    description: 'Coordenador',
-    image: pessoa1,
-    email: 'sergio.avelleda@insper.edu.br'
+    id: '1',
+    name: 'Sérgio Avelleda',
+    role: 'Coordenador',
+    image: sergio_avelleda,
+    email: 'sergiohpa1@insper.edu.br'
   },
   {
-    id: 'pessoa2',
-    title: 'Helena Coelho ',
-    description: 'Coordenadora-adjunta',
-    image: pessoa2,
-    email: 'helena.coelho@insper.edu.br'
+    id: '2',
+    name: 'Helena Coelho',
+    role: 'Coordenadora-adjunta',
+    image: helena_carvalho_coelho,
+    email: 'helenacc1@insper.edu.br'
   },
   {
-    id: 'pessoa3',
-    title: 'Maína Campos',
-    description: 'Consultora',
-    image: pessoa3,
-    email: 'maina.campos@insper.edu.br'
+    id: '3',
+    name: 'Maína Campos',
+    role: 'Consultora de pesquisa',
+    image: maina_celidonio,
+    email: 'mainacc@insper.edu.br'
   },
   {
-    id: 'pessoa4',
-    title: 'Sérgio Avelleda ',
-    description: 'Coordenador',
-    image: pessoa1,
-    email: 'sergio.avelleda@insper.edu.br'
+    id: '4',
+    name: 'Luiza Campos',
+    role: 'Estágiaria',
+    image: luiza_estagiaria,
+    email: 'luizarc1@al.insper.edu.br'
   },
   {
-    id: 'pessoa5',
-    title: 'Helena Coelho ',
-    description: 'Coordenadora-adjunta',
-    image: pessoa2,
-    email: 'helena.coelho@insper.edu.br'
+    id: '5',
+    name: 'Luiz Silva',
+    role: 'Pesquisador',
+    image: luiz_pedro,
+    email: 'luizpedro_5@hotmail.com'
   },
+  {
+    id: '6',
+    name: 'Rodnei Souza',
+    role: 'Presidente do Comitê Gestor',
+    image: rodnei,
+    email: 'rodneibs@me.com'
+  },
+  {
+    id: '7',
+    name: 'Vinicius Oike',
+    role: 'Dados',
+    image: vinicius_oike_reginatto,
+    email: 'viniciusor@insper.edu.br'
+  }
+]
+
+// Conselho Gestor - Observatório
+const conselhoGestor: TeamMember[] = [
+  {
+    id: '1',
+    name: 'Rodnei Souza',
+    role: 'Presidente do Conselho Gestor',
+    image: rodnei
+  },
+  {
+    id: '2',
+    name: 'Sergio Avelleda',
+    role: 'Membro técnico do conselho gestor',
+    image: sergio_avelleda
+  },
+  {
+    id: '3',
+    name: 'Helena Coelho',
+    role: 'Membro técnico do conselho gestor',
+    image: helena_carvalho_coelho
+  },
+  {
+    id: '4',
+    name: 'Gabriel Fajardo',
+    role: 'Conselho estratégico',
+    image: gabriel_fajardo
+  },
+  {
+    id: '5',
+    name: 'Renata Ruggiero',
+    role: 'Comitê gestor',
+    image: renata_ruggiero
+  },
+  {
+    id: '6',
+    name: 'Vanessa Duarte',
+    role: 'Comitê gestor',
+    image: vanessa_duarte
+  },
+  {
+    id: '7',
+    name: 'Lucélio de Moraes',
+    role: 'Comitê gestor',
+    image: lucelio_moraes
+  },
+  {
+    id: '8',
+    name: 'Marcela Costa',
+    role: 'Comitê de pesquisa',
+    image: marcela_costa
+  },
+  {
+    id: '9',
+    name: 'Adriano Borges',
+    role: 'Comitê de pesquisa',
+    image: adriano_borges
+  },
+  {
+    id: '10',
+    name: 'Maína Celidonio',
+    role: 'Comitê de pesquisa',
+    image: maina_celidonio
+  },
+  {
+    id: '11',
+    name: 'Miguel Setas',
+    role: 'Conselho estratégico',
+    image: miguel_setas
+  },
+  {
+    id: '12',
+    name: 'Denis Andia',
+    role: 'Conselho estratégico',
+    image: denis_andia
+  },
+  {
+    id: '13',
+    name: 'Ivanice Schutz',
+    role: 'Conselho estratégico / Niterói',
+    image: ivanice_schutz
+  },
+  {
+    id: '14',
+    name: 'Antonio Henrique',
+    role: 'Conselho estratégico / Recife',
+    image: antonio_henrique
+  }
+]
+
+// Equipe Insper Cidades
+const equipeInsperCidades: TeamMember[] = [
+  {
+    id: '1',
+    name: 'Tomas Alvim',
+    role: 'Coordenador',
+    image: tomas_alvim,
+    email: 'TomasAMMPA@insper.edu.br'
+  },
+  {
+    id: '2',
+    name: 'Gabriela Vasconcelos',
+    role: 'Coordenadora',
+    image: gabriela_vasconcelos,
+    email: 'gabiva1@insper.edu.br'
+  },
+  {
+    id: '3',
+    name: 'Adriano Borges',
+    role: 'Coordenador',
+    image: adriano_borges,
+    email: 'AdrianoBFC@insper.edu.br'
+  },
+  {
+    id: '4',
+    name: 'Paulina Achurra',
+    role: 'Coordenadora',
+    image: paulina_insper,
+    email: 'paulina.achurra@insper.edu.br'
+  },
+  {
+    id: '5',
+    name: 'Beatriz Vanzolini',
+    role: 'Coordenadora',
+    image: eliana_silva, // Usando eliana_silva como placeholder
+    email: 'BeatrizVM2@insper.edu.br'
+  },
+  {
+    id: '6',
+    name: 'Rinaldo Gama',
+    role: 'Coordenador',
+    image: rinaldo_gama,
+    email: 'rinaldog@insper.edu.br'
+  },
+  {
+    id: '7',
+    name: 'Eliana Silva',
+    role: 'Coordenadora',
+    image: eliana_silva,
+    email: 'ElianaSS@insper.edu.br'
+  },
+  {
+    id: '8',
+    name: 'Ricardo Balestreri',
+    role: 'Coordenador',
+    image: ricardo_balestreri,
+    email: 'ricardobb2@insper.edu.br'
+  },
+  {
+    id: '9',
+    name: 'Laryssa Kruger',
+    role: 'Coordenadora-adjunta',
+    image: laryssa_kruger,
+    email: 'laryssakc1@insper.edu.br'
+  },
+  {
+    id: '10',
+    name: 'Juan Sebastian',
+    role: 'Coordenador',
+    image: eliana_silva, // Usando eliana_silva como placeholder
+    email: 'juansbf@insper.edu.br'
+  },
+  {
+    id: '11',
+    name: 'Heloisa Escudeiro',
+    role: 'Coordenadora-adjunta',
+    image: heloisa_escudeiro,
+    email: 'heloisale1@insper.edu.br'
+  },
+  {
+    id: '12',
+    name: 'Police Neto',
+    role: 'Coordenador',
+    image: jose_police_neto,
+    email: 'JosePN1@insper.edu.br'
+  },
+  {
+    id: '13',
+    name: 'Mauricio Bouskela',
+    role: 'Coordenador',
+    image: mauricio_bouskela,
+    email: 'mauriciosb4@insper.edu.br'
+  }
 ]
 
 export default function Sobre() {
@@ -175,10 +399,10 @@ export default function Sobre() {
         </div>
       </div>
 
+      {/* Section 1: Equipe Observatório */}
       <section className="py-16 mx-auto pt-30">
         <div className="mx-auto">
-          {/* Events Horizontal Scroll */}
-           <h2 className="lg:absolute text-xl font-medium text-gray-900 px-4 2xl:px-16 pb-6 lg:pb-0">Conselho gestor</h2>
+          <h2 className="lg:absolute text-xl font-medium text-gray-900 px-4 2xl:px-16 pb-6 lg:pb-0">Equipe Observatório</h2>
           <div 
             className="px-4 2xl:px-16 pb-4 overflow-x-hidden ml-0! pl-4! md:ml-0! lg:ml-100!"
             onMouseEnter={() => setIsHovering(true)}
@@ -188,34 +412,33 @@ export default function Sobre() {
               slidesPerView="auto"
               spaceBetween={16}
               freeMode={true}
-              grabCursor={false} // Disable default grab cursor
+              grabCursor={false}
               modules={[FreeMode]}
               className="!overflow-visible"
             >
-              {events.map((event) => (
-                <SwiperSlide key={event.id} className="!w-[250px] md:!w-[350px] group relative ">
-                  {/* Event Card */}
+              {equipeObservatorio.map((member) => (
+                <SwiperSlide key={member.id} className="!w-[250px] md:!w-[350px] group relative">
                   <div className="relative overflow-hidden h-[350px] w-[250px] md:h-[450px] md:w-[350px]">
                     <Image
-                      src={event.image}
-                      alt={event.title}
+                      src={member.image}
+                      alt={member.name}
                       fill
                       className="object-cover transition-transform duration-300 group-hover:scale-105 rounded-none"
                     />
                   </div>
-
-                                     {/* Event Info - Outside the card */}
-                   <div className="mt-4 text-left">
-                     <h3 className="text-lg font-semibold text-gray-900 mb-2">
-                       {event.title}
-                     </h3>
-                     <p className="text-sm text-gray-600 leading-relaxed">
-                       {event.description}
-                     </p>
-                     <p className="text-sm text-gray-500 mt-6">
-                       {event.email}
-                     </p>
-                   </div>
+                  <div className="mt-4 text-left">
+                    <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                      {member.name}
+                    </h3>
+                    <p className="text-sm text-gray-600 leading-relaxed">
+                      {member.role}
+                    </p>
+                    {member.email && (
+                      <p className="text-sm text-gray-500 mt-6">
+                        {member.email}
+                      </p>
+                    )}
+                  </div>
                 </SwiperSlide>
               ))}
             </Swiper>
@@ -237,10 +460,10 @@ export default function Sobre() {
         </div>
       </div>
 
+      {/* Section 2: Conselho Gestor - Observatório */}
       <section className="py-16 mx-auto">
         <div className="mx-auto">
-          {/* Events Horizontal Scroll */}
-           <h2 className="lg:absolute text-xl font-medium text-gray-900 px-4 2xl:px-16 pb-6 lg:pb-0">Insper Cidades</h2>
+          <h2 className="lg:absolute text-xl font-medium text-gray-900 px-4 2xl:px-16 pb-6 lg:pb-0">Conselho Gestor - Observatório</h2>
           <div 
             className="px-4 2xl:px-16 pb-4 overflow-x-hidden ml-0! pl-4! md:ml-0! lg:ml-100!"
             onMouseEnter={() => setIsHovering(true)}
@@ -250,34 +473,33 @@ export default function Sobre() {
               slidesPerView="auto"
               spaceBetween={16}
               freeMode={true}
-              grabCursor={false} // Disable default grab cursor
+              grabCursor={false}
               modules={[FreeMode]}
               className="!overflow-visible"
             >
-              {events.map((event) => (
-                <SwiperSlide key={event.id} className="!w-[250px] md:!w-[350px] group relative ">
-                  {/* Event Card */}
+              {conselhoGestor.map((member) => (
+                <SwiperSlide key={member.id} className="!w-[250px] md:!w-[350px] group relative">
                   <div className="relative overflow-hidden h-[350px] w-[250px] md:h-[450px] md:w-[350px]">
                     <Image
-                      src={event.image}
-                      alt={event.title}
+                      src={member.image}
+                      alt={member.name}
                       fill
                       className="object-cover transition-transform duration-300 group-hover:scale-105 rounded-none"
                     />
                   </div>
-
-                                     {/* Event Info - Outside the card */}
-                   <div className="mt-4 text-left">
-                     <h3 className="text-lg font-semibold text-gray-900 mb-2">
-                       {event.title}
-                     </h3>
-                     <p className="text-sm text-gray-600 leading-relaxed">
-                       {event.description}
-                     </p>
-                     <p className="text-sm text-gray-500 mt-6">
-                       {event.email}
-                     </p>
-                   </div>
+                  <div className="mt-4 text-left">
+                    <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                      {member.name}
+                    </h3>
+                    <p className="text-sm text-gray-600 leading-relaxed">
+                      {member.role}
+                    </p>
+                    {member.email && (
+                      <p className="text-sm text-gray-500 mt-6">
+                        {member.email}
+                      </p>
+                    )}
+                  </div>
                 </SwiperSlide>
               ))}
             </Swiper>
@@ -299,10 +521,10 @@ export default function Sobre() {
         </div>
       </div>
 
+      {/* Section 3: Equipe Insper Cidades */}
       <section className="py-16 mx-auto pb-40">
         <div className="mx-auto">
-          {/* Events Horizontal Scroll */}
-           <h2 className="lg:absolute text-xl font-medium text-gray-900 px-4 2xl:px-16 pb-6 lg:pb-0">Equipe Observatório</h2>
+          <h2 className="lg:absolute text-xl font-medium text-gray-900 px-4 2xl:px-16 pb-6 lg:pb-0">Equipe Insper Cidades</h2>
           <div 
             className="px-4 2xl:px-16 pb-4 overflow-x-hidden ml-0! pl-4! md:ml-0! lg:ml-100!"
             onMouseEnter={() => setIsHovering(true)}
@@ -312,34 +534,33 @@ export default function Sobre() {
               slidesPerView="auto"
               spaceBetween={16}
               freeMode={true}
-              grabCursor={false} // Disable default grab cursor
+              grabCursor={false}
               modules={[FreeMode]}
               className="!overflow-visible"
             >
-              {events.map((event) => (
-                <SwiperSlide key={event.id} className="!w-[250px] md:!w-[350px] group relative ">
-                  {/* Event Card */}
+              {equipeInsperCidades.map((member) => (
+                <SwiperSlide key={member.id} className="!w-[250px] md:!w-[350px] group relative">
                   <div className="relative overflow-hidden h-[350px] w-[250px] md:h-[450px] md:w-[350px]">
                     <Image
-                      src={event.image}
-                      alt={event.title}
+                      src={member.image}
+                      alt={member.name}
                       fill
                       className="object-cover transition-transform duration-300 group-hover:scale-105 rounded-none"
                     />
                   </div>
-
-                                     {/* Event Info - Outside the card */}
-                   <div className="mt-4 text-left">
-                     <h3 className="text-lg font-semibold text-gray-900 mb-2">
-                       {event.title}
-                     </h3>
-                     <p className="text-sm text-gray-600 leading-relaxed">
-                       {event.description}
-                     </p>
-                     <p className="text-sm text-gray-500 mt-6">
-                       {event.email}
-                     </p>
-                   </div>
+                  <div className="mt-4 text-left">
+                    <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                      {member.name}
+                    </h3>
+                    <p className="text-sm text-gray-600 leading-relaxed">
+                      {member.role}
+                    </p>
+                    {member.email && (
+                      <p className="text-sm text-gray-500 mt-6">
+                        {member.email}
+                      </p>
+                    )}
+                  </div>
                 </SwiperSlide>
               ))}
             </Swiper>
