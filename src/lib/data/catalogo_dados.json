@@ -5,7 +5,6 @@
     "tipo_dado": "GTFS",
     "tipo_botao": "Dataverse",
     "nome_botao": "Dataverse",
-    "titulo": "Dados GTFS (General Transit Feed Specification) da cidade.",
     "texto_apoio": "Base de dados acadêmica com informações de GTFS organizadas para pesquisa e análise.",
     "data": [
       {
@@ -19,7 +18,6 @@
     "tipo_dado": "GTFS",
     "tipo_botao": "Fonte",
     "nome_botao": "Prefeitura",
-    "titulo": "Dados GTFS (General Transit Feed Specification) da cidade.",
     "texto_apoio": "Site oficial da prefeitura para consulta ou requisição dos dados de GTFS.",
     "data": [
       {
@@ -33,7 +31,6 @@
     "tipo_dado": "GTFS",
     "tipo_botao": "Geoportal",
     "nome_botao": "GeoPortal",
-    "titulo": "Dados GTFS (General Transit Feed Specification) da cidade.",
     "texto_apoio": "Acesso a mapas interativos e camadas geográficas relacionadas ao tema. Ideal para explorar os dados espacializados no território.",
     "data": [
       {
@@ -47,23 +44,10 @@
     "tipo_dado": "Bilhetagem",
     "tipo_botao": "Dataverse",
     "nome_botao": "Dataverse",
-    "titulo": "Dados de bilhetagem eletrônica da frota de transporte público da cidade",
     "texto_apoio": "Base de dados acadêmica com informações de bilhetagem organizadas para pesquisa e análise.",
     "data": [
       {
         "link": "Missing link (dataverse)"
-      },
-      {
-        "titulo_dado": "Passageiros transportados",
-        "link": "https://dataverse.datascience.insper.edu.br/dataset.xhtml?persistentId=doi:10.60873/FK2/JEYM0J"
-      },
-      {
-        "titulo_dado": "Passageiros equivalentes",
-        "link": "https://dataverse.datascience.insper.edu.br/dataset.xhtml?persistentId=doi:10.60873/FK2/OLSIZD"
-      },
-      {
-        "titulo_dado": "Dados operacionais",
-        "link": "https://dataverse.datascience.insper.edu.br/dataset.xhtml?persistentId=doi:10.60873/FK2/XYYBKU"
       }
     ]
   },
@@ -73,7 +57,6 @@
     "tipo_dado": "Bilhetagem",
     "tipo_botao": "Fonte",
     "nome_botao": "Prefeitura",
-    "titulo": "Dados de bilhetagem eletrônica da frota de transporte público da cidade",
     "texto_apoio": "Site oficial da prefeitura para consulta ou requisição dos dados de bilhetagem.",
     "data": [
       {
@@ -87,7 +70,6 @@
     "tipo_dado": "Bilhetagem",
     "tipo_botao": "Geoportal",
     "nome_botao": "GeoPortal",
-    "titulo": "Dados de bilhetagem eletrônica da frota de transporte público da cidade",
     "texto_apoio": "Acesso a mapas interativos e camadas geográficas relacionadas ao tema. Ideal para explorar os dados espacializados no território.",
     "data": [
       {
@@ -101,7 +83,6 @@
     "tipo_dado": "GPS Embarcados",
     "tipo_botao": "Dataverse",
     "nome_botao": "Dataverse",
-    "titulo": "Dados de localização em tempo real dos veículos do transporte público da cidade.",
     "texto_apoio": "Base de dados acadêmica com amostra dos dados de GPS organizada para pesquisa e análise.",
     "data": [
       {
@@ -115,7 +96,6 @@
     "tipo_dado": "GPS Embarcados",
     "tipo_botao": "Fonte",
     "nome_botao": "Prefeitura",
-    "titulo": "Dados de localização em tempo real dos veículos do transporte público da cidade.",
     "texto_apoio": "Site oficial da prefeitura para consulta ou requisição dos dados de GPS.",
     "data": [
       {
@@ -129,7 +109,6 @@
     "tipo_dado": "GPS Embarcados",
     "tipo_botao": "Geoportal",
     "nome_botao": "GeoPortal",
-    "titulo": "Dados de localização em tempo real dos veículos do transporte público da cidade.",
     "texto_apoio": "Acesso a mapas interativos e camadas geográficas relacionadas ao tema. Ideal para explorar os dados espacializados no território.",
     "data": [
       {
@@ -143,15 +122,10 @@
     "tipo_dado": "Outros Arquivos Vetoriais",
     "tipo_botao": "Dataverse",
     "nome_botao": "Dataverse",
-    "titulo": "Dados geográficos complementares e dados gerais de mobilidade da cidade.",
     "texto_apoio": "Base de dados acadêmica com arquivos organizados para pesquisa e análise.",
     "data": [
       {
         "link": "Missing link (dataverse)"
-      },
-      {
-        "titulo_dado": "Empresas concessionárias de Ônibus",
-        "link": "https://dataverse.datascience.insper.edu.br/dataset.xhtml?persistentId=doi:10.60873/FK2/TLFP8L"
       }
     ]
   },
@@ -161,7 +135,6 @@
     "tipo_dado": "Outros Arquivos Vetoriais",
     "tipo_botao": "Fonte",
     "nome_botao": "Prefeitura",
-    "titulo": "Dados geográficos complementares e dados gerais de mobilidade da cidade.",
     "texto_apoio": "Site oficial da prefeitura para consulta ou requisição de outros dados de mobilidade.",
     "data": [
       {
@@ -175,7 +148,6 @@
     "tipo_dado": "Outros Arquivos Vetoriais",
     "tipo_botao": "Geoportal",
     "nome_botao": "GeoPortal",
-    "titulo": "Dados geográficos complementares e dados gerais de mobilidade da cidade.",
     "texto_apoio": "Acesso a mapas interativos e camadas geográficas relacionadas ao tema. Ideal para explorar os dados espacializados no território.",
     "data": [
       {
@@ -185,11 +157,66 @@
   },
   {
     "grupo_cidade": "Cidade Parceira",
+    "nome_cidade": "Abreu e Lima*",
+    "tipo_dado": "Bilhetagem",
+    "tipo_botao": "Dataverse",
+    "nome_botao": "Dataverse",
+    "titulo": "Passageiros transportados",
+    "texto_apoio": "Base de dados acadêmica com informações de bilhetagem organizadas para pesquisa e análise.",
+    "data": [
+      {
+        "link": "https://dataverse.datascience.insper.edu.br/dataset.xhtml?persistentId=doi:10.60873/FK2/JEYM0J"
+      }
+    ]
+  },
+  {
+    "grupo_cidade": "Cidade Parceira",
+    "nome_cidade": "Abreu e Lima*",
+    "tipo_dado": "Bilhetagem",
+    "tipo_botao": "Dataverse",
+    "nome_botao": "Dataverse",
+    "titulo": "Passageiros equivalentes",
+    "texto_apoio": "Base de dados acadêmica com informações de bilhetagem organizadas para pesquisa e análise.",
+    "data": [
+      {
+        "link": "https://dataverse.datascience.insper.edu.br/dataset.xhtml?persistentId=doi:10.60873/FK2/OLSIZD"
+      }
+    ]
+  },
+  {
+    "grupo_cidade": "Cidade Parceira",
+    "nome_cidade": "Abreu e Lima*",
+    "tipo_dado": "Bilhetagem",
+    "tipo_botao": "Dataverse",
+    "nome_botao": "Dataverse",
+    "titulo": "Dados operacionais",
+    "texto_apoio": "Base de dados acadêmica com informações de bilhetagem organizadas para pesquisa e análise.",
+    "data": [
+      {
+        "link": "https://dataverse.datascience.insper.edu.br/dataset.xhtml?persistentId=doi:10.60873/FK2/XYYBKU"
+      }
+    ]
+  },
+  {
+    "grupo_cidade": "Cidade Parceira",
+    "nome_cidade": "Abreu e Lima*",
+    "tipo_dado": "Outros Arquivos Vetoriais",
+    "tipo_botao": "Dataverse",
+    "nome_botao": "Dataverse",
+    "titulo": "Empresas concessionárias de Ônibus",
+    "texto_apoio": "Base de dados acadêmica com arquivos organizados para pesquisa e análise.",
+    "data": [
+      {
+        "link": "https://dataverse.datascience.insper.edu.br/dataset.xhtml?persistentId=doi:10.60873/FK2/TLFP8L"
+      }
+    ]
+  },
+  {
+    "grupo_cidade": "Cidade Parceira",
     "nome_cidade": "Araçoiaba*",
     "tipo_dado": "GTFS",
     "tipo_botao": "Dataverse",
     "nome_botao": "Dataverse",
-    "titulo": "Dados GTFS (General Transit Feed Specification) da cidade.",
     "texto_apoio": "Base de dados acadêmica com informações de GTFS organizadas para pesquisa e análise.",
     "data": [
       {
@@ -203,7 +230,6 @@
     "tipo_dado": "GTFS",
     "tipo_botao": "Fonte",
     "nome_botao": "Prefeitura",
-    "titulo": "Dados GTFS (General Transit Feed Specification) da cidade.",
     "texto_apoio": "Site oficial da prefeitura para consulta ou requisição dos dados de GTFS.",
     "data": [
       {
@@ -217,7 +243,6 @@
     "tipo_dado": "GTFS",
     "tipo_botao": "Geoportal",
     "nome_botao": "GeoPortal",
-    "titulo": "Dados GTFS (General Transit Feed Specification) da cidade.",
     "texto_apoio": "Acesso a mapas interativos e camadas geográficas relacionadas ao tema. Ideal para explorar os dados espacializados no território.",
     "data": [
       {
@@ -231,23 +256,10 @@
     "tipo_dado": "Bilhetagem",
     "tipo_botao": "Dataverse",
     "nome_botao": "Dataverse",
-    "titulo": "Dados de bilhetagem eletrônica da frota de transporte público da cidade",
     "texto_apoio": "Base de dados acadêmica com informações de bilhetagem organizadas para pesquisa e análise.",
     "data": [
       {
         "link": "Missing link (dataverse)"
-      },
-      {
-        "titulo_dado": "Passageiros transportados",
-        "link": "https://dataverse.datascience.insper.edu.br/dataset.xhtml?persistentId=doi:10.60873/FK2/JEYM0J"
-      },
-      {
-        "titulo_dado": "Passageiros equivalentes",
-        "link": "https://dataverse.datascience.insper.edu.br/dataset.xhtml?persistentId=doi:10.60873/FK2/OLSIZD"
-      },
-      {
-        "titulo_dado": "Dados operacionais",
-        "link": "https://dataverse.datascience.insper.edu.br/dataset.xhtml?persistentId=doi:10.60873/FK2/XYYBKU"
       }
     ]
   },
@@ -257,7 +269,6 @@
     "tipo_dado": "Bilhetagem",
     "tipo_botao": "Fonte",
     "nome_botao": "Prefeitura",
-    "titulo": "Dados de bilhetagem eletrônica da frota de transporte público da cidade",
     "texto_apoio": "Site oficial da prefeitura para consulta ou requisição dos dados de bilhetagem.",
     "data": [
       {
@@ -271,7 +282,6 @@
     "tipo_dado": "Bilhetagem",
     "tipo_botao": "Geoportal",
     "nome_botao": "GeoPortal",
-    "titulo": "Dados de bilhetagem eletrônica da frota de transporte público da cidade",
     "texto_apoio": "Acesso a mapas interativos e camadas geográficas relacionadas ao tema. Ideal para explorar os dados espacializados no território.",
     "data": [
       {
@@ -285,7 +295,6 @@
     "tipo_dado": "GPS Embarcados",
     "tipo_botao": "Dataverse",
     "nome_botao": "Dataverse",
-    "titulo": "Dados de localização em tempo real dos veículos do transporte público da cidade.",
     "texto_apoio": "Base de dados acadêmica com amostra dos dados de GPS organizada para pesquisa e análise.",
     "data": [
       {
@@ -299,7 +308,6 @@
     "tipo_dado": "GPS Embarcados",
     "tipo_botao": "Fonte",
     "nome_botao": "Prefeitura",
-    "titulo": "Dados de localização em tempo real dos veículos do transporte público da cidade.",
     "texto_apoio": "Site oficial da prefeitura para consulta ou requisição dos dados de GPS.",
     "data": [
       {
@@ -313,7 +321,6 @@
     "tipo_dado": "GPS Embarcados",
     "tipo_botao": "Geoportal",
     "nome_botao": "GeoPortal",
-    "titulo": "Dados de localização em tempo real dos veículos do transporte público da cidade.",
     "texto_apoio": "Acesso a mapas interativos e camadas geográficas relacionadas ao tema. Ideal para explorar os dados espacializados no território.",
     "data": [
       {
@@ -327,15 +334,10 @@
     "tipo_dado": "Outros Arquivos Vetoriais",
     "tipo_botao": "Dataverse",
     "nome_botao": "Dataverse",
-    "titulo": "Dados geográficos complementares e dados gerais de mobilidade da cidade.",
     "texto_apoio": "Base de dados acadêmica com arquivos organizados para pesquisa e análise.",
     "data": [
       {
         "link": "Missing link (dataverse)"
-      },
-      {
-        "titulo_dado": "Empresas concessionárias de Ônibus",
-        "link": "https://dataverse.datascience.insper.edu.br/dataset.xhtml?persistentId=doi:10.60873/FK2/TLFP8L"
       }
     ]
   },
@@ -345,7 +347,6 @@
     "tipo_dado": "Outros Arquivos Vetoriais",
     "tipo_botao": "Fonte",
     "nome_botao": "Prefeitura",
-    "titulo": "Dados geográficos complementares e dados gerais de mobilidade da cidade.",
     "texto_apoio": "Site oficial da prefeitura para consulta ou requisição de outros dados de mobilidade.",
     "data": [
       {
@@ -359,7 +360,6 @@
     "tipo_dado": "Outros Arquivos Vetoriais",
     "tipo_botao": "Geoportal",
     "nome_botao": "GeoPortal",
-    "titulo": "Dados geográficos complementares e dados gerais de mobilidade da cidade.",
     "texto_apoio": "Acesso a mapas interativos e camadas geográficas relacionadas ao tema. Ideal para explorar os dados espacializados no território.",
     "data": [
       {
@@ -369,11 +369,66 @@
   },
   {
     "grupo_cidade": "Cidade Parceira",
+    "nome_cidade": "Araçoiaba*",
+    "tipo_dado": "Bilhetagem",
+    "tipo_botao": "Dataverse",
+    "nome_botao": "Dataverse",
+    "titulo": "Passageiros transportados",
+    "texto_apoio": "Base de dados acadêmica com informações de bilhetagem organizadas para pesquisa e análise.",
+    "data": [
+      {
+        "link": "https://dataverse.datascience.insper.edu.br/dataset.xhtml?persistentId=doi:10.60873/FK2/JEYM0J"
+      }
+    ]
+  },
+  {
+    "grupo_cidade": "Cidade Parceira",
+    "nome_cidade": "Araçoiaba*",
+    "tipo_dado": "Bilhetagem",
+    "tipo_botao": "Dataverse",
+    "nome_botao": "Dataverse",
+    "titulo": "Passageiros equivalentes",
+    "texto_apoio": "Base de dados acadêmica com informações de bilhetagem organizadas para pesquisa e análise.",
+    "data": [
+      {
+        "link": "https://dataverse.datascience.insper.edu.br/dataset.xhtml?persistentId=doi:10.60873/FK2/OLSIZD"
+      }
+    ]
+  },
+  {
+    "grupo_cidade": "Cidade Parceira",
+    "nome_cidade": "Araçoiaba*",
+    "tipo_dado": "Bilhetagem",
+    "tipo_botao": "Dataverse",
+    "nome_botao": "Dataverse",
+    "titulo": "Dados operacionais",
+    "texto_apoio": "Base de dados acadêmica com informações de bilhetagem organizadas para pesquisa e análise.",
+    "data": [
+      {
+        "link": "https://dataverse.datascience.insper.edu.br/dataset.xhtml?persistentId=doi:10.60873/FK2/XYYBKU"
+      }
+    ]
+  },
+  {
+    "grupo_cidade": "Cidade Parceira",
+    "nome_cidade": "Araçoiaba*",
+    "tipo_dado": "Outros Arquivos Vetoriais",
+    "tipo_botao": "Dataverse",
+    "nome_botao": "Dataverse",
+    "titulo": "Empresas concessionárias de Ônibus",
+    "texto_apoio": "Base de dados acadêmica com arquivos organizados para pesquisa e análise.",
+    "data": [
+      {
+        "link": "https://dataverse.datascience.insper.edu.br/dataset.xhtml?persistentId=doi:10.60873/FK2/TLFP8L"
+      }
+    ]
+  },
+  {
+    "grupo_cidade": "Cidade Parceira",
     "nome_cidade": "Belo Horizonte",
     "tipo_dado": "GTFS",
     "tipo_botao": "Dataverse",
     "nome_botao": "Dataverse",
-    "titulo": "Dados GTFS (General Transit Feed Specification) da cidade.",
     "texto_apoio": "Base de dados acadêmica com informações de GTFS organizadas para pesquisa e análise.",
     "data": [
       {
@@ -386,9 +441,8 @@
     "nome_cidade": "Belo Horizonte",
     "tipo_dado": "GTFS",
     "tipo_botao": "Fonte",
-    "nome_botao": "Dados Abertos",
-    "titulo": "Dados GTFS (General Transit Feed Specification) da cidade.",
-    "texto_apoio": "Dados originais GTFS do transporte público disponibilizados em portal de dados abertos da administração municipal.",
+    "nome_botao": "Prefeitura",
+    "texto_apoio": "Site oficial da prefeitura para consulta ou requisição dos dados de GTFS.",
     "data": [
       {
         "link": "https://dados.pbh.gov.br"
@@ -401,7 +455,6 @@
     "tipo_dado": "GTFS",
     "tipo_botao": "Geoportal",
     "nome_botao": "GeoPortal",
-    "titulo": "Dados GTFS (General Transit Feed Specification) da cidade.",
     "texto_apoio": "Acesso a mapas interativos e camadas geográficas relacionadas ao tema. Ideal para explorar os dados espacializados no território.",
     "data": [
       {
@@ -415,7 +468,6 @@
     "tipo_dado": "Bilhetagem",
     "tipo_botao": "Dataverse",
     "nome_botao": "Dataverse",
-    "titulo": "Dados de bilhetagem eletrônica da frota de transporte público da cidade",
     "texto_apoio": "Base de dados acadêmica com informações de bilhetagem organizadas para pesquisa e análise.",
     "data": [
       {
@@ -428,9 +480,8 @@
     "nome_cidade": "Belo Horizonte",
     "tipo_dado": "Bilhetagem",
     "tipo_botao": "Fonte",
-    "nome_botao": "Dados Abertos",
-    "titulo": "Dados de bilhetagem eletrônica da frota de transporte público da cidade",
-    "texto_apoio": "Dados originais de bilhetagem eletrônica disponibilizados em portal de dados abertos da administração municipal.",
+    "nome_botao": "Prefeitura",
+    "texto_apoio": "Site oficial da prefeitura para consulta ou requisição dos dados de bilhetagem.",
     "data": [
       {
         "link": "https://dados.pbh.gov.br"
@@ -443,7 +494,6 @@
     "tipo_dado": "Bilhetagem",
     "tipo_botao": "Geoportal",
     "nome_botao": "GeoPortal",
-    "titulo": "Dados de bilhetagem eletrônica da frota de transporte público da cidade",
     "texto_apoio": "Acesso a mapas interativos e camadas geográficas relacionadas ao tema. Ideal para explorar os dados espacializados no território.",
     "data": [
       {
@@ -457,7 +507,6 @@
     "tipo_dado": "GPS Embarcados",
     "tipo_botao": "Dataverse",
     "nome_botao": "Dataverse",
-    "titulo": "Dados de localização em tempo real dos veículos do transporte público da cidade.",
     "texto_apoio": "Base de dados acadêmica com amostra dos dados de GPS organizada para pesquisa e análise.",
     "data": [
       {
@@ -470,9 +519,8 @@
     "nome_cidade": "Belo Horizonte",
     "tipo_dado": "GPS Embarcados",
     "tipo_botao": "Fonte",
-    "nome_botao": "Dados Abertos",
-    "titulo": "Dados de localização em tempo real dos veículos do transporte público da cidade.",
-    "texto_apoio": "Dados originais de GPS embarcados disponibilizados em portal de dados abertos da administração municipal.",
+    "nome_botao": "Prefeitura",
+    "texto_apoio": "Site oficial da prefeitura para consulta ou requisição dos dados de GPS.",
     "data": [
       {
         "link": "https://dados.pbh.gov.br"
@@ -485,7 +533,6 @@
     "tipo_dado": "GPS Embarcados",
     "tipo_botao": "Geoportal",
     "nome_botao": "GeoPortal",
-    "titulo": "Dados de localização em tempo real dos veículos do transporte público da cidade.",
     "texto_apoio": "Acesso a mapas interativos e camadas geográficas relacionadas ao tema. Ideal para explorar os dados espacializados no território.",
     "data": [
       {
@@ -499,7 +546,6 @@
     "tipo_dado": "Outros Arquivos Vetoriais",
     "tipo_botao": "Dataverse",
     "nome_botao": "Dataverse",
-    "titulo": "Dados geográficos complementares e dados gerais de mobilidade da cidade.",
     "texto_apoio": "Base de dados acadêmica com arquivos organizados para pesquisa e análise.",
     "data": [
       {
@@ -512,9 +558,8 @@
     "nome_cidade": "Belo Horizonte",
     "tipo_dado": "Outros Arquivos Vetoriais",
     "tipo_botao": "Fonte",
-    "nome_botao": "Dados Abertos",
-    "titulo": "Dados geográficos complementares e dados gerais de mobilidade da cidade.",
-    "texto_apoio": "Outros arquivos vetoriais e dados geográficos complementares disponibilizados em portal de dados abertos municipal.",
+    "nome_botao": "Prefeitura",
+    "texto_apoio": "Site oficial da prefeitura para consulta ou requisição de outros dados de mobilidade.",
     "data": [
       {
         "link": "https://dados.pbh.gov.br"
@@ -527,7 +572,6 @@
     "tipo_dado": "Outros Arquivos Vetoriais",
     "tipo_botao": "Geoportal",
     "nome_botao": "GeoPortal",
-    "titulo": "Dados geográficos complementares e dados gerais de mobilidade da cidade.",
     "texto_apoio": "Acesso a mapas interativos e camadas geográficas relacionadas ao tema. Ideal para explorar os dados espacializados no território.",
     "data": [
       {
@@ -541,7 +585,6 @@
     "tipo_dado": "GTFS",
     "tipo_botao": "Dataverse",
     "nome_botao": "Dataverse",
-    "titulo": "Dados GTFS (General Transit Feed Specification) da cidade.",
     "texto_apoio": "Base de dados acadêmica com informações de GTFS organizadas para pesquisa e análise.",
     "data": [
       {
@@ -555,7 +598,6 @@
     "tipo_dado": "GTFS",
     "tipo_botao": "Fonte",
     "nome_botao": "Prefeitura",
-    "titulo": "Dados GTFS (General Transit Feed Specification) da cidade.",
     "texto_apoio": "Site oficial da prefeitura para consulta ou requisição dos dados de GTFS.",
     "data": [
       {
@@ -569,7 +611,6 @@
     "tipo_dado": "GTFS",
     "tipo_botao": "Geoportal",
     "nome_botao": "GeoPortal",
-    "titulo": "Dados GTFS (General Transit Feed Specification) da cidade.",
     "texto_apoio": "Acesso a mapas interativos e camadas geográficas relacionadas ao tema. Ideal para explorar os dados espacializados no território.",
     "data": [
       {
@@ -583,23 +624,10 @@
     "tipo_dado": "Bilhetagem",
     "tipo_botao": "Dataverse",
     "nome_botao": "Dataverse",
-    "titulo": "Dados de bilhetagem eletrônica da frota de transporte público da cidade",
     "texto_apoio": "Base de dados acadêmica com informações de bilhetagem organizadas para pesquisa e análise.",
     "data": [
       {
         "link": "Missing link (dataverse)"
-      },
-      {
-        "titulo_dado": "Passageiros transportados",
-        "link": "https://dataverse.datascience.insper.edu.br/dataset.xhtml?persistentId=doi:10.60873/FK2/JEYM0J"
-      },
-      {
-        "titulo_dado": "Passageiros equivalentes",
-        "link": "https://dataverse.datascience.insper.edu.br/dataset.xhtml?persistentId=doi:10.60873/FK2/OLSIZD"
-      },
-      {
-        "titulo_dado": "Dados operacionais",
-        "link": "https://dataverse.datascience.insper.edu.br/dataset.xhtml?persistentId=doi:10.60873/FK2/XYYBKU"
       }
     ]
   },
@@ -609,7 +637,6 @@
     "tipo_dado": "Bilhetagem",
     "tipo_botao": "Fonte",
     "nome_botao": "Prefeitura",
-    "titulo": "Dados de bilhetagem eletrônica da frota de transporte público da cidade",
     "texto_apoio": "Site oficial da prefeitura para consulta ou requisição dos dados de bilhetagem.",
     "data": [
       {
@@ -623,7 +650,6 @@
     "tipo_dado": "Bilhetagem",
     "tipo_botao": "Geoportal",
     "nome_botao": "GeoPortal",
-    "titulo": "Dados de bilhetagem eletrônica da frota de transporte público da cidade",
     "texto_apoio": "Acesso a mapas interativos e camadas geográficas relacionadas ao tema. Ideal para explorar os dados espacializados no território.",
     "data": [
       {
@@ -637,7 +663,6 @@
     "tipo_dado": "GPS Embarcados",
     "tipo_botao": "Dataverse",
     "nome_botao": "Dataverse",
-    "titulo": "Dados de localização em tempo real dos veículos do transporte público da cidade.",
     "texto_apoio": "Base de dados acadêmica com amostra dos dados de GPS organizada para pesquisa e análise.",
     "data": [
       {
@@ -651,7 +676,6 @@
     "tipo_dado": "GPS Embarcados",
     "tipo_botao": "Fonte",
     "nome_botao": "Prefeitura",
-    "titulo": "Dados de localização em tempo real dos veículos do transporte público da cidade.",
     "texto_apoio": "Site oficial da prefeitura para consulta ou requisição dos dados de GPS.",
     "data": [
       {
@@ -665,7 +689,6 @@
     "tipo_dado": "GPS Embarcados",
     "tipo_botao": "Geoportal",
     "nome_botao": "GeoPortal",
-    "titulo": "Dados de localização em tempo real dos veículos do transporte público da cidade.",
     "texto_apoio": "Acesso a mapas interativos e camadas geográficas relacionadas ao tema. Ideal para explorar os dados espacializados no território.",
     "data": [
       {
@@ -679,15 +702,10 @@
     "tipo_dado": "Outros Arquivos Vetoriais",
     "tipo_botao": "Dataverse",
     "nome_botao": "Dataverse",
-    "titulo": "Dados geográficos complementares e dados gerais de mobilidade da cidade.",
     "texto_apoio": "Base de dados acadêmica com arquivos organizados para pesquisa e análise.",
     "data": [
       {
         "link": "Missing link (dataverse)"
-      },
-      {
-        "titulo_dado": "Empresas concessionárias de Ônibus",
-        "link": "https://dataverse.datascience.insper.edu.br/dataset.xhtml?persistentId=doi:10.60873/FK2/TLFP8L"
       }
     ]
   },
@@ -697,7 +715,6 @@
     "tipo_dado": "Outros Arquivos Vetoriais",
     "tipo_botao": "Fonte",
     "nome_botao": "Prefeitura",
-    "titulo": "Dados geográficos complementares e dados gerais de mobilidade da cidade.",
     "texto_apoio": "Site oficial da prefeitura para consulta ou requisição de outros dados de mobilidade.",
     "data": [
       {
@@ -711,7 +728,6 @@
     "tipo_dado": "Outros Arquivos Vetoriais",
     "tipo_botao": "Geoportal",
     "nome_botao": "GeoPortal",
-    "titulo": "Dados geográficos complementares e dados gerais de mobilidade da cidade.",
     "texto_apoio": "Acesso a mapas interativos e camadas geográficas relacionadas ao tema. Ideal para explorar os dados espacializados no território.",
     "data": [
       {
@@ -721,11 +737,66 @@
   },
   {
     "grupo_cidade": "Cidade Parceira",
+    "nome_cidade": "Cabo de Santo Agostinho*",
+    "tipo_dado": "Bilhetagem",
+    "tipo_botao": "Dataverse",
+    "nome_botao": "Dataverse",
+    "titulo": "Passageiros transportados",
+    "texto_apoio": "Base de dados acadêmica com informações de bilhetagem organizadas para pesquisa e análise.",
+    "data": [
+      {
+        "link": "https://dataverse.datascience.insper.edu.br/dataset.xhtml?persistentId=doi:10.60873/FK2/JEYM0J"
+      }
+    ]
+  },
+  {
+    "grupo_cidade": "Cidade Parceira",
+    "nome_cidade": "Cabo de Santo Agostinho*",
+    "tipo_dado": "Bilhetagem",
+    "tipo_botao": "Dataverse",
+    "nome_botao": "Dataverse",
+    "titulo": "Passageiros equivalentes",
+    "texto_apoio": "Base de dados acadêmica com informações de bilhetagem organizadas para pesquisa e análise.",
+    "data": [
+      {
+        "link": "https://dataverse.datascience.insper.edu.br/dataset.xhtml?persistentId=doi:10.60873/FK2/OLSIZD"
+      }
+    ]
+  },
+  {
+    "grupo_cidade": "Cidade Parceira",
+    "nome_cidade": "Cabo de Santo Agostinho*",
+    "tipo_dado": "Bilhetagem",
+    "tipo_botao": "Dataverse",
+    "nome_botao": "Dataverse",
+    "titulo": "Dados operacionais",
+    "texto_apoio": "Base de dados acadêmica com informações de bilhetagem organizadas para pesquisa e análise.",
+    "data": [
+      {
+        "link": "https://dataverse.datascience.insper.edu.br/dataset.xhtml?persistentId=doi:10.60873/FK2/XYYBKU"
+      }
+    ]
+  },
+  {
+    "grupo_cidade": "Cidade Parceira",
+    "nome_cidade": "Cabo de Santo Agostinho*",
+    "tipo_dado": "Outros Arquivos Vetoriais",
+    "tipo_botao": "Dataverse",
+    "nome_botao": "Dataverse",
+    "titulo": "Empresas concessionárias de Ônibus",
+    "texto_apoio": "Base de dados acadêmica com arquivos organizados para pesquisa e análise.",
+    "data": [
+      {
+        "link": "https://dataverse.datascience.insper.edu.br/dataset.xhtml?persistentId=doi:10.60873/FK2/TLFP8L"
+      }
+    ]
+  },
+  {
+    "grupo_cidade": "Cidade Parceira",
     "nome_cidade": "Camaragibe*",
     "tipo_dado": "GTFS",
     "tipo_botao": "Dataverse",
     "nome_botao": "Dataverse",
-    "titulo": "Dados GTFS (General Transit Feed Specification) da cidade.",
     "texto_apoio": "Base de dados acadêmica com informações de GTFS organizadas para pesquisa e análise.",
     "data": [
       {
@@ -739,7 +810,6 @@
     "tipo_dado": "GTFS",
     "tipo_botao": "Fonte",
     "nome_botao": "Prefeitura",
-    "titulo": "Dados GTFS (General Transit Feed Specification) da cidade.",
     "texto_apoio": "Site oficial da prefeitura para consulta ou requisição dos dados de GTFS.",
     "data": [
       {
@@ -753,7 +823,6 @@
     "tipo_dado": "GTFS",
     "tipo_botao": "Geoportal",
     "nome_botao": "GeoPortal",
-    "titulo": "Dados GTFS (General Transit Feed Specification) da cidade.",
     "texto_apoio": "Acesso a mapas interativos e camadas geográficas relacionadas ao tema. Ideal para explorar os dados espacializados no território.",
     "data": [
       {
@@ -767,23 +836,10 @@
     "tipo_dado": "Bilhetagem",
     "tipo_botao": "Dataverse",
     "nome_botao": "Dataverse",
-    "titulo": "Dados de bilhetagem eletrônica da frota de transporte público da cidade",
     "texto_apoio": "Base de dados acadêmica com informações de bilhetagem organizadas para pesquisa e análise.",
     "data": [
       {
         "link": "Missing link (dataverse)"
-      },
-      {
-        "titulo_dado": "Passageiros transportados",
-        "link": "https://dataverse.datascience.insper.edu.br/dataset.xhtml?persistentId=doi:10.60873/FK2/JEYM0J"
-      },
-      {
-        "titulo_dado": "Passageiros equivalentes",
-        "link": "https://dataverse.datascience.insper.edu.br/dataset.xhtml?persistentId=doi:10.60873/FK2/OLSIZD"
-      },
-      {
-        "titulo_dado": "Dados operacionais",
-        "link": "https://dataverse.datascience.insper.edu.br/dataset.xhtml?persistentId=doi:10.60873/FK2/XYYBKU"
       }
     ]
   },
@@ -793,7 +849,6 @@
     "tipo_dado": "Bilhetagem",
     "tipo_botao": "Fonte",
     "nome_botao": "Prefeitura",
-    "titulo": "Dados de bilhetagem eletrônica da frota de transporte público da cidade",
     "texto_apoio": "Site oficial da prefeitura para consulta ou requisição dos dados de bilhetagem.",
     "data": [
       {
@@ -807,7 +862,6 @@
     "tipo_dado": "Bilhetagem",
     "tipo_botao": "Geoportal",
     "nome_botao": "GeoPortal",
-    "titulo": "Dados de bilhetagem eletrônica da frota de transporte público da cidade",
     "texto_apoio": "Acesso a mapas interativos e camadas geográficas relacionadas ao tema. Ideal para explorar os dados espacializados no território.",
     "data": [
       {
@@ -821,7 +875,6 @@
     "tipo_dado": "GPS Embarcados",
     "tipo_botao": "Dataverse",
     "nome_botao": "Dataverse",
-    "titulo": "Dados de localização em tempo real dos veículos do transporte público da cidade.",
     "texto_apoio": "Base de dados acadêmica com amostra dos dados de GPS organizada para pesquisa e análise.",
     "data": [
       {
@@ -835,7 +888,6 @@
     "tipo_dado": "GPS Embarcados",
     "tipo_botao": "Fonte",
     "nome_botao": "Prefeitura",
-    "titulo": "Dados de localização em tempo real dos veículos do transporte público da cidade.",
     "texto_apoio": "Site oficial da prefeitura para consulta ou requisição dos dados de GPS.",
     "data": [
       {
@@ -849,7 +901,6 @@
     "tipo_dado": "GPS Embarcados",
     "tipo_botao": "Geoportal",
     "nome_botao": "GeoPortal",
-    "titulo": "Dados de localização em tempo real dos veículos do transporte público da cidade.",
     "texto_apoio": "Acesso a mapas interativos e camadas geográficas relacionadas ao tema. Ideal para explorar os dados espacializados no território.",
     "data": [
       {
@@ -863,15 +914,10 @@
     "tipo_dado": "Outros Arquivos Vetoriais",
     "tipo_botao": "Dataverse",
     "nome_botao": "Dataverse",
-    "titulo": "Dados geográficos complementares e dados gerais de mobilidade da cidade.",
     "texto_apoio": "Base de dados acadêmica com arquivos organizados para pesquisa e análise.",
     "data": [
       {
         "link": "Missing link (dataverse)"
-      },
-      {
-        "titulo_dado": "Empresas concessionárias de Ônibus",
-        "link": "https://dataverse.datascience.insper.edu.br/dataset.xhtml?persistentId=doi:10.60873/FK2/TLFP8L"
       }
     ]
   },
@@ -881,7 +927,6 @@
     "tipo_dado": "Outros Arquivos Vetoriais",
     "tipo_botao": "Fonte",
     "nome_botao": "Prefeitura",
-    "titulo": "Dados geográficos complementares e dados gerais de mobilidade da cidade.",
     "texto_apoio": "Site oficial da prefeitura para consulta ou requisição de outros dados de mobilidade.",
     "data": [
       {
@@ -895,11 +940,66 @@
     "tipo_dado": "Outros Arquivos Vetoriais",
     "tipo_botao": "Geoportal",
     "nome_botao": "GeoPortal",
-    "titulo": "Dados geográficos complementares e dados gerais de mobilidade da cidade.",
     "texto_apoio": "Acesso a mapas interativos e camadas geográficas relacionadas ao tema. Ideal para explorar os dados espacializados no território.",
     "data": [
       {
         "link": "Missing link (geoportal)"
+      }
+    ]
+  },
+  {
+    "grupo_cidade": "Cidade Parceira",
+    "nome_cidade": "Camaragibe*",
+    "tipo_dado": "Bilhetagem",
+    "tipo_botao": "Dataverse",
+    "nome_botao": "Dataverse",
+    "titulo": "Passageiros transportados",
+    "texto_apoio": "Base de dados acadêmica com informações de bilhetagem organizadas para pesquisa e análise.",
+    "data": [
+      {
+        "link": "https://dataverse.datascience.insper.edu.br/dataset.xhtml?persistentId=doi:10.60873/FK2/JEYM0J"
+      }
+    ]
+  },
+  {
+    "grupo_cidade": "Cidade Parceira",
+    "nome_cidade": "Camaragibe*",
+    "tipo_dado": "Bilhetagem",
+    "tipo_botao": "Dataverse",
+    "nome_botao": "Dataverse",
+    "titulo": "Passageiros equivalentes",
+    "texto_apoio": "Base de dados acadêmica com informações de bilhetagem organizadas para pesquisa e análise.",
+    "data": [
+      {
+        "link": "https://dataverse.datascience.insper.edu.br/dataset.xhtml?persistentId=doi:10.60873/FK2/OLSIZD"
+      }
+    ]
+  },
+  {
+    "grupo_cidade": "Cidade Parceira",
+    "nome_cidade": "Camaragibe*",
+    "tipo_dado": "Bilhetagem",
+    "tipo_botao": "Dataverse",
+    "nome_botao": "Dataverse",
+    "titulo": "Dados operacionais",
+    "texto_apoio": "Base de dados acadêmica com informações de bilhetagem organizadas para pesquisa e análise.",
+    "data": [
+      {
+        "link": "https://dataverse.datascience.insper.edu.br/dataset.xhtml?persistentId=doi:10.60873/FK2/XYYBKU"
+      }
+    ]
+  },
+  {
+    "grupo_cidade": "Cidade Parceira",
+    "nome_cidade": "Camaragibe*",
+    "tipo_dado": "Outros Arquivos Vetoriais",
+    "tipo_botao": "Dataverse",
+    "nome_botao": "Dataverse",
+    "titulo": "Empresas concessionárias de Ônibus",
+    "texto_apoio": "Base de dados acadêmica com arquivos organizados para pesquisa e análise.",
+    "data": [
+      {
+        "link": "https://dataverse.datascience.insper.edu.br/dataset.xhtml?persistentId=doi:10.60873/FK2/TLFP8L"
       }
     ]
   },
@@ -909,7 +1009,6 @@
     "tipo_dado": "GTFS",
     "tipo_botao": "Dataverse",
     "nome_botao": "Dataverse",
-    "titulo": "Dados GTFS (General Transit Feed Specification) da cidade.",
     "texto_apoio": "Base de dados acadêmica com informações de GTFS organizadas para pesquisa e análise.",
     "data": [
       {
@@ -923,7 +1022,6 @@
     "tipo_dado": "GTFS",
     "tipo_botao": "Fonte",
     "nome_botao": "Prefeitura",
-    "titulo": "Dados GTFS (General Transit Feed Specification) da cidade.",
     "texto_apoio": "Site oficial da prefeitura para consulta ou requisição dos dados de GTFS.",
     "data": [
       {
@@ -937,7 +1035,6 @@
     "tipo_dado": "GTFS",
     "tipo_botao": "Geoportal",
     "nome_botao": "GeoPortal",
-    "titulo": "Dados GTFS (General Transit Feed Specification) da cidade.",
     "texto_apoio": "Acesso a mapas interativos e camadas geográficas relacionadas ao tema. Ideal para explorar os dados espacializados no território.",
     "data": [
       {
@@ -951,138 +1048,138 @@
     "tipo_dado": "Bilhetagem",
     "tipo_botao": "Dataverse",
     "nome_botao": "Dataverse",
-    "titulo": "Dados de bilhetagem eletrônica da frota de transporte público da cidade",
+    "titulo": "Bilhetagem eletrônica",
     "texto_apoio": "Base de dados acadêmica com informações de bilhetagem organizadas para pesquisa e análise.",
     "data": [
       {
-        "titulo_dado": "Bilhetagem eletrônica",
         "link": "https://dataverse.datascience.insper.edu.br/dataset.xhtml?persistentId=doi:10.60873/FK2/MW22QF"
-      },
+      }
+    ]
+  },
+  {
+    "grupo_cidade": "Cidade Parceira",
+    "nome_cidade": "Campinas",
+    "tipo_dado": "Bilhetagem",
+    "tipo_botao": "Fonte",
+    "nome_botao": "Prefeitura",
+    "texto_apoio": "Site oficial da prefeitura para consulta ou requisição dos dados de bilhetagem.",
+    "data": [
       {
-        "titulo_dado": "Passageiros por dia",
+        "link": "https://campinas.sp.gov.br"
+      }
+    ]
+  },
+  {
+    "grupo_cidade": "Cidade Parceira",
+    "nome_cidade": "Campinas",
+    "tipo_dado": "Bilhetagem",
+    "tipo_botao": "Geoportal",
+    "nome_botao": "GeoPortal",
+    "texto_apoio": "Acesso a mapas interativos e camadas geográficas relacionadas ao tema. Ideal para explorar os dados espacializados no território.",
+    "data": [
+      {
+        "link": "Missing link (geoportal)"
+      }
+    ]
+  },
+  {
+    "grupo_cidade": "Cidade Parceira",
+    "nome_cidade": "Campinas",
+    "tipo_dado": "GPS Embarcados",
+    "tipo_botao": "Dataverse",
+    "nome_botao": "Dataverse",
+    "texto_apoio": "Base de dados acadêmica com amostra dos dados de GPS organizada para pesquisa e análise.",
+    "data": [
+      {
+        "link": "Missing link (dataverse)"
+      }
+    ]
+  },
+  {
+    "grupo_cidade": "Cidade Parceira",
+    "nome_cidade": "Campinas",
+    "tipo_dado": "GPS Embarcados",
+    "tipo_botao": "Fonte",
+    "nome_botao": "Prefeitura",
+    "texto_apoio": "Site oficial da prefeitura para consulta ou requisição dos dados de GPS.",
+    "data": [
+      {
+        "link": "https://campinas.sp.gov.br"
+      }
+    ]
+  },
+  {
+    "grupo_cidade": "Cidade Parceira",
+    "nome_cidade": "Campinas",
+    "tipo_dado": "GPS Embarcados",
+    "tipo_botao": "Geoportal",
+    "nome_botao": "GeoPortal",
+    "texto_apoio": "Acesso a mapas interativos e camadas geográficas relacionadas ao tema. Ideal para explorar os dados espacializados no território.",
+    "data": [
+      {
+        "link": "Missing link (geoportal)"
+      }
+    ]
+  },
+  {
+    "grupo_cidade": "Cidade Parceira",
+    "nome_cidade": "Campinas",
+    "tipo_dado": "Outros Arquivos Vetoriais",
+    "tipo_botao": "Dataverse",
+    "nome_botao": "Dataverse",
+    "texto_apoio": "Base de dados acadêmica com arquivos organizados para pesquisa e análise.",
+    "data": [
+      {
+        "link": "Missing link (dataverse)"
+      }
+    ]
+  },
+  {
+    "grupo_cidade": "Cidade Parceira",
+    "nome_cidade": "Campinas",
+    "tipo_dado": "Outros Arquivos Vetoriais",
+    "tipo_botao": "Fonte",
+    "nome_botao": "Prefeitura",
+    "texto_apoio": "Site oficial da prefeitura para consulta ou requisição de outros dados de mobilidade.",
+    "data": [
+      {
+        "link": "https://campinas.sp.gov.br"
+      }
+    ]
+  },
+  {
+    "grupo_cidade": "Cidade Parceira",
+    "nome_cidade": "Campinas",
+    "tipo_dado": "Outros Arquivos Vetoriais",
+    "tipo_botao": "Geoportal",
+    "nome_botao": "GeoPortal",
+    "texto_apoio": "Acesso a mapas interativos e camadas geográficas relacionadas ao tema. Ideal para explorar os dados espacializados no território.",
+    "data": [
+      {
+        "link": "Missing link (geoportal)"
+      }
+    ]
+  },
+  {
+    "grupo_cidade": "Cidade Parceira",
+    "nome_cidade": "Campinas",
+    "tipo_dado": "Bilhetagem",
+    "tipo_botao": "Dataverse",
+    "nome_botao": "Dataverse",
+    "titulo": "Passageiros por dia",
+    "texto_apoio": "Base de dados acadêmica com informações de bilhetagem organizadas para pesquisa e análise.",
+    "data": [
+      {
         "link": "https://dataverse.datascience.insper.edu.br/dataset.xhtml?persistentId=doi:10.60873/FK2/GBFWQI"
       }
     ]
   },
   {
     "grupo_cidade": "Cidade Parceira",
-    "nome_cidade": "Campinas",
-    "tipo_dado": "Bilhetagem",
-    "tipo_botao": "Fonte",
-    "nome_botao": "Prefeitura",
-    "titulo": "Dados de bilhetagem eletrônica da frota de transporte público da cidade",
-    "texto_apoio": "Site oficial da prefeitura para consulta ou requisição dos dados de bilhetagem.",
-    "data": [
-      {
-        "link": "https://campinas.sp.gov.br"
-      }
-    ]
-  },
-  {
-    "grupo_cidade": "Cidade Parceira",
-    "nome_cidade": "Campinas",
-    "tipo_dado": "Bilhetagem",
-    "tipo_botao": "Geoportal",
-    "nome_botao": "GeoPortal",
-    "titulo": "Dados de bilhetagem eletrônica da frota de transporte público da cidade",
-    "texto_apoio": "Acesso a mapas interativos e camadas geográficas relacionadas ao tema. Ideal para explorar os dados espacializados no território.",
-    "data": [
-      {
-        "link": "Missing link (geoportal)"
-      }
-    ]
-  },
-  {
-    "grupo_cidade": "Cidade Parceira",
-    "nome_cidade": "Campinas",
-    "tipo_dado": "GPS Embarcados",
-    "tipo_botao": "Dataverse",
-    "nome_botao": "Dataverse",
-    "titulo": "Dados de localização em tempo real dos veículos do transporte público da cidade.",
-    "texto_apoio": "Base de dados acadêmica com amostra dos dados de GPS organizada para pesquisa e análise.",
-    "data": [
-      {
-        "link": "Missing link (dataverse)"
-      }
-    ]
-  },
-  {
-    "grupo_cidade": "Cidade Parceira",
-    "nome_cidade": "Campinas",
-    "tipo_dado": "GPS Embarcados",
-    "tipo_botao": "Fonte",
-    "nome_botao": "Prefeitura",
-    "titulo": "Dados de localização em tempo real dos veículos do transporte público da cidade.",
-    "texto_apoio": "Site oficial da prefeitura para consulta ou requisição dos dados de GPS.",
-    "data": [
-      {
-        "link": "https://campinas.sp.gov.br"
-      }
-    ]
-  },
-  {
-    "grupo_cidade": "Cidade Parceira",
-    "nome_cidade": "Campinas",
-    "tipo_dado": "GPS Embarcados",
-    "tipo_botao": "Geoportal",
-    "nome_botao": "GeoPortal",
-    "titulo": "Dados de localização em tempo real dos veículos do transporte público da cidade.",
-    "texto_apoio": "Acesso a mapas interativos e camadas geográficas relacionadas ao tema. Ideal para explorar os dados espacializados no território.",
-    "data": [
-      {
-        "link": "Missing link (geoportal)"
-      }
-    ]
-  },
-  {
-    "grupo_cidade": "Cidade Parceira",
-    "nome_cidade": "Campinas",
-    "tipo_dado": "Outros Arquivos Vetoriais",
-    "tipo_botao": "Dataverse",
-    "nome_botao": "Dataverse",
-    "titulo": "Dados geográficos complementares e dados gerais de mobilidade da cidade.",
-    "texto_apoio": "Base de dados acadêmica com arquivos organizados para pesquisa e análise.",
-    "data": [
-      {
-        "link": "Missing link (dataverse)"
-      }
-    ]
-  },
-  {
-    "grupo_cidade": "Cidade Parceira",
-    "nome_cidade": "Campinas",
-    "tipo_dado": "Outros Arquivos Vetoriais",
-    "tipo_botao": "Fonte",
-    "nome_botao": "Prefeitura",
-    "titulo": "Dados geográficos complementares e dados gerais de mobilidade da cidade.",
-    "texto_apoio": "Site oficial da prefeitura para consulta ou requisição de outros dados de mobilidade.",
-    "data": [
-      {
-        "link": "https://campinas.sp.gov.br"
-      }
-    ]
-  },
-  {
-    "grupo_cidade": "Cidade Parceira",
-    "nome_cidade": "Campinas",
-    "tipo_dado": "Outros Arquivos Vetoriais",
-    "tipo_botao": "Geoportal",
-    "nome_botao": "GeoPortal",
-    "titulo": "Dados geográficos complementares e dados gerais de mobilidade da cidade.",
-    "texto_apoio": "Acesso a mapas interativos e camadas geográficas relacionadas ao tema. Ideal para explorar os dados espacializados no território.",
-    "data": [
-      {
-        "link": "Missing link (geoportal)"
-      }
-    ]
-  },
-  {
-    "grupo_cidade": "Cidade Parceira",
     "nome_cidade": "Igarassu*",
     "tipo_dado": "GTFS",
     "tipo_botao": "Dataverse",
     "nome_botao": "Dataverse",
-    "titulo": "Dados GTFS (General Transit Feed Specification) da cidade.",
     "texto_apoio": "Base de dados acadêmica com informações de GTFS organizadas para pesquisa e análise.",
     "data": [
       {
@@ -1096,7 +1193,6 @@
     "tipo_dado": "GTFS",
     "tipo_botao": "Fonte",
     "nome_botao": "Prefeitura",
-    "titulo": "Dados GTFS (General Transit Feed Specification) da cidade.",
     "texto_apoio": "Site oficial da prefeitura para consulta ou requisição dos dados de GTFS.",
     "data": [
       {
@@ -1110,7 +1206,6 @@
     "tipo_dado": "GTFS",
     "tipo_botao": "Geoportal",
     "nome_botao": "GeoPortal",
-    "titulo": "Dados GTFS (General Transit Feed Specification) da cidade.",
     "texto_apoio": "Acesso a mapas interativos e camadas geográficas relacionadas ao tema. Ideal para explorar os dados espacializados no território.",
     "data": [
       {
@@ -1124,23 +1219,10 @@
     "tipo_dado": "Bilhetagem",
     "tipo_botao": "Dataverse",
     "nome_botao": "Dataverse",
-    "titulo": "Dados de bilhetagem eletrônica da frota de transporte público da cidade",
     "texto_apoio": "Base de dados acadêmica com informações de bilhetagem organizadas para pesquisa e análise.",
     "data": [
       {
         "link": "Missing link (dataverse)"
-      },
-      {
-        "titulo_dado": "Passageiros transportados",
-        "link": "https://dataverse.datascience.insper.edu.br/dataset.xhtml?persistentId=doi:10.60873/FK2/JEYM0J"
-      },
-      {
-        "titulo_dado": "Passageiros equivalentes",
-        "link": "https://dataverse.datascience.insper.edu.br/dataset.xhtml?persistentId=doi:10.60873/FK2/OLSIZD"
-      },
-      {
-        "titulo_dado": "Dados operacionais",
-        "link": "https://dataverse.datascience.insper.edu.br/dataset.xhtml?persistentId=doi:10.60873/FK2/XYYBKU"
       }
     ]
   },
@@ -1150,7 +1232,6 @@
     "tipo_dado": "Bilhetagem",
     "tipo_botao": "Fonte",
     "nome_botao": "Prefeitura",
-    "titulo": "Dados de bilhetagem eletrônica da frota de transporte público da cidade",
     "texto_apoio": "Site oficial da prefeitura para consulta ou requisição dos dados de bilhetagem.",
     "data": [
       {
@@ -1164,7 +1245,6 @@
     "tipo_dado": "Bilhetagem",
     "tipo_botao": "Geoportal",
     "nome_botao": "GeoPortal",
-    "titulo": "Dados de bilhetagem eletrônica da frota de transporte público da cidade",
     "texto_apoio": "Acesso a mapas interativos e camadas geográficas relacionadas ao tema. Ideal para explorar os dados espacializados no território.",
     "data": [
       {
@@ -1178,7 +1258,6 @@
     "tipo_dado": "GPS Embarcados",
     "tipo_botao": "Dataverse",
     "nome_botao": "Dataverse",
-    "titulo": "Dados de localização em tempo real dos veículos do transporte público da cidade.",
     "texto_apoio": "Base de dados acadêmica com amostra dos dados de GPS organizada para pesquisa e análise.",
     "data": [
       {
@@ -1192,7 +1271,6 @@
     "tipo_dado": "GPS Embarcados",
     "tipo_botao": "Fonte",
     "nome_botao": "Prefeitura",
-    "titulo": "Dados de localização em tempo real dos veículos do transporte público da cidade.",
     "texto_apoio": "Site oficial da prefeitura para consulta ou requisição dos dados de GPS.",
     "data": [
       {
@@ -1206,7 +1284,6 @@
     "tipo_dado": "GPS Embarcados",
     "tipo_botao": "Geoportal",
     "nome_botao": "GeoPortal",
-    "titulo": "Dados de localização em tempo real dos veículos do transporte público da cidade.",
     "texto_apoio": "Acesso a mapas interativos e camadas geográficas relacionadas ao tema. Ideal para explorar os dados espacializados no território.",
     "data": [
       {
@@ -1220,15 +1297,10 @@
     "tipo_dado": "Outros Arquivos Vetoriais",
     "tipo_botao": "Dataverse",
     "nome_botao": "Dataverse",
-    "titulo": "Dados geográficos complementares e dados gerais de mobilidade da cidade.",
     "texto_apoio": "Base de dados acadêmica com arquivos organizados para pesquisa e análise.",
     "data": [
       {
         "link": "Missing link (dataverse)"
-      },
-      {
-        "titulo_dado": "Empresas concessionárias de Ônibus",
-        "link": "https://dataverse.datascience.insper.edu.br/dataset.xhtml?persistentId=doi:10.60873/FK2/TLFP8L"
       }
     ]
   },
@@ -1238,7 +1310,6 @@
     "tipo_dado": "Outros Arquivos Vetoriais",
     "tipo_botao": "Fonte",
     "nome_botao": "Prefeitura",
-    "titulo": "Dados geográficos complementares e dados gerais de mobilidade da cidade.",
     "texto_apoio": "Site oficial da prefeitura para consulta ou requisição de outros dados de mobilidade.",
     "data": [
       {
@@ -1252,7 +1323,6 @@
     "tipo_dado": "Outros Arquivos Vetoriais",
     "tipo_botao": "Geoportal",
     "nome_botao": "GeoPortal",
-    "titulo": "Dados geográficos complementares e dados gerais de mobilidade da cidade.",
     "texto_apoio": "Acesso a mapas interativos e camadas geográficas relacionadas ao tema. Ideal para explorar os dados espacializados no território.",
     "data": [
       {
@@ -1262,11 +1332,66 @@
   },
   {
     "grupo_cidade": "Cidade Parceira",
+    "nome_cidade": "Igarassu*",
+    "tipo_dado": "Bilhetagem",
+    "tipo_botao": "Dataverse",
+    "nome_botao": "Dataverse",
+    "titulo": "Passageiros transportados",
+    "texto_apoio": "Base de dados acadêmica com informações de bilhetagem organizadas para pesquisa e análise.",
+    "data": [
+      {
+        "link": "https://dataverse.datascience.insper.edu.br/dataset.xhtml?persistentId=doi:10.60873/FK2/JEYM0J"
+      }
+    ]
+  },
+  {
+    "grupo_cidade": "Cidade Parceira",
+    "nome_cidade": "Igarassu*",
+    "tipo_dado": "Bilhetagem",
+    "tipo_botao": "Dataverse",
+    "nome_botao": "Dataverse",
+    "titulo": "Passageiros equivalentes",
+    "texto_apoio": "Base de dados acadêmica com informações de bilhetagem organizadas para pesquisa e análise.",
+    "data": [
+      {
+        "link": "https://dataverse.datascience.insper.edu.br/dataset.xhtml?persistentId=doi:10.60873/FK2/OLSIZD"
+      }
+    ]
+  },
+  {
+    "grupo_cidade": "Cidade Parceira",
+    "nome_cidade": "Igarassu*",
+    "tipo_dado": "Bilhetagem",
+    "tipo_botao": "Dataverse",
+    "nome_botao": "Dataverse",
+    "titulo": "Dados operacionais",
+    "texto_apoio": "Base de dados acadêmica com informações de bilhetagem organizadas para pesquisa e análise.",
+    "data": [
+      {
+        "link": "https://dataverse.datascience.insper.edu.br/dataset.xhtml?persistentId=doi:10.60873/FK2/XYYBKU"
+      }
+    ]
+  },
+  {
+    "grupo_cidade": "Cidade Parceira",
+    "nome_cidade": "Igarassu*",
+    "tipo_dado": "Outros Arquivos Vetoriais",
+    "tipo_botao": "Dataverse",
+    "nome_botao": "Dataverse",
+    "titulo": "Empresas concessionárias de Ônibus",
+    "texto_apoio": "Base de dados acadêmica com arquivos organizados para pesquisa e análise.",
+    "data": [
+      {
+        "link": "https://dataverse.datascience.insper.edu.br/dataset.xhtml?persistentId=doi:10.60873/FK2/TLFP8L"
+      }
+    ]
+  },
+  {
+    "grupo_cidade": "Cidade Parceira",
     "nome_cidade": "Ilha de Itamaracá*",
     "tipo_dado": "GTFS",
     "tipo_botao": "Dataverse",
     "nome_botao": "Dataverse",
-    "titulo": "Dados GTFS (General Transit Feed Specification) da cidade.",
     "texto_apoio": "Base de dados acadêmica com informações de GTFS organizadas para pesquisa e análise.",
     "data": [
       {
@@ -1280,7 +1405,6 @@
     "tipo_dado": "GTFS",
     "tipo_botao": "Fonte",
     "nome_botao": "Prefeitura",
-    "titulo": "Dados GTFS (General Transit Feed Specification) da cidade.",
     "texto_apoio": "Site oficial da prefeitura para consulta ou requisição dos dados de GTFS.",
     "data": [
       {
@@ -1294,7 +1418,6 @@
     "tipo_dado": "GTFS",
     "tipo_botao": "Geoportal",
     "nome_botao": "GeoPortal",
-    "titulo": "Dados GTFS (General Transit Feed Specification) da cidade.",
     "texto_apoio": "Acesso a mapas interativos e camadas geográficas relacionadas ao tema. Ideal para explorar os dados espacializados no território.",
     "data": [
       {
@@ -1308,23 +1431,10 @@
     "tipo_dado": "Bilhetagem",
     "tipo_botao": "Dataverse",
     "nome_botao": "Dataverse",
-    "titulo": "Dados de bilhetagem eletrônica da frota de transporte público da cidade",
     "texto_apoio": "Base de dados acadêmica com informações de bilhetagem organizadas para pesquisa e análise.",
     "data": [
       {
         "link": "Missing link (dataverse)"
-      },
-      {
-        "titulo_dado": "Passageiros transportados",
-        "link": "https://dataverse.datascience.insper.edu.br/dataset.xhtml?persistentId=doi:10.60873/FK2/JEYM0J"
-      },
-      {
-        "titulo_dado": "Passageiros equivalentes",
-        "link": "https://dataverse.datascience.insper.edu.br/dataset.xhtml?persistentId=doi:10.60873/FK2/OLSIZD"
-      },
-      {
-        "titulo_dado": "Dados operacionais",
-        "link": "https://dataverse.datascience.insper.edu.br/dataset.xhtml?persistentId=doi:10.60873/FK2/XYYBKU"
       }
     ]
   },
@@ -1334,7 +1444,6 @@
     "tipo_dado": "Bilhetagem",
     "tipo_botao": "Fonte",
     "nome_botao": "Prefeitura",
-    "titulo": "Dados de bilhetagem eletrônica da frota de transporte público da cidade",
     "texto_apoio": "Site oficial da prefeitura para consulta ou requisição dos dados de bilhetagem.",
     "data": [
       {
@@ -1348,7 +1457,6 @@
     "tipo_dado": "Bilhetagem",
     "tipo_botao": "Geoportal",
     "nome_botao": "GeoPortal",
-    "titulo": "Dados de bilhetagem eletrônica da frota de transporte público da cidade",
     "texto_apoio": "Acesso a mapas interativos e camadas geográficas relacionadas ao tema. Ideal para explorar os dados espacializados no território.",
     "data": [
       {
@@ -1362,7 +1470,6 @@
     "tipo_dado": "GPS Embarcados",
     "tipo_botao": "Dataverse",
     "nome_botao": "Dataverse",
-    "titulo": "Dados de localização em tempo real dos veículos do transporte público da cidade.",
     "texto_apoio": "Base de dados acadêmica com amostra dos dados de GPS organizada para pesquisa e análise.",
     "data": [
       {
@@ -1376,7 +1483,6 @@
     "tipo_dado": "GPS Embarcados",
     "tipo_botao": "Fonte",
     "nome_botao": "Prefeitura",
-    "titulo": "Dados de localização em tempo real dos veículos do transporte público da cidade.",
     "texto_apoio": "Site oficial da prefeitura para consulta ou requisição dos dados de GPS.",
     "data": [
       {
@@ -1390,7 +1496,6 @@
     "tipo_dado": "GPS Embarcados",
     "tipo_botao": "Geoportal",
     "nome_botao": "GeoPortal",
-    "titulo": "Dados de localização em tempo real dos veículos do transporte público da cidade.",
     "texto_apoio": "Acesso a mapas interativos e camadas geográficas relacionadas ao tema. Ideal para explorar os dados espacializados no território.",
     "data": [
       {
@@ -1404,15 +1509,10 @@
     "tipo_dado": "Outros Arquivos Vetoriais",
     "tipo_botao": "Dataverse",
     "nome_botao": "Dataverse",
-    "titulo": "Dados geográficos complementares e dados gerais de mobilidade da cidade.",
     "texto_apoio": "Base de dados acadêmica com arquivos organizados para pesquisa e análise.",
     "data": [
       {
         "link": "Missing link (dataverse)"
-      },
-      {
-        "titulo_dado": "Empresas concessionárias de Ônibus",
-        "link": "https://dataverse.datascience.insper.edu.br/dataset.xhtml?persistentId=doi:10.60873/FK2/TLFP8L"
       }
     ]
   },
@@ -1422,7 +1522,6 @@
     "tipo_dado": "Outros Arquivos Vetoriais",
     "tipo_botao": "Fonte",
     "nome_botao": "Prefeitura",
-    "titulo": "Dados geográficos complementares e dados gerais de mobilidade da cidade.",
     "texto_apoio": "Site oficial da prefeitura para consulta ou requisição de outros dados de mobilidade.",
     "data": [
       {
@@ -1436,7 +1535,6 @@
     "tipo_dado": "Outros Arquivos Vetoriais",
     "tipo_botao": "Geoportal",
     "nome_botao": "GeoPortal",
-    "titulo": "Dados geográficos complementares e dados gerais de mobilidade da cidade.",
     "texto_apoio": "Acesso a mapas interativos e camadas geográficas relacionadas ao tema. Ideal para explorar os dados espacializados no território.",
     "data": [
       {
@@ -1446,11 +1544,66 @@
   },
   {
     "grupo_cidade": "Cidade Parceira",
+    "nome_cidade": "Ilha de Itamaracá*",
+    "tipo_dado": "Bilhetagem",
+    "tipo_botao": "Dataverse",
+    "nome_botao": "Dataverse",
+    "titulo": "Passageiros transportados",
+    "texto_apoio": "Base de dados acadêmica com informações de bilhetagem organizadas para pesquisa e análise.",
+    "data": [
+      {
+        "link": "https://dataverse.datascience.insper.edu.br/dataset.xhtml?persistentId=doi:10.60873/FK2/JEYM0J"
+      }
+    ]
+  },
+  {
+    "grupo_cidade": "Cidade Parceira",
+    "nome_cidade": "Ilha de Itamaracá*",
+    "tipo_dado": "Bilhetagem",
+    "tipo_botao": "Dataverse",
+    "nome_botao": "Dataverse",
+    "titulo": "Passageiros equivalentes",
+    "texto_apoio": "Base de dados acadêmica com informações de bilhetagem organizadas para pesquisa e análise.",
+    "data": [
+      {
+        "link": "https://dataverse.datascience.insper.edu.br/dataset.xhtml?persistentId=doi:10.60873/FK2/OLSIZD"
+      }
+    ]
+  },
+  {
+    "grupo_cidade": "Cidade Parceira",
+    "nome_cidade": "Ilha de Itamaracá*",
+    "tipo_dado": "Bilhetagem",
+    "tipo_botao": "Dataverse",
+    "nome_botao": "Dataverse",
+    "titulo": "Dados operacionais",
+    "texto_apoio": "Base de dados acadêmica com informações de bilhetagem organizadas para pesquisa e análise.",
+    "data": [
+      {
+        "link": "https://dataverse.datascience.insper.edu.br/dataset.xhtml?persistentId=doi:10.60873/FK2/XYYBKU"
+      }
+    ]
+  },
+  {
+    "grupo_cidade": "Cidade Parceira",
+    "nome_cidade": "Ilha de Itamaracá*",
+    "tipo_dado": "Outros Arquivos Vetoriais",
+    "tipo_botao": "Dataverse",
+    "nome_botao": "Dataverse",
+    "titulo": "Empresas concessionárias de Ônibus",
+    "texto_apoio": "Base de dados acadêmica com arquivos organizados para pesquisa e análise.",
+    "data": [
+      {
+        "link": "https://dataverse.datascience.insper.edu.br/dataset.xhtml?persistentId=doi:10.60873/FK2/TLFP8L"
+      }
+    ]
+  },
+  {
+    "grupo_cidade": "Cidade Parceira",
     "nome_cidade": "Ipojuca*",
     "tipo_dado": "GTFS",
     "tipo_botao": "Dataverse",
     "nome_botao": "Dataverse",
-    "titulo": "Dados GTFS (General Transit Feed Specification) da cidade.",
     "texto_apoio": "Base de dados acadêmica com informações de GTFS organizadas para pesquisa e análise.",
     "data": [
       {
@@ -1464,7 +1617,6 @@
     "tipo_dado": "GTFS",
     "tipo_botao": "Fonte",
     "nome_botao": "Prefeitura",
-    "titulo": "Dados GTFS (General Transit Feed Specification) da cidade.",
     "texto_apoio": "Site oficial da prefeitura para consulta ou requisição dos dados de GTFS.",
     "data": [
       {
@@ -1478,7 +1630,6 @@
     "tipo_dado": "GTFS",
     "tipo_botao": "Geoportal",
     "nome_botao": "GeoPortal",
-    "titulo": "Dados GTFS (General Transit Feed Specification) da cidade.",
     "texto_apoio": "Acesso a mapas interativos e camadas geográficas relacionadas ao tema. Ideal para explorar os dados espacializados no território.",
     "data": [
       {
@@ -1492,23 +1643,10 @@
     "tipo_dado": "Bilhetagem",
     "tipo_botao": "Dataverse",
     "nome_botao": "Dataverse",
-    "titulo": "Dados de bilhetagem eletrônica da frota de transporte público da cidade",
     "texto_apoio": "Base de dados acadêmica com informações de bilhetagem organizadas para pesquisa e análise.",
     "data": [
       {
         "link": "Missing link (dataverse)"
-      },
-      {
-        "titulo_dado": "Passageiros transportados",
-        "link": "https://dataverse.datascience.insper.edu.br/dataset.xhtml?persistentId=doi:10.60873/FK2/JEYM0J"
-      },
-      {
-        "titulo_dado": "Passageiros equivalentes",
-        "link": "https://dataverse.datascience.insper.edu.br/dataset.xhtml?persistentId=doi:10.60873/FK2/OLSIZD"
-      },
-      {
-        "titulo_dado": "Dados operacionais",
-        "link": "https://dataverse.datascience.insper.edu.br/dataset.xhtml?persistentId=doi:10.60873/FK2/XYYBKU"
       }
     ]
   },
@@ -1518,7 +1656,6 @@
     "tipo_dado": "Bilhetagem",
     "tipo_botao": "Fonte",
     "nome_botao": "Prefeitura",
-    "titulo": "Dados de bilhetagem eletrônica da frota de transporte público da cidade",
     "texto_apoio": "Site oficial da prefeitura para consulta ou requisição dos dados de bilhetagem.",
     "data": [
       {
@@ -1532,7 +1669,6 @@
     "tipo_dado": "Bilhetagem",
     "tipo_botao": "Geoportal",
     "nome_botao": "GeoPortal",
-    "titulo": "Dados de bilhetagem eletrônica da frota de transporte público da cidade",
     "texto_apoio": "Acesso a mapas interativos e camadas geográficas relacionadas ao tema. Ideal para explorar os dados espacializados no território.",
     "data": [
       {
@@ -1546,7 +1682,6 @@
     "tipo_dado": "GPS Embarcados",
     "tipo_botao": "Dataverse",
     "nome_botao": "Dataverse",
-    "titulo": "Dados de localização em tempo real dos veículos do transporte público da cidade.",
     "texto_apoio": "Base de dados acadêmica com amostra dos dados de GPS organizada para pesquisa e análise.",
     "data": [
       {
@@ -1560,7 +1695,6 @@
     "tipo_dado": "GPS Embarcados",
     "tipo_botao": "Fonte",
     "nome_botao": "Prefeitura",
-    "titulo": "Dados de localização em tempo real dos veículos do transporte público da cidade.",
     "texto_apoio": "Site oficial da prefeitura para consulta ou requisição dos dados de GPS.",
     "data": [
       {
@@ -1574,7 +1708,6 @@
     "tipo_dado": "GPS Embarcados",
     "tipo_botao": "Geoportal",
     "nome_botao": "GeoPortal",
-    "titulo": "Dados de localização em tempo real dos veículos do transporte público da cidade.",
     "texto_apoio": "Acesso a mapas interativos e camadas geográficas relacionadas ao tema. Ideal para explorar os dados espacializados no território.",
     "data": [
       {
@@ -1588,15 +1721,10 @@
     "tipo_dado": "Outros Arquivos Vetoriais",
     "tipo_botao": "Dataverse",
     "nome_botao": "Dataverse",
-    "titulo": "Dados geográficos complementares e dados gerais de mobilidade da cidade.",
     "texto_apoio": "Base de dados acadêmica com arquivos organizados para pesquisa e análise.",
     "data": [
       {
         "link": "Missing link (dataverse)"
-      },
-      {
-        "titulo_dado": "Empresas concessionárias de Ônibus",
-        "link": "https://dataverse.datascience.insper.edu.br/dataset.xhtml?persistentId=doi:10.60873/FK2/TLFP8L"
       }
     ]
   },
@@ -1606,7 +1734,6 @@
     "tipo_dado": "Outros Arquivos Vetoriais",
     "tipo_botao": "Fonte",
     "nome_botao": "Prefeitura",
-    "titulo": "Dados geográficos complementares e dados gerais de mobilidade da cidade.",
     "texto_apoio": "Site oficial da prefeitura para consulta ou requisição de outros dados de mobilidade.",
     "data": [
       {
@@ -1620,7 +1747,6 @@
     "tipo_dado": "Outros Arquivos Vetoriais",
     "tipo_botao": "Geoportal",
     "nome_botao": "GeoPortal",
-    "titulo": "Dados geográficos complementares e dados gerais de mobilidade da cidade.",
     "texto_apoio": "Acesso a mapas interativos e camadas geográficas relacionadas ao tema. Ideal para explorar os dados espacializados no território.",
     "data": [
       {
@@ -1630,11 +1756,66 @@
   },
   {
     "grupo_cidade": "Cidade Parceira",
+    "nome_cidade": "Ipojuca*",
+    "tipo_dado": "Bilhetagem",
+    "tipo_botao": "Dataverse",
+    "nome_botao": "Dataverse",
+    "titulo": "Passageiros transportados",
+    "texto_apoio": "Base de dados acadêmica com informações de bilhetagem organizadas para pesquisa e análise.",
+    "data": [
+      {
+        "link": "https://dataverse.datascience.insper.edu.br/dataset.xhtml?persistentId=doi:10.60873/FK2/JEYM0J"
+      }
+    ]
+  },
+  {
+    "grupo_cidade": "Cidade Parceira",
+    "nome_cidade": "Ipojuca*",
+    "tipo_dado": "Bilhetagem",
+    "tipo_botao": "Dataverse",
+    "nome_botao": "Dataverse",
+    "titulo": "Passageiros equivalentes",
+    "texto_apoio": "Base de dados acadêmica com informações de bilhetagem organizadas para pesquisa e análise.",
+    "data": [
+      {
+        "link": "https://dataverse.datascience.insper.edu.br/dataset.xhtml?persistentId=doi:10.60873/FK2/OLSIZD"
+      }
+    ]
+  },
+  {
+    "grupo_cidade": "Cidade Parceira",
+    "nome_cidade": "Ipojuca*",
+    "tipo_dado": "Bilhetagem",
+    "tipo_botao": "Dataverse",
+    "nome_botao": "Dataverse",
+    "titulo": "Dados operacionais",
+    "texto_apoio": "Base de dados acadêmica com informações de bilhetagem organizadas para pesquisa e análise.",
+    "data": [
+      {
+        "link": "https://dataverse.datascience.insper.edu.br/dataset.xhtml?persistentId=doi:10.60873/FK2/XYYBKU"
+      }
+    ]
+  },
+  {
+    "grupo_cidade": "Cidade Parceira",
+    "nome_cidade": "Ipojuca*",
+    "tipo_dado": "Outros Arquivos Vetoriais",
+    "tipo_botao": "Dataverse",
+    "nome_botao": "Dataverse",
+    "titulo": "Empresas concessionárias de Ônibus",
+    "texto_apoio": "Base de dados acadêmica com arquivos organizados para pesquisa e análise.",
+    "data": [
+      {
+        "link": "https://dataverse.datascience.insper.edu.br/dataset.xhtml?persistentId=doi:10.60873/FK2/TLFP8L"
+      }
+    ]
+  },
+  {
+    "grupo_cidade": "Cidade Parceira",
     "nome_cidade": "Itapissuma*",
     "tipo_dado": "GTFS",
     "tipo_botao": "Dataverse",
     "nome_botao": "Dataverse",
-    "titulo": "Dados GTFS (General Transit Feed Specification) da cidade.",
     "texto_apoio": "Base de dados acadêmica com informações de GTFS organizadas para pesquisa e análise.",
     "data": [
       {
@@ -1648,7 +1829,6 @@
     "tipo_dado": "GTFS",
     "tipo_botao": "Fonte",
     "nome_botao": "Prefeitura",
-    "titulo": "Dados GTFS (General Transit Feed Specification) da cidade.",
     "texto_apoio": "Site oficial da prefeitura para consulta ou requisição dos dados de GTFS.",
     "data": [
       {
@@ -1662,7 +1842,6 @@
     "tipo_dado": "GTFS",
     "tipo_botao": "Geoportal",
     "nome_botao": "GeoPortal",
-    "titulo": "Dados GTFS (General Transit Feed Specification) da cidade.",
     "texto_apoio": "Acesso a mapas interativos e camadas geográficas relacionadas ao tema. Ideal para explorar os dados espacializados no território.",
     "data": [
       {
@@ -1676,23 +1855,10 @@
     "tipo_dado": "Bilhetagem",
     "tipo_botao": "Dataverse",
     "nome_botao": "Dataverse",
-    "titulo": "Dados de bilhetagem eletrônica da frota de transporte público da cidade",
     "texto_apoio": "Base de dados acadêmica com informações de bilhetagem organizadas para pesquisa e análise.",
     "data": [
       {
         "link": "Missing link (dataverse)"
-      },
-      {
-        "titulo_dado": "Passageiros transportados",
-        "link": "https://dataverse.datascience.insper.edu.br/dataset.xhtml?persistentId=doi:10.60873/FK2/JEYM0J"
-      },
-      {
-        "titulo_dado": "Passageiros equivalentes",
-        "link": "https://dataverse.datascience.insper.edu.br/dataset.xhtml?persistentId=doi:10.60873/FK2/OLSIZD"
-      },
-      {
-        "titulo_dado": "Dados operacionais",
-        "link": "https://dataverse.datascience.insper.edu.br/dataset.xhtml?persistentId=doi:10.60873/FK2/XYYBKU"
       }
     ]
   },
@@ -1702,7 +1868,6 @@
     "tipo_dado": "Bilhetagem",
     "tipo_botao": "Fonte",
     "nome_botao": "Prefeitura",
-    "titulo": "Dados de bilhetagem eletrônica da frota de transporte público da cidade",
     "texto_apoio": "Site oficial da prefeitura para consulta ou requisição dos dados de bilhetagem.",
     "data": [
       {
@@ -1716,7 +1881,6 @@
     "tipo_dado": "Bilhetagem",
     "tipo_botao": "Geoportal",
     "nome_botao": "GeoPortal",
-    "titulo": "Dados de bilhetagem eletrônica da frota de transporte público da cidade",
     "texto_apoio": "Acesso a mapas interativos e camadas geográficas relacionadas ao tema. Ideal para explorar os dados espacializados no território.",
     "data": [
       {
@@ -1730,7 +1894,6 @@
     "tipo_dado": "GPS Embarcados",
     "tipo_botao": "Dataverse",
     "nome_botao": "Dataverse",
-    "titulo": "Dados de localização em tempo real dos veículos do transporte público da cidade.",
     "texto_apoio": "Base de dados acadêmica com amostra dos dados de GPS organizada para pesquisa e análise.",
     "data": [
       {
@@ -1744,7 +1907,6 @@
     "tipo_dado": "GPS Embarcados",
     "tipo_botao": "Fonte",
     "nome_botao": "Prefeitura",
-    "titulo": "Dados de localização em tempo real dos veículos do transporte público da cidade.",
     "texto_apoio": "Site oficial da prefeitura para consulta ou requisição dos dados de GPS.",
     "data": [
       {
@@ -1758,7 +1920,6 @@
     "tipo_dado": "GPS Embarcados",
     "tipo_botao": "Geoportal",
     "nome_botao": "GeoPortal",
-    "titulo": "Dados de localização em tempo real dos veículos do transporte público da cidade.",
     "texto_apoio": "Acesso a mapas interativos e camadas geográficas relacionadas ao tema. Ideal para explorar os dados espacializados no território.",
     "data": [
       {
@@ -1772,15 +1933,10 @@
     "tipo_dado": "Outros Arquivos Vetoriais",
     "tipo_botao": "Dataverse",
     "nome_botao": "Dataverse",
-    "titulo": "Dados geográficos complementares e dados gerais de mobilidade da cidade.",
     "texto_apoio": "Base de dados acadêmica com arquivos organizados para pesquisa e análise.",
     "data": [
       {
         "link": "Missing link (dataverse)"
-      },
-      {
-        "titulo_dado": "Empresas concessionárias de Ônibus",
-        "link": "https://dataverse.datascience.insper.edu.br/dataset.xhtml?persistentId=doi:10.60873/FK2/TLFP8L"
       }
     ]
   },
@@ -1790,7 +1946,6 @@
     "tipo_dado": "Outros Arquivos Vetoriais",
     "tipo_botao": "Fonte",
     "nome_botao": "Prefeitura",
-    "titulo": "Dados geográficos complementares e dados gerais de mobilidade da cidade.",
     "texto_apoio": "Site oficial da prefeitura para consulta ou requisição de outros dados de mobilidade.",
     "data": [
       {
@@ -1804,7 +1959,6 @@
     "tipo_dado": "Outros Arquivos Vetoriais",
     "tipo_botao": "Geoportal",
     "nome_botao": "GeoPortal",
-    "titulo": "Dados geográficos complementares e dados gerais de mobilidade da cidade.",
     "texto_apoio": "Acesso a mapas interativos e camadas geográficas relacionadas ao tema. Ideal para explorar os dados espacializados no território.",
     "data": [
       {
@@ -1814,11 +1968,66 @@
   },
   {
     "grupo_cidade": "Cidade Parceira",
+    "nome_cidade": "Itapissuma*",
+    "tipo_dado": "Bilhetagem",
+    "tipo_botao": "Dataverse",
+    "nome_botao": "Dataverse",
+    "titulo": "Passageiros transportados",
+    "texto_apoio": "Base de dados acadêmica com informações de bilhetagem organizadas para pesquisa e análise.",
+    "data": [
+      {
+        "link": "https://dataverse.datascience.insper.edu.br/dataset.xhtml?persistentId=doi:10.60873/FK2/JEYM0J"
+      }
+    ]
+  },
+  {
+    "grupo_cidade": "Cidade Parceira",
+    "nome_cidade": "Itapissuma*",
+    "tipo_dado": "Bilhetagem",
+    "tipo_botao": "Dataverse",
+    "nome_botao": "Dataverse",
+    "titulo": "Passageiros equivalentes",
+    "texto_apoio": "Base de dados acadêmica com informações de bilhetagem organizadas para pesquisa e análise.",
+    "data": [
+      {
+        "link": "https://dataverse.datascience.insper.edu.br/dataset.xhtml?persistentId=doi:10.60873/FK2/OLSIZD"
+      }
+    ]
+  },
+  {
+    "grupo_cidade": "Cidade Parceira",
+    "nome_cidade": "Itapissuma*",
+    "tipo_dado": "Bilhetagem",
+    "tipo_botao": "Dataverse",
+    "nome_botao": "Dataverse",
+    "titulo": "Dados operacionais",
+    "texto_apoio": "Base de dados acadêmica com informações de bilhetagem organizadas para pesquisa e análise.",
+    "data": [
+      {
+        "link": "https://dataverse.datascience.insper.edu.br/dataset.xhtml?persistentId=doi:10.60873/FK2/XYYBKU"
+      }
+    ]
+  },
+  {
+    "grupo_cidade": "Cidade Parceira",
+    "nome_cidade": "Itapissuma*",
+    "tipo_dado": "Outros Arquivos Vetoriais",
+    "tipo_botao": "Dataverse",
+    "nome_botao": "Dataverse",
+    "titulo": "Empresas concessionárias de Ônibus",
+    "texto_apoio": "Base de dados acadêmica com arquivos organizados para pesquisa e análise.",
+    "data": [
+      {
+        "link": "https://dataverse.datascience.insper.edu.br/dataset.xhtml?persistentId=doi:10.60873/FK2/TLFP8L"
+      }
+    ]
+  },
+  {
+    "grupo_cidade": "Cidade Parceira",
     "nome_cidade": "Jaboatão dos Guararapes*",
     "tipo_dado": "GTFS",
     "tipo_botao": "Dataverse",
     "nome_botao": "Dataverse",
-    "titulo": "Dados GTFS (General Transit Feed Specification) da cidade.",
     "texto_apoio": "Base de dados acadêmica com informações de GTFS organizadas para pesquisa e análise.",
     "data": [
       {
@@ -1832,7 +2041,6 @@
     "tipo_dado": "GTFS",
     "tipo_botao": "Fonte",
     "nome_botao": "Prefeitura",
-    "titulo": "Dados GTFS (General Transit Feed Specification) da cidade.",
     "texto_apoio": "Site oficial da prefeitura para consulta ou requisição dos dados de GTFS.",
     "data": [
       {
@@ -1846,7 +2054,6 @@
     "tipo_dado": "GTFS",
     "tipo_botao": "Geoportal",
     "nome_botao": "GeoPortal",
-    "titulo": "Dados GTFS (General Transit Feed Specification) da cidade.",
     "texto_apoio": "Acesso a mapas interativos e camadas geográficas relacionadas ao tema. Ideal para explorar os dados espacializados no território.",
     "data": [
       {
@@ -1860,23 +2067,10 @@
     "tipo_dado": "Bilhetagem",
     "tipo_botao": "Dataverse",
     "nome_botao": "Dataverse",
-    "titulo": "Dados de bilhetagem eletrônica da frota de transporte público da cidade",
     "texto_apoio": "Base de dados acadêmica com informações de bilhetagem organizadas para pesquisa e análise.",
     "data": [
       {
         "link": "Missing link (dataverse)"
-      },
-      {
-        "titulo_dado": "Passageiros transportados",
-        "link": "https://dataverse.datascience.insper.edu.br/dataset.xhtml?persistentId=doi:10.60873/FK2/JEYM0J"
-      },
-      {
-        "titulo_dado": "Passageiros equivalentes",
-        "link": "https://dataverse.datascience.insper.edu.br/dataset.xhtml?persistentId=doi:10.60873/FK2/OLSIZD"
-      },
-      {
-        "titulo_dado": "Dados operacionais",
-        "link": "https://dataverse.datascience.insper.edu.br/dataset.xhtml?persistentId=doi:10.60873/FK2/XYYBKU"
       }
     ]
   },
@@ -1886,7 +2080,6 @@
     "tipo_dado": "Bilhetagem",
     "tipo_botao": "Fonte",
     "nome_botao": "Prefeitura",
-    "titulo": "Dados de bilhetagem eletrônica da frota de transporte público da cidade",
     "texto_apoio": "Site oficial da prefeitura para consulta ou requisição dos dados de bilhetagem.",
     "data": [
       {
@@ -1900,7 +2093,6 @@
     "tipo_dado": "Bilhetagem",
     "tipo_botao": "Geoportal",
     "nome_botao": "GeoPortal",
-    "titulo": "Dados de bilhetagem eletrônica da frota de transporte público da cidade",
     "texto_apoio": "Acesso a mapas interativos e camadas geográficas relacionadas ao tema. Ideal para explorar os dados espacializados no território.",
     "data": [
       {
@@ -1914,7 +2106,6 @@
     "tipo_dado": "GPS Embarcados",
     "tipo_botao": "Dataverse",
     "nome_botao": "Dataverse",
-    "titulo": "Dados de localização em tempo real dos veículos do transporte público da cidade.",
     "texto_apoio": "Base de dados acadêmica com amostra dos dados de GPS organizada para pesquisa e análise.",
     "data": [
       {
@@ -1928,7 +2119,6 @@
     "tipo_dado": "GPS Embarcados",
     "tipo_botao": "Fonte",
     "nome_botao": "Prefeitura",
-    "titulo": "Dados de localização em tempo real dos veículos do transporte público da cidade.",
     "texto_apoio": "Site oficial da prefeitura para consulta ou requisição dos dados de GPS.",
     "data": [
       {
@@ -1942,7 +2132,6 @@
     "tipo_dado": "GPS Embarcados",
     "tipo_botao": "Geoportal",
     "nome_botao": "GeoPortal",
-    "titulo": "Dados de localização em tempo real dos veículos do transporte público da cidade.",
     "texto_apoio": "Acesso a mapas interativos e camadas geográficas relacionadas ao tema. Ideal para explorar os dados espacializados no território.",
     "data": [
       {
@@ -1956,15 +2145,10 @@
     "tipo_dado": "Outros Arquivos Vetoriais",
     "tipo_botao": "Dataverse",
     "nome_botao": "Dataverse",
-    "titulo": "Dados geográficos complementares e dados gerais de mobilidade da cidade.",
     "texto_apoio": "Base de dados acadêmica com arquivos organizados para pesquisa e análise.",
     "data": [
       {
         "link": "Missing link (dataverse)"
-      },
-      {
-        "titulo_dado": "Empresas concessionárias de Ônibus",
-        "link": "https://dataverse.datascience.insper.edu.br/dataset.xhtml?persistentId=doi:10.60873/FK2/TLFP8L"
       }
     ]
   },
@@ -1974,7 +2158,6 @@
     "tipo_dado": "Outros Arquivos Vetoriais",
     "tipo_botao": "Fonte",
     "nome_botao": "Prefeitura",
-    "titulo": "Dados geográficos complementares e dados gerais de mobilidade da cidade.",
     "texto_apoio": "Site oficial da prefeitura para consulta ou requisição de outros dados de mobilidade.",
     "data": [
       {
@@ -1988,7 +2171,6 @@
     "tipo_dado": "Outros Arquivos Vetoriais",
     "tipo_botao": "Geoportal",
     "nome_botao": "GeoPortal",
-    "titulo": "Dados geográficos complementares e dados gerais de mobilidade da cidade.",
     "texto_apoio": "Acesso a mapas interativos e camadas geográficas relacionadas ao tema. Ideal para explorar os dados espacializados no território.",
     "data": [
       {
@@ -1998,11 +2180,66 @@
   },
   {
     "grupo_cidade": "Cidade Parceira",
+    "nome_cidade": "Jaboatão dos Guararapes*",
+    "tipo_dado": "Bilhetagem",
+    "tipo_botao": "Dataverse",
+    "nome_botao": "Dataverse",
+    "titulo": "Passageiros transportados",
+    "texto_apoio": "Base de dados acadêmica com informações de bilhetagem organizadas para pesquisa e análise.",
+    "data": [
+      {
+        "link": "https://dataverse.datascience.insper.edu.br/dataset.xhtml?persistentId=doi:10.60873/FK2/JEYM0J"
+      }
+    ]
+  },
+  {
+    "grupo_cidade": "Cidade Parceira",
+    "nome_cidade": "Jaboatão dos Guararapes*",
+    "tipo_dado": "Bilhetagem",
+    "tipo_botao": "Dataverse",
+    "nome_botao": "Dataverse",
+    "titulo": "Passageiros equivalentes",
+    "texto_apoio": "Base de dados acadêmica com informações de bilhetagem organizadas para pesquisa e análise.",
+    "data": [
+      {
+        "link": "https://dataverse.datascience.insper.edu.br/dataset.xhtml?persistentId=doi:10.60873/FK2/OLSIZD"
+      }
+    ]
+  },
+  {
+    "grupo_cidade": "Cidade Parceira",
+    "nome_cidade": "Jaboatão dos Guararapes*",
+    "tipo_dado": "Bilhetagem",
+    "tipo_botao": "Dataverse",
+    "nome_botao": "Dataverse",
+    "titulo": "Dados operacionais",
+    "texto_apoio": "Base de dados acadêmica com informações de bilhetagem organizadas para pesquisa e análise.",
+    "data": [
+      {
+        "link": "https://dataverse.datascience.insper.edu.br/dataset.xhtml?persistentId=doi:10.60873/FK2/XYYBKU"
+      }
+    ]
+  },
+  {
+    "grupo_cidade": "Cidade Parceira",
+    "nome_cidade": "Jaboatão dos Guararapes*",
+    "tipo_dado": "Outros Arquivos Vetoriais",
+    "tipo_botao": "Dataverse",
+    "nome_botao": "Dataverse",
+    "titulo": "Empresas concessionárias de Ônibus",
+    "texto_apoio": "Base de dados acadêmica com arquivos organizados para pesquisa e análise.",
+    "data": [
+      {
+        "link": "https://dataverse.datascience.insper.edu.br/dataset.xhtml?persistentId=doi:10.60873/FK2/TLFP8L"
+      }
+    ]
+  },
+  {
+    "grupo_cidade": "Cidade Parceira",
     "nome_cidade": "Moreno*",
     "tipo_dado": "GTFS",
     "tipo_botao": "Dataverse",
     "nome_botao": "Dataverse",
-    "titulo": "Dados GTFS (General Transit Feed Specification) da cidade.",
     "texto_apoio": "Base de dados acadêmica com informações de GTFS organizadas para pesquisa e análise.",
     "data": [
       {
@@ -2016,7 +2253,6 @@
     "tipo_dado": "GTFS",
     "tipo_botao": "Fonte",
     "nome_botao": "Prefeitura",
-    "titulo": "Dados GTFS (General Transit Feed Specification) da cidade.",
     "texto_apoio": "Site oficial da prefeitura para consulta ou requisição dos dados de GTFS.",
     "data": [
       {
@@ -2030,7 +2266,6 @@
     "tipo_dado": "GTFS",
     "tipo_botao": "Geoportal",
     "nome_botao": "GeoPortal",
-    "titulo": "Dados GTFS (General Transit Feed Specification) da cidade.",
     "texto_apoio": "Acesso a mapas interativos e camadas geográficas relacionadas ao tema. Ideal para explorar os dados espacializados no território.",
     "data": [
       {
@@ -2044,23 +2279,10 @@
     "tipo_dado": "Bilhetagem",
     "tipo_botao": "Dataverse",
     "nome_botao": "Dataverse",
-    "titulo": "Dados de bilhetagem eletrônica da frota de transporte público da cidade",
     "texto_apoio": "Base de dados acadêmica com informações de bilhetagem organizadas para pesquisa e análise.",
     "data": [
       {
         "link": "Missing link (dataverse)"
-      },
-      {
-        "titulo_dado": "Passageiros transportados",
-        "link": "https://dataverse.datascience.insper.edu.br/dataset.xhtml?persistentId=doi:10.60873/FK2/JEYM0J"
-      },
-      {
-        "titulo_dado": "Passageiros equivalentes",
-        "link": "https://dataverse.datascience.insper.edu.br/dataset.xhtml?persistentId=doi:10.60873/FK2/OLSIZD"
-      },
-      {
-        "titulo_dado": "Dados operacionais",
-        "link": "https://dataverse.datascience.insper.edu.br/dataset.xhtml?persistentId=doi:10.60873/FK2/XYYBKU"
       }
     ]
   },
@@ -2070,7 +2292,6 @@
     "tipo_dado": "Bilhetagem",
     "tipo_botao": "Fonte",
     "nome_botao": "Prefeitura",
-    "titulo": "Dados de bilhetagem eletrônica da frota de transporte público da cidade",
     "texto_apoio": "Site oficial da prefeitura para consulta ou requisição dos dados de bilhetagem.",
     "data": [
       {
@@ -2084,7 +2305,6 @@
     "tipo_dado": "Bilhetagem",
     "tipo_botao": "Geoportal",
     "nome_botao": "GeoPortal",
-    "titulo": "Dados de bilhetagem eletrônica da frota de transporte público da cidade",
     "texto_apoio": "Acesso a mapas interativos e camadas geográficas relacionadas ao tema. Ideal para explorar os dados espacializados no território.",
     "data": [
       {
@@ -2098,7 +2318,6 @@
     "tipo_dado": "GPS Embarcados",
     "tipo_botao": "Dataverse",
     "nome_botao": "Dataverse",
-    "titulo": "Dados de localização em tempo real dos veículos do transporte público da cidade.",
     "texto_apoio": "Base de dados acadêmica com amostra dos dados de GPS organizada para pesquisa e análise.",
     "data": [
       {
@@ -2112,7 +2331,6 @@
     "tipo_dado": "GPS Embarcados",
     "tipo_botao": "Fonte",
     "nome_botao": "Prefeitura",
-    "titulo": "Dados de localização em tempo real dos veículos do transporte público da cidade.",
     "texto_apoio": "Site oficial da prefeitura para consulta ou requisição dos dados de GPS.",
     "data": [
       {
@@ -2126,7 +2344,6 @@
     "tipo_dado": "GPS Embarcados",
     "tipo_botao": "Geoportal",
     "nome_botao": "GeoPortal",
-    "titulo": "Dados de localização em tempo real dos veículos do transporte público da cidade.",
     "texto_apoio": "Acesso a mapas interativos e camadas geográficas relacionadas ao tema. Ideal para explorar os dados espacializados no território.",
     "data": [
       {
@@ -2140,15 +2357,10 @@
     "tipo_dado": "Outros Arquivos Vetoriais",
     "tipo_botao": "Dataverse",
     "nome_botao": "Dataverse",
-    "titulo": "Dados geográficos complementares e dados gerais de mobilidade da cidade.",
     "texto_apoio": "Base de dados acadêmica com arquivos organizados para pesquisa e análise.",
     "data": [
       {
         "link": "Missing link (dataverse)"
-      },
-      {
-        "titulo_dado": "Empresas concessionárias de Ônibus",
-        "link": "https://dataverse.datascience.insper.edu.br/dataset.xhtml?persistentId=doi:10.60873/FK2/TLFP8L"
       }
     ]
   },
@@ -2158,7 +2370,6 @@
     "tipo_dado": "Outros Arquivos Vetoriais",
     "tipo_botao": "Fonte",
     "nome_botao": "Prefeitura",
-    "titulo": "Dados geográficos complementares e dados gerais de mobilidade da cidade.",
     "texto_apoio": "Site oficial da prefeitura para consulta ou requisição de outros dados de mobilidade.",
     "data": [
       {
@@ -2172,11 +2383,66 @@
     "tipo_dado": "Outros Arquivos Vetoriais",
     "tipo_botao": "Geoportal",
     "nome_botao": "GeoPortal",
-    "titulo": "Dados geográficos complementares e dados gerais de mobilidade da cidade.",
     "texto_apoio": "Acesso a mapas interativos e camadas geográficas relacionadas ao tema. Ideal para explorar os dados espacializados no território.",
     "data": [
       {
         "link": "Missing link (geoportal)"
+      }
+    ]
+  },
+  {
+    "grupo_cidade": "Cidade Parceira",
+    "nome_cidade": "Moreno*",
+    "tipo_dado": "Bilhetagem",
+    "tipo_botao": "Dataverse",
+    "nome_botao": "Dataverse",
+    "titulo": "Passageiros transportados",
+    "texto_apoio": "Base de dados acadêmica com informações de bilhetagem organizadas para pesquisa e análise.",
+    "data": [
+      {
+        "link": "https://dataverse.datascience.insper.edu.br/dataset.xhtml?persistentId=doi:10.60873/FK2/JEYM0J"
+      }
+    ]
+  },
+  {
+    "grupo_cidade": "Cidade Parceira",
+    "nome_cidade": "Moreno*",
+    "tipo_dado": "Bilhetagem",
+    "tipo_botao": "Dataverse",
+    "nome_botao": "Dataverse",
+    "titulo": "Passageiros equivalentes",
+    "texto_apoio": "Base de dados acadêmica com informações de bilhetagem organizadas para pesquisa e análise.",
+    "data": [
+      {
+        "link": "https://dataverse.datascience.insper.edu.br/dataset.xhtml?persistentId=doi:10.60873/FK2/OLSIZD"
+      }
+    ]
+  },
+  {
+    "grupo_cidade": "Cidade Parceira",
+    "nome_cidade": "Moreno*",
+    "tipo_dado": "Bilhetagem",
+    "tipo_botao": "Dataverse",
+    "nome_botao": "Dataverse",
+    "titulo": "Dados operacionais",
+    "texto_apoio": "Base de dados acadêmica com informações de bilhetagem organizadas para pesquisa e análise.",
+    "data": [
+      {
+        "link": "https://dataverse.datascience.insper.edu.br/dataset.xhtml?persistentId=doi:10.60873/FK2/XYYBKU"
+      }
+    ]
+  },
+  {
+    "grupo_cidade": "Cidade Parceira",
+    "nome_cidade": "Moreno*",
+    "tipo_dado": "Outros Arquivos Vetoriais",
+    "tipo_botao": "Dataverse",
+    "nome_botao": "Dataverse",
+    "titulo": "Empresas concessionárias de Ônibus",
+    "texto_apoio": "Base de dados acadêmica com arquivos organizados para pesquisa e análise.",
+    "data": [
+      {
+        "link": "https://dataverse.datascience.insper.edu.br/dataset.xhtml?persistentId=doi:10.60873/FK2/TLFP8L"
       }
     ]
   },
@@ -2186,7 +2452,6 @@
     "tipo_dado": "GTFS",
     "tipo_botao": "Dataverse",
     "nome_botao": "Dataverse",
-    "titulo": "Dados GTFS (General Transit Feed Specification) da cidade.",
     "texto_apoio": "Base de dados acadêmica com informações de GTFS organizadas para pesquisa e análise.",
     "data": [
       {
@@ -2200,7 +2465,6 @@
     "tipo_dado": "GTFS",
     "tipo_botao": "Fonte",
     "nome_botao": "Dados Abertos",
-    "titulo": "Dados GTFS (General Transit Feed Specification) da cidade.",
     "texto_apoio": "Dados originais GTFS do transporte público disponibilizados em portal de dados abertos da administração municipal.",
     "data": [
       {
@@ -2214,7 +2478,6 @@
     "tipo_dado": "GTFS",
     "tipo_botao": "Geoportal",
     "nome_botao": "GeoPortal",
-    "titulo": "Dados GTFS (General Transit Feed Specification) da cidade.",
     "texto_apoio": "Acesso a mapas interativos e camadas geográficas relacionadas ao tema. Ideal para explorar os dados espacializados no território.",
     "data": [
       {
@@ -2228,7 +2491,6 @@
     "tipo_dado": "Bilhetagem",
     "tipo_botao": "Fonte",
     "nome_botao": "Dados Abertos",
-    "titulo": "Dados de bilhetagem eletrônica da frota de transporte público da cidade",
     "texto_apoio": "Dados originais de bilhetagem eletrônica disponibilizados em portal de dados abertos da administração municipal.",
     "data": [
       {
@@ -2242,7 +2504,6 @@
     "tipo_dado": "Bilhetagem",
     "tipo_botao": "Geoportal",
     "nome_botao": "GeoPortal",
-    "titulo": "Dados de bilhetagem eletrônica da frota de transporte público da cidade",
     "texto_apoio": "Acesso a mapas interativos e camadas geográficas relacionadas ao tema. Ideal para explorar os dados espacializados no território.",
     "data": [
       {
@@ -2256,7 +2517,6 @@
     "tipo_dado": "GPS Embarcados",
     "tipo_botao": "Dataverse",
     "nome_botao": "Dataverse",
-    "titulo": "Dados de localização em tempo real dos veículos do transporte público da cidade.",
     "texto_apoio": "Base de dados acadêmica com amostra dos dados de GPS organizada para pesquisa e análise.",
     "data": [
       {
@@ -2270,7 +2530,6 @@
     "tipo_dado": "GPS Embarcados",
     "tipo_botao": "Fonte",
     "nome_botao": "Dados Abertos",
-    "titulo": "Dados de localização em tempo real dos veículos do transporte público da cidade.",
     "texto_apoio": "Dados originais de GPS embarcados disponibilizados em portal de dados abertos da administração municipal.",
     "data": [
       {
@@ -2284,7 +2543,6 @@
     "tipo_dado": "GPS Embarcados",
     "tipo_botao": "Geoportal",
     "nome_botao": "GeoPortal",
-    "titulo": "Dados de localização em tempo real dos veículos do transporte público da cidade.",
     "texto_apoio": "Acesso a mapas interativos e camadas geográficas relacionadas ao tema. Ideal para explorar os dados espacializados no território.",
     "data": [
       {
@@ -2298,7 +2556,6 @@
     "tipo_dado": "Outros Arquivos Vetoriais",
     "tipo_botao": "Fonte",
     "nome_botao": "Dados Abertos",
-    "titulo": "Dados geográficos complementares e dados gerais de mobilidade da cidade.",
     "texto_apoio": "Outros arquivos vetoriais e dados geográficos complementares disponibilizados em portal de dados abertos municipal.",
     "data": [
       {
@@ -2312,7 +2569,6 @@
     "tipo_dado": "Outros Arquivos Vetoriais",
     "tipo_botao": "Geoportal",
     "nome_botao": "GeoPortal",
-    "titulo": "Dados geográficos complementares e dados gerais de mobilidade da cidade.",
     "texto_apoio": "Acesso a mapas interativos e camadas geográficas relacionadas ao tema. Ideal para explorar os dados espacializados no território.",
     "data": [
       {
@@ -2326,23 +2582,94 @@
     "tipo_dado": "Outros Arquivos Vetoriais",
     "tipo_botao": "Dataverse",
     "nome_botao": "Dataverse",
-    "titulo": "Dados geográficos complementares e dados gerais de mobilidade da cidade.",
+    "titulo": "Quilometragem dos ônibus",
     "texto_apoio": "Base de dados acadêmica com arquivos organizados para pesquisa e análise.",
     "data": [
       {
-        "titulo_dado": "Quilometragem dos ônibus",
         "link": "https://dataverse.datascience.insper.edu.br/dataset.xhtml?persistentId=doi:10.60873/FK2/6YKYF9"
-      },
+      }
+    ]
+  },
+  {
+    "grupo_cidade": "Cidade Parceira",
+    "nome_cidade": "Niterói",
+    "tipo_dado": "Outros Arquivos Vetoriais",
+    "tipo_botao": "Dataverse",
+    "nome_botao": "Dataverse",
+    "titulo": "Frotas de ônibus",
+    "texto_apoio": "Base de dados acadêmica com arquivos organizados para pesquisa e análise.",
+    "data": [
       {
-        "titulo_dado": "Frotas de ônibus",
         "link": "https://dataverse.datascience.insper.edu.br/dataset.xhtml?persistentId=doi:10.60873/FK2/ZAASMD"
-      },
+      }
+    ]
+  },
+  {
+    "grupo_cidade": "Cidade Parceira",
+    "nome_cidade": "Niterói",
+    "tipo_dado": "Bilhetagem",
+    "tipo_botao": "Dataverse",
+    "nome_botao": "Dataverse",
+    "titulo": "Passageiros diários por linha de ônibus",
+    "texto_apoio": "Base de dados acadêmica com informações de bilhetagem organizadas para pesquisa e análise.",
+    "data": [
       {
-        "titulo_dado": "Total de viagens de ônibus",
+        "link": "https://dataverse.datascience.insper.edu.br/dataset.xhtml?persistentId=doi:10.60873/FK2/YO5BBM"
+      }
+    ]
+  },
+  {
+    "grupo_cidade": "Cidade Parceira",
+    "nome_cidade": "Niterói",
+    "tipo_dado": "Bilhetagem",
+    "tipo_botao": "Dataverse",
+    "nome_botao": "Dataverse",
+    "titulo": "Passageiros mensais por linha de ônibus",
+    "texto_apoio": "Base de dados acadêmica com informações de bilhetagem organizadas para pesquisa e análise.",
+    "data": [
+      {
+        "link": "https://dataverse.datascience.insper.edu.br/dataset.xhtml?persistentId=doi:10.60873/FK2/RXFEDU"
+      }
+    ]
+  },
+  {
+    "grupo_cidade": "Cidade Parceira",
+    "nome_cidade": "Niterói",
+    "tipo_dado": "Bilhetagem",
+    "tipo_botao": "Dataverse",
+    "nome_botao": "Dataverse",
+    "titulo": "Passageiros por veículo",
+    "texto_apoio": "Base de dados acadêmica com informações de bilhetagem organizadas para pesquisa e análise.",
+    "data": [
+      {
+        "link": "https://dataverse.datascience.insper.edu.br/dataset.xhtml?persistentId=doi:10.60873/FK2/71FU6Y"
+      }
+    ]
+  },
+  {
+    "grupo_cidade": "Cidade Parceira",
+    "nome_cidade": "Niterói",
+    "tipo_dado": "Outros Arquivos Vetoriais",
+    "tipo_botao": "Dataverse",
+    "nome_botao": "Dataverse",
+    "titulo": "Total de viagens de ônibus",
+    "texto_apoio": "Base de dados acadêmica com arquivos organizados para pesquisa e análise.",
+    "data": [
+      {
         "link": "https://dataverse.datascience.insper.edu.br/dataset.xhtml?persistentId=doi:10.60873/FK2/JKZNN3"
-      },
+      }
+    ]
+  },
+  {
+    "grupo_cidade": "Cidade Parceira",
+    "nome_cidade": "Niterói",
+    "tipo_dado": "Outros Arquivos Vetoriais",
+    "tipo_botao": "Dataverse",
+    "nome_botao": "Dataverse",
+    "titulo": "Rotas de ônibus",
+    "texto_apoio": "Base de dados acadêmica com arquivos organizados para pesquisa e análise.",
+    "data": [
       {
-        "titulo_dado": "Rotas de ônibus",
         "link": "https://dataverse.datascience.insper.edu.br/dataset.xhtml?persistentId=doi:10.60873/FK2/YA4P5P"
       }
     ]
@@ -2353,23 +2680,10 @@
     "tipo_dado": "Bilhetagem",
     "tipo_botao": "Dataverse",
     "nome_botao": "Dataverse",
-    "titulo": "Dados de bilhetagem eletrônica da frota de transporte público da cidade",
+    "titulo": "Passageiros diários ônibus (agregado)",
     "texto_apoio": "Base de dados acadêmica com informações de bilhetagem organizadas para pesquisa e análise.",
     "data": [
       {
-        "titulo_dado": "Passageiros diários por linha de ônibus",
-        "link": "https://dataverse.datascience.insper.edu.br/dataset.xhtml?persistentId=doi:10.60873/FK2/YO5BBM"
-      },
-      {
-        "titulo_dado": "Passageiros mensais por linha de ônibus",
-        "link": "https://dataverse.datascience.insper.edu.br/dataset.xhtml?persistentId=doi:10.60873/FK2/RXFEDU"
-      },
-      {
-        "titulo_dado": "Passageiros por veículo",
-        "link": "https://dataverse.datascience.insper.edu.br/dataset.xhtml?persistentId=doi:10.60873/FK2/71FU6Y"
-      },
-      {
-        "titulo_dado": "Passageiros diários ônibus (agregado)",
         "link": "https://dataverse.datascience.insper.edu.br/dataset.xhtml?persistentId=doi:10.60873/FK2/ZI0M7G"
       }
     ]
@@ -2380,7 +2694,6 @@
     "tipo_dado": "GTFS",
     "tipo_botao": "Dataverse",
     "nome_botao": "Dataverse",
-    "titulo": "Dados GTFS (General Transit Feed Specification) da cidade.",
     "texto_apoio": "Base de dados acadêmica com informações de GTFS organizadas para pesquisa e análise.",
     "data": [
       {
@@ -2394,7 +2707,6 @@
     "tipo_dado": "GTFS",
     "tipo_botao": "Fonte",
     "nome_botao": "Prefeitura",
-    "titulo": "Dados GTFS (General Transit Feed Specification) da cidade.",
     "texto_apoio": "Site oficial da prefeitura para consulta ou requisição dos dados de GTFS.",
     "data": [
       {
@@ -2408,7 +2720,6 @@
     "tipo_dado": "GTFS",
     "tipo_botao": "Geoportal",
     "nome_botao": "GeoPortal",
-    "titulo": "Dados GTFS (General Transit Feed Specification) da cidade.",
     "texto_apoio": "Acesso a mapas interativos e camadas geográficas relacionadas ao tema. Ideal para explorar os dados espacializados no território.",
     "data": [
       {
@@ -2422,23 +2733,10 @@
     "tipo_dado": "Bilhetagem",
     "tipo_botao": "Dataverse",
     "nome_botao": "Dataverse",
-    "titulo": "Dados de bilhetagem eletrônica da frota de transporte público da cidade",
     "texto_apoio": "Base de dados acadêmica com informações de bilhetagem organizadas para pesquisa e análise.",
     "data": [
       {
         "link": "Missing link (dataverse)"
-      },
-      {
-        "titulo_dado": "Passageiros transportados",
-        "link": "https://dataverse.datascience.insper.edu.br/dataset.xhtml?persistentId=doi:10.60873/FK2/JEYM0J"
-      },
-      {
-        "titulo_dado": "Passageiros equivalentes",
-        "link": "https://dataverse.datascience.insper.edu.br/dataset.xhtml?persistentId=doi:10.60873/FK2/OLSIZD"
-      },
-      {
-        "titulo_dado": "Dados operacionais",
-        "link": "https://dataverse.datascience.insper.edu.br/dataset.xhtml?persistentId=doi:10.60873/FK2/XYYBKU"
       }
     ]
   },
@@ -2448,7 +2746,6 @@
     "tipo_dado": "Bilhetagem",
     "tipo_botao": "Fonte",
     "nome_botao": "Prefeitura",
-    "titulo": "Dados de bilhetagem eletrônica da frota de transporte público da cidade",
     "texto_apoio": "Site oficial da prefeitura para consulta ou requisição dos dados de bilhetagem.",
     "data": [
       {
@@ -2462,7 +2759,6 @@
     "tipo_dado": "Bilhetagem",
     "tipo_botao": "Geoportal",
     "nome_botao": "GeoPortal",
-    "titulo": "Dados de bilhetagem eletrônica da frota de transporte público da cidade",
     "texto_apoio": "Acesso a mapas interativos e camadas geográficas relacionadas ao tema. Ideal para explorar os dados espacializados no território.",
     "data": [
       {
@@ -2476,7 +2772,6 @@
     "tipo_dado": "GPS Embarcados",
     "tipo_botao": "Dataverse",
     "nome_botao": "Dataverse",
-    "titulo": "Dados de localização em tempo real dos veículos do transporte público da cidade.",
     "texto_apoio": "Base de dados acadêmica com amostra dos dados de GPS organizada para pesquisa e análise.",
     "data": [
       {
@@ -2490,7 +2785,6 @@
     "tipo_dado": "GPS Embarcados",
     "tipo_botao": "Fonte",
     "nome_botao": "Prefeitura",
-    "titulo": "Dados de localização em tempo real dos veículos do transporte público da cidade.",
     "texto_apoio": "Site oficial da prefeitura para consulta ou requisição dos dados de GPS.",
     "data": [
       {
@@ -2504,7 +2798,6 @@
     "tipo_dado": "GPS Embarcados",
     "tipo_botao": "Geoportal",
     "nome_botao": "GeoPortal",
-    "titulo": "Dados de localização em tempo real dos veículos do transporte público da cidade.",
     "texto_apoio": "Acesso a mapas interativos e camadas geográficas relacionadas ao tema. Ideal para explorar os dados espacializados no território.",
     "data": [
       {
@@ -2518,15 +2811,10 @@
     "tipo_dado": "Outros Arquivos Vetoriais",
     "tipo_botao": "Dataverse",
     "nome_botao": "Dataverse",
-    "titulo": "Dados geográficos complementares e dados gerais de mobilidade da cidade.",
     "texto_apoio": "Base de dados acadêmica com arquivos organizados para pesquisa e análise.",
     "data": [
       {
         "link": "Missing link (dataverse)"
-      },
-      {
-        "titulo_dado": "Empresas concessionárias de Ônibus",
-        "link": "https://dataverse.datascience.insper.edu.br/dataset.xhtml?persistentId=doi:10.60873/FK2/TLFP8L"
       }
     ]
   },
@@ -2536,7 +2824,6 @@
     "tipo_dado": "Outros Arquivos Vetoriais",
     "tipo_botao": "Fonte",
     "nome_botao": "Prefeitura",
-    "titulo": "Dados geográficos complementares e dados gerais de mobilidade da cidade.",
     "texto_apoio": "Site oficial da prefeitura para consulta ou requisição de outros dados de mobilidade.",
     "data": [
       {
@@ -2550,7 +2837,6 @@
     "tipo_dado": "Outros Arquivos Vetoriais",
     "tipo_botao": "Geoportal",
     "nome_botao": "GeoPortal",
-    "titulo": "Dados geográficos complementares e dados gerais de mobilidade da cidade.",
     "texto_apoio": "Acesso a mapas interativos e camadas geográficas relacionadas ao tema. Ideal para explorar os dados espacializados no território.",
     "data": [
       {
@@ -2560,11 +2846,66 @@
   },
   {
     "grupo_cidade": "Cidade Parceira",
+    "nome_cidade": "Olinda*",
+    "tipo_dado": "Bilhetagem",
+    "tipo_botao": "Dataverse",
+    "nome_botao": "Dataverse",
+    "titulo": "Passageiros transportados",
+    "texto_apoio": "Base de dados acadêmica com informações de bilhetagem organizadas para pesquisa e análise.",
+    "data": [
+      {
+        "link": "https://dataverse.datascience.insper.edu.br/dataset.xhtml?persistentId=doi:10.60873/FK2/JEYM0J"
+      }
+    ]
+  },
+  {
+    "grupo_cidade": "Cidade Parceira",
+    "nome_cidade": "Olinda*",
+    "tipo_dado": "Bilhetagem",
+    "tipo_botao": "Dataverse",
+    "nome_botao": "Dataverse",
+    "titulo": "Passageiros equivalentes",
+    "texto_apoio": "Base de dados acadêmica com informações de bilhetagem organizadas para pesquisa e análise.",
+    "data": [
+      {
+        "link": "https://dataverse.datascience.insper.edu.br/dataset.xhtml?persistentId=doi:10.60873/FK2/OLSIZD"
+      }
+    ]
+  },
+  {
+    "grupo_cidade": "Cidade Parceira",
+    "nome_cidade": "Olinda*",
+    "tipo_dado": "Bilhetagem",
+    "tipo_botao": "Dataverse",
+    "nome_botao": "Dataverse",
+    "titulo": "Dados operacionais",
+    "texto_apoio": "Base de dados acadêmica com informações de bilhetagem organizadas para pesquisa e análise.",
+    "data": [
+      {
+        "link": "https://dataverse.datascience.insper.edu.br/dataset.xhtml?persistentId=doi:10.60873/FK2/XYYBKU"
+      }
+    ]
+  },
+  {
+    "grupo_cidade": "Cidade Parceira",
+    "nome_cidade": "Olinda*",
+    "tipo_dado": "Outros Arquivos Vetoriais",
+    "tipo_botao": "Dataverse",
+    "nome_botao": "Dataverse",
+    "titulo": "Empresas concessionárias de Ônibus",
+    "texto_apoio": "Base de dados acadêmica com arquivos organizados para pesquisa e análise.",
+    "data": [
+      {
+        "link": "https://dataverse.datascience.insper.edu.br/dataset.xhtml?persistentId=doi:10.60873/FK2/TLFP8L"
+      }
+    ]
+  },
+  {
+    "grupo_cidade": "Cidade Parceira",
     "nome_cidade": "Paulista*",
     "tipo_dado": "GTFS",
     "tipo_botao": "Dataverse",
     "nome_botao": "Dataverse",
-    "titulo": "Dados GTFS (General Transit Feed Specification) da cidade.",
     "texto_apoio": "Base de dados acadêmica com informações de GTFS organizadas para pesquisa e análise.",
     "data": [
       {
@@ -2578,7 +2919,6 @@
     "tipo_dado": "GTFS",
     "tipo_botao": "Fonte",
     "nome_botao": "Prefeitura",
-    "titulo": "Dados GTFS (General Transit Feed Specification) da cidade.",
     "texto_apoio": "Site oficial da prefeitura para consulta ou requisição dos dados de GTFS.",
     "data": [
       {
@@ -2592,7 +2932,6 @@
     "tipo_dado": "GTFS",
     "tipo_botao": "Geoportal",
     "nome_botao": "GeoPortal",
-    "titulo": "Dados GTFS (General Transit Feed Specification) da cidade.",
     "texto_apoio": "Acesso a mapas interativos e camadas geográficas relacionadas ao tema. Ideal para explorar os dados espacializados no território.",
     "data": [
       {
@@ -2606,23 +2945,10 @@
     "tipo_dado": "Bilhetagem",
     "tipo_botao": "Dataverse",
     "nome_botao": "Dataverse",
-    "titulo": "Dados de bilhetagem eletrônica da frota de transporte público da cidade",
     "texto_apoio": "Base de dados acadêmica com informações de bilhetagem organizadas para pesquisa e análise.",
     "data": [
       {
         "link": "Missing link (dataverse)"
-      },
-      {
-        "titulo_dado": "Passageiros transportados",
-        "link": "https://dataverse.datascience.insper.edu.br/dataset.xhtml?persistentId=doi:10.60873/FK2/JEYM0J"
-      },
-      {
-        "titulo_dado": "Passageiros equivalentes",
-        "link": "https://dataverse.datascience.insper.edu.br/dataset.xhtml?persistentId=doi:10.60873/FK2/OLSIZD"
-      },
-      {
-        "titulo_dado": "Dados operacionais",
-        "link": "https://dataverse.datascience.insper.edu.br/dataset.xhtml?persistentId=doi:10.60873/FK2/XYYBKU"
       }
     ]
   },
@@ -2632,7 +2958,6 @@
     "tipo_dado": "Bilhetagem",
     "tipo_botao": "Fonte",
     "nome_botao": "Prefeitura",
-    "titulo": "Dados de bilhetagem eletrônica da frota de transporte público da cidade",
     "texto_apoio": "Site oficial da prefeitura para consulta ou requisição dos dados de bilhetagem.",
     "data": [
       {
@@ -2646,7 +2971,6 @@
     "tipo_dado": "Bilhetagem",
     "tipo_botao": "Geoportal",
     "nome_botao": "GeoPortal",
-    "titulo": "Dados de bilhetagem eletrônica da frota de transporte público da cidade",
     "texto_apoio": "Acesso a mapas interativos e camadas geográficas relacionadas ao tema. Ideal para explorar os dados espacializados no território.",
     "data": [
       {
@@ -2660,7 +2984,6 @@
     "tipo_dado": "GPS Embarcados",
     "tipo_botao": "Dataverse",
     "nome_botao": "Dataverse",
-    "titulo": "Dados de localização em tempo real dos veículos do transporte público da cidade.",
     "texto_apoio": "Base de dados acadêmica com amostra dos dados de GPS organizada para pesquisa e análise.",
     "data": [
       {
@@ -2674,7 +2997,6 @@
     "tipo_dado": "GPS Embarcados",
     "tipo_botao": "Fonte",
     "nome_botao": "Prefeitura",
-    "titulo": "Dados de localização em tempo real dos veículos do transporte público da cidade.",
     "texto_apoio": "Site oficial da prefeitura para consulta ou requisição dos dados de GPS.",
     "data": [
       {
@@ -2688,7 +3010,6 @@
     "tipo_dado": "GPS Embarcados",
     "tipo_botao": "Geoportal",
     "nome_botao": "GeoPortal",
-    "titulo": "Dados de localização em tempo real dos veículos do transporte público da cidade.",
     "texto_apoio": "Acesso a mapas interativos e camadas geográficas relacionadas ao tema. Ideal para explorar os dados espacializados no território.",
     "data": [
       {
@@ -2702,15 +3023,10 @@
     "tipo_dado": "Outros Arquivos Vetoriais",
     "tipo_botao": "Dataverse",
     "nome_botao": "Dataverse",
-    "titulo": "Dados geográficos complementares e dados gerais de mobilidade da cidade.",
     "texto_apoio": "Base de dados acadêmica com arquivos organizados para pesquisa e análise.",
     "data": [
       {
         "link": "Missing link (dataverse)"
-      },
-      {
-        "titulo_dado": "Empresas concessionárias de Ônibus",
-        "link": "https://dataverse.datascience.insper.edu.br/dataset.xhtml?persistentId=doi:10.60873/FK2/TLFP8L"
       }
     ]
   },
@@ -2720,7 +3036,6 @@
     "tipo_dado": "Outros Arquivos Vetoriais",
     "tipo_botao": "Fonte",
     "nome_botao": "Prefeitura",
-    "titulo": "Dados geográficos complementares e dados gerais de mobilidade da cidade.",
     "texto_apoio": "Site oficial da prefeitura para consulta ou requisição de outros dados de mobilidade.",
     "data": [
       {
@@ -2734,11 +3049,66 @@
     "tipo_dado": "Outros Arquivos Vetoriais",
     "tipo_botao": "Geoportal",
     "nome_botao": "GeoPortal",
-    "titulo": "Dados geográficos complementares e dados gerais de mobilidade da cidade.",
     "texto_apoio": "Acesso a mapas interativos e camadas geográficas relacionadas ao tema. Ideal para explorar os dados espacializados no território.",
     "data": [
       {
         "link": "Missing link (geoportal)"
+      }
+    ]
+  },
+  {
+    "grupo_cidade": "Cidade Parceira",
+    "nome_cidade": "Paulista*",
+    "tipo_dado": "Bilhetagem",
+    "tipo_botao": "Dataverse",
+    "nome_botao": "Dataverse",
+    "titulo": "Passageiros transportados",
+    "texto_apoio": "Base de dados acadêmica com informações de bilhetagem organizadas para pesquisa e análise.",
+    "data": [
+      {
+        "link": "https://dataverse.datascience.insper.edu.br/dataset.xhtml?persistentId=doi:10.60873/FK2/JEYM0J"
+      }
+    ]
+  },
+  {
+    "grupo_cidade": "Cidade Parceira",
+    "nome_cidade": "Paulista*",
+    "tipo_dado": "Bilhetagem",
+    "tipo_botao": "Dataverse",
+    "nome_botao": "Dataverse",
+    "titulo": "Passageiros equivalentes",
+    "texto_apoio": "Base de dados acadêmica com informações de bilhetagem organizadas para pesquisa e análise.",
+    "data": [
+      {
+        "link": "https://dataverse.datascience.insper.edu.br/dataset.xhtml?persistentId=doi:10.60873/FK2/OLSIZD"
+      }
+    ]
+  },
+  {
+    "grupo_cidade": "Cidade Parceira",
+    "nome_cidade": "Paulista*",
+    "tipo_dado": "Bilhetagem",
+    "tipo_botao": "Dataverse",
+    "nome_botao": "Dataverse",
+    "titulo": "Dados operacionais",
+    "texto_apoio": "Base de dados acadêmica com informações de bilhetagem organizadas para pesquisa e análise.",
+    "data": [
+      {
+        "link": "https://dataverse.datascience.insper.edu.br/dataset.xhtml?persistentId=doi:10.60873/FK2/XYYBKU"
+      }
+    ]
+  },
+  {
+    "grupo_cidade": "Cidade Parceira",
+    "nome_cidade": "Paulista*",
+    "tipo_dado": "Outros Arquivos Vetoriais",
+    "tipo_botao": "Dataverse",
+    "nome_botao": "Dataverse",
+    "titulo": "Empresas concessionárias de Ônibus",
+    "texto_apoio": "Base de dados acadêmica com arquivos organizados para pesquisa e análise.",
+    "data": [
+      {
+        "link": "https://dataverse.datascience.insper.edu.br/dataset.xhtml?persistentId=doi:10.60873/FK2/TLFP8L"
       }
     ]
   },
@@ -2748,7 +3118,6 @@
     "tipo_dado": "GTFS",
     "tipo_botao": "Dataverse",
     "nome_botao": "Dataverse",
-    "titulo": "Dados GTFS (General Transit Feed Specification) da cidade.",
     "texto_apoio": "Base de dados acadêmica com informações de GTFS organizadas para pesquisa e análise.",
     "data": [
       {
@@ -2762,7 +3131,6 @@
     "tipo_dado": "GTFS",
     "tipo_botao": "Fonte",
     "nome_botao": "Dados Abertos",
-    "titulo": "Dados GTFS (General Transit Feed Specification) da cidade.",
     "texto_apoio": "Dados originais GTFS do transporte público disponibilizados em portal de dados abertos da administração municipal.",
     "data": [
       {
@@ -2776,7 +3144,6 @@
     "tipo_dado": "GTFS",
     "tipo_botao": "Geoportal",
     "nome_botao": "GeoPortal",
-    "titulo": "Dados GTFS (General Transit Feed Specification) da cidade.",
     "texto_apoio": "Acesso a mapas interativos e camadas geográficas relacionadas ao tema. Ideal para explorar os dados espacializados no território.",
     "data": [
       {
@@ -2790,7 +3157,6 @@
     "tipo_dado": "Bilhetagem",
     "tipo_botao": "Dataverse",
     "nome_botao": "Dataverse",
-    "titulo": "Dados de bilhetagem eletrônica da frota de transporte público da cidade",
     "texto_apoio": "Base de dados acadêmica com informações de bilhetagem organizadas para pesquisa e análise.",
     "data": [
       {
@@ -2804,7 +3170,6 @@
     "tipo_dado": "Bilhetagem",
     "tipo_botao": "Fonte",
     "nome_botao": "Dados Abertos",
-    "titulo": "Dados de bilhetagem eletrônica da frota de transporte público da cidade",
     "texto_apoio": "Dados originais de bilhetagem eletrônica disponibilizados em portal de dados abertos da administração municipal.",
     "data": [
       {
@@ -2818,7 +3183,6 @@
     "tipo_dado": "Bilhetagem",
     "tipo_botao": "Geoportal",
     "nome_botao": "GeoPortal",
-    "titulo": "Dados de bilhetagem eletrônica da frota de transporte público da cidade",
     "texto_apoio": "Acesso a mapas interativos e camadas geográficas relacionadas ao tema. Ideal para explorar os dados espacializados no território.",
     "data": [
       {
@@ -2832,7 +3196,6 @@
     "tipo_dado": "GPS Embarcados",
     "tipo_botao": "Dataverse",
     "nome_botao": "Dataverse",
-    "titulo": "Dados de localização em tempo real dos veículos do transporte público da cidade.",
     "texto_apoio": "Base de dados acadêmica com amostra dos dados de GPS organizada para pesquisa e análise.",
     "data": [
       {
@@ -2846,7 +3209,6 @@
     "tipo_dado": "GPS Embarcados",
     "tipo_botao": "Fonte",
     "nome_botao": "Dados Abertos",
-    "titulo": "Dados de localização em tempo real dos veículos do transporte público da cidade.",
     "texto_apoio": "Dados originais de GPS embarcados disponibilizados em portal de dados abertos da administração municipal.",
     "data": [
       {
@@ -2860,7 +3222,6 @@
     "tipo_dado": "GPS Embarcados",
     "tipo_botao": "Geoportal",
     "nome_botao": "GeoPortal",
-    "titulo": "Dados de localização em tempo real dos veículos do transporte público da cidade.",
     "texto_apoio": "Acesso a mapas interativos e camadas geográficas relacionadas ao tema. Ideal para explorar os dados espacializados no território.",
     "data": [
       {
@@ -2874,39 +3235,10 @@
     "tipo_dado": "Outros Arquivos Vetoriais",
     "tipo_botao": "Dataverse",
     "nome_botao": "Dataverse",
-    "titulo": "Dados geográficos complementares e dados gerais de mobilidade da cidade.",
     "texto_apoio": "Base de dados acadêmica com arquivos organizados para pesquisa e análise.",
     "data": [
       {
         "link": "Missing link (dataverse)"
-      },
-      {
-        "titulo_dado": "Frota de Táxi",
-        "link": "https://dataverse.datascience.insper.edu.br/dataset.xhtml?persistentId=doi:10.60873/FK2/FPGCUO"
-      },
-      {
-        "titulo_dado": "Pontos de Táxi",
-        "link": "https://dataverse.datascience.insper.edu.br/dataset.xhtml?persistentId=doi:10.60873/FK2/JJJ7JE"
-      },
-      {
-        "titulo_dado": "Vítimas de sinistros de trânsito",
-        "link": "https://dataverse.datascience.insper.edu.br/dataset.xhtml?persistentId=doi:10.60873/FK2/4KKAGG"
-      },
-      {
-        "titulo_dado": "Sinistros de trânsito",
-        "link": "https://dataverse.datascience.insper.edu.br/dataset.xhtml?persistentId=doi:10.60873/FK2/HDUNXP"
-      },
-      {
-        "titulo_dado": "Tabela Horária de Ônibus",
-        "link": "https://dataverse.datascience.insper.edu.br/dataset.xhtml?persistentId=doi:10.60873/FK2/JTWHQ7"
-      },
-      {
-        "titulo_dado": "Frota de Transporte Público",
-        "link": "https://dataverse.datascience.insper.edu.br/dataset.xhtml?persistentId=doi:10.60873/FK2/V1EAV8"
-      },
-      {
-        "titulo_dado": "Sinalização Viária",
-        "link": "https://dataverse.datascience.insper.edu.br/dataset.xhtml?persistentId=doi:10.60873/FK2/BY0FPB"
       }
     ]
   },
@@ -2916,7 +3248,6 @@
     "tipo_dado": "Outros Arquivos Vetoriais",
     "tipo_botao": "Fonte",
     "nome_botao": "Dados Abertos",
-    "titulo": "Dados geográficos complementares e dados gerais de mobilidade da cidade.",
     "texto_apoio": "Outros arquivos vetoriais e dados geográficos complementares disponibilizados em portal de dados abertos municipal.",
     "data": [
       {
@@ -2930,11 +3261,108 @@
     "tipo_dado": "Outros Arquivos Vetoriais",
     "tipo_botao": "Geoportal",
     "nome_botao": "GeoPortal",
-    "titulo": "Dados geográficos complementares e dados gerais de mobilidade da cidade.",
     "texto_apoio": "Acesso a mapas interativos e camadas geográficas relacionadas ao tema. Ideal para explorar os dados espacializados no território.",
     "data": [
       {
         "link": "Missing link (geoportal)"
+      }
+    ]
+  },
+  {
+    "grupo_cidade": "Dados Abertos",
+    "nome_cidade": "Porto Alegre",
+    "tipo_dado": "Outros Arquivos Vetoriais",
+    "tipo_botao": "Dataverse",
+    "nome_botao": "Dataverse",
+    "titulo": "Frota de Táxi",
+    "texto_apoio": "Base de dados acadêmica com arquivos organizados para pesquisa e análise.",
+    "data": [
+      {
+        "link": "https://dataverse.datascience.insper.edu.br/dataset.xhtml?persistentId=doi:10.60873/FK2/FPGCUO"
+      }
+    ]
+  },
+  {
+    "grupo_cidade": "Dados Abertos",
+    "nome_cidade": "Porto Alegre",
+    "tipo_dado": "Outros Arquivos Vetoriais",
+    "tipo_botao": "Dataverse",
+    "nome_botao": "Dataverse",
+    "titulo": "Pontos de Táxi",
+    "texto_apoio": "Base de dados acadêmica com arquivos organizados para pesquisa e análise.",
+    "data": [
+      {
+        "link": "https://dataverse.datascience.insper.edu.br/dataset.xhtml?persistentId=doi:10.60873/FK2/JJJ7JE"
+      }
+    ]
+  },
+  {
+    "grupo_cidade": "Dados Abertos",
+    "nome_cidade": "Porto Alegre",
+    "tipo_dado": "Outros Arquivos Vetoriais",
+    "tipo_botao": "Dataverse",
+    "nome_botao": "Dataverse",
+    "titulo": "Vítimas de sinistros de trânsito",
+    "texto_apoio": "Base de dados acadêmica com arquivos organizados para pesquisa e análise.",
+    "data": [
+      {
+        "link": "https://dataverse.datascience.insper.edu.br/dataset.xhtml?persistentId=doi:10.60873/FK2/4KKAGG"
+      }
+    ]
+  },
+  {
+    "grupo_cidade": "Dados Abertos",
+    "nome_cidade": "Porto Alegre",
+    "tipo_dado": "Outros Arquivos Vetoriais",
+    "tipo_botao": "Dataverse",
+    "nome_botao": "Dataverse",
+    "titulo": "Sinistros de trânsito",
+    "texto_apoio": "Base de dados acadêmica com arquivos organizados para pesquisa e análise.",
+    "data": [
+      {
+        "link": "https://dataverse.datascience.insper.edu.br/dataset.xhtml?persistentId=doi:10.60873/FK2/HDUNXP"
+      }
+    ]
+  },
+  {
+    "grupo_cidade": "Dados Abertos",
+    "nome_cidade": "Porto Alegre",
+    "tipo_dado": "Outros Arquivos Vetoriais",
+    "tipo_botao": "Dataverse",
+    "nome_botao": "Dataverse",
+    "titulo": "Tabela Horária de Ônibus",
+    "texto_apoio": "Base de dados acadêmica com arquivos organizados para pesquisa e análise.",
+    "data": [
+      {
+        "link": "https://dataverse.datascience.insper.edu.br/dataset.xhtml?persistentId=doi:10.60873/FK2/JTWHQ7"
+      }
+    ]
+  },
+  {
+    "grupo_cidade": "Dados Abertos",
+    "nome_cidade": "Porto Alegre",
+    "tipo_dado": "Outros Arquivos Vetoriais",
+    "tipo_botao": "Dataverse",
+    "nome_botao": "Dataverse",
+    "titulo": "Frota de Transporte Público",
+    "texto_apoio": "Base de dados acadêmica com arquivos organizados para pesquisa e análise.",
+    "data": [
+      {
+        "link": "https://dataverse.datascience.insper.edu.br/dataset.xhtml?persistentId=doi:10.60873/FK2/V1EAV8"
+      }
+    ]
+  },
+  {
+    "grupo_cidade": "Dados Abertos",
+    "nome_cidade": "Porto Alegre",
+    "tipo_dado": "Outros Arquivos Vetoriais",
+    "tipo_botao": "Dataverse",
+    "nome_botao": "Dataverse",
+    "titulo": "Sinalização Viária",
+    "texto_apoio": "Base de dados acadêmica com arquivos organizados para pesquisa e análise.",
+    "data": [
+      {
+        "link": "https://dataverse.datascience.insper.edu.br/dataset.xhtml?persistentId=doi:10.60873/FK2/BY0FPB"
       }
     ]
   },
@@ -2944,7 +3372,6 @@
     "tipo_dado": "Bilhetagem",
     "tipo_botao": "Geoportal",
     "nome_botao": "GeoPortal",
-    "titulo": "Dados de bilhetagem eletrônica da frota de transporte público da cidade",
     "texto_apoio": "Acesso a mapas interativos e camadas geográficas relacionadas ao tema. Ideal para explorar os dados espacializados no território.",
     "data": [
       {
@@ -2958,7 +3385,6 @@
     "tipo_dado": "Bilhetagem",
     "tipo_botao": "Fonte",
     "nome_botao": "Dados Abertos",
-    "titulo": "Dados de bilhetagem eletrônica da frota de transporte público da cidade",
     "texto_apoio": "Dados originais de bilhetagem eletrônica disponibilizados em portal de dados abertos da administração municipal.",
     "data": [
       {
@@ -2972,19 +3398,38 @@
     "tipo_dado": "Bilhetagem",
     "tipo_botao": "Dataverse",
     "nome_botao": "Dataverse",
-    "titulo": "Dados de bilhetagem eletrônica da frota de transporte público da cidade",
+    "titulo": "Passageiros transportados",
     "texto_apoio": "Base de dados acadêmica com informações de bilhetagem organizadas para pesquisa e análise.",
     "data": [
       {
-        "titulo_dado": "Passageiros transportados",
         "link": "https://dataverse.datascience.insper.edu.br/dataset.xhtml?persistentId=doi:10.60873/FK2/JEYM0J"
-      },
+      }
+    ]
+  },
+  {
+    "grupo_cidade": "Cidade Parceira",
+    "nome_cidade": "Recife*",
+    "tipo_dado": "Bilhetagem",
+    "tipo_botao": "Dataverse",
+    "nome_botao": "Dataverse",
+    "titulo": "Passageiros equivalentes",
+    "texto_apoio": "Base de dados acadêmica com informações de bilhetagem organizadas para pesquisa e análise.",
+    "data": [
       {
-        "titulo_dado": "Passageiros equivalentes",
         "link": "https://dataverse.datascience.insper.edu.br/dataset.xhtml?persistentId=doi:10.60873/FK2/OLSIZD"
-      },
+      }
+    ]
+  },
+  {
+    "grupo_cidade": "Cidade Parceira",
+    "nome_cidade": "Recife*",
+    "tipo_dado": "Bilhetagem",
+    "tipo_botao": "Dataverse",
+    "nome_botao": "Dataverse",
+    "titulo": "Dados operacionais",
+    "texto_apoio": "Base de dados acadêmica com informações de bilhetagem organizadas para pesquisa e análise.",
+    "data": [
       {
-        "titulo_dado": "Dados operacionais",
         "link": "https://dataverse.datascience.insper.edu.br/dataset.xhtml?persistentId=doi:10.60873/FK2/XYYBKU"
       }
     ]
@@ -2995,7 +3440,6 @@
     "tipo_dado": "GTFS",
     "tipo_botao": "Geoportal",
     "nome_botao": "GeoPortal",
-    "titulo": "Dados GTFS (General Transit Feed Specification) da cidade.",
     "texto_apoio": "Acesso a mapas interativos e camadas geográficas relacionadas ao tema. Ideal para explorar os dados espacializados no território.",
     "data": [
       {
@@ -3009,7 +3453,6 @@
     "tipo_dado": "GTFS",
     "tipo_botao": "Fonte",
     "nome_botao": "Dados Abertos",
-    "titulo": "Dados GTFS (General Transit Feed Specification) da cidade.",
     "texto_apoio": "Dados originais GTFS do transporte público disponibilizados em portal de dados abertos da administração municipal.",
     "data": [
       {
@@ -3023,7 +3466,6 @@
     "tipo_dado": "GTFS",
     "tipo_botao": "Dataverse",
     "nome_botao": "Dataverse",
-    "titulo": "Dados GTFS (General Transit Feed Specification) da cidade.",
     "texto_apoio": "Base de dados acadêmica com informações de GTFS organizadas para pesquisa e análise.",
     "data": [
       {
@@ -3033,8 +3475,11 @@
   },
   {
     "grupo_cidade": "Cidade Parceira",
-    "tipo_dado": "GPS",
+    "nome_cidade": "Recife*",
+    "tipo_dado": "GPS Embarcados",
     "tipo_botao": "Geoportal",
+    "nome_botao": "GeoPortal",
+    "texto_apoio": "Acesso a mapas interativos e camadas geográficas relacionadas ao tema. Ideal para explorar os dados espacializados no território.",
     "data": [
       {
         "link": "Missing link (geoportal)"
@@ -3043,8 +3488,11 @@
   },
   {
     "grupo_cidade": "Cidade Parceira",
-    "tipo_dado": "GPS",
+    "nome_cidade": "Recife*",
+    "tipo_dado": "GPS Embarcados",
     "tipo_botao": "Fonte",
+    "nome_botao": "Dados Abertos",
+    "texto_apoio": "Dados originais de GPS embarcados disponibilizados em portal de dados abertos da administração municipal.",
     "data": [
       {
         "link": "http://dados.recife.pe.gov.br/"
@@ -3053,8 +3501,11 @@
   },
   {
     "grupo_cidade": "Cidade Parceira",
-    "tipo_dado": "GPS",
+    "nome_cidade": "Recife*",
+    "tipo_dado": "GPS Embarcados",
     "tipo_botao": "Dataverse",
+    "nome_botao": "Dataverse",
+    "texto_apoio": "Base de dados acadêmica com amostra dos dados de GPS organizada para pesquisa e análise.",
     "data": [
       {
         "link": "Missing link (dataverse)"
@@ -3067,7 +3518,6 @@
     "tipo_dado": "Outros Arquivos Vetoriais",
     "tipo_botao": "Geoportal",
     "nome_botao": "GeoPortal",
-    "titulo": "Dados geográficos complementares e dados gerais de mobilidade da cidade.",
     "texto_apoio": "Acesso a mapas interativos e camadas geográficas relacionadas ao tema. Ideal para explorar os dados espacializados no território.",
     "data": [
       {
@@ -3081,7 +3531,6 @@
     "tipo_dado": "Outros Arquivos Vetoriais",
     "tipo_botao": "Fonte",
     "nome_botao": "Dados Abertos",
-    "titulo": "Dados geográficos complementares e dados gerais de mobilidade da cidade.",
     "texto_apoio": "Outros arquivos vetoriais e dados geográficos complementares disponibilizados em portal de dados abertos municipal.",
     "data": [
       {
@@ -3095,11 +3544,10 @@
     "tipo_dado": "Outros Arquivos Vetoriais",
     "tipo_botao": "Dataverse",
     "nome_botao": "Dataverse",
-    "titulo": "Dados geográficos complementares e dados gerais de mobilidade da cidade.",
+    "titulo": "Linhas de ônibus",
     "texto_apoio": "Base de dados acadêmica com arquivos organizados para pesquisa e análise.",
     "data": [
       {
-        "titulo_dado": "Linhas de ônibus",
         "link": "Missing link (dataverse)"
       }
     ]
@@ -3110,11 +3558,10 @@
     "tipo_dado": "GTFS",
     "tipo_botao": "Dataverse",
     "nome_botao": "Dataverse",
-    "titulo": "Dados GTFS (General Transit Feed Specification) da cidade.",
+    "titulo": "GTFS",
     "texto_apoio": "Base de dados acadêmica com informações de GTFS organizadas para pesquisa e análise.",
     "data": [
       {
-        "titulo_dado": "GTFS",
         "link": "https://dataverse.datascience.insper.edu.br/dataset.xhtml?persistentId=doi:10.60873/FK2/PFFEHU"
       }
     ]
@@ -3125,7 +3572,6 @@
     "tipo_dado": "GTFS",
     "tipo_botao": "Fonte",
     "nome_botao": "API Municipal",
-    "titulo": "Dados GTFS (General Transit Feed Specification) da cidade.",
     "texto_apoio": "Interface de programação para acesso direto aos dados GTFS do transporte público municipal em tempo real ou atualizações frequentes.",
     "data": [
       {
@@ -3139,7 +3585,6 @@
     "tipo_dado": "GTFS",
     "tipo_botao": "Geoportal",
     "nome_botao": "GeoPortal",
-    "titulo": "Dados GTFS (General Transit Feed Specification) da cidade.",
     "texto_apoio": "Acesso a mapas interativos e camadas geográficas relacionadas ao tema. Ideal para explorar os dados espacializados no território.",
     "data": [
       {
@@ -3153,19 +3598,38 @@
     "tipo_dado": "Bilhetagem",
     "tipo_botao": "Dataverse",
     "nome_botao": "Dataverse",
-    "titulo": "Dados de bilhetagem eletrônica da frota de transporte público da cidade",
+    "titulo": "Embarques Riocard (histórico)",
     "texto_apoio": "Base de dados acadêmica com informações de bilhetagem organizadas para pesquisa e análise.",
     "data": [
       {
-        "titulo_dado": "Embarques Riocard (histórico)",
         "link": "https://dataverse.datascience.insper.edu.br/dataset.xhtml?persistentId=doi:10.60873/FK2/AYFJ8M"
-      },
+      }
+    ]
+  },
+  {
+    "grupo_cidade": "Cidade Parceira",
+    "nome_cidade": "Rio de Janeiro",
+    "tipo_dado": "Bilhetagem",
+    "tipo_botao": "Dataverse",
+    "nome_botao": "Dataverse",
+    "titulo": "Embarques Jaé (histórico)",
+    "texto_apoio": "Base de dados acadêmica com informações de bilhetagem organizadas para pesquisa e análise.",
+    "data": [
       {
-        "titulo_dado": "Embarques Jaé (histórico)",
         "link": "https://dataverse.datascience.insper.edu.br/dataset.xhtml?persistentId=doi:10.60873/FK2/POEDQC"
-      },
+      }
+    ]
+  },
+  {
+    "grupo_cidade": "Cidade Parceira",
+    "nome_cidade": "Rio de Janeiro",
+    "tipo_dado": "Bilhetagem",
+    "tipo_botao": "Dataverse",
+    "nome_botao": "Dataverse",
+    "titulo": "Bilhetagem eletrônica",
+    "texto_apoio": "Base de dados acadêmica com informações de bilhetagem organizadas para pesquisa e análise.",
+    "data": [
       {
-        "titulo_dado": "Bilhetagem eletrônica",
         "link": "https://dataverse.datascience.insper.edu.br/dataset.xhtml?persistentId=doi:10.60873/FK2/TIT5CC"
       }
     ]
@@ -3176,11 +3640,10 @@
     "tipo_dado": "GPS Embarcados",
     "tipo_botao": "Dataverse",
     "nome_botao": "Dataverse",
-    "titulo": "Dados de localização em tempo real dos veículos do transporte público da cidade.",
+    "titulo": "GPS embarcados",
     "texto_apoio": "Base de dados acadêmica com amostra dos dados de GPS organizada para pesquisa e análise.",
     "data": [
       {
-        "titulo_dado": "GPS embarcados",
         "link": "https://dataverse.datascience.insper.edu.br/dataset.xhtml?persistentId=doi:10.60873/FK2/WEFWVW"
       }
     ]
@@ -3191,7 +3654,6 @@
     "tipo_dado": "GPS Embarcados",
     "tipo_botao": "Fonte",
     "nome_botao": "API Municipal",
-    "titulo": "Dados de localização em tempo real dos veículos do transporte público da cidade.",
     "texto_apoio": "Interface de programação para acesso direto aos dados de GPS embarcados da frota municipal em tempo real ou atualizações frequentes.",
     "data": [
       {
@@ -3205,7 +3667,6 @@
     "tipo_dado": "GPS Embarcados",
     "tipo_botao": "Geoportal",
     "nome_botao": "GeoPortal",
-    "titulo": "Dados de localização em tempo real dos veículos do transporte público da cidade.",
     "texto_apoio": "Acesso a mapas interativos e camadas geográficas relacionadas ao tema. Ideal para explorar os dados espacializados no território.",
     "data": [
       {
@@ -3219,7 +3680,6 @@
     "tipo_dado": "Outros Arquivos Vetoriais",
     "tipo_botao": "Dataverse",
     "nome_botao": "Dataverse",
-    "titulo": "Dados geográficos complementares e dados gerais de mobilidade da cidade.",
     "texto_apoio": "Base de dados acadêmica com arquivos organizados para pesquisa e análise.",
     "data": [
       {
@@ -3232,9 +3692,8 @@
     "nome_cidade": "Rio de Janeiro",
     "tipo_dado": "Outros Arquivos Vetoriais",
     "tipo_botao": "Fonte",
-    "nome_botao": "Dados Abertos",
-    "titulo": "Dados geográficos complementares e dados gerais de mobilidade da cidade.",
-    "texto_apoio": "Outros arquivos vetoriais e dados geográficos complementares disponibilizados em portal de dados abertos municipal.",
+    "nome_botao": "API Municipal",
+    "texto_apoio": "Interface de programação para acesso direto aos arquivos vetoriais e dados geográficos municipais com atualizações frequentes.",
     "data": [
       {
         "link": "https://www.data.rio"
@@ -3247,7 +3706,6 @@
     "tipo_dado": "Outros Arquivos Vetoriais",
     "tipo_botao": "Geoportal",
     "nome_botao": "GeoPortal",
-    "titulo": "Dados geográficos complementares e dados gerais de mobilidade da cidade.",
     "texto_apoio": "Acesso a mapas interativos e camadas geográficas relacionadas ao tema. Ideal para explorar os dados espacializados no território.",
     "data": [
       {
@@ -3261,11 +3719,10 @@
     "tipo_dado": "GTFS",
     "tipo_botao": "Dataverse",
     "nome_botao": "Dataverse",
-    "titulo": "Dados GTFS (General Transit Feed Specification) da cidade.",
+    "titulo": "GTFS",
     "texto_apoio": "Base de dados acadêmica com informações de GTFS organizadas para pesquisa e análise.",
     "data": [
       {
-        "titulo_dado": "GTFS",
         "link": "Missing link (dataverse)"
       }
     ]
@@ -3276,7 +3733,6 @@
     "tipo_dado": "GTFS",
     "tipo_botao": "Fonte",
     "nome_botao": "Prefeitura",
-    "titulo": "Dados GTFS (General Transit Feed Specification) da cidade.",
     "texto_apoio": "Site oficial da prefeitura para consulta ou requisição dos dados de GTFS.",
     "data": [
       {
@@ -3290,7 +3746,6 @@
     "tipo_dado": "GTFS",
     "tipo_botao": "Geoportal",
     "nome_botao": "GeoPortal",
-    "titulo": "Dados GTFS (General Transit Feed Specification) da cidade.",
     "texto_apoio": "Acesso a mapas interativos e camadas geográficas relacionadas ao tema. Ideal para explorar os dados espacializados no território.",
     "data": [
       {
@@ -3304,7 +3759,6 @@
     "tipo_dado": "Bilhetagem",
     "tipo_botao": "Dataverse",
     "nome_botao": "Dataverse",
-    "titulo": "Dados de bilhetagem eletrônica da frota de transporte público da cidade",
     "texto_apoio": "Base de dados acadêmica com informações de bilhetagem organizadas para pesquisa e análise.",
     "data": [
       {
@@ -3318,7 +3772,6 @@
     "tipo_dado": "Bilhetagem",
     "tipo_botao": "Fonte",
     "nome_botao": "Prefeitura",
-    "titulo": "Dados de bilhetagem eletrônica da frota de transporte público da cidade",
     "texto_apoio": "Site oficial da prefeitura para consulta ou requisição dos dados de bilhetagem.",
     "data": [
       {
@@ -3332,7 +3785,6 @@
     "tipo_dado": "Bilhetagem",
     "tipo_botao": "Geoportal",
     "nome_botao": "GeoPortal",
-    "titulo": "Dados de bilhetagem eletrônica da frota de transporte público da cidade",
     "texto_apoio": "Acesso a mapas interativos e camadas geográficas relacionadas ao tema. Ideal para explorar os dados espacializados no território.",
     "data": [
       {
@@ -3346,7 +3798,6 @@
     "tipo_dado": "GPS Embarcados",
     "tipo_botao": "Dataverse",
     "nome_botao": "Dataverse",
-    "titulo": "Dados de localização em tempo real dos veículos do transporte público da cidade.",
     "texto_apoio": "Base de dados acadêmica com amostra dos dados de GPS organizada para pesquisa e análise.",
     "data": [
       {
@@ -3360,7 +3811,6 @@
     "tipo_dado": "GPS Embarcados",
     "tipo_botao": "Fonte",
     "nome_botao": "Prefeitura",
-    "titulo": "Dados de localização em tempo real dos veículos do transporte público da cidade.",
     "texto_apoio": "Site oficial da prefeitura para consulta ou requisição dos dados de GPS.",
     "data": [
       {
@@ -3374,7 +3824,6 @@
     "tipo_dado": "GPS Embarcados",
     "tipo_botao": "Geoportal",
     "nome_botao": "GeoPortal",
-    "titulo": "Dados de localização em tempo real dos veículos do transporte público da cidade.",
     "texto_apoio": "Acesso a mapas interativos e camadas geográficas relacionadas ao tema. Ideal para explorar os dados espacializados no território.",
     "data": [
       {
@@ -3388,7 +3837,6 @@
     "tipo_dado": "Outros Arquivos Vetoriais",
     "tipo_botao": "Dataverse",
     "nome_botao": "Dataverse",
-    "titulo": "Dados geográficos complementares e dados gerais de mobilidade da cidade.",
     "texto_apoio": "Base de dados acadêmica com arquivos organizados para pesquisa e análise.",
     "data": [
       {
@@ -3402,7 +3850,6 @@
     "tipo_dado": "Outros Arquivos Vetoriais",
     "tipo_botao": "Fonte",
     "nome_botao": "Prefeitura",
-    "titulo": "Dados geográficos complementares e dados gerais de mobilidade da cidade.",
     "texto_apoio": "Site oficial da prefeitura para consulta ou requisição de outros dados de mobilidade.",
     "data": [
       {
@@ -3416,7 +3863,6 @@
     "tipo_dado": "Outros Arquivos Vetoriais",
     "tipo_botao": "Geoportal",
     "nome_botao": "GeoPortal",
-    "titulo": "Dados geográficos complementares e dados gerais de mobilidade da cidade.",
     "texto_apoio": "Acesso a mapas interativos e camadas geográficas relacionadas ao tema. Ideal para explorar os dados espacializados no território.",
     "data": [
       {
@@ -3430,7 +3876,6 @@
     "tipo_dado": "GTFS",
     "tipo_botao": "Dataverse",
     "nome_botao": "Dataverse",
-    "titulo": "Dados GTFS (General Transit Feed Specification) da cidade.",
     "texto_apoio": "Base de dados acadêmica com informações de GTFS organizadas para pesquisa e análise.",
     "data": [
       {
@@ -3444,7 +3889,6 @@
     "tipo_dado": "GTFS",
     "tipo_botao": "Fonte",
     "nome_botao": "Dados Abertos",
-    "titulo": "Dados GTFS (General Transit Feed Specification) da cidade.",
     "texto_apoio": "Dados originais GTFS do transporte público disponibilizados em portal de dados abertos da administração municipal.",
     "data": [
       {
@@ -3458,7 +3902,6 @@
     "tipo_dado": "GTFS",
     "tipo_botao": "Geoportal",
     "nome_botao": "GeoPortal",
-    "titulo": "Dados GTFS (General Transit Feed Specification) da cidade.",
     "texto_apoio": "Acesso a mapas interativos e camadas geográficas relacionadas ao tema. Ideal para explorar os dados espacializados no território.",
     "data": [
       {
@@ -3472,7 +3915,6 @@
     "tipo_dado": "Bilhetagem",
     "tipo_botao": "Fonte",
     "nome_botao": "Dados Abertos",
-    "titulo": "Dados de bilhetagem eletrônica da frota de transporte público da cidade",
     "texto_apoio": "Dados originais de bilhetagem eletrônica disponibilizados em portal de dados abertos da administração municipal.",
     "data": [
       {
@@ -3486,7 +3928,6 @@
     "tipo_dado": "Bilhetagem",
     "tipo_botao": "Geoportal",
     "nome_botao": "GeoPortal",
-    "titulo": "Dados de bilhetagem eletrônica da frota de transporte público da cidade",
     "texto_apoio": "Acesso a mapas interativos e camadas geográficas relacionadas ao tema. Ideal para explorar os dados espacializados no território.",
     "data": [
       {
@@ -3500,7 +3941,6 @@
     "tipo_dado": "GPS Embarcados",
     "tipo_botao": "Dataverse",
     "nome_botao": "Dataverse",
-    "titulo": "Dados de localização em tempo real dos veículos do transporte público da cidade.",
     "texto_apoio": "Base de dados acadêmica com amostra dos dados de GPS organizada para pesquisa e análise.",
     "data": [
       {
@@ -3514,7 +3954,6 @@
     "tipo_dado": "GPS Embarcados",
     "tipo_botao": "Fonte",
     "nome_botao": "Dados Abertos",
-    "titulo": "Dados de localização em tempo real dos veículos do transporte público da cidade.",
     "texto_apoio": "Dados originais de GPS embarcados disponibilizados em portal de dados abertos da administração municipal.",
     "data": [
       {
@@ -3528,7 +3967,6 @@
     "tipo_dado": "GPS Embarcados",
     "tipo_botao": "Geoportal",
     "nome_botao": "GeoPortal",
-    "titulo": "Dados de localização em tempo real dos veículos do transporte público da cidade.",
     "texto_apoio": "Acesso a mapas interativos e camadas geográficas relacionadas ao tema. Ideal para explorar os dados espacializados no território.",
     "data": [
       {
@@ -3542,7 +3980,6 @@
     "tipo_dado": "Outros Arquivos Vetoriais",
     "tipo_botao": "Fonte",
     "nome_botao": "Dados Abertos",
-    "titulo": "Dados geográficos complementares e dados gerais de mobilidade da cidade.",
     "texto_apoio": "Outros arquivos vetoriais e dados geográficos complementares disponibilizados em portal de dados abertos municipal.",
     "data": [
       {
@@ -3556,7 +3993,6 @@
     "tipo_dado": "Outros Arquivos Vetoriais",
     "tipo_botao": "Geoportal",
     "nome_botao": "GeoPortal",
-    "titulo": "Dados geográficos complementares e dados gerais de mobilidade da cidade.",
     "texto_apoio": "Acesso a mapas interativos e camadas geográficas relacionadas ao tema. Ideal para explorar os dados espacializados no território.",
     "data": [
       {
@@ -3570,23 +4006,52 @@
     "tipo_dado": "Outros Arquivos Vetoriais",
     "tipo_botao": "Dataverse",
     "nome_botao": "Dataverse",
-    "titulo": "Dados geográficos complementares e dados gerais de mobilidade da cidade.",
+    "titulo": "Linhas de Ônibus Municipais",
     "texto_apoio": "Base de dados acadêmica com arquivos organizados para pesquisa e análise.",
     "data": [
       {
-        "titulo_dado": "Linhas de Ônibus Municipais",
         "link": "https://dataverse.datascience.insper.edu.br/dataset.xhtml?persistentId=doi:10.60873/FK2/IJTSMF"
-      },
+      }
+    ]
+  },
+  {
+    "grupo_cidade": "Cidade Parceira",
+    "nome_cidade": "Santo André",
+    "tipo_dado": "Outros Arquivos Vetoriais",
+    "tipo_botao": "Dataverse",
+    "nome_botao": "Dataverse",
+    "titulo": "Linhas de Ônibus Intermunicipais",
+    "texto_apoio": "Base de dados acadêmica com arquivos organizados para pesquisa e análise.",
+    "data": [
       {
-        "titulo_dado": "Linhas de Ônibus Intermunicipais",
         "link": "https://dataverse.datascience.insper.edu.br/dataset.xhtml?persistentId=doi:10.60873/FK2/JMH7SC"
-      },
+      }
+    ]
+  },
+  {
+    "grupo_cidade": "Cidade Parceira",
+    "nome_cidade": "Santo André",
+    "tipo_dado": "Outros Arquivos Vetoriais",
+    "tipo_botao": "Dataverse",
+    "nome_botao": "Dataverse",
+    "titulo": "Sinistros de trânsito",
+    "texto_apoio": "Base de dados acadêmica com arquivos organizados para pesquisa e análise.",
+    "data": [
       {
-        "titulo_dado": "Sinistros de trânsito",
         "link": "https://dataverse.datascience.insper.edu.br/dataset.xhtml?persistentId=doi:10.60873/FK2/TCQBPW"
-      },
+      }
+    ]
+  },
+  {
+    "grupo_cidade": "Cidade Parceira",
+    "nome_cidade": "Santo André",
+    "tipo_dado": "Outros Arquivos Vetoriais",
+    "tipo_botao": "Dataverse",
+    "nome_botao": "Dataverse",
+    "titulo": "Frota de Ônibus",
+    "texto_apoio": "Base de dados acadêmica com arquivos organizados para pesquisa e análise.",
+    "data": [
       {
-        "titulo_dado": "Frota de Ônibus",
         "link": "https://dataverse.datascience.insper.edu.br/dataset.xhtml?persistentId=doi:10.60873/FK2/113HCC"
       }
     ]
@@ -3597,15 +4062,24 @@
     "tipo_dado": "Bilhetagem",
     "tipo_botao": "Dataverse",
     "nome_botao": "Dataverse",
-    "titulo": "Dados de bilhetagem eletrônica da frota de transporte público da cidade",
+    "titulo": "Dados operacionais",
     "texto_apoio": "Base de dados acadêmica com informações de bilhetagem organizadas para pesquisa e análise.",
     "data": [
       {
-        "titulo_dado": "Dados operacionais",
         "link": "https://dataverse.datascience.insper.edu.br/dataset.xhtml?persistentId=doi:10.60873/FK2/GWNEFP"
-      },
+      }
+    ]
+  },
+  {
+    "grupo_cidade": "Cidade Parceira",
+    "nome_cidade": "Santo André",
+    "tipo_dado": "Bilhetagem",
+    "tipo_botao": "Dataverse",
+    "nome_botao": "Dataverse",
+    "titulo": "Passageiros de Ônibus",
+    "texto_apoio": "Base de dados acadêmica com informações de bilhetagem organizadas para pesquisa e análise.",
+    "data": [
       {
-        "titulo_dado": "Passageiros de Ônibus",
         "link": "https://dataverse.datascience.insper.edu.br/dataset.xhtml?persistentId=doi:10.60873/FK2/M4QTJK"
       }
     ]
@@ -3616,7 +4090,6 @@
     "tipo_dado": "GTFS",
     "tipo_botao": "Dataverse",
     "nome_botao": "Dataverse",
-    "titulo": "Dados GTFS (General Transit Feed Specification) da cidade.",
     "texto_apoio": "Base de dados acadêmica com informações de GTFS organizadas para pesquisa e análise.",
     "data": [
       {
@@ -3630,7 +4103,6 @@
     "tipo_dado": "GTFS",
     "tipo_botao": "Fonte",
     "nome_botao": "Prefeitura",
-    "titulo": "Dados GTFS (General Transit Feed Specification) da cidade.",
     "texto_apoio": "Site oficial da prefeitura para consulta ou requisição dos dados de GTFS.",
     "data": [
       {
@@ -3644,7 +4116,6 @@
     "tipo_dado": "GTFS",
     "tipo_botao": "Geoportal",
     "nome_botao": "GeoPortal",
-    "titulo": "Dados GTFS (General Transit Feed Specification) da cidade.",
     "texto_apoio": "Acesso a mapas interativos e camadas geográficas relacionadas ao tema. Ideal para explorar os dados espacializados no território.",
     "data": [
       {
@@ -3658,23 +4129,10 @@
     "tipo_dado": "Bilhetagem",
     "tipo_botao": "Dataverse",
     "nome_botao": "Dataverse",
-    "titulo": "Dados de bilhetagem eletrônica da frota de transporte público da cidade",
     "texto_apoio": "Base de dados acadêmica com informações de bilhetagem organizadas para pesquisa e análise.",
     "data": [
       {
         "link": "Missing link (dataverse)"
-      },
-      {
-        "titulo_dado": "Passageiros transportados",
-        "link": "https://dataverse.datascience.insper.edu.br/dataset.xhtml?persistentId=doi:10.60873/FK2/JEYM0J"
-      },
-      {
-        "titulo_dado": "Passageiros equivalentes",
-        "link": "https://dataverse.datascience.insper.edu.br/dataset.xhtml?persistentId=doi:10.60873/FK2/OLSIZD"
-      },
-      {
-        "titulo_dado": "Dados operacionais",
-        "link": "https://dataverse.datascience.insper.edu.br/dataset.xhtml?persistentId=doi:10.60873/FK2/XYYBKU"
       }
     ]
   },
@@ -3684,7 +4142,6 @@
     "tipo_dado": "Bilhetagem",
     "tipo_botao": "Fonte",
     "nome_botao": "Prefeitura",
-    "titulo": "Dados de bilhetagem eletrônica da frota de transporte público da cidade",
     "texto_apoio": "Site oficial da prefeitura para consulta ou requisição dos dados de bilhetagem.",
     "data": [
       {
@@ -3698,7 +4155,6 @@
     "tipo_dado": "Bilhetagem",
     "tipo_botao": "Geoportal",
     "nome_botao": "GeoPortal",
-    "titulo": "Dados de bilhetagem eletrônica da frota de transporte público da cidade",
     "texto_apoio": "Acesso a mapas interativos e camadas geográficas relacionadas ao tema. Ideal para explorar os dados espacializados no território.",
     "data": [
       {
@@ -3712,7 +4168,6 @@
     "tipo_dado": "GPS Embarcados",
     "tipo_botao": "Dataverse",
     "nome_botao": "Dataverse",
-    "titulo": "Dados de localização em tempo real dos veículos do transporte público da cidade.",
     "texto_apoio": "Base de dados acadêmica com amostra dos dados de GPS organizada para pesquisa e análise.",
     "data": [
       {
@@ -3726,7 +4181,6 @@
     "tipo_dado": "GPS Embarcados",
     "tipo_botao": "Fonte",
     "nome_botao": "Prefeitura",
-    "titulo": "Dados de localização em tempo real dos veículos do transporte público da cidade.",
     "texto_apoio": "Site oficial da prefeitura para consulta ou requisição dos dados de GPS.",
     "data": [
       {
@@ -3740,7 +4194,6 @@
     "tipo_dado": "GPS Embarcados",
     "tipo_botao": "Geoportal",
     "nome_botao": "GeoPortal",
-    "titulo": "Dados de localização em tempo real dos veículos do transporte público da cidade.",
     "texto_apoio": "Acesso a mapas interativos e camadas geográficas relacionadas ao tema. Ideal para explorar os dados espacializados no território.",
     "data": [
       {
@@ -3754,15 +4207,10 @@
     "tipo_dado": "Outros Arquivos Vetoriais",
     "tipo_botao": "Dataverse",
     "nome_botao": "Dataverse",
-    "titulo": "Dados geográficos complementares e dados gerais de mobilidade da cidade.",
     "texto_apoio": "Base de dados acadêmica com arquivos organizados para pesquisa e análise.",
     "data": [
       {
         "link": "Missing link (dataverse)"
-      },
-      {
-        "titulo_dado": "Empresas concessionárias de Ônibus",
-        "link": "https://dataverse.datascience.insper.edu.br/dataset.xhtml?persistentId=doi:10.60873/FK2/TLFP8L"
       }
     ]
   },
@@ -3772,7 +4220,6 @@
     "tipo_dado": "Outros Arquivos Vetoriais",
     "tipo_botao": "Fonte",
     "nome_botao": "Prefeitura",
-    "titulo": "Dados geográficos complementares e dados gerais de mobilidade da cidade.",
     "texto_apoio": "Site oficial da prefeitura para consulta ou requisição de outros dados de mobilidade.",
     "data": [
       {
@@ -3786,9 +4233,318 @@
     "tipo_dado": "Outros Arquivos Vetoriais",
     "tipo_botao": "Geoportal",
     "nome_botao": "GeoPortal",
-    "titulo": "Dados geográficos complementares e dados gerais de mobilidade da cidade.",
     "texto_apoio": "Acesso a mapas interativos e camadas geográficas relacionadas ao tema. Ideal para explorar os dados espacializados no território.",
     "data": [
+      {
+        "link": "Missing link (geoportal)"
+      }
+    ]
+  },
+  {
+    "grupo_cidade": "Cidade Parceira",
+    "nome_cidade": "São Lourenço da Mata*",
+    "tipo_dado": "Bilhetagem",
+    "tipo_botao": "Dataverse",
+    "nome_botao": "Dataverse",
+    "titulo": "Passageiros transportados",
+    "texto_apoio": "Base de dados acadêmica com informações de bilhetagem organizadas para pesquisa e análise.",
+    "data": [
+      {
+        "link": "https://dataverse.datascience.insper.edu.br/dataset.xhtml?persistentId=doi:10.60873/FK2/JEYM0J"
+      }
+    ]
+  },
+  {
+    "grupo_cidade": "Cidade Parceira",
+    "nome_cidade": "São Lourenço da Mata*",
+    "tipo_dado": "Bilhetagem",
+    "tipo_botao": "Dataverse",
+    "nome_botao": "Dataverse",
+    "titulo": "Passageiros equivalentes",
+    "texto_apoio": "Base de dados acadêmica com informações de bilhetagem organizadas para pesquisa e análise.",
+    "data": [
+      {
+        "link": "https://dataverse.datascience.insper.edu.br/dataset.xhtml?persistentId=doi:10.60873/FK2/OLSIZD"
+      }
+    ]
+  },
+  {
+    "grupo_cidade": "Cidade Parceira",
+    "nome_cidade": "São Lourenço da Mata*",
+    "tipo_dado": "Bilhetagem",
+    "tipo_botao": "Dataverse",
+    "nome_botao": "Dataverse",
+    "titulo": "Dados operacionais",
+    "texto_apoio": "Base de dados acadêmica com informações de bilhetagem organizadas para pesquisa e análise.",
+    "data": [
+      {
+        "link": "https://dataverse.datascience.insper.edu.br/dataset.xhtml?persistentId=doi:10.60873/FK2/XYYBKU"
+      }
+    ]
+  },
+  {
+    "grupo_cidade": "Cidade Parceira",
+    "nome_cidade": "São Lourenço da Mata*",
+    "tipo_dado": "Outros Arquivos Vetoriais",
+    "tipo_botao": "Dataverse",
+    "nome_botao": "Dataverse",
+    "titulo": "Empresas concessionárias de Ônibus",
+    "texto_apoio": "Base de dados acadêmica com arquivos organizados para pesquisa e análise.",
+    "data": [
+      {
+        "link": "https://dataverse.datascience.insper.edu.br/dataset.xhtml?persistentId=doi:10.60873/FK2/TLFP8L"
+      }
+    ]
+  },
+  {
+    "grupo_cidade": "Outros Parceiros",
+    "tipo_dado": "Bilhetagem",
+    "tipo_botao": "Dataverse",
+    "nome_botao": "Dataverse",
+    "titulo": "Embarques Diários por Estação",
+    "texto_apoio": "Base de dados acadêmica com informações de bilhetagem organizadas para pesquisa e análise.",
+    "data": [
+      {
+        "link": "Missing link (dataverse)"
+      }
+    ]
+  },
+  {
+    "grupo_cidade": "Outros Parceiros",
+    "tipo_dado": "Bilhetagem",
+    "tipo_botao": "Dataverse",
+    "nome_botao": "Dataverse",
+    "titulo": "Embarques Mensais por Estação",
+    "texto_apoio": "Base de dados acadêmica com informações de bilhetagem organizadas para pesquisa e análise.",
+    "data": [
+      {
+        "link": "Missing link (dataverse)"
+      }
+    ]
+  },
+  {
+    "grupo_cidade": "Outros Parceiros",
+    "tipo_dado": "Bilhetagem",
+    "tipo_botao": "Dataverse",
+    "nome_botao": "Dataverse",
+    "titulo": "Média de Embarques Diários",
+    "texto_apoio": "Base de dados acadêmica com informações de bilhetagem organizadas para pesquisa e análise.",
+    "data": [
+      {
+        "link": "Missing link (dataverse)"
+      }
+    ]
+  },
+  {
+    "grupo_cidade": "Outros Parceiros",
+    "tipo_dado": "Bilhetagem",
+    "tipo_botao": "Dataverse",
+    "nome_botao": "Dataverse",
+    "titulo": "Embarques por Modo de Integração",
+    "texto_apoio": "Base de dados acadêmica com informações de bilhetagem organizadas para pesquisa e análise.",
+    "data": [
+      {
+        "link": "Missing link (dataverse)"
+      }
+    ]
+  },
+  {
+    "grupo_cidade": "Outros Parceiros",
+    "tipo_dado": "Outros Arquivos Vetoriais",
+    "tipo_botao": "Dataverse",
+    "nome_botao": "Dataverse",
+    "titulo": "Linhas e Estações Metroferroviárias",
+    "texto_apoio": "Base de dados acadêmica com arquivos organizados para pesquisa e análise.",
+    "data": [
+      {
+        "link": "Missing link (dataverse)"
+      }
+    ]
+  },
+  {
+    "grupo_cidade": "Outros Parceiros",
+    "tipo_dado": "Bilhetagem",
+    "tipo_botao": "Fonte",
+    "nome_botao": "Prefeitura",
+    "texto_apoio": "Site oficial da prefeitura para consulta ou requisição dos dados de bilhetagem.",
+    "data": [
+      {
+        "link": "https://www.motiva.com.br"
+      }
+    ]
+  },
+  {
+    "grupo_cidade": "Dados Abertos",
+    "tipo_dado": "Bilhetagem",
+    "tipo_botao": "Dataverse",
+    "nome_botao": "Dataverse",
+    "texto_apoio": "Base de dados acadêmica com informações de bilhetagem organizadas para pesquisa e análise.",
+    "data": [
+      {
+        "link": "Missing link (dataverse)"
+      },
+      {
+        "link": "Missing link (dataverse)"
+      }
+    ]
+  },
+  {
+    "grupo_cidade": "Dados Abertos",
+    "tipo_dado": "Bilhetagem",
+    "tipo_botao": "Fonte",
+    "nome_botao": "Dados Abertos",
+    "texto_apoio": "Dados originais de bilhetagem eletrônica disponibilizados em portal de dados abertos da administração municipal.",
+    "data": [
+      {
+        "link": "https://dados.fortaleza.ce.gov.br"
+      }
+    ]
+  },
+  {
+    "grupo_cidade": "Dados Abertos",
+    "tipo_dado": "Bilhetagem",
+    "tipo_botao": "Geoportal",
+    "nome_botao": "GeoPortal",
+    "texto_apoio": "Acesso a mapas interativos e camadas geográficas relacionadas ao tema. Ideal para explorar os dados espacializados no território.",
+    "data": [
+      {
+        "link": "Missing link (geoportal)"
+      },
+      {
+        "link": "Missing link (geoportal)"
+      }
+    ]
+  },
+  {
+    "grupo_cidade": "Dados Abertos",
+    "tipo_dado": "GTFS",
+    "tipo_botao": "Dataverse",
+    "nome_botao": "Dataverse",
+    "texto_apoio": "Base de dados acadêmica com informações de GTFS organizadas para pesquisa e análise.",
+    "data": [
+      {
+        "link": "Missing link (dataverse)"
+      },
+      {
+        "link": "Missing link (dataverse)"
+      }
+    ]
+  },
+  {
+    "grupo_cidade": "Dados Abertos",
+    "tipo_dado": "GTFS",
+    "tipo_botao": "Fonte",
+    "nome_botao": "Dados Abertos",
+    "texto_apoio": "Dados originais GTFS do transporte público disponibilizados em portal de dados abertos da administração municipal.",
+    "data": [
+      {
+        "link": "https://dadosabertos.sp.gov.br/painel"
+      },
+      {
+        "link": "https://dados.fortaleza.ce.gov.br"
+      }
+    ]
+  },
+  {
+    "grupo_cidade": "Dados Abertos",
+    "tipo_dado": "GTFS",
+    "tipo_botao": "Geoportal",
+    "nome_botao": "GeoPortal",
+    "texto_apoio": "Acesso a mapas interativos e camadas geográficas relacionadas ao tema. Ideal para explorar os dados espacializados no território.",
+    "data": [
+      {
+        "link": "Missing link (geoportal)"
+      },
+      {
+        "link": "Missing link (geoportal)"
+      }
+    ]
+  },
+  {
+    "grupo_cidade": "Dados Abertos",
+    "tipo_dado": "GPS Embarcados",
+    "tipo_botao": "Dataverse",
+    "nome_botao": "Dataverse",
+    "texto_apoio": "Base de dados acadêmica com amostra dos dados de GPS organizada para pesquisa e análise.",
+    "data": [
+      {
+        "link": "Missing link (dataverse)"
+      },
+      {
+        "link": "Missing link (dataverse)"
+      }
+    ]
+  },
+  {
+    "grupo_cidade": "Dados Abertos",
+    "tipo_dado": "GPS Embarcados",
+    "tipo_botao": "Fonte",
+    "nome_botao": "Dados Abertos",
+    "texto_apoio": "Dados originais de GPS embarcados disponibilizados em portal de dados abertos da administração municipal.",
+    "data": [
+      {
+        "link": "https://dadosabertos.sp.gov.br/painel"
+      },
+      {
+        "link": "https://dados.fortaleza.ce.gov.br"
+      }
+    ]
+  },
+  {
+    "grupo_cidade": "Dados Abertos",
+    "tipo_dado": "GPS Embarcados",
+    "tipo_botao": "Geoportal",
+    "nome_botao": "GeoPortal",
+    "texto_apoio": "Acesso a mapas interativos e camadas geográficas relacionadas ao tema. Ideal para explorar os dados espacializados no território.",
+    "data": [
+      {
+        "link": "Missing link (geoportal)"
+      },
+      {
+        "link": "Missing link (geoportal)"
+      }
+    ]
+  },
+  {
+    "grupo_cidade": "Dados Abertos",
+    "tipo_dado": "Outros Arquivos Vetoriais",
+    "tipo_botao": "Dataverse",
+    "nome_botao": "Dataverse",
+    "texto_apoio": "Base de dados acadêmica com arquivos organizados para pesquisa e análise.",
+    "data": [
+      {
+        "link": "Missing link (dataverse)"
+      },
+      {
+        "link": "Missing link (dataverse)"
+      }
+    ]
+  },
+  {
+    "grupo_cidade": "Dados Abertos",
+    "tipo_dado": "Outros Arquivos Vetoriais",
+    "tipo_botao": "Fonte",
+    "nome_botao": "Dados Abertos",
+    "texto_apoio": "Outros arquivos vetoriais e dados geográficos complementares disponibilizados em portal de dados abertos municipal.",
+    "data": [
+      {
+        "link": "https://dadosabertos.sp.gov.br/painel"
+      },
+      {
+        "link": "https://dados.fortaleza.ce.gov.br"
+      }
+    ]
+  },
+  {
+    "grupo_cidade": "Dados Abertos",
+    "tipo_dado": "Outros Arquivos Vetoriais",
+    "tipo_botao": "Geoportal",
+    "nome_botao": "GeoPortal",
+    "texto_apoio": "Acesso a mapas interativos e camadas geográficas relacionadas ao tema. Ideal para explorar os dados espacializados no território.",
+    "data": [
+      {
+        "link": "Missing link (geoportal)"
+      },
       {
         "link": "Missing link (geoportal)"
       }
