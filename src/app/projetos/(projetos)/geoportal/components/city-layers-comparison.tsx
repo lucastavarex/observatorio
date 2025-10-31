@@ -191,8 +191,10 @@ export function CityLayersComparison({
         type="multiple" 
         value={accordionValue}
         onValueChange={setAccordionValue}
-        className="w-full"
+        className="w-full pb-10"
       >
+                          <h2 className="px-4 text-xl font-bold text-gray-900 hidden md:block">Selecione as camadas</h2>
+
         <AccordionItem value="layer1" className="border-b">
           <AccordionTrigger className="text-left cursor-pointer px-4 font-semibold py-3 hover:no-underline text-base">
             Camada da esquerda

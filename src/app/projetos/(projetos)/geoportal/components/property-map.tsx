@@ -9,7 +9,7 @@ import { useEffect, useRef, useState } from "react"
 import { toast } from "sonner"
 import { cityLayersConfig } from "../lib/city-layers"
 import { createStyledLayer } from "../lib/layer-styles"
-import { CityCombobox } from "./city-combobox"
+import { CityAccordion } from "./city-accordion"
 import { CityLayers } from "./city-layers"
 import { CityLayersComparison } from "./city-layers-comparison"
 import { CollapsibleLegend } from "./collapsible-legend"
@@ -970,10 +970,6 @@ export default function PropertyMap() {
         {isMenuOpen ? <X className="h-4 w-4" /> : <Menu className="h-4 w-4" />}
       </Button>
 
-      <div className="absolute top-4 right-4 z-10 w-60 md:w-60 max-md:left-20 max-md:right-4 max-md:w-auto shadow-xl">
-        <CityCombobox value={selectedCity} onValueChange={handleCityChange} placeholder="Brasil" />
-      </div>
-
       <div
         className={`absolute bg-white top-6 left-6 z-20 overflow-y-auto! w-80 rounded-lg lg:min-h-[calc(100vh-48px)] max-h-[calc(100vh-48px)] shadow-lg transition-transform duration-300 ease-in-out
           max-md:top-20 max-md:left-4 max-md:right-4 max-md:w-auto max-md:max-h-[calc(100vh-100px)]
@@ -981,18 +977,21 @@ export default function PropertyMap() {
           md:translate-x-0 md:opacity-100
         `}
       >
-        <div className="p-4 border-b md:hidden">
+        <div className="px-4 border-b md:hidden">
           <button className="z-20 pb-4 flex pt-2 hover:cursor-pointer text-sm mr-2 bg-transparent p-0 flex-row items-center gap-2" onClick={() => router.back()}><ChevronLeftIcon className="w-5 h-5" /> Voltar</button>
-          <h2 className="text-lg font-semibold">Selecione as camadas</h2>
+          <h2 className="text-lg font-semibold">Selecione a cidade</h2>
         </div>
 
         <div className="flex flex-col h-full">
-          <div className="md:p-4">
+          <div className="md:px-4 md:pt-4">
           <button className="z-20 pb-4 hidden md:flex pt-2 hover:cursor-pointer text-sm mr-2 bg-transparent p-0 flex-row items-center gap-2" onClick={() => router.back()}><ChevronLeftIcon className="w-5 h-5" /> Voltar</button>
-            <h2 className="text-xl font-bold text-gray-900 hidden md:block">Selecione as camadas</h2>
+            <h2 className="text-xl font-bold text-gray-900 hidden md:block">Selecione a cidade</h2>
           </div>
 
           <div className="flex-1 overflow-y-auto!">
+            <div className="mb-4">
+              <CityAccordion selectedCity={selectedCity} onCityChange={handleCityChange} />
+            </div>
             {isComparisonMode ? (
               <CityLayersComparison
                 selectedCity={selectedCity || "Brasil"}
