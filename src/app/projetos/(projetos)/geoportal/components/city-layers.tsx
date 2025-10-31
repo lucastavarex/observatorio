@@ -10,7 +10,7 @@ import { Slider } from "@/components/ui/slider"
 import { Switch } from "@/components/ui/switch"
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip"
 import { Eye, Info } from "lucide-react"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { cityLayersConfig } from "../lib/city-layers"
 
 interface CityLayersProps {
@@ -25,6 +25,24 @@ interface CityLayersProps {
 export function CityLayers({ selectedCity, selectedLayers, onLayersChange, layerLoadingStates = {}, layerOpacities = {}, onOpacityChange }: CityLayersProps) {
   const cityLayers = cityLayersConfig[selectedCity] || []
   const [localOpacities, setLocalOpacities] = useState<Record<string, number>>({})
+  const [accordionValue, setAccordionValue] = useState<string>(selectedCity && selectedCity !== "Brasil" ? "layers" : "")
+
+  // Auto-select first layer and expand accordion when a city is selected
+  useEffect(() => {
+    if (selectedCity && selectedCity !== "Brasil" && cityLayers.length > 0 && selectedLayers.length === 0) {
+      const firstLayerId = cityLayers[0].id
+      onLayersChange([firstLayerId])
+      setAccordionValue("layers")
+      
+      // Set default opacity for the first layer
+      const defaultOpacity = 80
+      if (!(firstLayerId in layerOpacities) && !(firstLayerId in localOpacities)) {
+        setLocalOpacities(prev => ({ ...prev, [firstLayerId]: defaultOpacity }))
+        onOpacityChange?.(firstLayerId, defaultOpacity)
+      }
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [selectedCity])
 
   const handleLayerToggle = (layerId: string, checked: boolean) => {
     if (checked) {
@@ -69,7 +87,7 @@ export function CityLayers({ selectedCity, selectedLayers, onLayersChange, layer
     <div className="space-y-0 pb-10">
                   <h2 className="px-4 text-xl font-bold text-gray-900 hidden md:block">Selecione as camadas</h2>
 
-      <Accordion type="single" collapsible className="w-full">
+      <Accordion type="single" collapsible className="w-full" value={accordionValue} onValueChange={setAccordionValue}>
         <AccordionItem value="layers" className="border-b">
           <AccordionTrigger className="text-left cursor-pointer px-4 font-semibold py-3 hover:no-underline text-base">
             Camadas

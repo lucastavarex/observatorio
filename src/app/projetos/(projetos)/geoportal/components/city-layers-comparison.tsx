@@ -42,6 +42,23 @@ export function CityLayersComparison({
   })
   const [accordionValue, setAccordionValue] = useState<string[]>(["layer1", "layer2"])
 
+  // Auto-select first layer when a city is selected in comparison mode
+  useEffect(() => {
+    if (selectedCity && selectedCity !== "Brasil" && cityLayers.length > 0 && !selectedLayer1 && !selectedLayer2) {
+      const firstLayerId = cityLayers[0].id
+      onLayer1Change(firstLayerId)
+      setAccordionValue(["layer1"])
+      
+      // Set default opacity for the first layer
+      const defaultOpacity = 80
+      if (!(firstLayerId in layerOpacities) && !(firstLayerId in localOpacities)) {
+        setLocalOpacities(prev => ({ ...prev, [firstLayerId]: defaultOpacity }))
+        onOpacityChange?.(firstLayerId, defaultOpacity)
+      }
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [selectedCity])
+
   const handleLayerToggle = (layerId: string, checked: boolean, isLayer1: boolean) => {
     // Prevent selection if layer is already selected in the other section
     if (checked && isLayerDisabled(layerId, isLayer1)) {

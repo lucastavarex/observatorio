@@ -7,6 +7,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion"
 import { Switch } from "@/components/ui/switch"
+import { useEffect, useState } from "react"
 
 const cities = [
   { value: "São Paulo", label: "São Paulo" },
@@ -29,20 +30,33 @@ interface CityAccordionProps {
 }
 
 export function CityAccordion({ selectedCity, onCityChange }: CityAccordionProps) {
+  const [accordionValue, setAccordionValue] = useState<string>(selectedCity ? "" : "city")
+
   const handleCityToggle = (cityValue: string, checked: boolean) => {
     if (checked) {
       onCityChange(cityValue)
+      // Collapse the accordion when a city is selected
+      setAccordionValue("")
     } else if (selectedCity === cityValue) {
       onCityChange("")
+      // Open the accordion when deselecting
+      setAccordionValue("city")
     }
   }
+
+  // Sync accordion state when selectedCity changes externally (e.g., when switching modes)
+  useEffect(() => {
+    if (selectedCity) {
+      setAccordionValue("")
+    }
+  }, [selectedCity])
 
   const selectedCityLabel = selectedCity 
     ? cities.find(city => city.value === selectedCity)?.label || "Cidades"
     : "Cidades"
 
   return (
-    <Accordion type="single" collapsible className="w-full">
+    <Accordion type="single" collapsible className="w-full" value={accordionValue} onValueChange={setAccordionValue}>
       <AccordionItem value="city" className="border-none!">
         <AccordionTrigger className="text-left cursor-pointer px-4 font-semibold py-3 hover:no-underline text-base">
           {selectedCityLabel}
@@ -90,3 +104,4 @@ export function CityAccordion({ selectedCity, onCityChange }: CityAccordionProps
     </Accordion>
   )
 }
+
