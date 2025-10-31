@@ -1,6 +1,6 @@
-import { MiddlewareConfig, NextRequest, NextResponse } from 'next/server'
+import { ProxyConfig, NextRequest, NextResponse } from 'next/server'
  
-export function middleware(request: NextRequest) {
+export function proxy(request: NextRequest) {
 // Define CSP header with nonce support
   const isDevelopment = process.env.NODE_ENV === 'development'
 
@@ -86,7 +86,7 @@ const cspHeader = `
   return response
 }
 
-  export const config: MiddlewareConfig = {
+  export const config: ProxyConfig = {
   matcher: [
     /*
      * Match all request paths except for the ones starting with:
