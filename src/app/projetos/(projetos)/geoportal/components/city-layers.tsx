@@ -85,7 +85,7 @@ export function CityLayers({ selectedCity, selectedLayers, onLayersChange, layer
 
   return (
     <div className="space-y-0 pb-10">
-                  <h2 className="px-4 text-xl font-bold text-gray-900 hidden md:block">Selecione as camadas</h2>
+                  <h2 className="px-4 text-xl font-bold text-gray-900 ">Selecione as camadas</h2>
 
       <Accordion type="single" collapsible className="w-full" value={accordionValue} onValueChange={setAccordionValue}>
         <AccordionItem value="layers" className="border-b">

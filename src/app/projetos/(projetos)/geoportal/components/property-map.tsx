@@ -977,7 +977,7 @@ export default function PropertyMap() {
           md:translate-x-0 md:opacity-100
         `}
       >
-        <div className="px-4 border-b md:hidden">
+        <div className="p-4 border-b md:hidden">
           <button className="z-20 pb-4 flex pt-2 hover:cursor-pointer text-sm mr-2 bg-transparent p-0 flex-row items-center gap-2" onClick={() => router.back()}><ChevronLeftIcon className="w-5 h-5" /> Voltar</button>
           <h2 className="text-lg font-semibold">Selecione a cidade</h2>
         </div>
@@ -1023,12 +1023,12 @@ export default function PropertyMap() {
          selectedCity={selectedCity || "Brasil"}
          cityLayersConfig={cityLayersConfig}
        />
-       <div className="absolute top-32 right-4 z-9">
+       <div className="absolute top-4 right-4 z-9">
         <Tooltip>
           <TooltipTrigger asChild>
             <button
               onClick={toggleComparisonMode}
-              className={`p-2 rounded-md outline-none transition-colors ${
+              className={`p-3 rounded-md outline-none transition-colors ${
                 isComparisonMode 
                   ? 'bg-primary  hover:bg-primary/90 border-primary text-white' 
                   : 'bg-white hover:bg-gray-50 cursor-pointer'

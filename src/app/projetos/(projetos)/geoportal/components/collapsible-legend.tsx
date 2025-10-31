@@ -28,7 +28,7 @@ export function CollapsibleLegend({ selectedLayers, selectedCity, cityLayersConf
   const hasLayers = selectedLayers.length > 0
 
   return (
-    <div className="top-20 right-4 absolute z-10">
+    <div className="top-17 right-4 absolute z-10">
       {isCollapsed ? (
         // Collapsed state - just the button
         <Tooltip>
@@ -36,7 +36,7 @@ export function CollapsibleLegend({ selectedLayers, selectedCity, cityLayersConf
             <button
               onClick={hasLayers ? toggleCollapse : undefined}
               disabled={!hasLayers}
-              className={`p-2 rounded-md outline-none border-gray-200 ${
+              className={`p-3 rounded-md outline-none border-gray-200 ${
                 hasLayers 
                   ? "bg-white hover:bg-gray-50 cursor-pointer" 
                   : "bg-gray-100 cursor-not-allowed opacity-50"
