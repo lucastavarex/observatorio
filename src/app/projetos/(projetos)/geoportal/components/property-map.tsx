@@ -1,7 +1,7 @@
 "use client"
 import { Button } from "@/components/ui/button"
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip"
-import { ChevronLeftIcon, Compass, Layers, Menu, Minus, Plus, X } from "lucide-react"
+import { ChevronLeftIcon, Compass, Layers, Menu, Minus, Moon, Plus, Sun, X } from "lucide-react"
 import mapboxgl from "mapbox-gl"
 import "mapbox-gl/dist/mapbox-gl.css"
 import { useRouter } from "next/navigation"
@@ -134,6 +134,7 @@ export default function PropertyMap() {
   const [mapLoaded, setMapLoaded] = useState(false)
   const [layerLoadingStates, setLayerLoadingStates] = useState<Record<string, 'loading' | 'loaded' | 'error'>>({})
   const [layerOpacities, setLayerOpacities] = useState<Record<string, number>>({})
+  const [mapStyle, setMapStyle] = useState<'dark' | 'light'>('dark')
   const [, setHoveredFeature] = useState<{
     feature: mapboxgl.MapboxGeoJSONFeature
     layerName: string
@@ -399,6 +400,146 @@ export default function PropertyMap() {
     }
   }
 
+  // Helper function to re-add layers after style change
+  const reAddLayersToMap = (mapInstance: mapboxgl.Map, layersToAdd: string[]) => {
+    if (!mapInstance) return
+    
+    const targetCity = selectedCity || "Brasil"
+    const cityLayers = cityLayersConfig[targetCity] || []
+    
+    layersToAdd.forEach(layerId => {
+      const layerConfig = cityLayers.find(l => l.id === layerId)
+      if (layerConfig?.tilesetId && layerConfig?.sourceLayer) {
+        try {
+          // Check if source already exists
+          if (!mapInstance.getSource(layerId)) {
+            mapInstance.addSource(layerId, {
+              type: 'vector',
+              url: `mapbox://${layerConfig.tilesetId}`
+            })
+          }
+          
+          // Check if layer already exists
+          if (!mapInstance.getLayer(layerId)) {
+            let layerConfigToAdd: mapboxgl.AnyLayer
+            
+            const customStyle = createStyledLayer(layerId, layerConfig.sourceLayer, layerConfig.tilesetId)
+            if (customStyle) {
+              layerConfigToAdd = {
+                ...customStyle,
+                layout: {
+                  ...customStyle.layout,
+                  visibility: 'visible'
+                }
+              }
+            } else {
+              layerConfigToAdd = createDefaultLayerConfig(layerId, {
+                layerType: layerConfig.layerType,
+                sourceLayer: layerConfig.sourceLayer
+              })
+            }
+            
+            mapInstance.addLayer(layerConfigToAdd)
+            
+            // Re-add hover handlers
+            addHoverHandlers(layerId, layerConfig.name, mapInstance)
+            
+            // Restore opacity
+            const opacity = layerOpacities[layerId] || 80
+            updateLayerOpacity(layerId, opacity, mapInstance)
+          }
+        } catch (error) {
+          console.error(`Error re-adding layer ${layerId}:`, error)
+        }
+      }
+    })
+  }
+
+  // Toggle map style between dark and light
+  const toggleMapStyle = () => {
+    const newStyle = mapStyle === 'dark' ? 'light' : 'dark'
+    const styleUrl = newStyle === 'dark' 
+      ? 'mapbox://styles/mapbox/dark-v11' 
+      : 'mapbox://styles/mapbox/standard'
+    
+    setMapStyle(newStyle)
+    
+    // Store current layers before style change
+    const currentNormalLayers = [...selectedLayers]
+    const currentLayer1 = selectedLayer1
+    const currentLayer2 = selectedLayer2
+    
+    // Update main map
+    if (map.current && !isComparisonMode) {
+      map.current.setStyle(styleUrl)
+      
+      // Re-add layers after style loads - use both events for compatibility
+      const reAddNormalLayers = () => {
+        if (currentNormalLayers.length > 0 && map.current?.isStyleLoaded()) {
+          reAddLayersToMap(map.current, currentNormalLayers)
+          map.current?.off('style.load', reAddNormalLayers)
+          map.current?.off('load', reAddNormalLayers)
+          map.current?.off('idle', reAddNormalLayers)
+        }
+      }
+      
+      if (map.current.isStyleLoaded()) {
+        // Style already loaded, add layers immediately
+        reAddNormalLayers()
+      } else {
+        // Wait for style to load
+        map.current.once('style.load', reAddNormalLayers)
+        map.current.once('load', reAddNormalLayers)
+        map.current.once('idle', reAddNormalLayers)
+      }
+    }
+    
+    // Update comparison maps
+    if (isComparisonMode && beforeMap.current && afterMap.current) {
+      beforeMap.current.setStyle(styleUrl)
+      afterMap.current.setStyle(styleUrl)
+      
+      // Re-add layers after styles load
+      if (currentLayer1) {
+        const reAddLayer1 = () => {
+          if (beforeMap.current?.isStyleLoaded()) {
+            reAddLayersToMap(beforeMap.current, [currentLayer1])
+            beforeMap.current?.off('style.load', reAddLayer1)
+            beforeMap.current?.off('load', reAddLayer1)
+            beforeMap.current?.off('idle', reAddLayer1)
+          }
+        }
+        
+        if (beforeMap.current.isStyleLoaded()) {
+          reAddLayer1()
+        } else {
+          beforeMap.current.once('style.load', reAddLayer1)
+          beforeMap.current.once('load', reAddLayer1)
+          beforeMap.current.once('idle', reAddLayer1)
+        }
+      }
+      
+      if (currentLayer2) {
+        const reAddLayer2 = () => {
+          if (afterMap.current?.isStyleLoaded()) {
+            reAddLayersToMap(afterMap.current, [currentLayer2])
+            afterMap.current?.off('style.load', reAddLayer2)
+            afterMap.current?.off('load', reAddLayer2)
+            afterMap.current?.off('idle', reAddLayer2)
+          }
+        }
+        
+        if (afterMap.current.isStyleLoaded()) {
+          reAddLayer2()
+        } else {
+          afterMap.current.once('style.load', reAddLayer2)
+          afterMap.current.once('load', reAddLayer2)
+          afterMap.current.once('idle', reAddLayer2)
+        }
+      }
+    }
+  }
+
   // Initialize single map
   useEffect(() => {
     if (!mapContainer.current || isComparisonMode) return
@@ -409,7 +550,7 @@ export default function PropertyMap() {
 
     map.current = new mapboxgl.Map({
       container: mapContainer.current,
-      style: "mapbox://styles/mapbox/dark-v11",
+      style: mapStyle === 'dark' ? "mapbox://styles/mapbox/dark-v11" : "mapbox://styles/mapbox/standard",
       center: initialCenter,
       zoom: initialZoom,
     })
@@ -424,7 +565,7 @@ export default function PropertyMap() {
       }
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [zoom, isComparisonMode])
+  }, [zoom, isComparisonMode, mapStyle])
 
   // Initialize comparison maps
   useEffect(() => {
@@ -439,16 +580,18 @@ export default function PropertyMap() {
     const initialCenter = cityCoordinates[initialCity]
     const initialZoom = cityZoomLevels[initialCity]
 
+    const styleUrl = mapStyle === 'dark' ? "mapbox://styles/mapbox/dark-v11" : "mapbox://styles/mapbox/standard"
+    
     beforeMap.current = new mapboxgl.Map({
       container: beforeMapContainer.current,
-      style: "mapbox://styles/mapbox/dark-v11",
+      style: styleUrl,
       center: initialCenter,
       zoom: initialZoom,
     })
 
     afterMap.current = new mapboxgl.Map({
       container: afterMapContainer.current,
-      style: "mapbox://styles/mapbox/dark-v11",
+      style: styleUrl,
       center: initialCenter,
       zoom: initialZoom,
     })
@@ -536,7 +679,7 @@ export default function PropertyMap() {
       }
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [zoom, isComparisonMode])
+  }, [zoom, isComparisonMode, mapStyle])
 
   // Helper function to safely execute flyTo when map is ready
   const safeFlyTo = (mapInstance: mapboxgl.Map, center: [number, number], zoom: number) => {
@@ -1018,11 +1161,32 @@ export default function PropertyMap() {
       </div>
 
        {/* legends */}
-       <CollapsibleLegend 
-         selectedLayers={isComparisonMode ? [selectedLayer1, selectedLayer2].filter(Boolean) as string[] : selectedLayers}
-         selectedCity={selectedCity || "Brasil"}
-         cityLayersConfig={cityLayersConfig}
-       />
+       <div className="absolute top-17 right-4 z-10 flex flex-col gap-2">
+         <CollapsibleLegend 
+           selectedLayers={isComparisonMode ? [selectedLayer1, selectedLayer2].filter(Boolean) as string[] : selectedLayers}
+           selectedCity={selectedCity || "Brasil"}
+           cityLayersConfig={cityLayersConfig}
+         />
+         
+         {/* Theme toggle button */}
+         <Tooltip>
+           <TooltipTrigger asChild>
+             <button
+               onClick={toggleMapStyle}
+               className="p-3 rounded-md outline-none border-gray-200 bg-white hover:bg-gray-50 cursor-pointer transition-colors"
+             >
+               {mapStyle === 'dark' ? (
+                 <Sun className="w-5 h-5" />
+               ) : (
+                 <Moon className="w-5 h-5" />
+               )}
+             </button>
+           </TooltipTrigger>
+           <TooltipContent side="left">
+             <p>{mapStyle === 'dark' ? 'Alternar para Modo Claro' : 'Alternar para Modo Escuro'}</p>
+           </TooltipContent>
+         </Tooltip>
+       </div>
        <div className="absolute top-4 right-4 z-9">
         <Tooltip>
           <TooltipTrigger asChild>

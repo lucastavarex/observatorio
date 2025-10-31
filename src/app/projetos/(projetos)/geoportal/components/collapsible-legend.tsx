@@ -28,7 +28,7 @@ export function CollapsibleLegend({ selectedLayers, selectedCity, cityLayersConf
   const hasLayers = selectedLayers.length > 0
 
   return (
-    <div className="top-17 right-4 absolute z-10">
+    <div className="w-full">
       {isCollapsed ? (
         // Collapsed state - just the button
         <Tooltip>
