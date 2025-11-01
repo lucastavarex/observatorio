@@ -643,6 +643,97 @@ export default function PropertyMap() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [zoom, isComparisonMode])
 
+  // Add layers when comparison maps are loaded and layers are selected
+  useEffect(() => {
+    if (!isComparisonMode || !mapLoaded || !beforeMap.current || !afterMap.current) return
+
+    // Add layer1 if selected
+    if (selectedLayer1) {
+      const targetCity = selectedCity || "Brasil"
+      const cityLayers = cityLayersConfig[targetCity] || []
+      const layerConfig = cityLayers.find(l => l.id === selectedLayer1)
+
+      if (layerConfig?.tilesetId && layerConfig?.sourceLayer && !beforeMap.current.getLayer(selectedLayer1)) {
+        console.log(`Adding layer1 to comparison map: ${selectedLayer1}`)
+        handleComparisonLayerChange(selectedLayer1, true)
+      }
+    }
+
+    // Add layer2 if selected
+    if (selectedLayer2) {
+      const targetCity = selectedCity || "Brasil"
+      const cityLayers = cityLayersConfig[targetCity] || []
+      const layerConfig = cityLayers.find(l => l.id === selectedLayer2)
+
+      if (layerConfig?.tilesetId && layerConfig?.sourceLayer && !afterMap.current.getLayer(selectedLayer2)) {
+        console.log(`Adding layer2 to comparison map: ${selectedLayer2}`)
+        handleComparisonLayerChange(selectedLayer2, false)
+      }
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isComparisonMode, mapLoaded, selectedLayer1, selectedLayer2])
+
+  // Add layers when normal map is loaded and layers are selected
+  useEffect(() => {
+    if (isComparisonMode || !mapLoaded || !map.current) return
+
+    // Add all selected layers
+    if (selectedLayers.length > 0) {
+      const targetCity = selectedCity || "Brasil"
+      const cityLayers = cityLayersConfig[targetCity] || []
+
+      selectedLayers.forEach(layerId => {
+        const layerConfig = cityLayers.find(l => l.id === layerId)
+        if (layerConfig?.tilesetId && layerConfig?.sourceLayer && !map.current?.getLayer(layerId)) {
+          console.log(`Adding layer to normal map after mode switch: ${layerId}`)
+
+          try {
+            // Add source
+            map.current!.addSource(layerId, {
+              type: 'vector',
+              url: `mapbox://${layerConfig.tilesetId}`
+            })
+
+            // Try to use custom style first, fallback to default
+            let layerConfigToAdd: mapboxgl.AnyLayer
+
+            const customStyle = createStyledLayer(layerId, layerConfig.sourceLayer, layerConfig.tilesetId)
+            if (customStyle) {
+              layerConfigToAdd = {
+                ...customStyle,
+                layout: {
+                  ...customStyle.layout,
+                  visibility: 'visible'
+                }
+              }
+            } else {
+              layerConfigToAdd = createDefaultLayerConfig(layerId, {
+                layerType: layerConfig.layerType,
+                sourceLayer: layerConfig.sourceLayer
+              })
+            }
+
+            map.current!.addLayer(layerConfigToAdd)
+
+            // Add hover functionality
+            addHoverHandlers(layerId, layerConfig.name, map.current!)
+
+            // Set default opacity
+            const opacity = layerOpacities[layerId] ?? 80
+            updateLayerOpacity(layerId, opacity, map.current!)
+
+            // Set loading state
+            setLayerLoadingStates(prev => ({ ...prev, [layerId]: 'loaded' }))
+          } catch (error) {
+            console.error(`Error adding layer ${layerId} after mode switch:`, error)
+            setLayerLoadingStates(prev => ({ ...prev, [layerId]: 'error' }))
+          }
+        }
+      })
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isComparisonMode, mapLoaded])
+
   // Helper function to safely execute flyTo when map is ready
   const safeFlyTo = (mapInstance: mapboxgl.Map, center: [number, number], zoom: number) => {
     const executeFly = () => {
@@ -711,28 +802,44 @@ export default function PropertyMap() {
 
   const toggleComparisonMode = () => {
     if (!isComparisonMode) {
-      // Switching to comparison mode - clear all existing layers first
+      // Switching to comparison mode - transfer first selected layer to layer1
+      const currentSelectedLayers = [...selectedLayers]
+
       clearAllLayers()
       setIsComparisonMode(true)
-      setSelectedLayers([])
-      setSelectedLayer1(null)
-      setSelectedLayer2(null)
       setMapLoaded(false) // Reset map loaded state
-      
+
+      // Transfer first selected layer to comparison mode's layer1
+      if (currentSelectedLayers.length > 0) {
+        setSelectedLayer1(currentSelectedLayers[0])
+      } else {
+        setSelectedLayer1(null)
+      }
+      setSelectedLayer2(null)
+      setSelectedLayers([])
+
       // Show success toast
       toast.success("Modo de Comparação Ativado", {
         description: "Selecione 2 camadas diferentes para comparação",
         duration: 4000,
       })
     } else {
-      // Switching back to normal mode - clear comparison mode selections
+      // Switching back to normal mode - transfer layer1 back to normal mode
+      const currentLayer1 = selectedLayer1
+
       clearAllLayers()
       setIsComparisonMode(false)
+      setMapLoaded(false) // Reset map loaded state
+
+      // Transfer layer1 back to normal mode
+      if (currentLayer1) {
+        setSelectedLayers([currentLayer1])
+      } else {
+        setSelectedLayers([])
+      }
       setSelectedLayer1(null)
       setSelectedLayer2(null)
-      setSelectedLayers([])
-      setMapLoaded(false) // Reset map loaded state
-      
+
       // Show info toast
       toast.info("Modo de Comparação Desativado", {
         description: "Voltando ao modo normal de visualização",
