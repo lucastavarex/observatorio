@@ -133,6 +133,7 @@ export default function PropertyMap() {
   const [selectedLayer2, setSelectedLayer2] = useState<string | null>(null)
   const [mapLoaded, setMapLoaded] = useState(false)
   const [layerLoadingStates, setLayerLoadingStates] = useState<Record<string, 'loading' | 'loaded' | 'error'>>({})
+  const [mapTheme, setMapTheme] = useState<'dark' | 'light'>('dark')
   const [layerOpacities, setLayerOpacities] = useState<Record<string, number>>({})
   const [, setHoveredFeature] = useState<{
     feature: mapboxgl.MapboxGeoJSONFeature
@@ -384,7 +385,7 @@ export default function PropertyMap() {
     const targetCity = selectedCity || "Brasil"
     const center = cityCoordinates[targetCity]
     const zoomLevel = cityZoomLevels[targetCity]
-    
+
     if (isComparisonMode) {
       if (beforeMap.current) {
         safeFlyToWithReset(beforeMap.current, center, zoomLevel)
@@ -399,6 +400,106 @@ export default function PropertyMap() {
     }
   }
 
+  // Function to re-add all active layers to a map
+  const reAddLayers = (mapInstance: mapboxgl.Map, layersToAdd: string[]) => {
+    const targetCity = selectedCity || "Brasil"
+    const cityLayers = cityLayersConfig[targetCity] || []
+
+    layersToAdd.forEach(layerId => {
+      const layerConfig = cityLayers.find(l => l.id === layerId)
+      if (layerConfig?.tilesetId && layerConfig?.sourceLayer) {
+        try {
+          // Add source
+          if (!mapInstance.getSource(layerId)) {
+            mapInstance.addSource(layerId, {
+              type: 'vector',
+              url: `mapbox://${layerConfig.tilesetId}`
+            })
+          }
+
+          // Try to use custom style first, fallback to default
+          let layerConfigToAdd: mapboxgl.AnyLayer
+
+          const customStyle = createStyledLayer(layerId, layerConfig.sourceLayer, layerConfig.tilesetId)
+          if (customStyle) {
+            layerConfigToAdd = {
+              ...customStyle,
+              layout: {
+                ...customStyle.layout,
+                visibility: 'visible'
+              }
+            }
+          } else {
+            layerConfigToAdd = createDefaultLayerConfig(layerId, {
+              layerType: layerConfig.layerType,
+              sourceLayer: layerConfig.sourceLayer
+            })
+          }
+
+          // Add layer
+          if (!mapInstance.getLayer(layerId)) {
+            mapInstance.addLayer(layerConfigToAdd)
+          }
+
+          // Re-add hover handlers
+          addHoverHandlers(layerId, layerConfig.name, mapInstance)
+
+          // Restore opacity
+          const opacity = layerOpacities[layerId] ?? 80
+          updateLayerOpacity(layerId, opacity, mapInstance)
+
+          console.log(`Re-added layer ${layerId} after style change`)
+        } catch (error) {
+          console.error(`Error re-adding layer ${layerId}:`, error)
+        }
+      }
+    })
+  }
+
+  // Toggle map theme functionality
+  const handleThemeToggle = () => {
+    const newTheme = mapTheme === 'dark' ? 'light' : 'dark'
+    const newStyle = newTheme === 'dark' ? "mapbox://styles/mapbox/dark-v11" : "mapbox://styles/mapbox/standard"
+
+    setMapTheme(newTheme)
+
+    if (isComparisonMode) {
+      // Handle comparison mode
+      const handleBeforeStyleLoad = () => {
+        if (selectedLayer1 && beforeMap.current) {
+          reAddLayers(beforeMap.current, [selectedLayer1])
+        }
+      }
+
+      const handleAfterStyleLoad = () => {
+        if (selectedLayer2 && afterMap.current) {
+          reAddLayers(afterMap.current, [selectedLayer2])
+        }
+      }
+
+      if (beforeMap.current) {
+        beforeMap.current.once('style.load', handleBeforeStyleLoad)
+        beforeMap.current.setStyle(newStyle)
+      }
+      if (afterMap.current) {
+        afterMap.current.once('style.load', handleAfterStyleLoad)
+        afterMap.current.setStyle(newStyle)
+      }
+    } else {
+      // Handle normal mode
+      const handleStyleLoad = () => {
+        if (map.current && selectedLayers.length > 0) {
+          reAddLayers(map.current, selectedLayers)
+        }
+      }
+
+      if (map.current) {
+        map.current.once('style.load', handleStyleLoad)
+        map.current.setStyle(newStyle)
+      }
+    }
+  }
+
   // Initialize single map
   useEffect(() => {
     if (!mapContainer.current || isComparisonMode) return
@@ -407,9 +508,11 @@ export default function PropertyMap() {
     const initialCenter = cityCoordinates[initialCity]
     const initialZoom = cityZoomLevels[initialCity]
 
+    const mapStyle = mapTheme === 'dark' ? "mapbox://styles/mapbox/dark-v11" : "mapbox://styles/mapbox/standard"
+
     map.current = new mapboxgl.Map({
       container: mapContainer.current,
-      style: "mapbox://styles/mapbox/dark-v11",
+      style: mapStyle,
       center: initialCenter,
       zoom: initialZoom,
     })
@@ -439,16 +542,18 @@ export default function PropertyMap() {
     const initialCenter = cityCoordinates[initialCity]
     const initialZoom = cityZoomLevels[initialCity]
 
+    const mapStyle = mapTheme === 'dark' ? "mapbox://styles/mapbox/dark-v11" : "mapbox://styles/mapbox/standard"
+
     beforeMap.current = new mapboxgl.Map({
       container: beforeMapContainer.current,
-      style: "mapbox://styles/mapbox/dark-v11",
+      style: mapStyle,
       center: initialCenter,
       zoom: initialZoom,
     })
 
     afterMap.current = new mapboxgl.Map({
       container: afterMapContainer.current,
-      style: "mapbox://styles/mapbox/dark-v11",
+      style: mapStyle,
       center: initialCenter,
       zoom: initialZoom,
     })
@@ -1018,10 +1123,12 @@ export default function PropertyMap() {
       </div>
 
        {/* legends */}
-       <CollapsibleLegend 
+       <CollapsibleLegend
          selectedLayers={isComparisonMode ? [selectedLayer1, selectedLayer2].filter(Boolean) as string[] : selectedLayers}
          selectedCity={selectedCity || "Brasil"}
          cityLayersConfig={cityLayersConfig}
+         mapTheme={mapTheme}
+         onThemeToggle={handleThemeToggle}
        />
        <div className="absolute top-4 right-4 z-9">
         <Tooltip>
