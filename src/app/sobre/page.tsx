@@ -6,6 +6,7 @@ import sobreIntro from "@/app/assets/images/sobre_intro.png";
 // Import team member images
 import adriano_borges from "@/app/assets/images/adriano_borges.png";
 import antonio_henrique from "@/app/assets/images/antonio_henrique.png";
+import beatriz_vanzolini from "@/app/assets/images/beatriz_vanzolini.png";
 import denis_andia from "@/app/assets/images/denis_andia.png";
 import eliana_silva from "@/app/assets/images/eliana_silva.png";
 import gabriel_fajardo from "@/app/assets/images/gabriel_fajardo.png";
@@ -14,6 +15,7 @@ import helena_carvalho_coelho from "@/app/assets/images/helena_carvalho_coelho.p
 import heloisa_escudeiro from "@/app/assets/images/heloisa_escudeiro.png";
 import ivanice_schutz from "@/app/assets/images/ivanice_schutz.png";
 import jose_police_neto from "@/app/assets/images/jose_police_neto.png";
+import juan_sebastian from "@/app/assets/images/juan_sebastian.png";
 import laryssa_kruger from "@/app/assets/images/laryssa_kruger.png";
 import lucelio_moraes from "@/app/assets/images/lucelio_moraes.png";
 import luiz_pedro from "@/app/assets/images/luiz_pedro.png";
@@ -224,7 +226,7 @@ const equipeInsperCidades: TeamMember[] = [
     id: '5',
     name: 'Beatriz Vanzolini',
     role: 'Coordenadora',
-    image: eliana_silva, // Usando eliana_silva como placeholder
+    image: beatriz_vanzolini,
     email: 'BeatrizVM2@insper.edu.br'
   },
   {
@@ -259,7 +261,7 @@ const equipeInsperCidades: TeamMember[] = [
     id: '10',
     name: 'Juan Sebastian',
     role: 'Coordenador',
-    image: eliana_silva, // Usando eliana_silva como placeholder
+    image: juan_sebastian, 
     email: 'juansbf@insper.edu.br'
   },
   {
