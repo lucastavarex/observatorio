@@ -102,7 +102,7 @@ export function CollapsibleLegend({ selectedLayers, selectedCity, cityLayersConf
             )}
           </div>
 
-          <Tooltip>
+          {/* <Tooltip>
             <TooltipTrigger asChild>
               <button
                 onClick={onThemeToggle}
@@ -114,7 +114,7 @@ export function CollapsibleLegend({ selectedLayers, selectedCity, cityLayersConf
             <TooltipContent side="left">
               <p>{mapTheme === 'dark' ? 'Tema Claro' : 'Tema Escuro'}</p>
             </TooltipContent>
-          </Tooltip>
+          </Tooltip> */}
         </>
       )}
     </div>
