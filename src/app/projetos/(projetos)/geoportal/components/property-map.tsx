@@ -459,7 +459,7 @@ export default function PropertyMap() {
   // Toggle map theme functionality
   const handleThemeToggle = () => {
     const newTheme = mapTheme === 'dark' ? 'light' : 'dark'
-    const newStyle = newTheme === 'dark' ? "mapbox://styles/mapbox/dark-v11" : "mapbox://styles/mapbox/standard"
+    const newStyle = newTheme === 'dark' ? "mapbox://styles/mapbox/dark-v11" : "mapbox://styles/observatorio-nacional/cmhrp434x002301s23n36fphx"
 
     setMapTheme(newTheme)
 
@@ -508,7 +508,7 @@ export default function PropertyMap() {
     const initialCenter = cityCoordinates[initialCity]
     const initialZoom = cityZoomLevels[initialCity]
 
-    const mapStyle = mapTheme === 'dark' ? "mapbox://styles/mapbox/dark-v11" : "mapbox://styles/mapbox/standard"
+    const mapStyle = mapTheme === 'dark' ? "mapbox://styles/mapbox/dark-v11" : "mapbox://styles/observatorio-nacional/cmhrp434x002301s23n36fphx"
 
     map.current = new mapboxgl.Map({
       container: mapContainer.current,
@@ -542,7 +542,7 @@ export default function PropertyMap() {
     const initialCenter = cityCoordinates[initialCity]
     const initialZoom = cityZoomLevels[initialCity]
 
-    const mapStyle = mapTheme === 'dark' ? "mapbox://styles/mapbox/dark-v11" : "mapbox://styles/mapbox/standard"
+    const mapStyle = mapTheme === 'dark' ? "mapbox://styles/mapbox/dark-v11" : "mapbox://styles/observatorio-nacional/cmhrp434x002301s23n36fphx"
 
     beforeMap.current = new mapboxgl.Map({
       container: beforeMapContainer.current,
