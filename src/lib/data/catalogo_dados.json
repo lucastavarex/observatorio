@@ -4298,6 +4298,7 @@
   },
   {
     "grupo_cidade": "Outros Parceiros",
+    "nome_cidade": "Motiva",
     "tipo_dado": "Bilhetagem",
     "tipo_botao": "Dataverse",
     "nome_botao": "Dataverse",
@@ -4311,6 +4312,7 @@
   },
   {
     "grupo_cidade": "Outros Parceiros",
+    "nome_cidade": "Motiva",
     "tipo_dado": "Bilhetagem",
     "tipo_botao": "Dataverse",
     "nome_botao": "Dataverse",
@@ -4324,6 +4326,7 @@
   },
   {
     "grupo_cidade": "Outros Parceiros",
+    "nome_cidade": "Motiva",
     "tipo_dado": "Bilhetagem",
     "tipo_botao": "Dataverse",
     "nome_botao": "Dataverse",
@@ -4337,6 +4340,7 @@
   },
   {
     "grupo_cidade": "Outros Parceiros",
+    "nome_cidade": "Motiva",
     "tipo_dado": "Bilhetagem",
     "tipo_botao": "Dataverse",
     "nome_botao": "Dataverse",
@@ -4350,6 +4354,7 @@
   },
   {
     "grupo_cidade": "Outros Parceiros",
+    "nome_cidade": "Motiva",
     "tipo_dado": "Outros Arquivos Vetoriais",
     "tipo_botao": "Dataverse",
     "nome_botao": "Dataverse",
@@ -4363,6 +4368,7 @@
   },
   {
     "grupo_cidade": "Outros Parceiros",
+    "nome_cidade": "Motiva",
     "tipo_dado": "Bilhetagem",
     "tipo_botao": "Fonte",
     "nome_botao": "Prefeitura",
@@ -4375,6 +4381,7 @@
   },
   {
     "grupo_cidade": "Dados Abertos",
+    "nome_cidade": "Fortaleza",
     "tipo_dado": "Bilhetagem",
     "tipo_botao": "Dataverse",
     "nome_botao": "Dataverse",
@@ -4382,7 +4389,17 @@
     "data": [
       {
         "link": "Missing link (dataverse)"
-      },
+      }
+    ]
+  },
+  {
+    "grupo_cidade": "Dados Abertos",
+    "nome_cidade": "São Paulo",
+    "tipo_dado": "Bilhetagem",
+    "tipo_botao": "Dataverse",
+    "nome_botao": "Dataverse",
+    "texto_apoio": "Base de dados acadêmica com informações de bilhetagem organizadas para pesquisa e análise.",
+    "data": [
       {
         "link": "Missing link (dataverse)"
       }
@@ -4390,6 +4407,7 @@
   },
   {
     "grupo_cidade": "Dados Abertos",
+    "nome_cidade": "Fortaleza",
     "tipo_dado": "Bilhetagem",
     "tipo_botao": "Fonte",
     "nome_botao": "Dados Abertos",
@@ -4402,6 +4420,7 @@
   },
   {
     "grupo_cidade": "Dados Abertos",
+    "nome_cidade": "São Paulo",
     "tipo_dado": "Bilhetagem",
     "tipo_botao": "Geoportal",
     "nome_botao": "GeoPortal",
@@ -4409,7 +4428,17 @@
     "data": [
       {
         "link": "Missing link (geoportal)"
-      },
+      }
+    ]
+  },
+  {
+    "grupo_cidade": "Dados Abertos",
+    "nome_cidade": "Fortaleza",
+    "tipo_dado": "Bilhetagem",
+    "tipo_botao": "Geoportal",
+    "nome_botao": "GeoPortal",
+    "texto_apoio": "Acesso a mapas interativos e camadas geográficas relacionadas ao tema. Ideal para explorar os dados espacializados no território.",
+    "data": [
       {
         "link": "Missing link (geoportal)"
       }
@@ -4417,6 +4446,7 @@
   },
   {
     "grupo_cidade": "Dados Abertos",
+    "nome_cidade": "São Paulo",
     "tipo_dado": "GTFS",
     "tipo_botao": "Dataverse",
     "nome_botao": "Dataverse",
@@ -4424,14 +4454,12 @@
     "data": [
       {
         "link": "Missing link (dataverse)"
-      },
-      {
-        "link": "Missing link (dataverse)"
       }
     ]
   },
   {
     "grupo_cidade": "Dados Abertos",
+    "nome_cidade": "São Paulo",
     "tipo_dado": "GTFS",
     "tipo_botao": "Fonte",
     "nome_botao": "Dados Abertos",
@@ -4439,14 +4467,12 @@
     "data": [
       {
         "link": "https://dadosabertos.sp.gov.br/painel"
-      },
-      {
-        "link": "https://dados.fortaleza.ce.gov.br"
       }
     ]
   },
   {
     "grupo_cidade": "Dados Abertos",
+    "nome_cidade": "São Paulo",
     "tipo_dado": "GTFS",
     "tipo_botao": "Geoportal",
     "nome_botao": "GeoPortal",
@@ -4454,14 +4480,12 @@
     "data": [
       {
         "link": "Missing link (geoportal)"
-      },
-      {
-        "link": "Missing link (geoportal)"
       }
     ]
   },
   {
     "grupo_cidade": "Dados Abertos",
+    "nome_cidade": "São Paulo",
     "tipo_dado": "GPS Embarcados",
     "tipo_botao": "Dataverse",
     "nome_botao": "Dataverse",
@@ -4469,14 +4493,12 @@
     "data": [
       {
         "link": "Missing link (dataverse)"
-      },
-      {
-        "link": "Missing link (dataverse)"
       }
     ]
   },
   {
     "grupo_cidade": "Dados Abertos",
+    "nome_cidade": "São Paulo",
     "tipo_dado": "GPS Embarcados",
     "tipo_botao": "Fonte",
     "nome_botao": "Dados Abertos",
@@ -4484,14 +4506,12 @@
     "data": [
       {
         "link": "https://dadosabertos.sp.gov.br/painel"
-      },
-      {
-        "link": "https://dados.fortaleza.ce.gov.br"
       }
     ]
   },
   {
     "grupo_cidade": "Dados Abertos",
+    "nome_cidade": "São Paulo",
     "tipo_dado": "GPS Embarcados",
     "tipo_botao": "Geoportal",
     "nome_botao": "GeoPortal",
@@ -4499,14 +4519,12 @@
     "data": [
       {
         "link": "Missing link (geoportal)"
-      },
-      {
-        "link": "Missing link (geoportal)"
       }
     ]
   },
   {
     "grupo_cidade": "Dados Abertos",
+    "nome_cidade": "São Paulo",
     "tipo_dado": "Outros Arquivos Vetoriais",
     "tipo_botao": "Dataverse",
     "nome_botao": "Dataverse",
@@ -4514,14 +4532,12 @@
     "data": [
       {
         "link": "Missing link (dataverse)"
-      },
-      {
-        "link": "Missing link (dataverse)"
       }
     ]
   },
   {
     "grupo_cidade": "Dados Abertos",
+    "nome_cidade": "São Paulo",
     "tipo_dado": "Outros Arquivos Vetoriais",
     "tipo_botao": "Fonte",
     "nome_botao": "Dados Abertos",
@@ -4529,14 +4545,12 @@
     "data": [
       {
         "link": "https://dadosabertos.sp.gov.br/painel"
-      },
-      {
-        "link": "https://dados.fortaleza.ce.gov.br"
       }
     ]
   },
   {
     "grupo_cidade": "Dados Abertos",
+    "nome_cidade": "São Paulo",
     "tipo_dado": "Outros Arquivos Vetoriais",
     "tipo_botao": "Geoportal",
     "nome_botao": "GeoPortal",
@@ -4544,7 +4558,121 @@
     "data": [
       {
         "link": "Missing link (geoportal)"
-      },
+      }
+    ]
+  },
+  {
+    "grupo_cidade": "Dados Abertos",
+    "nome_cidade": "Fortaleza",
+    "tipo_dado": "GTFS",
+    "tipo_botao": "Dataverse",
+    "nome_botao": "Dataverse",
+    "texto_apoio": "Base de dados acadêmica com informações de GTFS organizadas para pesquisa e análise.",
+    "data": [
+      {
+        "link": "Missing link (dataverse)"
+      }
+    ]
+  },
+  {
+    "grupo_cidade": "Dados Abertos",
+    "nome_cidade": "Fortaleza",
+    "tipo_dado": "GTFS",
+    "tipo_botao": "Fonte",
+    "nome_botao": "Dados Abertos",
+    "texto_apoio": "Dados originais GTFS do transporte público disponibilizados em portal de dados abertos da administração municipal.",
+    "data": [
+      {
+        "link": "https://dados.fortaleza.ce.gov.br"
+      }
+    ]
+  },
+  {
+    "grupo_cidade": "Dados Abertos",
+    "nome_cidade": "Fortaleza",
+    "tipo_dado": "GTFS",
+    "tipo_botao": "Geoportal",
+    "nome_botao": "GeoPortal",
+    "texto_apoio": "Acesso a mapas interativos e camadas geográficas relacionadas ao tema. Ideal para explorar os dados espacializados no território.",
+    "data": [
+      {
+        "link": "Missing link (geoportal)"
+      }
+    ]
+  },
+  {
+    "grupo_cidade": "Dados Abertos",
+    "nome_cidade": "Fortaleza",
+    "tipo_dado": "GPS Embarcados",
+    "tipo_botao": "Dataverse",
+    "nome_botao": "Dataverse",
+    "texto_apoio": "Base de dados acadêmica com amostra dos dados de GPS organizada para pesquisa e análise.",
+    "data": [
+      {
+        "link": "Missing link (dataverse)"
+      }
+    ]
+  },
+  {
+    "grupo_cidade": "Dados Abertos",
+    "nome_cidade": "Fortaleza",
+    "tipo_dado": "GPS Embarcados",
+    "tipo_botao": "Fonte",
+    "nome_botao": "Dados Abertos",
+    "texto_apoio": "Dados originais de GPS embarcados disponibilizados em portal de dados abertos da administração municipal.",
+    "data": [
+      {
+        "link": "https://dados.fortaleza.ce.gov.br"
+      }
+    ]
+  },
+  {
+    "grupo_cidade": "Dados Abertos",
+    "nome_cidade": "Fortaleza",
+    "tipo_dado": "GPS Embarcados",
+    "tipo_botao": "Geoportal",
+    "nome_botao": "GeoPortal",
+    "texto_apoio": "Acesso a mapas interativos e camadas geográficas relacionadas ao tema. Ideal para explorar os dados espacializados no território.",
+    "data": [
+      {
+        "link": "Missing link (geoportal)"
+      }
+    ]
+  },
+  {
+    "grupo_cidade": "Dados Abertos",
+    "nome_cidade": "Fortaleza",
+    "tipo_dado": "Outros Arquivos Vetoriais",
+    "tipo_botao": "Dataverse",
+    "nome_botao": "Dataverse",
+    "texto_apoio": "Base de dados acadêmica com arquivos organizados para pesquisa e análise.",
+    "data": [
+      {
+        "link": "Missing link (dataverse)"
+      }
+    ]
+  },
+  {
+    "grupo_cidade": "Dados Abertos",
+    "nome_cidade": "Fortaleza",
+    "tipo_dado": "Outros Arquivos Vetoriais",
+    "tipo_botao": "Fonte",
+    "nome_botao": "Dados Abertos",
+    "texto_apoio": "Outros arquivos vetoriais e dados geográficos complementares disponibilizados em portal de dados abertos municipal.",
+    "data": [
+      {
+        "link": "https://dados.fortaleza.ce.gov.br"
+      }
+    ]
+  },
+  {
+    "grupo_cidade": "Dados Abertos",
+    "nome_cidade": "Fortaleza",
+    "tipo_dado": "Outros Arquivos Vetoriais",
+    "tipo_botao": "Geoportal",
+    "nome_botao": "GeoPortal",
+    "texto_apoio": "Acesso a mapas interativos e camadas geográficas relacionadas ao tema. Ideal para explorar os dados espacializados no território.",
+    "data": [
       {
         "link": "Missing link (geoportal)"
       }

@@ -25,21 +25,12 @@ interface CityLayersProps {
 export function CityLayers({ selectedCity, selectedLayers, onLayersChange, layerLoadingStates = {}, layerOpacities = {}, onOpacityChange }: CityLayersProps) {
   const cityLayers = cityLayersConfig[selectedCity] || []
   const [localOpacities, setLocalOpacities] = useState<Record<string, number>>({})
-  const [accordionValue, setAccordionValue] = useState<string>(selectedCity && selectedCity !== "Brasil" ? "layers" : "")
+  const [accordionValue, setAccordionValue] = useState<string>("layers")
 
-  // Auto-select first layer and expand accordion when a city is selected
+  // Keep accordion open when city changes
   useEffect(() => {
-    if (selectedCity && selectedCity !== "Brasil" && cityLayers.length > 0 && selectedLayers.length === 0) {
-      const firstLayerId = cityLayers[0].id
-      onLayersChange([firstLayerId])
+    if (selectedCity && selectedCity !== "Brasil" && cityLayers.length > 0) {
       setAccordionValue("layers")
-      
-      // Set default opacity for the first layer
-      const defaultOpacity = 80
-      if (!(firstLayerId in layerOpacities) && !(firstLayerId in localOpacities)) {
-        setLocalOpacities(prev => ({ ...prev, [firstLayerId]: defaultOpacity }))
-        onOpacityChange?.(firstLayerId, defaultOpacity)
-      }
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [selectedCity])

@@ -802,19 +802,13 @@ export default function PropertyMap() {
 
   const toggleComparisonMode = () => {
     if (!isComparisonMode) {
-      // Switching to comparison mode - transfer first selected layer to layer1
-      const currentSelectedLayers = [...selectedLayers]
-
+      // Switching to comparison mode - clear all layers
       clearAllLayers()
       setIsComparisonMode(true)
       setMapLoaded(false) // Reset map loaded state
 
-      // Transfer first selected layer to comparison mode's layer1
-      if (currentSelectedLayers.length > 0) {
-        setSelectedLayer1(currentSelectedLayers[0])
-      } else {
-        setSelectedLayer1(null)
-      }
+      // Start with no layers selected
+      setSelectedLayer1(null)
       setSelectedLayer2(null)
       setSelectedLayers([])
 
@@ -824,19 +818,13 @@ export default function PropertyMap() {
         duration: 4000,
       })
     } else {
-      // Switching back to normal mode - transfer layer1 back to normal mode
-      const currentLayer1 = selectedLayer1
-
+      // Switching back to normal mode - clear all layers
       clearAllLayers()
       setIsComparisonMode(false)
       setMapLoaded(false) // Reset map loaded state
 
-      // Transfer layer1 back to normal mode
-      if (currentLayer1) {
-        setSelectedLayers([currentLayer1])
-      } else {
-        setSelectedLayers([])
-      }
+      // Start with no layers selected
+      setSelectedLayers([])
       setSelectedLayer1(null)
       setSelectedLayer2(null)
 
