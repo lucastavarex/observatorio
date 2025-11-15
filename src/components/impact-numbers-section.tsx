@@ -103,6 +103,13 @@ function useCounter(
   return { count, startCounter };
 }
 
+function formatNumber(num: number): string {
+  if (num >= 1000) {
+    return num.toLocaleString("pt-BR");
+  }
+  return num.toString();
+}
+
 export function ImpactNumbersSection() {
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref);
@@ -137,7 +144,7 @@ export function ImpactNumbersSection() {
           {/* First line: 63gb de dados coletados */}
           <div className="flex flex-col md:flex-row md:items-baseline gap-2 md:justify-start md:pl-[10%]">
             <span className="text-6xl md:text-7xl font-medium text-[#2F2C2C]">
-              {counter1.count}
+              {formatNumber(counter1.count)}
               {impactNumbers[0].suffix}
             </span>
             <span className="text-lg text-[#2F2C2C]/50">
@@ -151,7 +158,7 @@ export function ImpactNumbersSection() {
           {/* Second line: 20 municípios com dados */}
           <div className="flex flex-col md:flex-row md:items-baseline gap-2 md:justify-end md:pr-[20%]">
             <span className="text-6xl md:text-7xl font-medium text-[#2F2C2C]">
-              {counter2.count}
+              {formatNumber(counter2.count)}
             </span>
             <span className="text-lg text-[#2F2C2C]/50">
               {impactNumbers[1].label}
@@ -164,7 +171,7 @@ export function ImpactNumbersSection() {
           {/* Third line: 150+ alunos/educação executiva */}
           <div className="flex flex-col md:flex-row md:items-baseline gap-2 md:justify-center">
             <span className="text-6xl md:text-7xl font-medium text-[#2F2C2C]">
-              {counter3.count}
+              {formatNumber(counter3.count)}
               {impactNumbers[2].suffix}
             </span>
             <span className="text-lg text-[#2F2C2C]/50">
@@ -178,7 +185,7 @@ export function ImpactNumbersSection() {
           {/* Fourth line: 37+ horas de eventos realizados */}
           <div className="flex flex-col md:flex-row md:items-baseline gap-2 md:justify-start md:pl-[10%]">
             <span className="text-6xl md:text-7xl font-medium text-[#2F2C2C]">
-              {counter4.count}
+              {formatNumber(counter4.count)}
               {impactNumbers[3].suffix}
             </span>
             <span className="text-lg text-[#2F2C2C]/50">
@@ -192,7 +199,7 @@ export function ImpactNumbersSection() {
           {/* Fifth line: 2000+ participantes em eventos */}
           <div className="flex flex-col md:flex-row md:items-baseline gap-2 md:justify-end md:pr-[10%]">
             <span className="text-6xl md:text-7xl font-medium text-[#2F2C2C]">
-              {counter5.count}
+              {formatNumber(counter5.count)}
               {impactNumbers[4].suffix}
             </span>
             <span className="text-lg text-[#2F2C2C]/50">

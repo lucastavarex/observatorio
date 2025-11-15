@@ -33,7 +33,6 @@ export const eventsData: EventData[] = [
     title: 'Lançamento do Observatório Nacional de Mobilidade Sustentável',
     description: '2023 • Insper',
     image: events1,
-    href: '/projetos/tabela',
     showInHome: true,
     date: '2023',
     location: 'Insper'

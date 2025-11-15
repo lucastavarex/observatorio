@@ -26,28 +26,28 @@ const projects: Project[] = [
     {
     id: 'geoportal',
     title: 'Geoportal',
-    description: 'Visualize dados espaciais de mobilidade urbana em um mapa interativo com diversas camadas temáticas',
+    description: 'Visualize dados espaciais e de mobilidade urbana em mapa interativo com camadas temáticas e ferramentas de visualização.',
     image: geoportal,
     href: '/projetos/geoportal'
   },
     {
     id: 'catalogo',
     title: 'Catálogo de Dados',
-    description: 'Compare indicadores de mobilidade entre cidades brasileiras por meio de uma tabela interativa',
+    description: 'Acesse dados exclusivos de mobilidade urbana das principais cidades do Brasil. Inclui dados de bilhetagem de ônibus, GPS e GTFS.',
     image: catalogo,
     href: '/projetos/catalago-de-dados'
   },
   {
     id: 'dashboard',
     title: 'Dashboard PEMOB',
-    description: 'Compare cidades em diferentes variáveis de mobilidade com visualização gráfica em formato de radar e de distribuição',
+    description: 'Compare indicadores de mobilidade e transporte usando dados Pesquisa de Mobilidade Urbana do Ministério das Cidades.',
     image: dashboard,
     href: '/projetos/dashboard'
   },
   {
     id: 'tabela',
     title: 'Dados PEMOB',
-    description: 'Compare indicadores de mobilidade entre cidades brasileiras',
+    description: 'Acesse os dados mais recentes da Pesquisa Nacional de Mobilidade Urbana do Ministério das Cidades em tabela interativa.',
     image: tabela,
     href: '/projetos/tabela'
   }

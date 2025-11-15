@@ -26,7 +26,7 @@ const projetosItems = [
   {
     title: "Geoportal",
     href: "/projetos/geoportal",
-    description: "Visualize dados espaciais de mobilidade urbana em um mapa interativo com diversas camadas temáticas",
+    description: "Visualize dados espaciais e de mobilidade urbana em mapa interativo com camadas temáticas e ferramentas de visualização.",
   },
     {
     title: "Catálogo de Dados",
@@ -36,7 +36,7 @@ const projetosItems = [
   {
     title: "Dashboard PEMOB",
     href: "/projetos/dashboard",
-    description: "Visualize dados espaciais de mobilidade urbana em um mapa interativo com diversas camadas temáticas",
+    description: "Visualize dados espaciais e de mobilidade urbana em mapa interativo com camadas temáticas e ferramentas de visualização.",
   },
 
   {
