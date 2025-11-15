@@ -70,7 +70,15 @@ export function Footer() {
               </Link>
             </div>
 
-            {/* Dados de mobilidade dropdown */}
+            <div className="flex flex-col gap-2">
+              <Link 
+                href="/sobre" 
+                className="text-gray-600 hover:text-gray-800 transition-colors text-sm font-medium"
+              >
+                Sobre
+              </Link>
+            </div>
+ {/* Dados de mobilidade dropdown */}
             <div className="flex flex-col gap-2">
               <span className="text-gray-600 text-sm font-medium">Mobilidade em dados</span>
               <div className="flex flex-col gap-1">
@@ -85,16 +93,6 @@ export function Footer() {
                 ))}
               </div>
             </div>
-
-            <div className="flex flex-col gap-2">
-              <Link 
-                href="/sobre" 
-                className="text-gray-600 hover:text-gray-800 transition-colors text-sm font-medium"
-              >
-                Sobre
-              </Link>
-            </div>
-
             {/* Publicações dropdown */}
             <div className="flex flex-col gap-2">
               <span className="text-gray-600 text-sm font-medium">Publicações</span>

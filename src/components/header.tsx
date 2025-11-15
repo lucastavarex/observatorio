@@ -132,6 +132,14 @@ export function Header({ isBgDark = false, className }: HeaderProps) {
             </NavigationMenuItem>
             
             <NavigationMenuItem>
+              <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
+                <Link href="/sobre" className={pathname === "/sobre" ? activeTextClass : inactiveTextClass}>
+                  Sobre
+                </Link>
+              </NavigationMenuLink>
+            </NavigationMenuItem>
+
+            <NavigationMenuItem>
               <NavigationMenuTrigger 
                 isBgDark={isBgDark}
                 isActive={pathname.startsWith("/projetos/")}
@@ -152,14 +160,6 @@ export function Header({ isBgDark = false, className }: HeaderProps) {
                   ))}
                 </ul>
               </NavigationMenuContent>
-            </NavigationMenuItem>
-            
-            <NavigationMenuItem>
-              <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
-                <Link href="/sobre" className={pathname === "/sobre" ? activeTextClass : inactiveTextClass}>
-                  Sobre
-                </Link>
-              </NavigationMenuLink>
             </NavigationMenuItem>
             
             <NavigationMenuItem>
@@ -269,6 +269,17 @@ export function Header({ isBgDark = false, className }: HeaderProps) {
               Home
             </Link>
 
+            {/* Sobre */}
+            <Link
+              href="/sobre"
+              onClick={closeMobileMenu}
+              className={`block py-3 text-lg font-medium transition-colors ${
+                pathname === "/sobre" ? "text-black font-medium" : "text-gray-400 hover:text-black"
+              }`}
+            >
+              Sobre
+            </Link>
+
             {/* Projetos Section with Accordion */}
             <div className="">
               <Accordion type="single" collapsible className="w-full">
@@ -304,7 +315,7 @@ export function Header({ isBgDark = false, className }: HeaderProps) {
             </div>
 
             {/* Other Menu Items */}
-            {menuItems.slice(1).map((item) => (
+            {menuItems.slice(2).map((item) => (
               <Link
                 key={item.title}
                 href={item.href}
