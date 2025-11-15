@@ -70,17 +70,11 @@ const publications: Publication[] = [
     tipo: "policy_paper",
     link: "https://repositorio.insper.edu.br/entities/publication/36ec3e70-30bd-4c24-92bb-515e18f233be"
   },
-  {
-    id: "6",
-    title: "Coalizão dos transportes: como tornar o setor de transportes um contribuidor ativo para a redução das emissões brasileiras (Estudo Completo)",
-    image: publicacao4,
-    alt: "Avaliação do impacto da Faixa Azul nos sinistros de trânsito em São Paulo",
-    tipo: "livros",
-    link: "https://insper-my.sharepoint.com/:b:/g/personal/laboratorioarqfuturo_insper_edu_br/EUOiGLEG4FVBraJ11KmGal0BHEm-HERqa9eUrzPYdG_wHQ?e=d1rYFj"
-  },
+ 
   {
     id: "7",
     title: "Coalizão dos transportes: como tornar o setor de transportes um contribuidor ativo para a redução das emissões brasileiras (Relatório Síntese)",
+    description: "Como tornar o setor de transporte um contribuidor ativo para a redução das emissões brasileiras.",
     image: publi_princ_conc,
     alt: "Avaliação do impacto da Faixa Azul nos sinistros de trânsito em São Paulo",
     tipo: "livros",
