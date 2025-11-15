@@ -106,7 +106,7 @@ export const newsData: NewsItem[] = [
   },
   {
     id: 10,
-    title: "Observatório Nacional de Mobilidade Sustentável, parceria entre Insper e Grupo CCR, firma acordo de cooperação com o Rio de Janeiro",
+    title: "Observatório Nacional de Mobilidade Sustentável, parceria entre Insper e Grupo Motiva, firma acordo de cooperação com o Rio de Janeiro",
     source: "Conexão In",
     date: "2025",
     image: video10.src,
@@ -214,7 +214,7 @@ export const newsData: NewsItem[] = [
   },
   {
     id: 22,
-    title: "Grupo CCR e Laboratório Arq. Futuro de Cidades lançam Observatório Nacional de Mobilidade Sustentável",
+    title: "Grupo Motiva e Laboratório Arq. Futuro de Cidades lançam Observatório Nacional de Mobilidade Sustentável",
     source: "Estadão",
     date: "2023",
     image: video22.src,

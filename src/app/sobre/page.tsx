@@ -7,6 +7,7 @@ import sobreIntro from "@/app/assets/images/sobre_intro.png";
 import adriano_borges from "@/app/assets/images/adriano_borges.png";
 import antonio_henrique from "@/app/assets/images/antonio_henrique.png";
 import beatriz_vanzolini from "@/app/assets/images/beatriz_vanzolini.png";
+import caio_jacintho from "@/app/assets/images/caio.png";
 import denis_andia from "@/app/assets/images/denis_andia.png";
 import eliana_silva from "@/app/assets/images/eliana_silva.png";
 import gabriel_fajardo from "@/app/assets/images/gabriel_fajardo.png";
@@ -17,6 +18,7 @@ import ivanice_schutz from "@/app/assets/images/ivanice_schutz.png";
 import jose_police_neto from "@/app/assets/images/jose_police_neto.png";
 import juan_sebastian from "@/app/assets/images/juan_sebastian.png";
 import laryssa_kruger from "@/app/assets/images/laryssa_kruger.png";
+import lucas_tavares from "@/app/assets/images/lucas-tavares-da-silva-ferreira.png";
 import lucelio_moraes from "@/app/assets/images/lucelio_moraes.png";
 import luiz_pedro from "@/app/assets/images/luiz_pedro.png";
 import luiza_estagiaria from "@/app/assets/images/luiza_estagiaria.png";
@@ -286,6 +288,31 @@ const equipeInsperCidades: TeamMember[] = [
     email: 'mauriciosb4@insper.edu.br'
   }
 ]
+// Equipe de desenvolvimento 
+const equipeDeDesenvolvimento: TeamMember[] = [
+  {
+    id: '1',
+    name: 'Caio Jacintho',
+    role: 'Coordenador',
+    image: caio_jacintho,
+    email: 'caiojacintho@insper.edu.br'
+  },
+  {
+    id: '2',
+    name: 'Vinicius Oike',
+    role: 'Cientista de dados',
+    image: vinicius_oike_reginatto,
+    email: 'viniciusor@insper.edu.br'
+  },
+  {
+    id: '3',
+    name: 'Lucas Tavares',
+    role: 'Desenvolvedor',
+    image: lucas_tavares,
+    email: 'lucas.tavares@insper.edu.br'
+  }
+  
+]
 
 export default function Sobre() {
    const [isHovering, setIsHovering] = useState(false)
@@ -335,7 +362,7 @@ export default function Sobre() {
                   Um evento realizado no Insper, em São Paulo, marcou o lançamento do Observatório Nacional de Mobilidade Sustentável, em setembro de 2023.
                 </p>
                 <p className="text-gray-700 leading-relaxed">
-                  Trata-se de uma iniciativa do Centro de Estudos das Cidades - Laboratório Arq. Futuro do Insper - então chamado Laboratório Arq. Futuro de Cidades do Insper -, no âmbito do seu núcleo de Mobilidade Urbana, em parceria com o Grupo CCR, cujo objetivo é coletar dados de fontes públicas e privadas, gerenciando essas informações e produzindo pesquisas, artigos e reportes consistentes, que sejam úteis para os tomadores decisão do ecossistema de mobilidade no território nacional.
+                  Trata-se de uma iniciativa do Centro de Estudos das Cidades - Laboratório Arq. Futuro do Insper - então chamado Laboratório Arq. Futuro de Cidades do Insper -, no âmbito do seu núcleo de Mobilidade Urbana, em parceria com o Grupo Motiva, cujo objetivo é coletar dados de fontes públicas e privadas, gerenciando essas informações e produzindo pesquisas, artigos e reportes consistentes, que sejam úteis para os tomadores decisão do ecossistema de mobilidade no território nacional.
                 </p>
               </div>
             </div>
@@ -524,7 +551,7 @@ export default function Sobre() {
       </div>
 
       {/* Section 3: Equipe Insper Cidades */}
-      <section className="py-16 mx-auto pb-40">
+      <section className="py-16 mx-auto">
         <div className="mx-auto">
           <h2 className="lg:absolute text-xl font-medium text-gray-900 px-4 2xl:px-16 pb-6 lg:pb-0">Equipe Insper Cidades</h2>
           <div 
@@ -541,6 +568,52 @@ export default function Sobre() {
               className="!overflow-visible"
             >
               {equipeInsperCidades.map((member) => (
+                <SwiperSlide key={member.id} className="!w-[250px] md:!w-[350px] group relative">
+                  <div className="relative overflow-hidden h-[350px] w-[250px] md:h-[450px] md:w-[350px]">
+                    <Image
+                      src={member.image}
+                      alt={member.name}
+                      fill
+                      className="object-cover transition-transform duration-300 group-hover:scale-105 rounded-none"
+                    />
+                  </div>
+                  <div className="mt-4 text-left">
+                    <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                      {member.name}
+                    </h3>
+                    <p className="text-sm text-gray-600 leading-relaxed">
+                      {member.role}
+                    </p>
+                    {member.email && (
+                      <p className="text-sm text-gray-500 mt-6">
+                        {member.email}
+                      </p>
+                    )}
+                  </div>
+                </SwiperSlide>
+              ))}
+            </Swiper>
+          </div>
+        </div>
+      </section>
+      {/* Section 4: Equipe de Desenvolvimento */}
+      <section className="py-16 mx-auto pb-40">
+        <div className="mx-auto">
+          <h2 className="lg:absolute text-xl font-medium text-gray-900 px-4 2xl:px-16 pb-6 lg:pb-0">Equipe de Desenvolvimento</h2>
+          <div 
+            className="px-4 2xl:px-16 pb-4 overflow-x-hidden ml-0! pl-4! md:ml-0! lg:ml-100!"
+            onMouseEnter={() => setIsHovering(true)}
+            onMouseLeave={() => setIsHovering(false)}
+          >
+            <Swiper
+              slidesPerView="auto"
+              spaceBetween={16}
+              freeMode={true}
+              grabCursor={false}
+              modules={[FreeMode]}
+              className="!overflow-visible"
+            >
+              {equipeDeDesenvolvimento.map((member) => (
                 <SwiperSlide key={member.id} className="!w-[250px] md:!w-[350px] group relative">
                   <div className="relative overflow-hidden h-[350px] w-[250px] md:h-[450px] md:w-[350px]">
                     <Image
