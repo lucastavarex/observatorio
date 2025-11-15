@@ -153,11 +153,13 @@ export function getModalData(cityName: string, dataType: string, group: 'Cidade 
     
     const source = sourcesMap.get(sourceKey)!
     
-    // Add all datasets (we'll handle disabled state individually)
+    // Add all datasets with titulo from item level
+    // Each item represents a dataset, and its titulo should be used for titulo_dado
     item.data.forEach(dataEntry => {
       if (dataEntry.link) {
         source.datasets!.push({
-          ...dataEntry,
+          link: dataEntry.link,
+          titulo_dado: item.titulo || (dataEntry as DataEntry).titulo_dado,
           isDisabled: !isValidUrl(dataEntry.link)
         })
       }
@@ -170,8 +172,8 @@ export function getModalData(cityName: string, dataType: string, group: 'Cidade 
   if (sources.length === 0) return null
   
   return {
-    title: displayType,
-    subtitle: firstItem.titulo || 'No title available',
+    title: firstItem.nome_cidade || cityName,
+    subtitle: displayType,
     sources
   }
 }
