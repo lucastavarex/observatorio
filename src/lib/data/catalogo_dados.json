@@ -581,6 +581,90 @@
   },
   {
     "grupo_cidade": "Cidade Parceira",
+    "nome_cidade": "Belo Horizonte",
+    "tipo_dado": "Outros Arquivos Vetoriais",
+    "tipo_botao": "Dataverse",
+    "nome_botao": "Dataverse",
+    "titulo": "Pontos de Ônibus",
+    "texto_apoio": "Base de dados acadêmica com arquivos organizados para pesquisa e análise.",
+    "data": [
+      {
+        "link": "https://doi.org/10.60873/FK2/76DLGS"
+      }
+    ]
+  },
+  {
+    "grupo_cidade": "Cidade Parceira",
+    "nome_cidade": "Belo Horizonte",
+    "tipo_dado": "Outros Arquivos Vetoriais",
+    "tipo_botao": "Dataverse",
+    "nome_botao": "Dataverse",
+    "titulo": "Ciclovias",
+    "texto_apoio": "Base de dados acadêmica com arquivos organizados para pesquisa e análise.",
+    "data": [
+      {
+        "link": "https://doi.org/10.60873/FK2/94R2N1"
+      }
+    ]
+  },
+  {
+    "grupo_cidade": "Cidade Parceira",
+    "nome_cidade": "Belo Horizonte",
+    "tipo_dado": "Outros Arquivos Vetoriais",
+    "tipo_botao": "Dataverse",
+    "nome_botao": "Dataverse",
+    "titulo": "Velocidade nos Corredores",
+    "texto_apoio": "Base de dados acadêmica com arquivos organizados para pesquisa e análise.",
+    "data": [
+      {
+        "link": "https://doi.org/10.60873/FK2/RCFPYA"
+      }
+    ]
+  },
+  {
+    "grupo_cidade": "Cidade Parceira",
+    "nome_cidade": "Belo Horizonte",
+    "tipo_dado": "Bilhetagem",
+    "tipo_botao": "Dataverse",
+    "nome_botao": "Dataverse",
+    "titulo": "Embarques nos Ônibus",
+    "texto_apoio": "Base de dados acadêmica com informações de bilhetagem organizadas para pesquisa e análise.",
+    "data": [
+      {
+        "link": "https://doi.org/10.60873/FK2/OGHOQL"
+      }
+    ]
+  },
+  {
+    "grupo_cidade": "Cidade Parceira",
+    "nome_cidade": "Belo Horizonte",
+    "tipo_dado": "Outros Arquivos Vetoriais",
+    "tipo_botao": "Dataverse",
+    "nome_botao": "Dataverse",
+    "titulo": "Matriz OD",
+    "texto_apoio": "Base de dados acadêmica com arquivos organizados para pesquisa e análise.",
+    "data": [
+      {
+        "link": "https://doi.org/10.60873/FK2/J3PATK"
+      }
+    ]
+  },
+  {
+    "grupo_cidade": "Cidade Parceira",
+    "nome_cidade": "Belo Horizonte",
+    "tipo_dado": "GTFS",
+    "tipo_botao": "Dataverse",
+    "nome_botao": "Dataverse",
+    "titulo": "GTFS",
+    "texto_apoio": "Base de dados acadêmica com informações de GTFS organizadas para pesquisa e análise.",
+    "data": [
+      {
+        "link": "https://doi.org/10.60873/FK2/CU6GVN"
+      }
+    ]
+  },
+  {
+    "grupo_cidade": "Cidade Parceira",
     "nome_cidade": "Cabo de Santo Agostinho*",
     "tipo_dado": "GTFS",
     "tipo_botao": "Dataverse",
@@ -1175,6 +1259,163 @@
     ]
   },
   {
+    "grupo_cidade": "Dados Abertos",
+    "nome_cidade": "Fortaleza",
+    "tipo_dado": "Bilhetagem",
+    "tipo_botao": "Dataverse",
+    "nome_botao": "Dataverse",
+    "texto_apoio": "Base de dados acadêmica com informações de bilhetagem organizadas para pesquisa e análise.",
+    "data": [
+      {
+        "link": "Missing link (dataverse)"
+      }
+    ]
+  },
+  {
+    "grupo_cidade": "Dados Abertos",
+    "nome_cidade": "Fortaleza",
+    "tipo_dado": "Bilhetagem",
+    "tipo_botao": "Fonte",
+    "nome_botao": "Dados Abertos",
+    "texto_apoio": "Dados originais de bilhetagem eletrônica disponibilizados em portal de dados abertos da administração municipal.",
+    "data": [
+      {
+        "link": "https://dados.fortaleza.ce.gov.br"
+      }
+    ]
+  },
+  {
+    "grupo_cidade": "Dados Abertos",
+    "nome_cidade": "Fortaleza",
+    "tipo_dado": "Bilhetagem",
+    "tipo_botao": "Geoportal",
+    "nome_botao": "GeoPortal",
+    "texto_apoio": "Acesso a mapas interativos e camadas geográficas relacionadas ao tema. Ideal para explorar os dados espacializados no território.",
+    "data": [
+      {
+        "link": "Missing link (geoportal)"
+      }
+    ]
+  },
+  {
+    "grupo_cidade": "Dados Abertos",
+    "nome_cidade": "Fortaleza",
+    "tipo_dado": "GTFS",
+    "tipo_botao": "Dataverse",
+    "nome_botao": "Dataverse",
+    "titulo": "GTFS",
+    "texto_apoio": "Base de dados acadêmica com informações de GTFS organizadas para pesquisa e análise.",
+    "data": [
+      {
+        "link": "https://doi.org/10.60873/FK2/7KGNSK"
+      }
+    ]
+  },
+  {
+    "grupo_cidade": "Dados Abertos",
+    "nome_cidade": "Fortaleza",
+    "tipo_dado": "GTFS",
+    "tipo_botao": "Fonte",
+    "nome_botao": "Dados Abertos",
+    "texto_apoio": "Dados originais GTFS do transporte público disponibilizados em portal de dados abertos da administração municipal.",
+    "data": [
+      {
+        "link": "https://dados.fortaleza.ce.gov.br"
+      }
+    ]
+  },
+  {
+    "grupo_cidade": "Dados Abertos",
+    "nome_cidade": "Fortaleza",
+    "tipo_dado": "GTFS",
+    "tipo_botao": "Geoportal",
+    "nome_botao": "GeoPortal",
+    "texto_apoio": "Acesso a mapas interativos e camadas geográficas relacionadas ao tema. Ideal para explorar os dados espacializados no território.",
+    "data": [
+      {
+        "link": "Missing link (geoportal)"
+      }
+    ]
+  },
+  {
+    "grupo_cidade": "Dados Abertos",
+    "nome_cidade": "Fortaleza",
+    "tipo_dado": "GPS Embarcados",
+    "tipo_botao": "Dataverse",
+    "nome_botao": "Dataverse",
+    "texto_apoio": "Base de dados acadêmica com amostra dos dados de GPS organizada para pesquisa e análise.",
+    "data": [
+      {
+        "link": "Missing link (dataverse)"
+      }
+    ]
+  },
+  {
+    "grupo_cidade": "Dados Abertos",
+    "nome_cidade": "Fortaleza",
+    "tipo_dado": "GPS Embarcados",
+    "tipo_botao": "Fonte",
+    "nome_botao": "Dados Abertos",
+    "texto_apoio": "Dados originais de GPS embarcados disponibilizados em portal de dados abertos da administração municipal.",
+    "data": [
+      {
+        "link": "https://dados.fortaleza.ce.gov.br"
+      }
+    ]
+  },
+  {
+    "grupo_cidade": "Dados Abertos",
+    "nome_cidade": "Fortaleza",
+    "tipo_dado": "GPS Embarcados",
+    "tipo_botao": "Geoportal",
+    "nome_botao": "GeoPortal",
+    "texto_apoio": "Acesso a mapas interativos e camadas geográficas relacionadas ao tema. Ideal para explorar os dados espacializados no território.",
+    "data": [
+      {
+        "link": "Missing link (geoportal)"
+      }
+    ]
+  },
+  {
+    "grupo_cidade": "Dados Abertos",
+    "nome_cidade": "Fortaleza",
+    "tipo_dado": "Outros Arquivos Vetoriais",
+    "tipo_botao": "Dataverse",
+    "nome_botao": "Dataverse",
+    "texto_apoio": "Base de dados acadêmica com arquivos organizados para pesquisa e análise.",
+    "data": [
+      {
+        "link": "Missing link (dataverse)"
+      }
+    ]
+  },
+  {
+    "grupo_cidade": "Dados Abertos",
+    "nome_cidade": "Fortaleza",
+    "tipo_dado": "Outros Arquivos Vetoriais",
+    "tipo_botao": "Fonte",
+    "nome_botao": "Dados Abertos",
+    "texto_apoio": "Outros arquivos vetoriais e dados geográficos complementares disponibilizados em portal de dados abertos municipal.",
+    "data": [
+      {
+        "link": "https://dados.fortaleza.ce.gov.br"
+      }
+    ]
+  },
+  {
+    "grupo_cidade": "Dados Abertos",
+    "nome_cidade": "Fortaleza",
+    "tipo_dado": "Outros Arquivos Vetoriais",
+    "tipo_botao": "Geoportal",
+    "nome_botao": "GeoPortal",
+    "texto_apoio": "Acesso a mapas interativos e camadas geográficas relacionadas ao tema. Ideal para explorar os dados espacializados no território.",
+    "data": [
+      {
+        "link": "Missing link (geoportal)"
+      }
+    ]
+  },
+  {
     "grupo_cidade": "Cidade Parceira",
     "nome_cidade": "Igarassu*",
     "tipo_dado": "GTFS",
@@ -2443,6 +2684,89 @@
     "data": [
       {
         "link": "https://dataverse.datascience.insper.edu.br/dataset.xhtml?persistentId=doi:10.60873/FK2/TLFP8L"
+      }
+    ]
+  },
+  {
+    "grupo_cidade": "Outros Parceiros",
+    "nome_cidade": "Motiva",
+    "tipo_dado": "Bilhetagem",
+    "tipo_botao": "Dataverse",
+    "nome_botao": "Dataverse",
+    "titulo": "Embarques Diários por Estação",
+    "texto_apoio": "Base de dados acadêmica com informações de bilhetagem organizadas para pesquisa e análise.",
+    "data": [
+      {
+        "link": "https://doi.org/10.60873/FK2/9MZGJL"
+      }
+    ]
+  },
+  {
+    "grupo_cidade": "Outros Parceiros",
+    "nome_cidade": "Motiva",
+    "tipo_dado": "Bilhetagem",
+    "tipo_botao": "Dataverse",
+    "nome_botao": "Dataverse",
+    "titulo": "Embarques Mensais por Estação",
+    "texto_apoio": "Base de dados acadêmica com informações de bilhetagem organizadas para pesquisa e análise.",
+    "data": [
+      {
+        "link": "https://doi.org/10.60873/FK2/UTGQ0I"
+      }
+    ]
+  },
+  {
+    "grupo_cidade": "Outros Parceiros",
+    "nome_cidade": "Motiva",
+    "tipo_dado": "Bilhetagem",
+    "tipo_botao": "Dataverse",
+    "nome_botao": "Dataverse",
+    "titulo": "Média de Embarques Diários",
+    "texto_apoio": "Base de dados acadêmica com informações de bilhetagem organizadas para pesquisa e análise.",
+    "data": [
+      {
+        "link": "https://doi.org/10.60873/FK2/BPYHFB"
+      }
+    ]
+  },
+  {
+    "grupo_cidade": "Outros Parceiros",
+    "nome_cidade": "Motiva",
+    "tipo_dado": "Bilhetagem",
+    "tipo_botao": "Dataverse",
+    "nome_botao": "Dataverse",
+    "titulo": "Embarques por Modo de Integração",
+    "texto_apoio": "Base de dados acadêmica com informações de bilhetagem organizadas para pesquisa e análise.",
+    "data": [
+      {
+        "link": "https://doi.org/10.60873/FK2/UOKFMF"
+      }
+    ]
+  },
+  {
+    "grupo_cidade": "Outros Parceiros",
+    "nome_cidade": "Motiva",
+    "tipo_dado": "Outros Arquivos Vetoriais",
+    "tipo_botao": "Dataverse",
+    "nome_botao": "Dataverse",
+    "titulo": "Linhas e Estações de Trem/Metrô - Motiva",
+    "texto_apoio": "Base de dados acadêmica com arquivos organizados para pesquisa e análise.",
+    "data": [
+      {
+        "link": "https://doi.org/10.60873/FK2/YWXLQS"
+      }
+    ]
+  },
+  {
+    "grupo_cidade": "Outros Parceiros",
+    "nome_cidade": "Motiva",
+    "tipo_dado": "Bilhetagem",
+    "tipo_botao": "Fonte",
+    "nome_botao": "Prefeitura",
+    "texto_apoio": "Site oficial da prefeitura para consulta ou requisição dos dados de bilhetagem.",
+    "data": [
+      {
+        "link": "https://www.motiva.com.br"
       }
     ]
   },
@@ -3723,7 +4047,7 @@
     "texto_apoio": "Base de dados acadêmica com informações de GTFS organizadas para pesquisa e análise.",
     "data": [
       {
-        "link": "Missing link (dataverse)"
+        "link": "https://doi.org/10.60873/FK2/UKB7LC"
       }
     ]
   },
@@ -3759,10 +4083,11 @@
     "tipo_dado": "Bilhetagem",
     "tipo_botao": "Dataverse",
     "nome_botao": "Dataverse",
+    "titulo": "Bilhetagem eletrônica - clearing",
     "texto_apoio": "Base de dados acadêmica com informações de bilhetagem organizadas para pesquisa e análise.",
     "data": [
       {
-        "link": "Missing link (dataverse)"
+        "link": "https://doi.org/10.60873/FK2/RUA5LW"
       }
     ]
   },
@@ -3798,10 +4123,11 @@
     "tipo_dado": "GPS Embarcados",
     "tipo_botao": "Dataverse",
     "nome_botao": "Dataverse",
+    "titulo": "GPS embarcados",
     "texto_apoio": "Base de dados acadêmica com amostra dos dados de GPS organizada para pesquisa e análise.",
     "data": [
       {
-        "link": "Missing link (dataverse)"
+        "link": "https://doi.org/10.60873/FK2/K3BXZR"
       }
     ]
   },
@@ -3837,6 +4163,7 @@
     "tipo_dado": "Outros Arquivos Vetoriais",
     "tipo_botao": "Dataverse",
     "nome_botao": "Dataverse",
+    "titulo": "Cicloviass",
     "texto_apoio": "Base de dados acadêmica com arquivos organizados para pesquisa e análise.",
     "data": [
       {
@@ -3867,6 +4194,20 @@
     "data": [
       {
         "link": "Missing link (geoportal)"
+      }
+    ]
+  },
+  {
+    "grupo_cidade": "Cidade Parceira",
+    "nome_cidade": "Salvador",
+    "tipo_dado": "Bilhetagem",
+    "tipo_botao": "Dataverse",
+    "nome_botao": "Dataverse",
+    "titulo": "Bilhetagem eletrônica",
+    "texto_apoio": "Base de dados acadêmica com informações de bilhetagem organizadas para pesquisa e análise.",
+    "data": [
+      {
+        "link": "https://dataverse.datascience.insper.edu.br/dataset.xhtml?persistentId=doi:10.60873/FK2/RUA5LW"
       }
     ]
   },
@@ -4297,102 +4638,6 @@
     ]
   },
   {
-    "grupo_cidade": "Outros Parceiros",
-    "nome_cidade": "Motiva",
-    "tipo_dado": "Bilhetagem",
-    "tipo_botao": "Dataverse",
-    "nome_botao": "Dataverse",
-    "titulo": "Embarques Diários por Estação",
-    "texto_apoio": "Base de dados acadêmica com informações de bilhetagem organizadas para pesquisa e análise.",
-    "data": [
-      {
-        "link": "Missing link (dataverse)"
-      }
-    ]
-  },
-  {
-    "grupo_cidade": "Outros Parceiros",
-    "nome_cidade": "Motiva",
-    "tipo_dado": "Bilhetagem",
-    "tipo_botao": "Dataverse",
-    "nome_botao": "Dataverse",
-    "titulo": "Embarques Mensais por Estação",
-    "texto_apoio": "Base de dados acadêmica com informações de bilhetagem organizadas para pesquisa e análise.",
-    "data": [
-      {
-        "link": "Missing link (dataverse)"
-      }
-    ]
-  },
-  {
-    "grupo_cidade": "Outros Parceiros",
-    "nome_cidade": "Motiva",
-    "tipo_dado": "Bilhetagem",
-    "tipo_botao": "Dataverse",
-    "nome_botao": "Dataverse",
-    "titulo": "Média de Embarques Diários",
-    "texto_apoio": "Base de dados acadêmica com informações de bilhetagem organizadas para pesquisa e análise.",
-    "data": [
-      {
-        "link": "Missing link (dataverse)"
-      }
-    ]
-  },
-  {
-    "grupo_cidade": "Outros Parceiros",
-    "nome_cidade": "Motiva",
-    "tipo_dado": "Bilhetagem",
-    "tipo_botao": "Dataverse",
-    "nome_botao": "Dataverse",
-    "titulo": "Embarques por Modo de Integração",
-    "texto_apoio": "Base de dados acadêmica com informações de bilhetagem organizadas para pesquisa e análise.",
-    "data": [
-      {
-        "link": "Missing link (dataverse)"
-      }
-    ]
-  },
-  {
-    "grupo_cidade": "Outros Parceiros",
-    "nome_cidade": "Motiva",
-    "tipo_dado": "Outros Arquivos Vetoriais",
-    "tipo_botao": "Dataverse",
-    "nome_botao": "Dataverse",
-    "titulo": "Linhas e Estações Metroferroviárias",
-    "texto_apoio": "Base de dados acadêmica com arquivos organizados para pesquisa e análise.",
-    "data": [
-      {
-        "link": "Missing link (dataverse)"
-      }
-    ]
-  },
-  {
-    "grupo_cidade": "Outros Parceiros",
-    "nome_cidade": "Motiva",
-    "tipo_dado": "Bilhetagem",
-    "tipo_botao": "Fonte",
-    "nome_botao": "Prefeitura",
-    "texto_apoio": "Site oficial da prefeitura para consulta ou requisição dos dados de bilhetagem.",
-    "data": [
-      {
-        "link": "https://www.motiva.com.br"
-      }
-    ]
-  },
-  {
-    "grupo_cidade": "Dados Abertos",
-    "nome_cidade": "Fortaleza",
-    "tipo_dado": "Bilhetagem",
-    "tipo_botao": "Dataverse",
-    "nome_botao": "Dataverse",
-    "texto_apoio": "Base de dados acadêmica com informações de bilhetagem organizadas para pesquisa e análise.",
-    "data": [
-      {
-        "link": "Missing link (dataverse)"
-      }
-    ]
-  },
-  {
     "grupo_cidade": "Dados Abertos",
     "nome_cidade": "São Paulo",
     "tipo_dado": "Bilhetagem",
@@ -4407,33 +4652,7 @@
   },
   {
     "grupo_cidade": "Dados Abertos",
-    "nome_cidade": "Fortaleza",
-    "tipo_dado": "Bilhetagem",
-    "tipo_botao": "Fonte",
-    "nome_botao": "Dados Abertos",
-    "texto_apoio": "Dados originais de bilhetagem eletrônica disponibilizados em portal de dados abertos da administração municipal.",
-    "data": [
-      {
-        "link": "https://dados.fortaleza.ce.gov.br"
-      }
-    ]
-  },
-  {
-    "grupo_cidade": "Dados Abertos",
     "nome_cidade": "São Paulo",
-    "tipo_dado": "Bilhetagem",
-    "tipo_botao": "Geoportal",
-    "nome_botao": "GeoPortal",
-    "texto_apoio": "Acesso a mapas interativos e camadas geográficas relacionadas ao tema. Ideal para explorar os dados espacializados no território.",
-    "data": [
-      {
-        "link": "Missing link (geoportal)"
-      }
-    ]
-  },
-  {
-    "grupo_cidade": "Dados Abertos",
-    "nome_cidade": "Fortaleza",
     "tipo_dado": "Bilhetagem",
     "tipo_botao": "Geoportal",
     "nome_botao": "GeoPortal",
@@ -4450,10 +4669,11 @@
     "tipo_dado": "GTFS",
     "tipo_botao": "Dataverse",
     "nome_botao": "Dataverse",
+    "titulo": "GTFS",
     "texto_apoio": "Base de dados acadêmica com informações de GTFS organizadas para pesquisa e análise.",
     "data": [
       {
-        "link": "Missing link (dataverse)"
+        "link": "https://doi.org/10.60873/FK2/FGCOQC"
       }
     ]
   },
@@ -4551,123 +4771,6 @@
   {
     "grupo_cidade": "Dados Abertos",
     "nome_cidade": "São Paulo",
-    "tipo_dado": "Outros Arquivos Vetoriais",
-    "tipo_botao": "Geoportal",
-    "nome_botao": "GeoPortal",
-    "texto_apoio": "Acesso a mapas interativos e camadas geográficas relacionadas ao tema. Ideal para explorar os dados espacializados no território.",
-    "data": [
-      {
-        "link": "Missing link (geoportal)"
-      }
-    ]
-  },
-  {
-    "grupo_cidade": "Dados Abertos",
-    "nome_cidade": "Fortaleza",
-    "tipo_dado": "GTFS",
-    "tipo_botao": "Dataverse",
-    "nome_botao": "Dataverse",
-    "texto_apoio": "Base de dados acadêmica com informações de GTFS organizadas para pesquisa e análise.",
-    "data": [
-      {
-        "link": "Missing link (dataverse)"
-      }
-    ]
-  },
-  {
-    "grupo_cidade": "Dados Abertos",
-    "nome_cidade": "Fortaleza",
-    "tipo_dado": "GTFS",
-    "tipo_botao": "Fonte",
-    "nome_botao": "Dados Abertos",
-    "texto_apoio": "Dados originais GTFS do transporte público disponibilizados em portal de dados abertos da administração municipal.",
-    "data": [
-      {
-        "link": "https://dados.fortaleza.ce.gov.br"
-      }
-    ]
-  },
-  {
-    "grupo_cidade": "Dados Abertos",
-    "nome_cidade": "Fortaleza",
-    "tipo_dado": "GTFS",
-    "tipo_botao": "Geoportal",
-    "nome_botao": "GeoPortal",
-    "texto_apoio": "Acesso a mapas interativos e camadas geográficas relacionadas ao tema. Ideal para explorar os dados espacializados no território.",
-    "data": [
-      {
-        "link": "Missing link (geoportal)"
-      }
-    ]
-  },
-  {
-    "grupo_cidade": "Dados Abertos",
-    "nome_cidade": "Fortaleza",
-    "tipo_dado": "GPS Embarcados",
-    "tipo_botao": "Dataverse",
-    "nome_botao": "Dataverse",
-    "texto_apoio": "Base de dados acadêmica com amostra dos dados de GPS organizada para pesquisa e análise.",
-    "data": [
-      {
-        "link": "Missing link (dataverse)"
-      }
-    ]
-  },
-  {
-    "grupo_cidade": "Dados Abertos",
-    "nome_cidade": "Fortaleza",
-    "tipo_dado": "GPS Embarcados",
-    "tipo_botao": "Fonte",
-    "nome_botao": "Dados Abertos",
-    "texto_apoio": "Dados originais de GPS embarcados disponibilizados em portal de dados abertos da administração municipal.",
-    "data": [
-      {
-        "link": "https://dados.fortaleza.ce.gov.br"
-      }
-    ]
-  },
-  {
-    "grupo_cidade": "Dados Abertos",
-    "nome_cidade": "Fortaleza",
-    "tipo_dado": "GPS Embarcados",
-    "tipo_botao": "Geoportal",
-    "nome_botao": "GeoPortal",
-    "texto_apoio": "Acesso a mapas interativos e camadas geográficas relacionadas ao tema. Ideal para explorar os dados espacializados no território.",
-    "data": [
-      {
-        "link": "Missing link (geoportal)"
-      }
-    ]
-  },
-  {
-    "grupo_cidade": "Dados Abertos",
-    "nome_cidade": "Fortaleza",
-    "tipo_dado": "Outros Arquivos Vetoriais",
-    "tipo_botao": "Dataverse",
-    "nome_botao": "Dataverse",
-    "texto_apoio": "Base de dados acadêmica com arquivos organizados para pesquisa e análise.",
-    "data": [
-      {
-        "link": "Missing link (dataverse)"
-      }
-    ]
-  },
-  {
-    "grupo_cidade": "Dados Abertos",
-    "nome_cidade": "Fortaleza",
-    "tipo_dado": "Outros Arquivos Vetoriais",
-    "tipo_botao": "Fonte",
-    "nome_botao": "Dados Abertos",
-    "texto_apoio": "Outros arquivos vetoriais e dados geográficos complementares disponibilizados em portal de dados abertos municipal.",
-    "data": [
-      {
-        "link": "https://dados.fortaleza.ce.gov.br"
-      }
-    ]
-  },
-  {
-    "grupo_cidade": "Dados Abertos",
-    "nome_cidade": "Fortaleza",
     "tipo_dado": "Outros Arquivos Vetoriais",
     "tipo_botao": "Geoportal",
     "nome_botao": "GeoPortal",
