@@ -18,7 +18,7 @@ const videosData: VideoData[] = [
   {
     id: 1,
     image: aula1,
-    title: "Transporte público: Professor Rodrigo Tortoriello",
+    title: "Transporte Público - Rodrigo Tortoriello",
     date: "2025",
     format: "Aula",
     href:"https://www.youtube.com/watch?v=THjcpBcWXVc&list=PLw0ygoHfe_jMnF_9uHlZTxwOpOpl1Mfvb&index=17&t=37s&ab_channel=Insper"
@@ -26,7 +26,7 @@ const videosData: VideoData[] = [
   {
     id: 2,
     image: aula2,
-    title: "Explorando a Mobilidade Ativa: Professora Helena Coelho",
+    title: "Mobilidade Ativa - Helena Carvalho Coelho",
     date: "2025",
     format: "Aula",
     href:"https://www.youtube.com/watch?v=xJjdg5mv4LA&list=PLw0ygoHfe_jMnF_9uHlZTxwOpOpl1Mfvb&index=18&t=48s&ab_channel=Insper"
@@ -34,7 +34,7 @@ const videosData: VideoData[] = [
   {
     id: 3,
     image: aula3,
-    title: "Evento realizado pelo Banco de Desenvolvimento da Am.Latina e Caribe/CAF e pelo Banco Interamericano de Desenvolvimento/BID",
+    title: "Economia do transporte - Flávio Chévis",
     date: "2025",
     format: "Aula",
     href:"https://www.youtube.com/watch?v=r-KXgkDMwMs&list=PLw0ygoHfe_jMnF_9uHlZTxwOpOpl1Mfvb&index=19&t=248s&ab_channel=Insper"
@@ -42,7 +42,7 @@ const videosData: VideoData[] = [
   {
     id: 4,
     image: aula4,
-    title: "Apresentação do Observatório Nac. de Mobilidade Sustentável para a comunidade do Rio de Janeiro",
+    title: "Logística urbana - Fernando Picasso",
     date: "2025",
     format: "Aula",
     href:"https://www.youtube.com/watch?v=rCcztslulJY&list=PLw0ygoHfe_jMnF_9uHlZTxwOpOpl1Mfvb&index=20&t=2953s&ab_channel=Insper"
