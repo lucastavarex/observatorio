@@ -25,7 +25,7 @@ interface SlideData {
 const slides: SlideData[] = [
   {
     id: 1,
-    videoSrc: "/videos/video1.mp4",
+    videoSrc: "/videos/v1.mp4",
     imageSrc: "/images/city-aerial.jpg",
     title: "Mobilidade inteligente  e humana para um Brasil mais conectado e sustentável",
     subtitle: "Indicadores e evidências para transformar a mobilidade urbana brasileira",
@@ -33,15 +33,15 @@ const slides: SlideData[] = [
   },
   {
     id: 2,
-    videoSrc: "/videos/video2.mp4",
+    videoSrc: "/videos/v2.mp4",
     imageSrc: "/images/transportation.jpg",
     title: "Evento - Gestão metropolitana: desafios e oportunidades",
     subtitle: "Desafio da implementação das autoridades metropolitanas no Brasil",
-    link: "/evento-gestao-metropolitana"
+    link: "https://youtu.be/F45qQPCDtJk?si=FwHsDuCksT7Ieco8"
   },
   {
     id: 3,
-    videoSrc: "/videos/video3.mp4",
+    videoSrc: "/videos/v3.mp4",
     imageSrc: "/images/sustainable-city.jpg",
     title: "Criar uma ampla base de dados de mobilidade urbana e conectar cidades",
     subtitle: "Construir caminhos para a democratização e acesso aos dados de mobilidade urbana",
@@ -49,11 +49,11 @@ const slides: SlideData[] = [
   },
   {
     id: 4,
-    videoSrc: "/videos/video4.mp4",
+    videoSrc: "/videos/v4.mp4",
     imageSrc: "/images/sustainable-city.jpg",
     title: "Insper Cidades na mobilidade: Urbanismo social",
     subtitle: "A transformação do território a partir do urbanismo social sob o olhar da mobilidade urbana",
-    link: "https://insper-my.sharepoint.com/personal/laboratorioarqfuturo_insper_edu_br/_layouts/15/stream.aspx?id=%2Fpersonal%2Flaboratorioarqfuturo%5Finsper%5Fedu%5Fbr%2FDocuments%2F8%2E%20Produ%C3%A7%C3%B5es%20de%20Video%20%2D%20Laborat%C3%B3rio%20Arq%2EFuturo%20de%20Cidades%2FVideocast%20%2D%20Observat%C3%B3rio%2FINSPER%20MOBILIDADE%20URBANA%202025%2FEPIS%C3%93DIOS%20FINALIZADOS%20PARA%20APROVA%C3%87%C3%83O%2FUrbanismo%20Social%2FURBANISMO%5FSOCIAL%5FV02%2Emp4&referrer=StreamWebApp%2EWeb&referrerScenario=AddressBarCopied%2Eview%2E383bc817%2De1c5%2D48bc%2Db163%2D539798799b09"
+    link: "https://www.youtube.com/watch?v=TG8uj64SAKo&t=40s"
   },
 
 ]
@@ -71,12 +71,12 @@ export function HeroSwiper() {
     // Handle loop properly by using realIndex instead of activeIndex
     setActiveIndex(swiper.realIndex)
     setProgress(0) // Reset progress when slide changes
-    
+
     // Clear any existing interval
     if (progressIntervalRef.current) {
       clearInterval(progressIntervalRef.current)
     }
-    
+
     // Start progress animation after a small delay to ensure state is updated
     setTimeout(() => {
       if (isVisible) {
@@ -91,15 +91,15 @@ export function HeroSwiper() {
       clearInterval(progressIntervalRef.current)
       progressIntervalRef.current = null
     }
-    
+
     const startTime = Date.now()
     const duration = 10000 // 10 seconds
-    
+
     progressIntervalRef.current = setInterval(() => {
       const elapsed = Date.now() - startTime
       const newProgress = Math.min((elapsed / duration) * 100, 100)
       setProgress(newProgress)
-      
+
       if (newProgress >= 100) {
         if (progressIntervalRef.current) {
           clearInterval(progressIntervalRef.current)
@@ -143,7 +143,7 @@ export function HeroSwiper() {
       ([entry]) => {
         const visible = entry.isIntersecting
         setIsVisible(visible)
-        
+
         if (visible) {
           // Resume videos and progress when visible
           playAllVideos()
@@ -244,19 +244,18 @@ export function HeroSwiper() {
                     <source src={slide.videoSrc} type="video/mp4" />
                   </video>
                 ) : null}
-                
+
                 {/* Fallback Image Background */}
-                <div 
-                  className={`w-full h-full bg-cover bg-center ${
-                    slide.videoSrc ? 'hidden' : 'block'
-                  }`}
+                <div
+                  className={`w-full h-full bg-cover bg-center ${slide.videoSrc ? 'hidden' : 'block'
+                    }`}
                   style={{
-                    backgroundImage: slide.imageSrc 
-                      ? `url(${slide.imageSrc})` 
+                    backgroundImage: slide.imageSrc
+                      ? `url(${slide.imageSrc})`
                       : 'linear-gradient(135deg, #1f2937 0%, #111827 50%, #000000 100%)'
                   }}
                 />
-                
+
                 {/* Dark overlay */}
                 <div className="absolute inset-0 bg-black/50" />
               </div>
@@ -268,11 +267,11 @@ export function HeroSwiper() {
                     <h1 className="text-xl md:text-2xl lg:text-3xl font-medium text-white max-w-2xl leading-tight mb-4">
                       {slide.title}
                     </h1>
-                    
+
                     <p className="text-md md:text-xl text-white/90 leading-relaxed mb-6">
                       {slide.subtitle}
                     </p>
-                    
+
                     {/* Progress Bar and Navigation Controls - Mobile/Tablet */}
                     <div className="lg:hidden">
                       {/* Progress Bar Indicators */}
@@ -290,12 +289,11 @@ export function HeroSwiper() {
                             className="w-16 h-1 bg-white/20 hover:bg-white/30 transition-all duration-300 relative overflow-hidden"
                             aria-label={`Go to slide ${index + 1}`}
                           >
-                            <div 
-                              className={`h-full transition-all duration-75 ease-linear ${
-                                index === activeIndex 
-                                  ? 'bg-white/90' 
-                                  : 'bg-white/20'
-                              }`}
+                            <div
+                              className={`h-full transition-all duration-75 ease-linear ${index === activeIndex
+                                ? 'bg-white/90'
+                                : 'bg-white/20'
+                                }`}
                               style={{
                                 width: index === activeIndex ? `${progress}%` : '0%'
                               }}
@@ -303,7 +301,7 @@ export function HeroSwiper() {
                           </button>
                         ))}
                       </div>
-                      
+
                       {/* Navigation Controls */}
                       <div className="flex items-center gap-0">
                         <button
@@ -315,12 +313,12 @@ export function HeroSwiper() {
                           className="w-12 h-12 flex items-center justify-center bg-trasparent"
                           aria-label="Previous slide"
                         >
-                         <Image 
+                          <Image
                             width={24}
                             height={24}
-                            src={arrowLeft.src} 
-                            alt="Previous slide" 
-                            className="w-8 h-8 group-hover:scale-110 transition-transform" 
+                            src={arrowLeft.src}
+                            alt="Previous slide"
+                            className="w-8 h-8 group-hover:scale-110 transition-transform"
                           />
                         </button>
                         <button
@@ -332,12 +330,12 @@ export function HeroSwiper() {
                           className="w-12 h-12 flex items-center justify-center bg-transparent"
                           aria-label="Next slide"
                         >
-                          <Image 
+                          <Image
                             width={24}
                             height={24}
-                            src={arrowRight.src} 
-                            alt="Next slide" 
-                            className="w-8 h-8 group-hover:scale-110 transition-transform" 
+                            src={arrowRight.src}
+                            alt="Next slide"
+                            className="w-8 h-8 group-hover:scale-110 transition-transform"
                           />
                         </button>
                       </div>
@@ -350,77 +348,76 @@ export function HeroSwiper() {
         ))}
       </Swiper>
 
-             {/* Progress Bar and Navigation Controls - Desktop */}
-       <div className="absolute bottom-15 left-0 right-0 z-20 px-4 2xl:px-16 hidden lg:block">
-         <div className="flex items-center justify-between">
-           {/* Progress Bar Indicators */}
-           <div className="flex items-center gap-2">
-             {slides.map((_, index) => (
-               <button
-                 key={index}
-                 onClick={(e) => {
-                   e.preventDefault()
-                   e.stopPropagation()
-                   if (swiperRef.current) {
-                     swiperRef.current.swiper.slideTo(index)
-                   }
-                 }}
-                 className="w-16 h-1 bg-white/20 hover:bg-white/30 transition-all duration-300 relative overflow-hidden"
-                 aria-label={`Go to slide ${index + 1}`}
-               >
-                 <div 
-                   className={`h-full transition-all duration-75 ease-linear ${
-                     index === activeIndex 
-                       ? 'bg-white/90' 
-                       : 'bg-white/20'
-                   }`}
-                   style={{
-                     width: index === activeIndex ? `${progress}%` : '0%'
-                   }}
-                 />
-               </button>
-             ))}
-           </div>
-           
-           {/* Navigation Controls */}
-           <div className="flex items-center gap-0">
-             <button
-               onClick={(e) => {
-                 e.preventDefault()
-                 e.stopPropagation()
-                 handlePrevSlide()
-               }}
-               className="w-12 h-12  flex items-center justify-center transition-all duration-300 group"
-               aria-label="Previous slide"
-             >
-               <Image 
+      {/* Progress Bar and Navigation Controls - Desktop */}
+      <div className="absolute bottom-15 left-0 right-0 z-20 px-4 2xl:px-16 hidden lg:block">
+        <div className="flex items-center justify-between">
+          {/* Progress Bar Indicators */}
+          <div className="flex items-center gap-2">
+            {slides.map((_, index) => (
+              <button
+                key={index}
+                onClick={(e) => {
+                  e.preventDefault()
+                  e.stopPropagation()
+                  if (swiperRef.current) {
+                    swiperRef.current.swiper.slideTo(index)
+                  }
+                }}
+                className="w-16 h-1 bg-white/20 hover:bg-white/30 transition-all duration-300 relative overflow-hidden"
+                aria-label={`Go to slide ${index + 1}`}
+              >
+                <div
+                  className={`h-full transition-all duration-75 ease-linear ${index === activeIndex
+                    ? 'bg-white/90'
+                    : 'bg-white/20'
+                    }`}
+                  style={{
+                    width: index === activeIndex ? `${progress}%` : '0%'
+                  }}
+                />
+              </button>
+            ))}
+          </div>
+
+          {/* Navigation Controls */}
+          <div className="flex items-center gap-0">
+            <button
+              onClick={(e) => {
+                e.preventDefault()
+                e.stopPropagation()
+                handlePrevSlide()
+              }}
+              className="w-12 h-12  flex items-center justify-center transition-all duration-300 group"
+              aria-label="Previous slide"
+            >
+              <Image
                 width={24}
                 height={24}
-                 src={arrowLeft.src} 
-                 alt="Previous slide" 
-                 className="w-8 h-8 group-hover:scale-110 transition-transform" 
-               />
-             </button>
-             <button
-               onClick={(e) => {
-                 e.preventDefault()
-                 e.stopPropagation()
-                 handleNextSlide()
-               }}
-               className="w-12 h-12  flex items-center justify-center transition-all duration-300 group"
-               aria-label="Next slide"
-             >
-               <Image 
+                src={arrowLeft.src}
+                alt="Previous slide"
+                className="w-8 h-8 group-hover:scale-110 transition-transform"
+              />
+            </button>
+            <button
+              onClick={(e) => {
+                e.preventDefault()
+                e.stopPropagation()
+                handleNextSlide()
+              }}
+              className="w-12 h-12  flex items-center justify-center transition-all duration-300 group"
+              aria-label="Next slide"
+            >
+              <Image
                 width={24}
                 height={24}
-                 src={arrowRight.src} 
-                 alt="Next slide" 
-                 className="w-8 h-8 group-hover:scale-110 transition-transform" 
-               />
-             </button>
-           </div>
-         </div>
-       </div>
+                src={arrowRight.src}
+                alt="Next slide"
+                className="w-8 h-8 group-hover:scale-110 transition-transform"
+              />
+            </button>
+          </div>
+        </div>
+      </div>
 
 
     </section>

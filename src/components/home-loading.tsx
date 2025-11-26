@@ -13,10 +13,10 @@ export function HomeLoading({ onLoadingComplete }: HomeLoadingProps) {
   useEffect(() => {
     // Preload critical home page images while loading is shown
     const preloadImages = [
-      "/videos/video1.mp4",
-      "/videos/video2.mp4", 
-      "/videos/video3.mp4",
-      "/videos/video4.mp4"
+      "/videos/v1.mp4",
+      "/videos/v2.mp4",
+      "/videos/v3.mp4",
+      "/videos/v4.mp4"
     ]
 
     // Start preloading images
