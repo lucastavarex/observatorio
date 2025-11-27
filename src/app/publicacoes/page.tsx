@@ -6,6 +6,7 @@ import publicacao2 from "@/app/assets/images/publicacao2.png";
 import publicacao3 from "@/app/assets/images/publicacao3.png";
 import publicacao4 from "@/app/assets/images/publicacao4.png";
 import publicacao5 from "@/app/assets/images/publicacao5.png";
+import economia_azul from "@/app/assets/images/economia_azul.png";
 import { Header } from "@/components/header";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
@@ -70,16 +71,31 @@ const publications: Publication[] = [
     tipo: "policy_paper",
     link: "https://repositorio.insper.edu.br/entities/publication/36ec3e70-30bd-4c24-92bb-515e18f233be"
   },
- 
+
   {
     id: "7",
-    title: "Coalizão dos transportes: como tornar o setor de transportes um contribuidor ativo para a redução das emissões brasileiras (Relatório Síntese)",
-    description: "Como tornar o setor de transporte um contribuidor ativo para a redução das emissões brasileiras.",
+    title: "Estudo Completo — Coalizão dos transportes: como tornar o setor de transportes um contribuidor ativo para a redução das emissões brasileiras.",
+    image: publicacao4,
+    alt: "Avaliação do impacto da Faixa Azul nos sinistros de trânsito em São Paulo",
+    tipo: "livros",
+    link: "https://insper-my.sharepoint.com/shared?listurl=https%3A%2F%2Finsper%2Dmy%2Esharepoint%2Ecom%2Fpersonal%2Flaboratorioarqfuturo%5Finsper%5Fedu%5Fbr%2FDocuments&id=%2Fpersonal%2Flaboratorioarqfuturo%5Finsper%5Fedu%5Fbr%2FDocuments%2F4%2E%20N%C3%BAcleos%20%2D%20Laborat%C3%B3rio%20Arq%2E%20Futuro%20de%20Cidades%2FN%C3%BAcleo%20Mobilidade%20Urbana%2F400%2E087%20%2D%20Observat%C3%B3rio%20CCR%20de%20Mobilidade%20Urbana%2FSite%20%2D%20Portal%20Observat%C3%B3rio%2FImagens%2FPublica%C3%A7%C3%B5es%2FEstudo%2DCompleto%2DCoalizao%2Ddos%2DTransportes%2D1%2D1%2Epdf&parent=%2Fpersonal%2Flaboratorioarqfuturo%5Finsper%5Fedu%5Fbr%2FDocuments%2F4%2E%20N%C3%BAcleos%20%2D%20Laborat%C3%B3rio%20Arq%2E%20Futuro%20de%20Cidades%2FN%C3%BAcleo%20Mobilidade%20Urbana%2F400%2E087%20%2D%20Observat%C3%B3rio%20CCR%20de%20Mobilidade%20Urbana%2FSite%20%2D%20Portal%20Observat%C3%B3rio%2FImagens%2FPublica%C3%A7%C3%B5es&shareLink=1&ga=1"
+  },
+  {
+    id: "8",
+    title: "Relatório Síntese — Coalizão dos transportes: como tornar o setor de transportes um contribuidor ativo para a redução das emissões brasileiras",
     image: publi_princ_conc,
     alt: "Avaliação do impacto da Faixa Azul nos sinistros de trânsito em São Paulo",
     tipo: "livros",
-    link: "https://insper-my.sharepoint.com/:b:/g/personal/laboratorioarqfuturo_insper_edu_br/EbQUkLDHw9BKsRjutjw0kfABvgvfNXh3QfvGciMOU2ULbQ?e=rB6tWf"
-  }
+    link: "https://insper-my.sharepoint.com/personal/laboratorioarqfuturo_insper_edu_br/Documents/4. Núcleos - Laboratório Arq. Futuro de Cidades/Núcleo Mobilidade Urbana/400.087 - Observatório CCR de Mobilidade Urbana/Site - Portal Observatório/../../../../../../../:b:/g/personal/laboratorioarqfuturo_insper_edu_br/EbQUkLDHw9BKsRjutjw0kfABvgvfNXh3QfvGciMOU2ULbQ?e=rB6tWf"
+  },
+  {
+    id: "9",
+    title: "Economia Azul e Cidades",
+    image: economia_azul,
+    alt: "Avaliação do impacto da Faixa Azul nos sinistros de trânsito em São Paulo",
+    tipo: "livros",
+    link: "https://www.insper.edu.br/pt/conteudos/cidades/livro-sobre-economia-azul-baseado-em-curso-de-formacao-executiva-do-insper-sera-lancado-em-seminario-no-rio-de-janeiro"
+  },
 ];
 
 export default function Publicacoes() {
@@ -106,8 +122,8 @@ export default function Publicacoes() {
   };
 
   // Filter publications based on active filter
-  const filteredPublications = activeFilter === "todos" 
-    ? publications 
+  const filteredPublications = activeFilter === "todos"
+    ? publications
     : publications.filter(pub => pub.tipo === activeFilter);
 
   return (
@@ -123,30 +139,30 @@ export default function Publicacoes() {
             </h2>
             <p className="text-4xl text-gray-400 leading-none font-medium">que gera impacto</p>
           </div>
-          <div className="hidden md:block h-[1.2px] flex-grow mx-16 bg-gray-300"/>
+          <div className="hidden md:block h-[1.2px] flex-grow mx-16 bg-gray-300" />
           <div className="hidden md:block w-4 h-4 bg-[#779854]" />
         </div>
-        
+
         {/* Filter Buttons */}
         <div className="flex flex-wrap justify-left md:justify-start gap-4 md:gap-4 pb-4">
-          <Button 
+          <Button
             variant="secondary"
             onClick={() => handleFilterClick("todos")}
-            className={`${activeFilter === "todos" ?  'bg-[#EAEAEA] text-black hover:bg-[#EAEAEA]' : 'text-black/40 hover:text-black hover:bg-[#EAEAEA]'}`}
+            className={`${activeFilter === "todos" ? 'bg-[#EAEAEA] text-black hover:bg-[#EAEAEA]' : 'text-black/40 hover:text-black hover:bg-[#EAEAEA]'}`}
           >
             Todos
           </Button>
-          <Button 
+          <Button
             variant="secondary"
             onClick={() => handleFilterClick("livros")}
-            className={`${activeFilter === "livros" ?  'bg-[#EAEAEA] text-black hover:bg-[#EAEAEA]' : 'text-black/40 hover:text-black hover:bg-[#EAEAEA]'}`}
+            className={`${activeFilter === "livros" ? 'bg-[#EAEAEA] text-black hover:bg-[#EAEAEA]' : 'text-black/40 hover:text-black hover:bg-[#EAEAEA]'}`}
           >
             Livros
           </Button>
-          <Button 
+          <Button
             variant="secondary"
             onClick={() => handleFilterClick("policy_paper")}
-            className={`${activeFilter === "policy_paper" ?  'bg-[#EAEAEA] text-black hover:bg-[#EAEAEA]' : 'text-black/40 hover:text-black hover:bg-[#EAEAEA]'}`}
+            className={`${activeFilter === "policy_paper" ? 'bg-[#EAEAEA] text-black hover:bg-[#EAEAEA]' : 'text-black/40 hover:text-black hover:bg-[#EAEAEA]'}`}
           >
             Policy Papers
           </Button>
@@ -163,15 +179,15 @@ export default function Publicacoes() {
         <div className="flex flex-wrap justify-center md:justify-start gap-10 md:gap-6">
           {filteredPublications.map((publication) => (
             <div key={publication.id} className="flex flex-col items-start text-left max-w-[320px] group">
-              <div className="relative overflow-hidden ">
+              <div className="relative overflow-hidden w-[320px] h-[480px]">
                 <Link target="_blank" href={publication.link || ""}>
-                <Image
-                  src={publication.image}
-                  alt={publication.alt}
-                  width={320}
-                  height={480}
-                  className=" transition-transform duration-300 group-hover:scale-105"
-                />
+                  <Image
+                    src={publication.image}
+                    alt={publication.alt}
+                    width={320}
+                    height={480}
+                    className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                  />
                 </Link>
               </div>
               <h3 className="mt-4 font-regular text-sm">{publication.title}</h3>
