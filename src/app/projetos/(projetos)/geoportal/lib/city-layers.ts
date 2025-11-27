@@ -15,8 +15,8 @@ export interface CityLayersConfig {
 export const cityLayersConfig: CityLayersConfig = {
   "Brasil": [
     {
-      id: "tarifa_zero", 
-      name: "Tarifa Zero", 
+      id: "tarifa_zero",
+      name: "Tarifa Zero",
       description: "Municípios com tarifa zero integral, parcial por dias específicos (domingos/feriados) ou parcial por área geográfica (linhas específicas). Dados atualizados até outubro de 2025. Total de 134 municípios com tarifa zero integral e 8 com tarifa zero parcial.",
       tilesetId: "observatorio-nacional.0bzbtkfg",
       sourceLayer: "insper_tarifa_zero_municipios-dwws9i",
@@ -25,37 +25,37 @@ export const cityLayersConfig: CityLayersConfig = {
     }
   ],
   "Rio de Janeiro": [
-    { 
-      id: "renda", 
-      name: "Renda", 
-      description: "Renda per capita por bairro",
+    {
+      id: "renda-rio-4ks1k8",
+      name: "Renda Média",
+      description: "Renda domiciliar média em grid 500x500m (2010, atualizada pelo IPCA para R$ de 2024)",
       tilesetId: "observatorio-nacional.3pcgkauc",
       sourceLayer: "renda_rio-4ks1k8",
       layerType: "fill",
       hasCustomStyle: true
     },
-    { 
-      id: "rio_rotas_onibus", 
-      name: "Rotas de Ônibus", 
+    {
+      id: "rio_rotas_onibus",
+      name: "Rotas de Ônibus",
       description: "Traçado das linhas de ônibus municipais.",
       tilesetId: "observatorio-nacional.28tgojsu",
       sourceLayer: "rio_rotas_onibus",
       layerType: "fill",
       hasCustomStyle: true
     },
-    { 
-      id: "heatmap-bilhetagem", 
-      name: "Heatmap Embarques", 
+    {
+      id: "heatmap-bilhetagem",
+      name: "Heatmap Embarques",
       description: "Contagem de embarques em grid 500x500m (agosto/2023).",
       tilesetId: "observatorio-nacional.6mbl4ycd",
       sourceLayer: "heatmap_bilhetagem_rio-59w42o",
       layerType: "fill",
       hasCustomStyle: true
     },
-    { 
-      id: "population-rio", 
-      name: "Densidade Populacional", 
-      description: "Densidade populacional em grid 500x500m",
+    {
+      id: "populacao_rio-19sjpd",
+      name: "Densidade Populacional",
+      description: "Contagem da população em grid 500x500m (2022).",
       tilesetId: "observatorio-nacional.4sg21k6q",
       sourceLayer: "populacao_rio-19sjpd",
       layerType: "fill",
@@ -63,18 +63,18 @@ export const cityLayersConfig: CityLayersConfig = {
     },
   ],
   "Recife": [
-    { 
-      id: "populacao-rec-08mi0e", 
-      name: "Densidade Populacional", 
+    {
+      id: "populacao-rec-08mi0e",
+      name: "Densidade Populacional",
       description: "Contagem da população em grid 500x500m (2022).",
       tilesetId: "observatorio-nacional.5f7qyfuo",
       sourceLayer: "populacao_rec-08mi0e",
       layerType: "fill",
       hasCustomStyle: true
     },
-    { 
-      id: "renda-rec-bcpy1l", 
-      name: "Renda Média", 
+    {
+      id: "renda-rec-bcpy1l",
+      name: "Renda Média",
       description: "Renda domiciliar média em grid 500x500m (2010, atualizada pelo IPCA para R$ de 2024)",
       tilesetId: "observatorio-nacional.8kla8qks",
       sourceLayer: "renda_rec-bcpy1l",
@@ -92,18 +92,18 @@ export const cityLayersConfig: CityLayersConfig = {
     },
   ],
   "Belo Horizonte": [
-    { 
-      id: "populacao-a5w87s", 
-      name: "Densidade Populacional", 
+    {
+      id: "populacao-a5w87s",
+      name: "Densidade Populacional",
       description: "Contagem da população em grid 500x500m (2022).",
       tilesetId: "observatorio-nacional.a9leemjp",
       sourceLayer: "populacao-a5w87s",
       layerType: "fill",
       hasCustomStyle: true
     },
-    { 
-      id: "renda-42uz5h", 
-      name: "Renda Média", 
+    {
+      id: "renda-42uz5h",
+      name: "Renda Média",
       description: "Renda domiciliar média em grid 500x500m (2010, atualizada pelo IPCA para R$ de 2024)",
       tilesetId: "observatorio-nacional.64v29dp1",
       sourceLayer: "renda-42uz5h",
@@ -119,7 +119,7 @@ export const cityLayersConfig: CityLayersConfig = {
       layerType: "fill",
       hasCustomStyle: true
     },
-    { 
+    {
       id: "bhe_ciclovia",
       name: "Ciclovia",
       description: "Traçado das ciclovias municipais.",
@@ -128,7 +128,8 @@ export const cityLayersConfig: CityLayersConfig = {
       layerType: "line",
       hasCustomStyle: true
     },
-    { id: "bhe_rotas_onibus", name: "Rotas de Ônibus", 
+    {
+      id: "bhe_rotas_onibus", name: "Rotas de Ônibus",
       description: "Traçado das linhas de ônibus municipais.",
       tilesetId: "observatorio-nacional.6tx22262",
       sourceLayer: "bhe_rotas_onibus",
@@ -405,7 +406,7 @@ export const cityLayersConfig: CityLayersConfig = {
     },
   ],
   "São Paulo": [
-    { 
+    {
       id: "spo_spo_ciclovias",
       name: "Ciclovia",
       description: "Traçado das ciclovias municipais.",
