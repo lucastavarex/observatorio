@@ -27,7 +27,7 @@ export default function Cursos() {
           {courses.map((course: Course) => (
             <div
               key={course.id}
-              className="relative overflow-hidden group h-[400px] cursor-pointer"
+              className={`relative overflow-hidden group h-[400px] ${course.href ? 'cursor-pointer' : ''}`}
               onClick={() => {
                 if (course.href) {
                   window.open(course.href, '_blank', 'noopener,noreferrer');
@@ -37,7 +37,7 @@ export default function Cursos() {
               <Image
                 src={course.image}
                 alt={course.title}
-                className="object-cover transition-transform duration-300 group-hover:scale-105"
+                className={`object-cover transition-transform duration-300 ${course.href ? 'group-hover:scale-105' : ''}`}
                 fill
                 sizes="(max-width: 768px) 100vw, 50vw"
               />
@@ -48,9 +48,11 @@ export default function Cursos() {
                 <p className="text-gray-300 text-sm mt-2">
                   {course.description}
                 </p>
-                <div className="absolute bottom-4 right-4">
-                  <ArrowRight className="text-white" size={20} />
-                </div>
+                {course.href && (
+                  <div className="absolute bottom-4 right-4">
+                    <ArrowRight className="text-white" size={20} />
+                  </div>
+                )}
               </div>
             </div>
           ))}
