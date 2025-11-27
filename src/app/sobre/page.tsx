@@ -263,7 +263,7 @@ const equipeInsperCidades: TeamMember[] = [
     id: '10',
     name: 'Juan Sebastian',
     role: 'Coordenador',
-    image: juan_sebastian, 
+    image: juan_sebastian,
     email: 'juansbf@insper.edu.br'
   },
   {
@@ -293,7 +293,7 @@ const equipeDeDesenvolvimento: TeamMember[] = [
   {
     id: '1',
     name: 'Caio Jacintho',
-    role: 'Coordenador',
+    role: 'Designer',
     image: caio_jacintho,
     email: 'caiojacintho@insper.edu.br'
   },
@@ -311,11 +311,11 @@ const equipeDeDesenvolvimento: TeamMember[] = [
     image: lucas_tavares,
     email: 'lucas.tavares@insper.edu.br'
   }
-  
+
 ]
 
 export default function Sobre() {
-   const [isHovering, setIsHovering] = useState(false)
+  const [isHovering, setIsHovering] = useState(false)
   const [cursorPos, setCursorPos] = useState({ x: 0, y: 0 })
 
   useEffect(() => {
@@ -349,7 +349,7 @@ export default function Sobre() {
       {/* About Section */}
       <section className="py-16 px-4 2xl:px-16">
         <div className="mx-auto">
-           {/* Horizontal Separator */}
+          {/* Horizontal Separator */}
           <div className="h-[1px] w-full bg-gray-200 mb-12"></div>
           {/* Origem Section */}
           <div className="grid grid-cols-1 lg:grid-cols-6 gap-8 lg:gap-16 mb-12">
@@ -362,7 +362,7 @@ export default function Sobre() {
                   Um evento realizado no Insper, em São Paulo, marcou o lançamento do Observatório Nacional de Mobilidade Sustentável, em setembro de 2023.
                 </p>
                 <p className="text-gray-700 leading-relaxed">
-                  Trata-se de uma iniciativa do Centro de Estudos das Cidades - Laboratório Arq. Futuro do Insper - então chamado Laboratório Arq. Futuro de Cidades do Insper -, no âmbito do seu núcleo de Mobilidade Urbana, em parceria com o Grupo Motiva, cujo objetivo é coletar dados de fontes públicas e privadas, gerenciando essas informações e produzindo pesquisas, artigos e reportes consistentes, que sejam úteis para os tomadores decisão do ecossistema de mobilidade no território nacional.
+                  Trata-se de uma iniciativa do Centro de Estudos das Cidades - Laboratório Arq. Futuro do Insper - então chamado Laboratório Arq. Futuro de Cidades do Insper -, no âmbito do seu núcleo de Mobilidade Urbana, em parceria com o Motiva, cujo objetivo é coletar dados de fontes públicas e privadas, gerenciando essas informações e produzindo pesquisas, artigos e reportes consistentes, que sejam úteis para os tomadores decisão do ecossistema de mobilidade no território nacional.
                 </p>
               </div>
             </div>
@@ -413,11 +413,10 @@ export default function Sobre() {
         </div>
       </section>
 
-        {/* Custom cursor */}
+      {/* Custom cursor */}
       <div
-        className={`fixed pointer-events-none transform -translate-x-1/2 -translate-y-1/2 z-50 transition-opacity duration-200 ${
-          isHovering ? 'opacity-100' : 'opacity-0'
-        }`}
+        className={`fixed pointer-events-none transform -translate-x-1/2 -translate-y-1/2 z-50 transition-opacity duration-200 ${isHovering ? 'opacity-100' : 'opacity-0'
+          }`}
         style={{
           left: `${cursorPos.x}px`,
           top: `${cursorPos.y}px`,
@@ -432,7 +431,7 @@ export default function Sobre() {
       <section className="py-16 mx-auto pt-30">
         <div className="mx-auto">
           <h2 className="lg:absolute text-xl font-medium text-gray-900 px-4 2xl:px-16 pb-6 lg:pb-0">Equipe Observatório</h2>
-          <div 
+          <div
             className="px-4 2xl:px-16 pb-4 overflow-x-hidden ml-0! pl-4! md:ml-0! lg:ml-100!"
             onMouseEnter={() => setIsHovering(true)}
             onMouseLeave={() => setIsHovering(false)}
@@ -474,11 +473,10 @@ export default function Sobre() {
           </div>
         </div>
       </section>
-        {/* Custom cursor */}
+      {/* Custom cursor */}
       <div
-        className={`fixed pointer-events-none transform -translate-x-1/2 -translate-y-1/2 z-50 transition-opacity duration-200 ${
-          isHovering ? 'opacity-100' : 'opacity-0'
-        }`}
+        className={`fixed pointer-events-none transform -translate-x-1/2 -translate-y-1/2 z-50 transition-opacity duration-200 ${isHovering ? 'opacity-100' : 'opacity-0'
+          }`}
         style={{
           left: `${cursorPos.x}px`,
           top: `${cursorPos.y}px`,
@@ -493,7 +491,7 @@ export default function Sobre() {
       <section className="py-16 mx-auto">
         <div className="mx-auto">
           <h2 className="lg:absolute text-xl font-medium text-gray-900 px-4 2xl:px-16 pb-6 lg:pb-0">Conselho Gestor - Observatório</h2>
-          <div 
+          <div
             className="px-4 2xl:px-16 pb-4 overflow-x-hidden ml-0! pl-4! md:ml-0! lg:ml-100!"
             onMouseEnter={() => setIsHovering(true)}
             onMouseLeave={() => setIsHovering(false)}
@@ -535,11 +533,10 @@ export default function Sobre() {
           </div>
         </div>
       </section>
-        {/* Custom cursor */}
+      {/* Custom cursor */}
       <div
-        className={`fixed pointer-events-none transform -translate-x-1/2 -translate-y-1/2 z-50 transition-opacity duration-200 ${
-          isHovering ? 'opacity-100' : 'opacity-0'
-        }`}
+        className={`fixed pointer-events-none transform -translate-x-1/2 -translate-y-1/2 z-50 transition-opacity duration-200 ${isHovering ? 'opacity-100' : 'opacity-0'
+          }`}
         style={{
           left: `${cursorPos.x}px`,
           top: `${cursorPos.y}px`,
@@ -554,7 +551,7 @@ export default function Sobre() {
       <section className="py-16 mx-auto">
         <div className="mx-auto">
           <h2 className="lg:absolute text-xl font-medium text-gray-900 px-4 2xl:px-16 pb-6 lg:pb-0">Equipe Insper Cidades</h2>
-          <div 
+          <div
             className="px-4 2xl:px-16 pb-4 overflow-x-hidden ml-0! pl-4! md:ml-0! lg:ml-100!"
             onMouseEnter={() => setIsHovering(true)}
             onMouseLeave={() => setIsHovering(false)}
@@ -600,45 +597,24 @@ export default function Sobre() {
       <section className="py-16 mx-auto pb-40">
         <div className="mx-auto">
           <h2 className="lg:absolute text-xl font-medium text-gray-900 px-4 2xl:px-16 pb-6 lg:pb-0">Equipe de Desenvolvimento</h2>
-          <div 
-            className="px-4 2xl:px-16 pb-4 overflow-x-hidden ml-0! pl-4! md:ml-0! lg:ml-100!"
-            onMouseEnter={() => setIsHovering(true)}
-            onMouseLeave={() => setIsHovering(false)}
-          >
-            <Swiper
-              slidesPerView="auto"
-              spaceBetween={16}
-              freeMode={true}
-              grabCursor={false}
-              modules={[FreeMode]}
-              className="!overflow-visible"
-            >
+          <div className="px-4 2xl:px-16 pb-4 ml-0! pl-4! md:ml-0! lg:ml-100!">
+            <div className="flex flex-wrap gap-8">
               {equipeDeDesenvolvimento.map((member) => (
-                <SwiperSlide key={member.id} className="!w-[250px] md:!w-[350px] group relative">
-                  <div className="relative overflow-hidden h-[350px] w-[250px] md:h-[450px] md:w-[350px]">
-                    <Image
-                      src={member.image}
-                      alt={member.name}
-                      fill
-                      className="object-cover transition-transform duration-300 group-hover:scale-105 rounded-none"
-                    />
-                  </div>
-                  <div className="mt-4 text-left">
-                    <h3 className="text-lg font-semibold text-gray-900 mb-2">
-                      {member.name}
-                    </h3>
-                    <p className="text-sm text-gray-600 leading-relaxed">
-                      {member.role}
+                <div key={member.id} className="text-left">
+                  <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                    {member.name}
+                  </h3>
+                  <p className="text-sm text-gray-600 leading-relaxed">
+                    {member.role}
+                  </p>
+                  {member.email && (
+                    <p className="text-sm text-gray-500 mt-6">
+                      {member.email}
                     </p>
-                    {member.email && (
-                      <p className="text-sm text-gray-500 mt-6">
-                        {member.email}
-                      </p>
-                    )}
-                  </div>
-                </SwiperSlide>
+                  )}
+                </div>
               ))}
-            </Swiper>
+            </div>
           </div>
         </div>
       </section>

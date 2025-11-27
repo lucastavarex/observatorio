@@ -23,7 +23,7 @@ import video9 from "@/app/assets/images/video9.png"
 import { NewsItem } from "@/lib/types/news"
 
 export const newsData: NewsItem[] = [
-    {
+  {
     id: 1,
     title: "Os caminhos para financiar a adaptação climática no Brasil",
     source: "Insper",
@@ -32,7 +32,7 @@ export const newsData: NewsItem[] = [
     link: "https://www.insper.edu.br/pt/conteudos/cidades/os-caminhos-para-financiar-a-adaptacao-climatica-no-brasil",
     apareceNaHome: false
   },
-    {
+  {
     id: 2,
     title: "Insper e iFood detalham acordo que promove pesquisas com impacto social",
     source: "Insper",
@@ -41,7 +41,7 @@ export const newsData: NewsItem[] = [
     link: "https://www.insper.edu.br/pt/conteudos/cidades/insper-e-ifood-detalham-acordo-que-promove-pesquisas-com-impacto-social",
     apareceNaHome: false
   },
-    {
+  {
     id: 3,
     title: "Coalizão propõe plano para reduzir em 70% as emissões do transporte até 2050",
     source: "Insper",
@@ -50,7 +50,7 @@ export const newsData: NewsItem[] = [
     link: "https://www.insper.edu.br/pt/conteudos/cidades/coalizao-propoe-plano-para-reduzir-em-70-as-emissoes-do-transporte-ate-2050",
     apareceNaHome: false
   },
-    {
+  {
     id: 4,
     title: "Insper lança a Rede de Cidades sobre Mobilidade Sustentável",
     source: "Diário de Transporte",
@@ -59,7 +59,7 @@ export const newsData: NewsItem[] = [
     link: "https://diariodotransporte.com.br/2025/04/26/observatorio-nacional-de-mobilidade-sustentavel-lanca-rede-de-cidades-com-foco-em-colaboracao-e-dados-abertos/",
     apareceNaHome: false
   },
-    {
+  {
     id: 5,
     title: "Insper lança a Rede de Cidades sobre Mobilidade Sustentável",
     source: "Mobilize Brasil",
@@ -68,7 +68,7 @@ export const newsData: NewsItem[] = [
     link: "https://www.mobilize.org.br/noticias/14309/insper-lanca-a-rede-de-cidades-sobre-mobilidade-sustentavel.html",
     apareceNaHome: false
   },
-    {
+  {
     id: 6,
     title: "Insper lança a Rede de Cidades sobre Mobilidade Sustentável",
     source: "Casa e Mercado",
@@ -77,7 +77,7 @@ export const newsData: NewsItem[] = [
     link: "https://casaemercado.com.br/insper-lanca-rede-de-cidades-do-observatorio-nacional-de-mobilidade-sustentavel/",
     apareceNaHome: false
   },
-    {
+  {
     id: 7,
     title: "Sexta da Mobilidade discute temas atuais, como a queda do total de viagens em São Paulo",
     source: "Insper",
@@ -106,7 +106,7 @@ export const newsData: NewsItem[] = [
   },
   {
     id: 10,
-    title: "Observatório Nacional de Mobilidade Sustentável, parceria entre Insper e Grupo Motiva, firma acordo de cooperação com o Rio de Janeiro",
+    title: "Observatório Nacional de Mobilidade Sustentável, parceria entre Insper e Motiva, firma acordo de cooperação com o Rio de Janeiro",
     source: "Conexão In",
     date: "2025",
     image: video10.src,
@@ -214,7 +214,7 @@ export const newsData: NewsItem[] = [
   },
   {
     id: 22,
-    title: "Grupo Motiva e Laboratório Arq. Futuro de Cidades lançam Observatório Nacional de Mobilidade Sustentável",
+    title: "Motiva e Laboratório Arq. Futuro de Cidades lançam Observatório Nacional de Mobilidade Sustentável",
     source: "Estadão",
     date: "2023",
     image: video22.src,

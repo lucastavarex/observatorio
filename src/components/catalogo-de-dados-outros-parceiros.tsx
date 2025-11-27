@@ -35,14 +35,14 @@ export default function CatalogoDeDadosOutrosParceiros() {
     // Map display names to data types
     const dataTypeMap: Record<string, string> = {
       'GTFS': 'GTFS',
-      'GPS embarcados': 'GPS Embarcados', 
+      'GPS embarcados': 'GPS Embarcados',
       'Bilhetagem': 'Bilhetagem',
       'Arquivos vetoriais': 'Outros Arquivos Vetoriais'
     }
-    
+
     const mappedDataType = dataTypeMap[dataType] || dataType
     const modalData = getModalData(cidade, mappedDataType, 'Outros Parceiros')
-    
+
     setModalState({
       isOpen: true,
       cidade,
@@ -72,7 +72,7 @@ export default function CatalogoDeDadosOutrosParceiros() {
       if (field === "cidade") {
         const aValue = a[field] as string
         const bValue = b[field] as string
-        return newSortOrder === "asc" 
+        return newSortOrder === "asc"
           ? aValue.localeCompare(bValue)
           : bValue.localeCompare(aValue)
       } else {
@@ -92,7 +92,7 @@ export default function CatalogoDeDadosOutrosParceiros() {
     if (sortField !== field) {
       return <ChevronDown className="w-4 h-4 opacity-50" />
     }
-    
+
     if (sortOrder === "asc") {
       return <ChevronUp className="w-4 h-4" />
     } else if (sortOrder === "desc") {
@@ -118,7 +118,7 @@ export default function CatalogoDeDadosOutrosParceiros() {
               className="flex items-center gap-2 font-medium text-gray-900 cursor-pointer hover:text-gray-700 select-none"
               onClick={() => handleSort("cidade")}
             >
-              Cidades
+              Parceiros
               {getSortIcon("cidade")}
             </div>
             <div
@@ -161,11 +161,10 @@ export default function CatalogoDeDadosOutrosParceiros() {
                     variant={city.gtfs ? "default" : "secondary"}
                     disabled={!city.gtfs}
                     onClick={() => handleDownload(city.cidade, "GTFS")}
-                    className={` ${
-                      city.gtfs
+                    className={` ${city.gtfs
                         ? "bg-primary hover:bg-primary/90 text-white cursor-pointer"
                         : "bg-gray-200 text-gray-400 cursor-not-allowed"
-                    }`}
+                      }`}
                   >
                     Acesse
                   </Button>
@@ -176,11 +175,10 @@ export default function CatalogoDeDadosOutrosParceiros() {
                     variant={city.gpsEmbarcados ? "default" : "secondary"}
                     disabled={!city.gpsEmbarcados}
                     onClick={() => handleDownload(city.cidade, "GPS embarcados")}
-                    className={`${
-                      city.gpsEmbarcados
+                    className={`${city.gpsEmbarcados
                         ? "bg-primary hover:bg-primary/90 text-white cursor-pointer"
                         : "bg-gray-200 text-gray-400 cursor-not-allowed"
-                    }`}
+                      }`}
                   >
                     Acesse
                   </Button>
@@ -191,11 +189,10 @@ export default function CatalogoDeDadosOutrosParceiros() {
                     variant={city.bilhetagem ? "default" : "secondary"}
                     disabled={!city.bilhetagem}
                     onClick={() => handleDownload(city.cidade, "Bilhetagem")}
-                    className={`${
-                      city.bilhetagem
+                    className={`${city.bilhetagem
                         ? "bg-primary hover:bg-primary/90 text-white cursor-pointer"
                         : "bg-gray-200 text-gray-400 cursor-not-allowed"
-                    }`}
+                      }`}
                   >
                     Acesse
                   </Button>
@@ -206,11 +203,10 @@ export default function CatalogoDeDadosOutrosParceiros() {
                     variant={city.arquivosVetoriais ? "default" : "secondary"}
                     disabled={!city.arquivosVetoriais}
                     onClick={() => handleDownload(city.cidade, "Arquivos vetoriais")}
-                    className={`${
-                      city.arquivosVetoriais
+                    className={`${city.arquivosVetoriais
                         ? "bg-primary hover:bg-primary/90 text-white cursor-pointer"
                         : "bg-gray-200 text-gray-400 cursor-not-allowed"
-                    }`}
+                      }`}
                   >
                     Acesse
                   </Button>
@@ -221,7 +217,7 @@ export default function CatalogoDeDadosOutrosParceiros() {
         </div>
         {/* Mobile/Tablet Card View */}
         <div className="lg:hidden">
-           <div className="p-4">
+          <div className="p-4">
             <div className="font-semibold text-xl text-gray-900">Outros Parceiros</div>
           </div>
           {/* Mobile Header */}
@@ -230,7 +226,7 @@ export default function CatalogoDeDadosOutrosParceiros() {
               className="flex items-center gap-2 font-medium text-gray-900 cursor-pointer hover:text-gray-700 select-none"
               onClick={() => handleSort("cidade")}
             >
-              Cidades
+              Parceiros
               {getSortIcon("cidade")}
             </div>
           </div>
@@ -247,11 +243,10 @@ export default function CatalogoDeDadosOutrosParceiros() {
                       variant={city.gtfs ? "default" : "secondary"}
                       disabled={!city.gtfs}
                       onClick={() => handleDownload(city.cidade, "GTFS")}
-                      className={`w-full ${
-                        city.gtfs
+                      className={`w-full ${city.gtfs
                           ? "bg-primary hover:bg-primary/90 text-white cursor-pointer"
                           : "bg-gray-200 text-gray-400 cursor-not-allowed"
-                      }`}
+                        }`}
                     >
                       Acesse
                     </Button>
@@ -263,11 +258,10 @@ export default function CatalogoDeDadosOutrosParceiros() {
                       variant={city.gpsEmbarcados ? "default" : "secondary"}
                       disabled={!city.gpsEmbarcados}
                       onClick={() => handleDownload(city.cidade, "GPS embarcados")}
-                      className={`w-full ${
-                        city.gpsEmbarcados
+                      className={`w-full ${city.gpsEmbarcados
                           ? "bg-primary hover:bg-primary/90 text-white cursor-pointer"
                           : "bg-gray-200 text-gray-400 cursor-not-allowed"
-                      }`}
+                        }`}
                     >
                       Acesse
                     </Button>
@@ -279,11 +273,10 @@ export default function CatalogoDeDadosOutrosParceiros() {
                       variant={city.bilhetagem ? "default" : "secondary"}
                       disabled={!city.bilhetagem}
                       onClick={() => handleDownload(city.cidade, "Bilhetagem")}
-                      className={`w-full ${
-                        city.bilhetagem
+                      className={`w-full ${city.bilhetagem
                           ? "bg-primary hover:bg-primary/90 text-white cursor-pointer"
                           : "bg-gray-200 text-gray-400 cursor-not-allowed"
-                      }`}
+                        }`}
                     >
                       Acesse
                     </Button>
@@ -295,11 +288,10 @@ export default function CatalogoDeDadosOutrosParceiros() {
                       variant={city.arquivosVetoriais ? "default" : "secondary"}
                       disabled={!city.arquivosVetoriais}
                       onClick={() => handleDownload(city.cidade, "Arquivos vetoriais")}
-                      className={`w-full ${
-                        city.arquivosVetoriais
+                      className={`w-full ${city.arquivosVetoriais
                           ? "bg-primary hover:bg-primary/90 text-white cursor-pointer"
                           : "bg-gray-200 text-gray-400 cursor-not-allowed"
-                      }`}
+                        }`}
                     >
                       Acesse
                     </Button>
@@ -427,7 +419,7 @@ export default function CatalogoDeDadosOutrosParceiros() {
                           >
                             {source.actionText}
                           </Button>
-                          
+
                           {/* Individual dataset buttons when there's only one and different from main button */}
                           {source.datasets && source.datasets.length === 1 && source.datasets[0].titulo_dado && source.datasets[0].link !== source.actionUrl && (
                             <Button
@@ -453,7 +445,7 @@ export default function CatalogoDeDadosOutrosParceiros() {
                           <h3 className="font-semibold text-gray-900 mb-2">{source.name}</h3>
                           <p className="text-gray-600 text-sm leading-relaxed">{source.description}</p>
                         </div>
-                        
+
                         <div className="flex flex-col gap-2 shrink-0">
                           {/* Main action button */}
                           <Button
@@ -466,7 +458,7 @@ export default function CatalogoDeDadosOutrosParceiros() {
                           >
                             {source.actionText}
                           </Button>
-                          
+
                           {/* Individual dataset buttons when there's only one and different from main button */}
                           {source.datasets && source.datasets.length === 1 && source.datasets[0].titulo_dado && source.datasets[0].link !== source.actionUrl && (
                             <Button
