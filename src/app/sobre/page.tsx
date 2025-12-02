@@ -317,26 +317,21 @@ const equipeDeDesenvolvimento: DevelopmentTeamMember[] = [
   },
   {
     id: '5',
-    name: 'Rinaldo Gama e Helena Coelho',
-    role: 'Coordenação e revisão de conteúdo'
-  },
-  {
-    id: '6',
     name: 'Vinicius Oike',
     role: 'Pesquisador responsável e Coordenador de Dados',
   },
   {
-    id: '7',
+    id: '6',
     name: 'Caio Jacintho',
     role: 'Designer'
   },
   {
-    id: '8',
+    id: '7',
     name: 'Lucas Tavares',
     role: 'Desenvolvedor',
   },
   {
-    id: '9',
+    id: '8',
     name: 'Renan Ferreira Rodrigues de Matos',
     role: 'Desenvolvedor',
   },

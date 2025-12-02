@@ -139,45 +139,8 @@ export default function Videos() {
       <Header className="bg-[#f9f9f6]" />
 
       <div className="px-4 2xl:px-16 py-20 pb-30">
-        {/* Título e linha com quadrado */}
-        <div className="flex items-end justify-between mb-16">
-          <div>
-            <h2 className="text-4xl font-medium leading-none">
-              Vídeos aulas
-            </h2>
-            <p className="text-4xl text-gray-400 leading-none font-medium">Assíncronas</p>
-          </div>
-          <div className="hidden md:block h-[1.2px] flex-grow mx-16 bg-gray-300" />
-          <div className="hidden md:block w-4 h-4 bg-[#C2181A]" />
-        </div>
-
-        {/* Grid responsivo com tamanhos fixos */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {videosData.map((video) => (
-            <a
-              key={video.id}
-              href={video.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex flex-col items-start text-left group cursor-pointer"
-            >
-              <div className="relative overflow-hidden w-full aspect-[7/4]">
-                <Image
-                  src={video.image}
-                  alt={video.title}
-                  fill
-                  className="object-cover object-center transition-transform duration-300 group-hover:scale-105"
-                  sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                />
-              </div>
-              <h3 className="mt-4 text-sm font-medium line-clamp-2">{video.title}</h3>
-              <p className="text-xs text-gray-600 mt-2">{video.date} • {video.format}</p>
-            </a>
-          ))}
-        </div>
-
         {/* Seção SÉRIE: INSPER CIDADES NA MOBILIDADE */}
-        <div className="mt-32">
+        <div>
           {/* Título e linha com quadrado */}
           <div className="flex items-end justify-between mb-16">
             <div>
@@ -193,6 +156,45 @@ export default function Videos() {
           {/* Grid responsivo com tamanhos fixos */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {serieVideosData.map((video) => (
+              <a
+                key={video.id}
+                href={video.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex flex-col items-start text-left group cursor-pointer"
+              >
+                <div className="relative overflow-hidden w-full aspect-[7/4]">
+                  <Image
+                    src={video.image}
+                    alt={video.title}
+                    fill
+                    className="object-cover object-center transition-transform duration-300 group-hover:scale-105"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                  />
+                </div>
+                <h3 className="mt-4 text-sm font-medium line-clamp-2">{video.title}</h3>
+                <p className="text-xs text-gray-600 mt-2">{video.date} • {video.format}</p>
+              </a>
+            ))}
+          </div>
+        </div>
+
+        {/* Título e linha com quadrado */}
+        <div className="mt-32">
+          <div className="flex items-end justify-between mb-16">
+            <div>
+              <h2 className="text-4xl font-medium leading-none">
+                Vídeos aulas
+              </h2>
+              <p className="text-4xl text-gray-400 leading-none font-medium">Assíncronas</p>
+            </div>
+            <div className="hidden md:block h-[1.2px] flex-grow mx-16 bg-gray-300" />
+            <div className="hidden md:block w-4 h-4 bg-[#C2181A]" />
+          </div>
+
+          {/* Grid responsivo com tamanhos fixos */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {videosData.map((video) => (
               <a
                 key={video.id}
                 href={video.href}
