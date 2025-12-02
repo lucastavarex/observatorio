@@ -52,6 +52,11 @@ interface TeamMember {
   image: StaticImageData
   email?: string
 }
+interface DevelopmentTeamMember {
+  id: string
+  name: string
+  role: string
+}
 
 // Equipe Observatório
 const equipeObservatorio: TeamMember[] = [
@@ -289,28 +294,52 @@ const equipeInsperCidades: TeamMember[] = [
   }
 ]
 // Equipe de desenvolvimento 
-const equipeDeDesenvolvimento: TeamMember[] = [
+const equipeDeDesenvolvimento: DevelopmentTeamMember[] = [
   {
     id: '1',
-    name: 'Caio Jacintho',
-    role: 'Designer',
-    image: caio_jacintho,
-    email: 'caiojacintho@insper.edu.br'
+    name: 'Sérgio Avelleda',
+    role: 'Coordenador'
   },
   {
     id: '2',
-    name: 'Vinicius Oike',
-    role: 'Cientista de dados',
-    image: vinicius_oike_reginatto,
-    email: 'viniciusor@insper.edu.br'
+    name: 'Helena Coelho',
+    role: 'Coordenadora-adjunta',
   },
   {
     id: '3',
+    name: 'Adriano Borges e Maurício Bouskela',
+    role: 'Coordenação Portal de Dados',
+  },
+  {
+    id: '4',
+    name: 'Rinaldo Gama e Helena Coelho',
+    role: 'Coordenação e revisão de conteúdo'
+  },
+  {
+    id: '5',
+    name: 'Rinaldo Gama e Helena Coelho',
+    role: 'Coordenação e revisão de conteúdo'
+  },
+  {
+    id: '6',
+    name: 'Vinicius Oike',
+    role: 'Pesquisador responsável e Coordenador de Dados',
+  },
+  {
+    id: '7',
+    name: 'Caio Jacintho',
+    role: 'Designer'
+  },
+  {
+    id: '8',
     name: 'Lucas Tavares',
     role: 'Desenvolvedor',
-    image: lucas_tavares,
-    email: 'lucas.tavares@insper.edu.br'
-  }
+  },
+  {
+    id: '9',
+    name: 'Renan Ferreira Rodrigues de Matos',
+    role: 'Desenvolvedor',
+  },
 
 ]
 
@@ -598,7 +627,7 @@ export default function Sobre() {
         <div className="mx-auto">
           <h2 className="lg:absolute text-xl font-medium text-gray-900 px-4 2xl:px-16 pb-6 lg:pb-0">Equipe de Desenvolvimento</h2>
           <div className="px-4 2xl:px-16 pb-4 ml-0! pl-4! md:ml-0! lg:ml-100!">
-            <div className="flex flex-wrap gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 lg:gap-12">
               {equipeDeDesenvolvimento.map((member) => (
                 <div key={member.id} className="text-left">
                   <h3 className="text-lg font-semibold text-gray-900 mb-2">
@@ -607,11 +636,6 @@ export default function Sobre() {
                   <p className="text-sm text-gray-600 leading-relaxed">
                     {member.role}
                   </p>
-                  {member.email && (
-                    <p className="text-sm text-gray-500 mt-6">
-                      {member.email}
-                    </p>
-                  )}
                 </div>
               ))}
             </div>
