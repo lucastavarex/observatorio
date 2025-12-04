@@ -9,10 +9,10 @@ import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover
 import { cn } from "@/lib/utils"
 
 const cities = [
-  // {
-  //   value: "São Paulo",
-  //   label: "São Paulo",
-  // },
+  {
+    value: "São Paulo",
+    label: "São Paulo",
+  },
   {
     value: "Rio de Janeiro",
     label: "Rio de Janeiro",
@@ -24,6 +24,18 @@ const cities = [
   {
     value: "Belo Horizonte",
     label: "Belo Horizonte",
+  },
+  {
+    value: "Goiânia",
+    label: "Goiânia",
+  },
+  {
+    value: "Fortaleza",
+    label: "Fortaleza",
+  },
+  {
+    value: "Curitiba",
+    label: "Curitiba",
   },
   {
     value: "Niteroi",
@@ -75,11 +87,13 @@ export function CityCombobox({ value, onValueChange, placeholder = "Selecionar c
                   key={city.value}
                   value={city.value}
                   onSelect={(currentValue) => {
-                    onValueChange(currentValue === value ? "" : currentValue)
+                    // Allow deselecting by clicking the same city again
+                    const newValue = currentValue.toLowerCase() === value.toLowerCase() ? "" : currentValue
+                    onValueChange(newValue)
                     setOpen(false)
                   }}
                 >
-                  <Check className={cn("mr-2 h-4 w-4", value === city.value ? "opacity-100" : "opacity-0")} />
+                  <Check className={cn("mr-2 h-4 w-4", value.toLowerCase() === city.value.toLowerCase() ? "opacity-100" : "opacity-0")} />
                   {city.label}
                 </CommandItem>
               ))}

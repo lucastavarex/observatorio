@@ -26,7 +26,7 @@ const projetosItems = [
   {
     title: "Geoportal",
     href: "/projetos/geoportal",
-    description: "Visualize dados espaciais de mobilidade urbana em um mapa interativo com diversas camadas temáticas",
+    description: "Visualize dados espaciais e de mobilidade urbana em mapa interativo com camadas temáticas e ferramentas de visualização.",
   },
     {
     title: "Catálogo de Dados",
@@ -36,7 +36,7 @@ const projetosItems = [
   {
     title: "Dashboard PEMOB",
     href: "/projetos/dashboard",
-    description: "Visualize dados espaciais de mobilidade urbana em um mapa interativo com diversas camadas temáticas",
+    description: "Visualize dados espaciais e de mobilidade urbana em mapa interativo com camadas temáticas e ferramentas de visualização.",
   },
 
   {
@@ -52,15 +52,15 @@ const publicacoesItems = [
     description: "Explore nossa coleção de livros sobre mobilidade urbana e desenvolvimento sustentável",
   },
     {
-    title: "Artigos científicos",
-    href: "/publicacoes?tipo=artigos",
-    description: "Acesse artigos científicos e pesquisas sobre mobilidade urbana",
+    title: "Policy Papers",
+    href: "/publicacoes?tipo=policy_paper",
+    description: "Acesse Policy Papers sobre mobilidade urbana",
   },
-  {
-    title: "Notas técnicas",
-    href: "/publicacoes?tipo=notas",
-    description: "Consulte notas técnicas e documentos especializados em mobilidade",
-  },
+  // {
+  //   title: "Notas técnicas",
+  //   href: "/publicacoes?tipo=notas",
+  //   description: "Consulte notas técnicas e documentos especializados em mobilidade",
+  // },
 ]
 
 const menuItems = [
@@ -132,6 +132,14 @@ export function Header({ isBgDark = false, className }: HeaderProps) {
             </NavigationMenuItem>
             
             <NavigationMenuItem>
+              <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
+                <Link href="/sobre" className={pathname === "/sobre" ? activeTextClass : inactiveTextClass}>
+                  Sobre
+                </Link>
+              </NavigationMenuLink>
+            </NavigationMenuItem>
+
+            <NavigationMenuItem>
               <NavigationMenuTrigger 
                 isBgDark={isBgDark}
                 isActive={pathname.startsWith("/projetos/")}
@@ -152,14 +160,6 @@ export function Header({ isBgDark = false, className }: HeaderProps) {
                   ))}
                 </ul>
               </NavigationMenuContent>
-            </NavigationMenuItem>
-            
-            <NavigationMenuItem>
-              <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
-                <Link href="/sobre" className={pathname === "/sobre" ? activeTextClass : inactiveTextClass}>
-                  Sobre
-                </Link>
-              </NavigationMenuLink>
             </NavigationMenuItem>
             
             <NavigationMenuItem>
@@ -269,6 +269,17 @@ export function Header({ isBgDark = false, className }: HeaderProps) {
               Home
             </Link>
 
+            {/* Sobre */}
+            <Link
+              href="/sobre"
+              onClick={closeMobileMenu}
+              className={`block py-3 text-lg font-medium transition-colors ${
+                pathname === "/sobre" ? "text-black font-medium" : "text-gray-400 hover:text-black"
+              }`}
+            >
+              Sobre
+            </Link>
+
             {/* Projetos Section with Accordion */}
             <div className="">
               <Accordion type="single" collapsible className="w-full">
@@ -304,7 +315,7 @@ export function Header({ isBgDark = false, className }: HeaderProps) {
             </div>
 
             {/* Other Menu Items */}
-            {menuItems.slice(1).map((item) => (
+            {menuItems.slice(2).map((item) => (
               <Link
                 key={item.title}
                 href={item.href}

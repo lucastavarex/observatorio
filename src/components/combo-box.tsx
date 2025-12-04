@@ -52,7 +52,7 @@ export function YearCombobox({
           aria-expanded={open}
           className={cn("w-full justify-between bg-white hover:bg-white border-0 shadow-none", className)}
         >
-          {value || placeholder}
+         {`${value ? `Ano: ${value}` : placeholder}`}
           <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
         </Button>
       </PopoverTrigger>

@@ -9,56 +9,161 @@ export interface LayerStyle {
 }
 
 export const layerStyles: Record<string, LayerStyle> = {
-  "density-2aws6m": {
-    "type": "fill",
+  // ================== START SÃO PAULO ==================
+  "spo_spo_ciclovias": {
+       "type": "line",
     "source": "composite",
-    "id": "density-2aws6m",
+    "id": "spo-spo-ciclovias",
     "paint": {
-      "fill-color": [
-        "interpolate",
-        ["linear"],
-        ["get", "densidade_residencial"],
-        0, "hsl(180, 67%, 94%)",
-        0.01984, "hsl(182, 42%, 83%)",
-        0.0255, "#9ed0d2",
-        0.03169, "#78bcbf",
-        0.04121, "#4ea7ad",
-        271.09192388292587, "#00939c"
-      ],
-      "fill-outline-color": [
-        "interpolate",
-        ["linear"],
-        ["zoom"],
-        0, "#000000",
-        22, "#000000"
+      "line-width": 3,
+      "line-color": [
+        "match",
+        [
+          "get",
+          "tipo"
+        ],
+        [
+          "Ciclorrota"
+        ],
+        "#377eb8",
+        [
+          "Ciclofaixa"
+        ],
+        "#e41a1c",
+        [
+          "Ciclovia"
+        ],
+        "#4daf4a",
+        [
+          "Ciclopassarela"
+        ],
+        "#f9e806",
+        "#000000"
       ]
     },
-    "source-layer": "density-2aws6m"
-  },
-  "geoses-4hsw1f": {
-    "id": "geoses-4hsw1f",
-    "type": "fill",
-    "source": "composite",
-    "source-layer": "geoses-4hsw1f",
-    "paint": {
-      "fill-color": [
-        "interpolate",
-        ["linear"],
-        ["get", "GeoSES"],
-        -1, "#f72626",
-        -0.6108, "#f4590b",
-        -0.5257, "#f79c2b",
-        -0.4365, "#fda468",
-        -0.3505, "#fdd087",
-        -0.2572, "#feead2",
-        -0.1446, "#b8fefb",
-        -0.02289, "#a5f9fe",
-        0.2006, "#3fe7fd",
-        0.5087, "#07c0f2",
-        1, "#0095ff"
-      ]
+    "slot": "",
+    "source-layer": "spo_spo_ciclovias",
+    "layout": {
+      "visibility": "none"
     }
   },
+  "renda_spo-ddwghj":{
+     "layout": {
+      "visibility": "none"
+    },
+    "type": "fill",
+    "source": "composite",
+    "id": "renda-spo-ddwghj",
+    "paint": {
+      "fill-opacity": 0.7,
+      "fill-color": [
+        "step",
+        [
+          "get",
+          "Renda Domiciliar Média (R$)"
+        ],
+        "#fff7fb",
+        2000,
+        "#ece2f0",
+        4000,
+        "#a6bddb",
+        8000,
+        "#3690c0",
+        20000,
+        "#02818a",
+        98040,
+        "#014636"
+      ]
+    },
+    "slot": "",
+    "source-layer": "renda_spo-ddwghj"
+  },
+  "populacao_spo-94zde5":{
+      "layout": {
+      "visibility": "none"
+    },
+    "type": "fill",
+    "source": "composite",
+    "id": "populacao-spo-94zde5",
+    "paint": {
+      "fill-opacity": 0.7,
+      "fill-color": [
+        "step",
+        [
+          "get",
+          "População (2022)"
+        ],
+        "#f7fcf5",
+        100,
+        "#e5f5e0",
+        1000,
+        "#a1d99b",
+        2500,
+        "#41ab5d",
+        5000,
+        "#006d2c",
+        15000,
+        "#00441b"
+      ]
+    },
+    "slot": "",
+    "source-layer": "populacao_spo-94zde5"
+  },
+  "spo_metro-74ojzn":{
+     "id": "spo-metro-74ojzn",
+    "type": "line",
+    "paint": {
+      "line-color": [
+        "match",
+        [
+          "get",
+          "Linha"
+        ],
+        [
+          "Linha 1 - Azul"
+        ],
+        "#110df2",
+        [
+          "Linha 2 - Verde"
+        ],
+        "#067000",
+        [
+          "Linha 3 - Vermelha"
+        ],
+        "#e70808",
+        [
+          "Linha 4 - Amarela"
+        ],
+        "#f9e31f",
+        [
+          "Linha 5 - Lilás"
+        ],
+        "#ab02e8",
+        [
+          "Linha 15 - Prata"
+        ],
+        "rgba(0, 0, 0, 0.5)",
+        [
+          "interpolate",
+          [
+            "linear"
+          ],
+          [
+            "id"
+          ],
+          0,
+          "#000000",
+          1,
+          "#000000"
+        ]
+      ],
+      "line-width": 3
+    },
+    "source": "composite",
+    "source-layer": "spo_metro-74ojzn",
+    "slot": ""
+  },
+  // ================== END SÃO PAULO ==================
   // ================== START RIO DE JANEIRO ==================
   "renda_rio-4ks1k8": {
      "type": "fill",
@@ -87,17 +192,18 @@ export const layerStyles: Record<string, LayerStyle> = {
     },
     "source-layer": "renda_rio-4ks1k8"
   },
-  "rotas_onibus-5yarkv": {
-    "layout": {
-      "visibility": "none"
-    },
-    "type": "line",
+  "rio_rotas_onibus": {
+      "type": "line",
     "source": "composite",
-    "id": "rotas-onibus-5yarkv",
+    "id": "rio-rotas-onibus",
     "paint": {
       "line-color": "#cb181d"
     },
-    "source-layer": "rotas_onibus-5yarkv"
+    "slot": "",
+    "source-layer": "rio_rotas_onibus",
+    "layout": {
+      "visibility": "none"
+    }
   },
   "heatmap_bilhetagem_rio-59w42o": {
     "type": "fill",
@@ -222,7 +328,44 @@ export const layerStyles: Record<string, LayerStyle> = {
     },
     "source-layer": "renda_rec-bcpy1l"
   },
-  
+  "rec_ciclovia_ciclomapas":{
+      "type": "line",
+    "source": "composite",
+    "id": "rec-ciclovia-ciclomapas",
+    "slot": "",
+    "source-layer": "rec_ciclovia_ciclomapas",
+    "paint": {
+      "line-color": [
+        "match",
+        [
+          "get",
+          "Tipo"
+        ],
+        [
+          "Ciclovia"
+        ],
+        "#4daf4a",
+        [
+          "Ciclorrota"
+        ],
+        "#377eb8",
+        [
+          "Ciclofaixa"
+        ],
+        "#e41a1c",
+        [
+          "Calçada compartilhada"
+        ],
+        "#f9e806",
+        "#000000"
+      ],
+      "line-width": 3
+    },
+    "layout": {
+      "visibility": "none"
+    }
+  }
+  ,
   // ================== END RECIFE ==================
   // ================== START BELO HORIZONTE ==================
   "populacao-a5w87s":
@@ -320,35 +463,240 @@ export const layerStyles: Record<string, LayerStyle> = {
     "slot": "",
     "source-layer": "heatmap_embarques-b8mehl"
   },
-  "ciclovia-48ed00":
+  "bhe_ciclovia":
    {
     "layout": {
       "visibility": "none"
     },
     "type": "line",
     "source": "composite",
-    "id": "ciclovia-48ed00",
+    "id": "bhe-ciclovia",
     "paint": {
-      "line-color": "#006d2c"
+      "line-width": 3,
+      "line-color": [
+        "match",
+        [
+          "get",
+          "Tipo"
+        ],
+        [
+          "Ciclofaixa"
+        ],
+        "#e41a1c",
+        [
+          "Ciclovia"
+        ],
+        "#4daf4a",
+        [
+          "Ciclorrua"
+        ],
+        "#377eb8",
+        [
+          "Calcada Cp",
+          "Compartilh",
+          "Cvia Calca"
+        ],
+        "#ff7f00",
+        [
+          "Cvia Cante",
+          "Zona 30",
+          "Cfaix+Z30",
+          "Cv+Z30"
+        ],
+        "#984ea3",
+        [
+          "Cvia+Cfaix"
+        ],
+        "#f9e806",
+        "#000000"
+      ]
     },
     "slot": "",
-    "source-layer": "ciclovia-48ed00"
+    "source-layer": "bhe_ciclovia"
   },
-  "rotas_onibus_agregado-4r2tni":
+  "bhe_rotas_onibus":
    {
     "layout": {
       "visibility": "none"
     },
-    "type": "line",
+       "type": "line",
     "source": "composite",
-    "id": "rotas-onibus-agregado-4r2tni",
+    "id": "bhe-rotas-onibus",
     "paint": {
       "line-color": "#cb181d"
     },
     "slot": "",
-    "source-layer": "rotas_onibus_agregado-4r2tni"
+    "source-layer": "bhe_rotas_onibus"
   },
    // ================== END BELO HORIZONTE ==================
+   // ================== START GOIÂNIA ==================
+   "populacao_goi-5r0vfu":
+   {
+    "layout": {
+      "visibility": "none"
+    },
+    "type": "fill",
+    "source": "composite",
+    "id": "populacao-goi-5r0vfu",
+    "paint": {
+      "fill-opacity": 0.7,
+      "fill-color": [
+        "step",
+        [
+          "get",
+          "População (2022)"
+        ],
+        "#f7fcf5",
+        50,
+        "#e5f5e0",
+        200,
+        "#a1d99b",
+        800,
+        "#41ab5d",
+        1200,
+        "#006d2c",
+        2000,
+        "#00441b"
+      ]
+    },
+    "slot": "",
+    "source-layer": "populacao_goi-5r0vfu"
+   },
+   "renda_goi-8q2sqk":
+   {
+     "layout": {
+      "visibility": "none"
+    },
+    "type": "fill",
+    "source": "composite",
+    "id": "renda-goi-8q2sqk",
+    "paint": {
+      "fill-opacity": 0.7,
+      "fill-color": [
+        "step",
+        [
+          "get",
+          "Renda Domiciliar Média (R$)"
+        ],
+        "#fff7fb",
+        2000,
+        "#ece2f0",
+        3500,
+        "#a6bddb",
+        5000,
+        "#3690c0",
+        7500,
+        "#02818a",
+        12000,
+        "#014636"
+      ]
+    },
+    "slot": "",
+    "source-layer": "renda_goi-8q2sqk"
+   },
+   // ================== END GOIÂNIA ==================
+   // ================== START FORTALEZA ==================
+   "frt_income_hh-26qfm4":
+   {
+     "layout": {
+      "visibility": "none"
+    },
+    "type": "fill",
+    "source": "composite",
+    "id": "frt-income-hh-26qfm4",
+    "paint": {
+      "fill-opacity": 0.7,
+      "fill-color": [
+        "step",
+        [
+          "get",
+          "Renda Domiciliar Média (R$)"
+        ],
+        "#fff7fb",
+        2000,
+        "#ece2f0",
+        3500,
+        "#a6bddb",
+        5000,
+        "#3690c0",
+        7500,
+        "#02818a",
+        10000,
+        "#014636"
+      ]
+    },
+    "slot": "",
+    "source-layer": "frt_income_hh-26qfm4"
+   },
+   "frt_pop-9wsvgo":{
+     "layout": {
+      "visibility": "none"
+    },
+    "type": "fill",
+    "source": "composite",
+    "id": "frt-pop-9wsvgo",
+    "paint": {
+      "fill-opacity": 0.7,
+      "fill-color": [
+        "step",
+        [
+          "get",
+          "População (2022)"
+        ],
+        "#f7fcf5",
+        500,
+        "#e5f5e0",
+        1000,
+        "#a1d99b",
+        2000,
+        "#41ab5d",
+        3000,
+        "#006d2c",
+        5000,
+        "#00441b"
+      ]
+    },
+    "slot": "",
+    "source-layer": "frt_pop-9wsvgo"
+   },
+   "frt_ciclovia_ciclomapas":
+   {
+     "layout": {
+      "visibility": "none"
+    },
+    "type": "line",
+    "source": "composite",
+    "id": "frt-ciclovia-ciclomapas",
+    "paint": {
+      "line-width": 3,
+      "line-color": [
+        "match",
+        [
+          "get",
+          "Tipo"
+        ],
+        [
+          "Ciclofaixa"
+        ],
+        "#e41a1c",
+        [
+          "Ciclorrota"
+        ],
+        "#377eb8",
+        [
+          "Ciclovia"
+        ],
+        "#4daf4a",
+        [
+          "Calçada compartilhada"
+        ],
+        "#f9e806",
+        "#000000"
+      ]
+    },
+    "slot": "",
+    "source-layer": "frt_ciclovia_ciclomapas"
+   },
 
    // ================== START NITERÓI ==================
    "renda-987gzt":
@@ -448,16 +796,17 @@ export const layerStyles: Record<string, LayerStyle> = {
     "slot": "",
     "source-layer": "heatmap-2eyldb"
   },
-  "rotas_onibus-7wlr7f":
+  "nit_rotas_onibus":
    {
-    "type": "line",
+      "type": "line",
     "source": "composite",
-    "id": "rotas-onibus-7wlr7f",
+    "id": "nit-rotas-onibus",
     "paint": {
+      "line-width": 3,
       "line-color": "#cb181d"
     },
     "slot": "",
-    "source-layer": "rotas_onibus-7wlr7f",
+    "source-layer": "nit_rotas_onibus",
     "layout": {
       "visibility": "none"
     }
@@ -494,158 +843,170 @@ export const layerStyles: Record<string, LayerStyle> = {
     "slot": "",
     "source-layer": "sinistros-9fw8gm"
   },
-  "rotas_onibus_sad-7n78wu":
+  "sad_rotas_onibus_sad":
    {
-    "layout": {
-      "visibility": "none"
-    },
     "type": "line",
     "source": "composite",
-    "id": "rotas-onibus-sad-7n78wu",
+    "id": "sad-rotas-onibus-sad",
     "paint": {
+      "line-width": 2,
       "line-color": "#cb181d"
     },
     "slot": "",
-    "source-layer": "rotas_onibus_sad-7n78wu"
+    "source-layer": "sad_rotas_onibus_sad",
+    "layout": {
+      "visibility": "none"
+    }
   },
+  "populacao_sad-3il930":
+   {
+     "type": "fill",
+    "source": "composite",
+    "id": "populacao-sad-3il930",
+    "paint": {
+      "fill-opacity": 0.7,
+      "fill-color": [
+        "step",
+        [
+          "get",
+          "População (2022)"
+        ],
+        "#f7fcf5",
+        100,
+        "#e5f5e0",
+        1000,
+        "#a1d99b",
+        2000,
+        "#41ab5d",
+        3000,
+        "#006d2c",
+        4000,
+        "#00441b"
+      ]
+    },
+    "slot": "",
+    "source-layer": "populacao_sad-3il930",
+    "layout": {
+      "visibility": "none"
+    }
+   },
+   "renda_sad-a9kjjx":
+   {
+     "type": "fill",
+    "source": "composite",
+    "id": "renda-sad-a9kjjx",
+    "paint": {
+      "fill-opacity": 0.7,
+      "fill-color": [
+        "step",
+        [
+          "get",
+          "Renda Domiciliar Média (R$)"
+        ],
+        "#fff7fb",
+        3000,
+        "#ece2f0",
+        4500,
+        "#a6bddb",
+        7000,
+        "#3690c0",
+        12000,
+        "#02818a",
+        20000,
+        "#014636"
+      ]
+    },
+    "slot": "",
+    "source-layer": "renda_sad-a9kjjx",
+    "layout": {
+      "visibility": "none"
+    }
+   },
 
    // ================== END SANTO ANDRÉ ==================
 
    // ================== START SALVADOR ==================
-   "ciclovia_tipo-bfdvvr":
+   "ssa_ciclovia":
     {
+    "layout": {
+      "visibility": "none"
+    },
     "type": "line",
     "source": "composite",
-    "id": "ciclovia-tipo-bfdvvr",
+    "id": "ssa-ciclovia",
     "paint": {
+      "line-width": 3,
       "line-color": [
-        "case",
+        "match",
         [
-          "match",
-          [
-            "get",
-            "tipo"
-          ],
-          [
-            "Ciclofaixa"
-          ],
-          true,
-          false
+          "get",
+          "Tipo"
         ],
-        "#bebada",
         [
-          "match",
-          [
-            "get",
-            "tipo"
-          ],
-          [
-            "Misto"
-          ],
-          true,
-          false
+          "Ciclovia",
+          "Ciclovia "
         ],
-        "#fb8072",
+        "#4daf4a",
         [
-          "match",
-          [
-            "get",
-            "tipo"
-          ],
-          [
-            "Ciclovia",
-            "Ciclovia "
-          ],
-          true,
-          false
+          "Ciclofaixa"
         ],
-        "#8dd3c7",
+        "#e41a1c",
         [
-          "match",
-          [
-            "get",
-            "tipo"
-          ],
-          [
-            "Via compartilhada"
-          ],
-          true,
-          false
+          "Ciclorrota"
         ],
-        "#80b1d3",
+        "#377eb8",
         [
-          "match",
-          [
-            "get",
-            "tipo"
-          ],
-          [
-            "Misto"
-          ],
-          true,
-          false
+          "Via compartilhada",
+          "Via Compartilhada"
         ],
-        "#fdb462",
+        "#f9e806",
         [
-          "match",
-          [
-            "get",
-            "tipo"
-          ],
-          [
-            "Ciclorrota"
-          ],
-          true,
-          false
+          "Misto"
         ],
-        "#b3de69",
+        "#984ea3",
         [
-          "match",
-          [
-            "get",
-            "tipo"
-          ],
-          [
-            "Ciclovia em canteiro central"
-          ],
-          true,
-          false
+          "Ciclovia em canteiro central"
         ],
-        "#fccde5",
+        "#ff7f00",
         "#000000"
-      ],
-      "line-width": 3
+      ]
     },
     "slot": "",
-    "source-layer": "ciclovia_tipo-bfdvvr"
+    "source-layer": "ssa_ciclovia"
   },
-  "rotas_ottrans-4esuj9":
+  "ssa_rotas_onibus_tipo":
    {
-    "layout": {
+     "layout": {
       "visibility": "none"
     },
     "type": "line",
     "source": "composite",
-    "id": "rotas-ottrans-4esuj9",
+    "id": "ssa-rotas-onibus-tipo",
     "paint": {
-      "line-color": "#cb181d"
+      "line-width": 2,
+      "line-color": [
+        "match",
+        [
+          "get",
+          "Tipo"
+        ],
+        [
+          "BRT"
+        ],
+        "#377eb8",
+        [
+          "OTTrans"
+        ],
+        "#4daf4a",
+        [
+          "Plataforma"
+        ],
+        "#f9e806",
+        "#000000"
+      ]
     },
     "slot": "",
-    "source-layer": "rotas_ottrans-4esuj9"
-  },
-   "ciclovia-2zvxww":
-    {
-    "layout": {
-      "visibility": "none"
-    },
-    "type": "line",
-    "source": "composite",
-    "id": "ciclovia-2zvxww",
-    "paint": {
-      "line-color": "#006d2c"
-    },
-    "slot": "",
-    "source-layer": "ciclovia-2zvxww"
+    "source-layer": "ssa_rotas_onibus_tipo"
   },
   "renda_ssa-72km6n":
    {
@@ -780,21 +1141,86 @@ export const layerStyles: Record<string, LayerStyle> = {
     "slot": "",
     "source-layer": "renda-2bxm7u"
   },
-  "rotas_onibus-178ot7":
+  "cam_rotas_onibus":
    {
-    "type": "line",
+      "type": "line",
     "source": "composite",
-    "id": "rotas-onibus-178ot7",
+    "id": "cam-rotas-onibus",
     "paint": {
+      "line-width": 3,
       "line-color": "#cb181d"
     },
     "slot": "",
-    "source-layer": "rotas_onibus-178ot7",
+    "source-layer": "cam_rotas_onibus",
     "layout": {
       "visibility": "none"
     }
   },
    // ================== END CAMPINAS ==================
+// ================== START CURITIBA ==================
+"cur_pop-ddf53z":
+{
+    "type": "fill",
+    "source": "composite",
+    "id": "cur-pop-ddf53z",
+    "paint": {
+      "fill-opacity": 0.7,
+      "fill-color": [
+        "step",
+        [
+          "get",
+          "População (2022)"
+        ],
+        "#f7fcf5",
+        250,
+        "#e5f5e0",
+        500,
+        "#a1d99b",
+        1000,
+        "#41ab5d",
+        2500,
+        "#006d2c",
+        5000,
+        "#00441b"
+      ]
+    },
+    "slot": "",
+    "source-layer": "cur_pop-ddf53z"
+},
+"cur_income_hh-b297ww":
+{
+   "type": "fill",
+    "source": "composite",
+    "id": "cur-income-hh-b297ww",
+    "paint": {
+      "fill-opacity": 0.7,
+      "fill-color": [
+        "step",
+        [
+          "get",
+          "Renda Domiciliar Média (R$)"
+        ],
+        "#fff7fb",
+        2000,
+        "#ece2f0",
+        4000,
+        "#a6bddb",
+        6000,
+        "#3690c0",
+        10000,
+        "#02818a",
+        15000,
+        "#014636"
+      ]
+    },
+    "slot": "",
+    "source-layer": "cur_income_hh-b297ww",
+    "layout": {
+      "visibility": "none"
+    }
+},
+// ================== END CURITIBA ==================
+
 
    // ================== START PORTO ALEGRE ==================
    "renda_poa-0cq519":
@@ -906,9 +1332,93 @@ export const layerStyles: Record<string, LayerStyle> = {
     },
     "slot": "",
     "source-layer": "sinistros_poa-8mfstv"
-  }
+  },
+  "poa_rotas_onibus":
+  {
+    "layout": {
+      "visibility": "none"
+    },
+    "type": "line",
+    "source": "composite",
+    "id": "poa-rotas-onibus",
+    "paint": {
+      "line-width": 2,
+      "line-color": "#cb181d"
+    },
+    "slot": "",
+    "source-layer": "poa_rotas_onibus"
 
+    },
+    "poa_ciclovia_ciclomapas":{
+       "layout": {
+      "visibility": "none"
+    },
+    "type": "line",
+    "source": "composite",
+    "id": "poa-ciclovia-ciclomapas",
+    "paint": {
+      "line-width": 3,
+      "line-color": [
+        "match",
+        [
+          "get",
+          "Tipo"
+        ],
+        [
+          "Ciclofaixa"
+        ],
+        "#e41a1c",
+        [
+          "Ciclovia"
+        ],
+        "#4daf4a",
+        [
+          "Ciclorrota"
+        ],
+        "#377eb8",
+        [
+          "Calçada compartilhada"
+        ],
+        "#f9e806",
+        "#000000"
+      ]
+    },
+    "slot": "",
+    "source-layer": "poa_ciclovia_ciclomapas"
+    },
    // ================== END PORTO ALEGRE ==================
+   // ================== START BRASIL ==================
+   "insper_tarifa_zero_municipios-dwws9i":
+   {
+     "id": "insper-tarifa-zero-municipios-dwws9i",
+    "type": "circle",
+    "paint": {
+      "circle-radius": 8,
+      "circle-color": [
+        "match",
+        [
+          "get",
+          "Tipo de Tarifa Zero"
+        ],
+        [
+          "Integral"
+        ],
+        "#2166ac",
+        [
+          "Parcial"
+        ],
+        "#80cdc1",
+        [
+          "Revogado"
+        ],
+        "#b2182b",
+        "#000000"
+      ]
+    },
+    "source": "composite",
+    "source-layer": "insper_tarifa_zero_municipios-dwws9i"
+   }
+   // ================== END BRASIL ==================
 }
 
 // Helper function to get layer style by source layer name
@@ -984,7 +1494,60 @@ function extractLegendFromExpression(expression: unknown): LegendItem[] | null {
     return extractFromCaseExpression(expression)
   }
 
+  if (expressionType === 'match') {
+    return extractFromMatchExpression(expression)
+  }
+
   return null
+}
+
+// Extract legend from match expression
+function extractFromMatchExpression(expression: unknown[]): LegendItem[] {
+  const legendItems: LegendItem[] = []
+  // Match expression format: ["match", ["get", "property"], value1, output1, value2, output2, ..., fallback]
+  
+  if (expression.length < 4) return legendItems
+  
+  // Process pairs of (value, output) starting from index 2
+  // The last item is the fallback/default value
+  for (let i = 2; i < expression.length - 1; i += 2) {
+    const matchValue = expression[i]
+    const output = expression[i + 1]
+    
+    // Handle arrays of values (multiple values mapping to same output)
+    if (Array.isArray(matchValue)) {
+      matchValue.forEach((val) => {
+        if (typeof output === 'string') {
+          legendItems.push({
+            color: output,
+            label: String(val),
+            value: String(val)
+          })
+        }
+      })
+    } else {
+      // Single value
+      if (typeof output === 'string') {
+        legendItems.push({
+          color: output,
+          label: String(matchValue),
+          value: String(matchValue)
+        })
+      }
+    }
+  }
+  
+  // Add fallback/default color if it exists and no items were added
+  const fallbackColor = expression[expression.length - 1]
+  if (legendItems.length === 0 && typeof fallbackColor === 'string') {
+    legendItems.push({
+      color: fallbackColor,
+      label: 'Outros',
+      value: 'Default'
+    })
+  }
+  
+  return legendItems
 }
 
 // Extract legend from step expression

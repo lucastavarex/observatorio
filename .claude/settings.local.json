@@ -2,7 +2,8 @@
   "permissions": {
     "allow": [
       "Bash(find \"C:\\Users\\Lucas S. Tavares\\OneDrive\\Área de Trabalho\\insper\\observatorio\\src\\app\\projetos\\(projetos)\\geoportal\" -type f -name \"*.ts\" -o -name \"*.tsx\")",
-      "Bash(npm run build)"
+      "Bash(npm run build)",
+      "Bash(npx tsc --noEmit property-map.tsx)"
     ],
     "deny": [],
     "ask": []
