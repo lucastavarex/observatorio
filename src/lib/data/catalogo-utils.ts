@@ -58,7 +58,7 @@ const DISPLAY_TYPE_MAPPING: Record<string, string> = {
 }
 
 // Get unique cities by group
-export function getCitiesByGroup(group: 'Cidade Parceira' | 'Dados Abertos'): CityData[] {
+export function getCitiesByGroup(group: 'Cidade Parceira' | 'Dados Abertos' | 'Outros Parceiros'): CityData[] {
   const filteredData = catalogoData.filter(item => item.grupo_cidade === group)
   
   // Group by city name
@@ -112,7 +112,7 @@ function isValidUrl(url: string): boolean {
 }
 
 // Get modal data for a specific city and data type
-export function getModalData(cityName: string, dataType: string, group: 'Cidade Parceira' | 'Dados Abertos'): ModalData | null {
+export function getModalData(cityName: string, dataType: string, group: 'Cidade Parceira' | 'Dados Abertos' | 'Outros Parceiros'): ModalData | null {
   const filteredData = catalogoData.filter(item => 
     item.nome_cidade === cityName && 
     item.tipo_dado === dataType &&
@@ -153,11 +153,13 @@ export function getModalData(cityName: string, dataType: string, group: 'Cidade 
     
     const source = sourcesMap.get(sourceKey)!
     
-    // Add all datasets (we'll handle disabled state individually)
+    // Add all datasets with titulo from item level
+    // Each item represents a dataset, and its titulo should be used for titulo_dado
     item.data.forEach(dataEntry => {
       if (dataEntry.link) {
         source.datasets!.push({
-          ...dataEntry,
+          link: dataEntry.link,
+          titulo_dado: item.titulo || (dataEntry as DataEntry).titulo_dado,
           isDisabled: !isValidUrl(dataEntry.link)
         })
       }
@@ -170,8 +172,8 @@ export function getModalData(cityName: string, dataType: string, group: 'Cidade 
   if (sources.length === 0) return null
   
   return {
-    title: displayType,
-    subtitle: firstItem.titulo || 'No title available',
+    title: firstItem.nome_cidade || cityName,
+    subtitle: displayType,
     sources
   }
 }

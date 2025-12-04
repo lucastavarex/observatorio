@@ -5,7 +5,7 @@ const projetosItems = [
   {
     title: "Geoportal",
     href: "/projetos/geoportal",
-    description: "Visualize dados espaciais de mobilidade urbana em um mapa interativo com diversas camadas temáticas",
+    description: "Visualize dados espaciais e de mobilidade urbana em mapa interativo com camadas temáticas e ferramentas de visualização.",
   },
   {
     title: "Catálogo de Dados",
@@ -15,7 +15,7 @@ const projetosItems = [
   {
     title: "Dashboard PEMOB",
     href: "/projetos/dashboard",
-    description: "Visualize dados espaciais de mobilidade urbana em um mapa interativo com diversas camadas temáticas",
+    description: "Visualize dados espaciais e de mobilidade urbana em mapa interativo com camadas temáticas e ferramentas de visualização.",
   },
   {
     title: "Dados PEMOB",
@@ -31,15 +31,15 @@ const publicacoesItems = [
     description: "Explore nossa coleção de livros sobre mobilidade urbana e desenvolvimento sustentável",
   },
   {
-    title: "Artigos científicos",
-    href: "/publicacoes?tipo=artigos",
-    description: "Acesse artigos científicos e pesquisas sobre mobilidade urbana",
+    title: "Policy Papers",
+    href: "/publicacoes?tipo=policy_paper",
+    description: "Acesse Policy Papers sobre mobilidade urbana",
   },
-  {
-    title: "Notas técnicas",
-    href: "/publicacoes?tipo=notas",
-    description: "Consulte notas técnicas e documentos especializados em mobilidade",
-  },
+  // {
+  //   title: "Notas técnicas",
+  //   href: "/publicacoes?tipo=notas",
+  //   description: "Consulte notas técnicas e documentos especializados em mobilidade",
+  // },
 ]
 
 export function Footer() {
@@ -70,7 +70,15 @@ export function Footer() {
               </Link>
             </div>
 
-            {/* Dados de mobilidade dropdown */}
+            <div className="flex flex-col gap-2">
+              <Link 
+                href="/sobre" 
+                className="text-gray-600 hover:text-gray-800 transition-colors text-sm font-medium"
+              >
+                Sobre
+              </Link>
+            </div>
+ {/* Dados de mobilidade dropdown */}
             <div className="flex flex-col gap-2">
               <span className="text-gray-600 text-sm font-medium">Mobilidade em dados</span>
               <div className="flex flex-col gap-1">
@@ -85,16 +93,6 @@ export function Footer() {
                 ))}
               </div>
             </div>
-
-            <div className="flex flex-col gap-2">
-              <Link 
-                href="/sobre" 
-                className="text-gray-600 hover:text-gray-800 transition-colors text-sm font-medium"
-              >
-                Sobre
-              </Link>
-            </div>
-
             {/* Publicações dropdown */}
             <div className="flex flex-col gap-2">
               <span className="text-gray-600 text-sm font-medium">Publicações</span>

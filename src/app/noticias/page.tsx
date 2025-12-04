@@ -3,33 +3,9 @@
 import { Header } from "@/components/header"
 import { getAllNews } from "@/lib/data/news"
 import { Plus } from "lucide-react"
-import Image from "next/image"
-import { useRef, useState } from "react"
 
 export default function Noticias() {
-  const [hoveredImage, setHoveredImage] = useState<string | null>(null)
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
-  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null)
-  const containerRef = useRef<HTMLDivElement>(null)
-
   const newsData = getAllNews()
-
-  const handleMouseMove = (e: React.MouseEvent) => {
-    setMousePosition({
-      x: e.clientX,
-      y: e.clientY
-    })
-  }
-
-  const handleMouseEnter = (image: string, index: number) => {
-    setHoveredImage(image)
-    setHoveredIndex(index)
-  }
-
-  const handleMouseLeave = () => {
-    setHoveredImage(null)
-    setHoveredIndex(null)
-  }
 
   return (
     <>
@@ -50,27 +26,7 @@ export default function Noticias() {
         </div>
       </div>
     </div>
-     <div ref={containerRef} onMouseMove={handleMouseMove} className="bg-[#f9f9f6] pb-30">
-          {/* Hover Image - Desktop Only */}
-                   {hoveredImage && (
-            <div 
-              className="fixed pointer-events-none z-50 hidden md:block transition-all duration-300 ease-out"
-              style={{
-                left: mousePosition.x,
-                top: mousePosition.y - 40,
-                transform: `translate(-50%, -100%) rotate(${hoveredIndex !== null && hoveredIndex % 2 === 0 ? '-2deg' : '2deg'})`
-              }}
-            >
-              <Image
-                width={256}
-                height={160}
-                src={hoveredImage} 
-                alt="News preview"
-                className="w-86 h-60 object-cover shadow-lg"
-              />
-            </div>
-          )}
-
+     <div className="bg-[#f9f9f6] pb-30">
         {/* News List */}
         <div className="space-y-0">
           <div className="border-t border-gray-200 mx-4 lg:mx-16" />
@@ -78,8 +34,6 @@ export default function Noticias() {
             <div key={item.id}>
                                                            <div 
                                 className="flex items-start py-8 group hover:bg-black md:hover:bg-black transition-all duration-300 cursor-pointer"
-                                onMouseEnter={() => handleMouseEnter(item.image, index)}
-                                onMouseLeave={handleMouseLeave}
                                 onClick={() => window.open(item.link, '_blank')}
                               >
                                  {/* Plus Icon */}
