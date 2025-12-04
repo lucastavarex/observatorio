@@ -24,6 +24,12 @@ COPY . .
 
 # Define build-time environment variables
 
+ARG NEXT_PUBLIC_MAPBOX_TOKEN
+ARG NEXT_PUBLIC_MAPBOX_USERNAME
+
+ENV NEXT_PUBLIC_MAPBOX_TOKEN=${NEXT_PUBLIC_MAPBOX_TOKEN}
+ENV NEXT_PUBLIC_MAPBOX_USERNAME=${NEXT_PUBLIC_MAPBOX_USERNAME}
+
 # Build the Next.js application
 RUN \
   if [ -f yarn.lock ]; then yarn run build; \
