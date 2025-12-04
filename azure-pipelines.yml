@@ -18,16 +18,32 @@ stages:
     pool:
       vmImage: $(vmImageName)
     steps:
+      
+    # ---------------------------
+    # STEP 1 — BUILD COM BUILD-ARGS
+    # ---------------------------
     - task: Docker@2
-      displayName: 'Build and push Docker image'
+      displayName: 'Build Docker image'
       inputs:
-        command: buildAndPush
+        command: build
         repository: $(imageRepository)
         dockerfile: $(dockerfilePath)
         containerRegistry: $(dockerRegistryServiceConnection)
+        buildContext: '$(Build.SourcesDirectory)'
         tags: |
           $(tag)
         arguments: >-
           --build-arg NEXT_PUBLIC_MAPBOX_TOKEN="$(NEXT_PUBLIC_MAPBOX_TOKEN)"
           --build-arg NEXT_PUBLIC_MAPBOX_USERNAME="$(NEXT_PUBLIC_MAPBOX_USERNAME)"
-        buildContext: '$(Build.SourcesDirectory)'
+
+    # ---------------------------
+    # STEP 2 — PUSH
+    # ---------------------------
+    - task: Docker@2
+      displayName: 'Push Docker image'
+      inputs:
+        command: push
+        repository: $(imageRepository)
+        containerRegistry: $(dockerRegistryServiceConnection)
+        tags: |
+          $(tag)
