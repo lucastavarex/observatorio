@@ -27,4 +27,7 @@ stages:
         containerRegistry: $(dockerRegistryServiceConnection)
         tags: |
           $(tag)
+        arguments: >-
+          --build-arg NEXT_PUBLIC_MAPBOX_TOKEN="$(NEXT_PUBLIC_MAPBOX_TOKEN)"
+          --build-arg NEXT_PUBLIC_MAPBOX_USERNAME="$(NEXT_PUBLIC_MAPBOX_USERNAME)"
         buildContext: '$(Build.SourcesDirectory)'
