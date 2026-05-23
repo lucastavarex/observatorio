@@ -1,77 +1,95 @@
-import { clerkMiddleware, createRouteMatcher } from '@clerk/nextjs/server'
-import { NextRequest, NextResponse } from 'next/server'
+import { authMiddleware } from "next-firebase-auth-edge"
+import { NextRequest, NextResponse } from "next/server"
+import { FIREBASE_AUTH_CONFIG } from "@/lib/firebase-auth-config"
 
-const isProtectedRoute = createRouteMatcher([
-  '/projetos/dashboard-wri-brasil(.*)',
-])
+const PROTECTED_PATHS = ["/projetos/dashboard-wri-brasil"]
 
-function applySecurityHeaders(request: NextRequest, response: NextResponse): NextResponse {
-  const isDevelopment = process.env.NODE_ENV === 'development'
-  const nonce = Buffer.from(crypto.randomUUID()).toString('base64')
+function isProtected(request: NextRequest) {
+  return PROTECTED_PATHS.some((path) =>
+    request.nextUrl.pathname.startsWith(path)
+  )
+}
 
-  const scriptHashes = [
-    'sha256-OBTN3RiyCV4Bq7dFqZ5a2pAXjnCcCYeTJMO2I/LYKeo=',
-    'sha256-I2DmuxESqMBc7I699LGXBUbsbFWsjISHkYipfl5NLb8=',
-    'sha256-A4YAtXod9DY0TTxuZ9DF7hQQs7FLBYy9v+7+yrqxn7o=',
-    'sha256-8NxxGXxir9pjY1tgobEanFuJ/nW5tfGtLxLWJWjuN6A=',
-    'sha256-DsoVc5FBtiFzFVprMLb7k3gKy0FYX7fMwSef2XeymCM=',
-    'sha256-ODF6w7yglqORN/KuIsl8BOyE2dZmkkqHyScTUYU7+n8=',
-    'sha256-j/DJh3tOOqC3mvlAkpSW3QcbR98SsBBK+LOw+3i9+rw=',
-    'sha256-441MT30wfZ+SJtcQSCfzkxsisG1laMUFw7lWCr2SYUA=',
-  ]
+function buildCsp(nonce: string): string {
+  const isDevelopment = process.env.NODE_ENV === "development"
 
-  const scriptSrcDirectives = [
-    "'self'",
+  // 'strict-dynamic' faz browsers modernos ignorarem 'unsafe-inline' e confiarem
+  // apenas em scripts carregados por scripts que já têm o nonce.
+  // 'unsafe-inline' é mantido como fallback para browsers antigos (ignorado por CSP3).
+  const scriptSrc = [
     `'nonce-${nonce}'`,
-    ...scriptHashes.map((hash) => `'${hash}'`),
-    'https://*.clerk.com',
-    'https://*.clerk.accounts.dev',
-    'https://challenges.cloudflare.com',
+    "'strict-dynamic'",
+    "'unsafe-inline'",
+    "https:",
     ...(isDevelopment ? ["'unsafe-eval'"] : []),
-  ]
+  ].join(" ")
 
-  const cspHeader = `
+  return `
     default-src 'self' https://*.cloudinary.com https://*.sharepoint.com https://*.mapbox.com/ https://*.powerbi.com/ https://*.outlook.com/;
-    script-src ${scriptSrcDirectives.join(' ')} https://*.clerk.com https://*.clerk.accounts.dev https://challenges.cloudflare.com;
-    connect-src 'self' https://*.clerk.com https://*.clerk.accounts.dev https://*.cloudinary.com https://*.sharepoint.com https://*.mapbox.com https://*.powerbi.com https://*.outlook.com https://challenges.cloudflare.com;
-    style-src 'self' 'unsafe-inline' https://*.clerk.com;
-    img-src 'self' blob: data: https://img.clerk.com;
-    font-src 'self' data: https://storage.googleapis.com https://*.clerk.com;
+    script-src ${scriptSrc};
+    connect-src 'self' https://*.googleapis.com https://identitytoolkit.googleapis.com https://securetoken.googleapis.com https://*.cloudinary.com https://*.sharepoint.com https://*.mapbox.com https://*.powerbi.com https://*.outlook.com;
+    style-src 'self' 'unsafe-inline';
+    img-src 'self' blob: data:;
+    font-src 'self' data: https://storage.googleapis.com;
     media-src 'self' data: blob: https://*.cloudinary.com https://*.sharepoint.com;
     worker-src 'self' blob:;
-    frame-src https://challenges.cloudflare.com https://*.clerk.com https://*.clerk.accounts.dev https://*.powerbi.com;
+    frame-src https://*.powerbi.com;
     object-src 'none';
     base-uri 'self';
     form-action 'self';
     frame-ancestors 'none';
     upgrade-insecure-requests;
-  `
+  `.replace(/\s{2,}/g, " ").trim()
+}
 
-  const cspValue = cspHeader.replace(/\s{2,}/g, ' ').trim()
-
-  response.headers.set('x-nonce', nonce)
-  response.headers.set('Content-Security-Policy', cspValue)
-  response.headers.set('X-Content-Type-Options', 'nosniff')
-  response.headers.set('X-Frame-Options', 'DENY')
-  response.headers.set('X-XSS-Protection', '1; mode=block')
-  response.headers.set('Referrer-Policy', 'strict-origin-when-cross-origin')
-  response.headers.set('Permissions-Policy', 'camera=(), microphone=(), geolocation=(), payment=()')
-
+function applySecurityHeaders(response: NextResponse, nonce: string): NextResponse {
+  response.headers.set("Content-Security-Policy", buildCsp(nonce))
+  response.headers.set("X-Content-Type-Options", "nosniff")
+  response.headers.set("X-Frame-Options", "DENY")
+  response.headers.set("X-XSS-Protection", "1; mode=block")
+  response.headers.set("Referrer-Policy", "strict-origin-when-cross-origin")
+  response.headers.set("Permissions-Policy", "camera=(), microphone=(), geolocation=(), payment=()")
   return response
 }
 
-export default clerkMiddleware(async (auth, request) => {
-  if (isProtectedRoute(request)) {
-    await auth.protect()
-  }
+export default async function middleware(request: NextRequest) {
+  // Nonce único por request — Next.js lê x-nonce dos request headers
+  // e injeta automaticamente em seus próprios scripts inline de hidratação.
+  const nonce = Buffer.from(crypto.randomUUID()).toString("base64")
 
-  const response = NextResponse.next()
-  return applySecurityHeaders(request, response)
-})
+  return authMiddleware(request, {
+    loginPath: "/api/auth/login",
+    logoutPath: "/api/auth/logout",
+    ...FIREBASE_AUTH_CONFIG,
+    handleValidToken: async (_tokens, headers) => {
+      headers.set("x-nonce", nonce)
+      const response = NextResponse.next({ request: { headers } })
+      return applySecurityHeaders(response, nonce)
+    },
+    handleInvalidToken: async () => {
+      if (isProtected(request)) {
+        return NextResponse.redirect(new URL("/sign-in", request.url))
+      }
+      const requestHeaders = new Headers(request.headers)
+      requestHeaders.set("x-nonce", nonce)
+      const response = NextResponse.next({ request: { headers: requestHeaders } })
+      return applySecurityHeaders(response, nonce)
+    },
+    handleError: async () => {
+      if (isProtected(request)) {
+        return NextResponse.redirect(new URL("/sign-in", request.url))
+      }
+      const requestHeaders = new Headers(request.headers)
+      requestHeaders.set("x-nonce", nonce)
+      const response = NextResponse.next({ request: { headers: requestHeaders } })
+      return applySecurityHeaders(response, nonce)
+    },
+  })
+}
 
 export const config = {
   matcher: [
-    '/((?!_next|[^?]*\\.(?:html?|css|js(?!on)|jpe?g|webp|png|gif|svg|ttf|woff2?|ico|csv|docx?|xlsx?|zip|webmanifest)).*)',
-    '/(api|trpc)(.*)',
+    "/((?!_next|[^?]*\\.(?:html?|css|js(?!on)|jpe?g|webp|png|gif|svg|ttf|woff2?|ico|csv|docx?|xlsx?|zip|webmanifest)).*)",
+    "/(api|trpc)(.*)",
   ],
 }
