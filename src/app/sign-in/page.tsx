@@ -1,3 +1,4 @@
+import { Suspense } from "react"
 import { LoginForm } from "@/components/login-form"
 import { Header } from "@/components/header"
 
@@ -7,7 +8,9 @@ export default function SignInPage() {
       <Header className="bg-[#f9f9f6]" />
       <div className="flex bg-[#eaedf5]! flex-1 items-center justify-center p-6 md:p-10">
         <div className="w-full max-w-sm md:max-w-4xl">
-          <LoginForm/>
+          <Suspense>
+            <LoginForm/>
+          </Suspense>
         </div>
       </div>
     </div>
