@@ -4,7 +4,7 @@ import { useState, FormEvent } from "react"
 import { Eye, EyeOff } from "lucide-react"
 import { signInWithEmailAndPassword } from "firebase/auth"
 import { firebaseAuth } from "@/lib/firebase-client"
-import { useRouter, useSearchParams } from "next/navigation"
+import { useSearchParams } from "next/navigation"
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
@@ -17,7 +17,6 @@ export function LoginForm({ className, ...props }: React.ComponentProps<"div">) 
   const [error, setError] = useState<string | null>(null)
   const [loading, setLoading] = useState(false)
   const [showPassword, setShowPassword] = useState(false)
-  const router = useRouter()
   const searchParams = useSearchParams()
 
   const handleSubmit = async (e: FormEvent) => {
@@ -31,6 +30,7 @@ export function LoginForm({ className, ...props }: React.ComponentProps<"div">) 
 
       const res = await fetch("/api/auth/login", {
         method: "POST",
+        credentials: "include",
         headers: { Authorization: `Bearer ${idToken}` },
       })
 
@@ -39,7 +39,7 @@ export function LoginForm({ className, ...props }: React.ComponentProps<"div">) 
       const callbackUrl = searchParams.get("callbackUrl")
       const destination =
         callbackUrl && callbackUrl.startsWith("/") ? callbackUrl : "/projetos/dashboard-wri-brasil"
-      router.push(destination)
+      window.location.assign(destination)
     } catch {
       setError("Email ou senha incorretos. Tente novamente.")
     } finally {

@@ -57,7 +57,12 @@ export default async function middleware(request: NextRequest) {
     ...FIREBASE_AUTH_CONFIG,
     handleValidToken: async (_tokens, headers) => {
       if (request.nextUrl.pathname === "/sign-in") {
-        return NextResponse.redirect(new URL("/projetos/dashboard-wri-brasil", request.url))
+        const callbackUrl = request.nextUrl.searchParams.get("callbackUrl")
+        const destination =
+          callbackUrl && callbackUrl.startsWith("/")
+            ? callbackUrl
+            : "/projetos/dashboard-wri-brasil"
+        return NextResponse.redirect(new URL(destination, request.url))
       }
       const response = NextResponse.next({ request: { headers } })
       return applySecurityHeaders(response)
