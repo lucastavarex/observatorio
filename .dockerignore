@@ -28,6 +28,8 @@ pnpm-debug.log*
 # Editors / OS
 .vscode
 .idea
+.claude
+.cursor
 .DS_Store
 Thumbs.db
 
@@ -44,3 +46,7 @@ docker-compose*
 # Optional docs
 README.md
 *.md
+docs
+
+# Infra / deploy manifests
+k8s
