@@ -1,77 +1,94 @@
-import { clerkMiddleware, createRouteMatcher } from '@clerk/nextjs/server'
-import { NextRequest, NextResponse } from 'next/server'
+import { authMiddleware } from "next-firebase-auth-edge"
+import { NextRequest, NextResponse } from "next/server"
+import { FIREBASE_AUTH_CONFIG } from "@/lib/firebase-auth-config"
 
-const isProtectedRoute = createRouteMatcher([
-  '/projetos/dashboard-wri-brasil(.*)',
-])
+const PROTECTED_PATHS = ["/projetos/dashboard-wri-brasil"]
 
-function applySecurityHeaders(request: NextRequest, response: NextResponse): NextResponse {
-  const isDevelopment = process.env.NODE_ENV === 'development'
-  const nonce = Buffer.from(crypto.randomUUID()).toString('base64')
+function isProtected(request: NextRequest) {
+  return PROTECTED_PATHS.some((path) =>
+    request.nextUrl.pathname.startsWith(path)
+  )
+}
 
-  const scriptHashes = [
-    'sha256-OBTN3RiyCV4Bq7dFqZ5a2pAXjnCcCYeTJMO2I/LYKeo=',
-    'sha256-I2DmuxESqMBc7I699LGXBUbsbFWsjISHkYipfl5NLb8=',
-    'sha256-A4YAtXod9DY0TTxuZ9DF7hQQs7FLBYy9v+7+yrqxn7o=',
-    'sha256-8NxxGXxir9pjY1tgobEanFuJ/nW5tfGtLxLWJWjuN6A=',
-    'sha256-DsoVc5FBtiFzFVprMLb7k3gKy0FYX7fMwSef2XeymCM=',
-    'sha256-ODF6w7yglqORN/KuIsl8BOyE2dZmkkqHyScTUYU7+n8=',
-    'sha256-j/DJh3tOOqC3mvlAkpSW3QcbR98SsBBK+LOw+3i9+rw=',
-    'sha256-441MT30wfZ+SJtcQSCfzkxsisG1laMUFw7lWCr2SYUA=',
-  ]
+function buildCsp(): string {
+  const isDevelopment = process.env.NODE_ENV === "development"
 
-  const scriptSrcDirectives = [
+  const scriptSrc = [
     "'self'",
-    `'nonce-${nonce}'`,
-    ...scriptHashes.map((hash) => `'${hash}'`),
-    'https://*.clerk.com',
-    'https://*.clerk.accounts.dev',
-    'https://challenges.cloudflare.com',
+    "'unsafe-inline'",
+    "https://*.mapbox.com",
+    "https://*.powerbi.com",
     ...(isDevelopment ? ["'unsafe-eval'"] : []),
-  ]
+  ].join(" ")
 
-  const cspHeader = `
+  return `
     default-src 'self' https://*.cloudinary.com https://*.sharepoint.com https://*.mapbox.com/ https://*.powerbi.com/ https://*.outlook.com/;
-    script-src ${scriptSrcDirectives.join(' ')} https://*.clerk.com https://*.clerk.accounts.dev https://challenges.cloudflare.com;
-    connect-src 'self' https://*.clerk.com https://*.clerk.accounts.dev https://*.cloudinary.com https://*.sharepoint.com https://*.mapbox.com https://*.powerbi.com https://*.outlook.com https://challenges.cloudflare.com;
-    style-src 'self' 'unsafe-inline' https://*.clerk.com;
-    img-src 'self' blob: data: https://img.clerk.com;
-    font-src 'self' data: https://storage.googleapis.com https://*.clerk.com;
+    script-src ${scriptSrc};
+    connect-src 'self' ${isDevelopment ? "ws: wss:" : ""} https://*.googleapis.com https://identitytoolkit.googleapis.com https://securetoken.googleapis.com https://*.cloudinary.com https://*.sharepoint.com https://*.mapbox.com https://*.powerbi.com https://*.outlook.com;
+    style-src 'self' 'unsafe-inline';
+    img-src 'self' blob: data:;
+    font-src 'self' data: https://storage.googleapis.com;
     media-src 'self' data: blob: https://*.cloudinary.com https://*.sharepoint.com;
     worker-src 'self' blob:;
-    frame-src https://challenges.cloudflare.com https://*.clerk.com https://*.clerk.accounts.dev https://*.powerbi.com;
+    frame-src https://*.powerbi.com;
     object-src 'none';
     base-uri 'self';
     form-action 'self';
     frame-ancestors 'none';
     upgrade-insecure-requests;
-  `
+  `.replace(/\s{2,}/g, " ").trim()
+}
 
-  const cspValue = cspHeader.replace(/\s{2,}/g, ' ').trim()
-
-  response.headers.set('x-nonce', nonce)
-  response.headers.set('Content-Security-Policy', cspValue)
-  response.headers.set('X-Content-Type-Options', 'nosniff')
-  response.headers.set('X-Frame-Options', 'DENY')
-  response.headers.set('X-XSS-Protection', '1; mode=block')
-  response.headers.set('Referrer-Policy', 'strict-origin-when-cross-origin')
-  response.headers.set('Permissions-Policy', 'camera=(), microphone=(), geolocation=(), payment=()')
-
+function applySecurityHeaders(response: NextResponse): NextResponse {
+  const csp = buildCsp()
+  response.headers.set("Content-Security-Policy", csp)
+  response.headers.set("X-Content-Type-Options", "nosniff")
+  response.headers.set("X-Frame-Options", "DENY")
+  response.headers.set("X-XSS-Protection", "1; mode=block")
+  response.headers.set("Referrer-Policy", "strict-origin-when-cross-origin")
+  response.headers.set("Permissions-Policy", "camera=(), microphone=(), geolocation=(), payment=()")
   return response
 }
 
-export default clerkMiddleware(async (auth, request) => {
-  if (isProtectedRoute(request)) {
-    await auth.protect()
-  }
-
-  const response = NextResponse.next()
-  return applySecurityHeaders(request, response)
-})
+export default async function middleware(request: NextRequest) {
+  return authMiddleware(request, {
+    loginPath: "/api/auth/login",
+    logoutPath: "/api/auth/logout",
+    ...FIREBASE_AUTH_CONFIG,
+    handleValidToken: async (_tokens, headers) => {
+      if (request.nextUrl.pathname === "/sign-in") {
+        const callbackUrl = request.nextUrl.searchParams.get("callbackUrl")
+        const destination =
+          callbackUrl && callbackUrl.startsWith("/")
+            ? callbackUrl
+            : "/projetos/dashboard-wri-brasil"
+        return NextResponse.redirect(new URL(destination, request.url))
+      }
+      const response = NextResponse.next({ request: { headers } })
+      return applySecurityHeaders(response)
+    },
+    handleInvalidToken: async () => {
+      if (isProtected(request)) {
+        const signInUrl = new URL("/sign-in", request.url)
+        signInUrl.searchParams.set("callbackUrl", request.nextUrl.pathname)
+        return NextResponse.redirect(signInUrl)
+      }
+      return applySecurityHeaders(NextResponse.next())
+    },
+    handleError: async () => {
+      if (isProtected(request)) {
+        const signInUrl = new URL("/sign-in", request.url)
+        signInUrl.searchParams.set("callbackUrl", request.nextUrl.pathname)
+        return NextResponse.redirect(signInUrl)
+      }
+      return applySecurityHeaders(NextResponse.next())
+    },
+  })
+}
 
 export const config = {
   matcher: [
-    '/((?!_next|[^?]*\\.(?:html?|css|js(?!on)|jpe?g|webp|png|gif|svg|ttf|woff2?|ico|csv|docx?|xlsx?|zip|webmanifest)).*)',
-    '/(api|trpc)(.*)',
+    "/((?!_next|[^?]*\\.(?:html?|css|js(?!on)|jpe?g|webp|png|gif|svg|ttf|woff2?|ico|csv|docx?|xlsx?|zip|webmanifest)).*)",
+    "/(api|trpc)(.*)",
   ],
 }
