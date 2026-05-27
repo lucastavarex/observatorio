@@ -12,7 +12,7 @@ import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useEffect, useState, Suspense } from "react";
 
 // Define publication types
 interface Publication {
@@ -98,7 +98,7 @@ const publications: Publication[] = [
   },
 ];
 
-export default function Publicacoes() {
+function PublicacoesContent() {
   const searchParams = useSearchParams();
   const router = useRouter();
   const [activeFilter, setActiveFilter] = useState<string>("todos");
@@ -206,5 +206,13 @@ export default function Publicacoes() {
         )}
       </div>
     </div>
+  );
+}
+
+export default function Publicacoes() {
+  return (
+    <Suspense>
+      <PublicacoesContent />
+    </Suspense>
   );
 }

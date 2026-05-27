@@ -1,108 +1,94 @@
-import { ProxyConfig, NextRequest, NextResponse } from 'next/server'
- 
-export function proxy(request: NextRequest) {
-// Define CSP header with nonce support
-  const isDevelopment = process.env.NODE_ENV === 'development'
+import { authMiddleware } from "next-firebase-auth-edge"
+import { NextRequest, NextResponse } from "next/server"
+import { FIREBASE_AUTH_CONFIG } from "@/lib/firebase-auth-config"
 
-  // Generate nonce for CSP
-  const nonce = Buffer.from(crypto.randomUUID()).toString('base64')
+const PROTECTED_PATHS = ["/projetos/dashboard-wri-brasil"]
 
-  // SHA256 hashes for inline scripts
-  const scriptHashes = [
-    'sha256-OBTN3RiyCV4Bq7dFqZ5a2pAXjnCcCYeTJMO2I/LYKeo=',
-    'sha256-I2DmuxESqMBc7I699LGXBUbsbFWsjISHkYipfl5NLb8=',
-    'sha256-A4YAtXod9DY0TTxuZ9DF7hQQs7FLBYy9v+7+yrqxn7o=',
-    'sha256-8NxxGXxir9pjY1tgobEanFuJ/nW5tfGtLxLWJWjuN6A=',
-    'sha256-DsoVc5FBtiFzFVprMLb7k3gKy0FYX7fMwSef2XeymCM=',
-    'sha256-ODF6w7yglqORN/KuIsl8BOyE2dZmkkqHyScTUYU7+n8=',
-    'sha256-j/DJh3tOOqC3mvlAkpSW3QcbR98SsBBK+LOw+3i9+rw=',
-    'sha256-441MT30wfZ+SJtcQSCfzkxsisG1laMUFw7lWCr2SYUA='
-  ]
+function isProtected(request: NextRequest) {
+  return PROTECTED_PATHS.some((path) =>
+    request.nextUrl.pathname.startsWith(path)
+  )
+}
 
-const scriptSrcDirectives = [
+function buildCsp(): string {
+  const isDevelopment = process.env.NODE_ENV === "development"
+
+  const scriptSrc = [
     "'self'",
-    `'nonce-${nonce}'`,
-    "'strict-dynamic'",
-    ...scriptHashes.map(hash => `'${hash}'`),
+    "'unsafe-inline'",
+    "https://*.mapbox.com",
+    "https://*.powerbi.com",
     ...(isDevelopment ? ["'unsafe-eval'"] : []),
-  ]
+  ].join(" ")
 
-const cspHeader = `
-    default-src 'self' https://*.cloudinary.com https://*.sharepoint.com https://*.mapbox.com/;
-    script-src ${scriptSrcDirectives.join(' ')};
+  return `
+    default-src 'self' https://*.cloudinary.com https://*.sharepoint.com https://*.mapbox.com/ https://*.powerbi.com/ https://*.outlook.com/;
+    script-src ${scriptSrc};
+    connect-src 'self' ${isDevelopment ? "ws: wss:" : ""} https://*.googleapis.com https://identitytoolkit.googleapis.com https://securetoken.googleapis.com https://*.cloudinary.com https://*.sharepoint.com https://*.mapbox.com https://*.powerbi.com https://*.outlook.com;
     style-src 'self' 'unsafe-inline';
-    img-src 'self' blob: data: ;
+    img-src 'self' blob: data:;
     font-src 'self' data: https://storage.googleapis.com;
-    media-src 'self' data: blob: https://*.cloudinary.com https://*.sharepoint.com ;
+    media-src 'self' data: blob: https://*.cloudinary.com https://*.sharepoint.com;
+    worker-src 'self' blob:;
+    frame-src https://*.powerbi.com;
     object-src 'none';
     base-uri 'self';
     form-action 'self';
     frame-ancestors 'none';
     upgrade-insecure-requests;
-`
+  `.replace(/\s{2,}/g, " ").trim()
+}
 
-  // Replace newline characters and spaces
-  const contentSecurityPolicyHeaderValue = cspHeader
-    .replace(/\s{2,}/g, ' ')
-    .trim()
- 
-  const requestHeaders = new Headers(request.headers)
- requestHeaders.set('x-nonce', nonce)
-  requestHeaders.set(
-    'Content-Security-Policy',
-    contentSecurityPolicyHeaderValue
-  )
- 
-  const response = NextResponse.next({
-    request: {
-      headers: requestHeaders,
-    },
-  })
-  
-  // Set security headers
-  response.headers.set(
-    'Content-Security-Policy',
-    contentSecurityPolicyHeaderValue
-  )
-  
-  // X-Content-Type-Options: nosniff - Prevents MIME type sniffing
-  response.headers.set('X-Content-Type-Options', 'nosniff')
-  
-  // X-Frame-Options: DENY - Prevents clickjacking attacks
-  response.headers.set('X-Frame-Options', 'DENY')
-  
-  // X-XSS-Protection: 1; mode=block - Enables XSS protection
-  response.headers.set('X-XSS-Protection', '1; mode=block')
-  
-  // Referrer-Policy: strict-origin-when-cross-origin - Controls referrer information
-  response.headers.set('Referrer-Policy', 'strict-origin-when-cross-origin')
-  
-  // Permissions-Policy - Restricts browser features
-  response.headers.set(
-    'Permissions-Policy',
-    'camera=(), microphone=(), geolocation=(), payment=()'
-  )
- 
+function applySecurityHeaders(response: NextResponse): NextResponse {
+  const csp = buildCsp()
+  response.headers.set("Content-Security-Policy", csp)
+  response.headers.set("X-Content-Type-Options", "nosniff")
+  response.headers.set("X-Frame-Options", "DENY")
+  response.headers.set("X-XSS-Protection", "1; mode=block")
+  response.headers.set("Referrer-Policy", "strict-origin-when-cross-origin")
+  response.headers.set("Permissions-Policy", "camera=(), microphone=(), geolocation=(), payment=()")
   return response
 }
 
-  export const config: ProxyConfig = {
-  matcher: [
-    /*
-     * Match all request paths except for the ones starting with:
-     * - api (API routes)
-     * - _next/static (static files)
-     * - _next/image (image optimization files)
-     * - favicon.ico, sitemap.xml, robots.txt (metadata files)
-     */
-    {
-      source:
-        '/((?!api|_next/static|_next/image|favicon.ico|sitemap.xml|robots.txt).*)',
-      missing: [
-        { type: 'header', key: 'next-router-prefetch' },
-        { type: 'header', key: 'purpose', value: 'prefetch' },
-      ],
+export default async function middleware(request: NextRequest) {
+  return authMiddleware(request, {
+    loginPath: "/api/auth/login",
+    logoutPath: "/api/auth/logout",
+    ...FIREBASE_AUTH_CONFIG,
+    handleValidToken: async (_tokens, headers) => {
+      if (request.nextUrl.pathname === "/sign-in") {
+        const callbackUrl = request.nextUrl.searchParams.get("callbackUrl")
+        const destination =
+          callbackUrl && callbackUrl.startsWith("/")
+            ? callbackUrl
+            : "/projetos/dashboard-wri-brasil"
+        return NextResponse.redirect(new URL(destination, request.url))
+      }
+      const response = NextResponse.next({ request: { headers } })
+      return applySecurityHeaders(response)
     },
-  ],
+    handleInvalidToken: async () => {
+      if (isProtected(request)) {
+        const signInUrl = new URL("/sign-in", request.url)
+        signInUrl.searchParams.set("callbackUrl", request.nextUrl.pathname)
+        return NextResponse.redirect(signInUrl)
+      }
+      return applySecurityHeaders(NextResponse.next())
+    },
+    handleError: async () => {
+      if (isProtected(request)) {
+        const signInUrl = new URL("/sign-in", request.url)
+        signInUrl.searchParams.set("callbackUrl", request.nextUrl.pathname)
+        return NextResponse.redirect(signInUrl)
+      }
+      return applySecurityHeaders(NextResponse.next())
+    },
+  })
+}
 
+export const config = {
+  matcher: [
+    "/((?!_next|[^?]*\\.(?:html?|css|js(?!on)|jpe?g|webp|png|gif|svg|ttf|woff2?|ico|csv|docx?|xlsx?|zip|webmanifest)).*)",
+    "/(api|trpc)(.*)",
+  ],
 }
