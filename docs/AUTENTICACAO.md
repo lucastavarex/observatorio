@@ -198,8 +198,9 @@ kubectl rollout restart deployment/observatorio
    - **Password:** uma senha temporária (ex: `Observatorio@2025`)
 4. Clique em **"Add user"**
 5. Envie as credenciais para o funcionário por outro canal seguro (WhatsApp, email, etc.)
-6. Oriente o funcionário a trocar a senha no primeiro acesso:
-   - Na tela de login, após entrar, acesse diretamente o Firebase Console e use **"Send password reset email"** para que o usuário redefina a própria senha
+6. Oriente o funcionário a trocar a senha no primeiro acesso, de uma destas formas:
+   - Na tela de login (`/sign-in`), clicar em **"Esqueci a senha"** e seguir o e-mail enviado pelo Firebase
+   - Após entrar no painel, abrir o menu do usuário (ícone) → **"Trocar senha"**
 
 ---
 
@@ -212,12 +213,32 @@ kubectl rollout restart deployment/observatorio
 
 ---
 
-### Redefinir a senha de um usuário
+### Redefinir a senha (pelo próprio usuário)
+
+O usuário **não precisa** do administrador para redefinir a senha:
+
+1. Em `/sign-in`, clicar em **"Esqueci a senha"**
+2. Informar o e-mail cadastrado
+3. Abrir o link recebido por e-mail (página padrão do Firebase em `*.firebaseapp.com/__/auth/action`) e definir a nova senha
+4. Voltar ao login com a nova senha
+
+Com o usuário já logado no painel:
+
+1. Abrir o menu do usuário (ícone no canto)
+2. Clicar em **"Trocar senha"**
+3. Informar a senha atual e a nova senha
+
+### Redefinir a senha de um usuário (pelo administrador)
+
+Ainda é possível pelo Console, se necessário:
 
 1. Firebase Console → Authentication → Users
 2. Clique nos três pontos `⋮` ao lado do usuário
 3. Clique em **"Send password reset email"**
 4. O Firebase envia um link de redefinição para o email do usuário
+
+> **Template de e-mail:** em Authentication → Templates → Password reset, configure o idioma **Portuguese (Brazil)** e o nome do produto (ex.: Painel QualiÔnibus). Não é necessário cartão de crédito nem plano Blaze (cota gratuita: 150 e-mails de reset/dia no Spark). A tela de redefinição no link do e-mail é a padrão do Google (customizar a Action URL exige domínio no Firebase Hosting e não é usada neste projeto).
+
 
 ---
 

@@ -78,6 +78,23 @@ sequenceDiagram
 
 ---
 
+## Esqueci a senha e trocar senha
+
+Ambos os fluxos usam apenas o **plano Spark** (sem cartão / Blaze). O e-mail de reset é enviado pelo Firebase (cota: 150/dia). A troca de senha logada não envia e-mail.
+
+| Fluxo | API Firebase | Onde na UI |
+|---|---|---|
+| Esqueci a senha | `sendPasswordResetEmail` | `/sign-in` → link “Esqueci a senha” |
+| Concluir reset | Página padrão do Firebase (`*/__/auth/action`) | Link do e-mail |
+| Trocar senha | `reauthenticateWithCredential` + `updatePassword` | `UserBar` → “Trocar senha” |
+
+- A mensagem pós-envio de reset é **genérica** (não revela se o e-mail existe).
+- `updatePassword` exige reautenticação com a senha atual (`requires-recent-login`).
+- O cookie de sessão (`AuthToken`) **não precisa** ser regenerado após a troca de senha.
+- O `url` em `sendPasswordResetEmail` é só a continue URL (`/sign-in`) após o reset na página do Google.
+
+---
+
 ## Arquitetura de segurança
 
 ```mermaid
