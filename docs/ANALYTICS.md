@@ -108,13 +108,13 @@ O projeto define a CSP em `src/proxy.ts` (com `'unsafe-inline'` em `script-src`,
 | `script-src` | `https://www.googletagmanager.com` | Script gtag do GA4 |
 | `script-src` | `https://www.clarity.ms` | Script de tracking do Clarity |
 | `script-src` | `https://scripts.clarity.ms` | Scripts auxiliares do Clarity |
-| `script-src` | `'sha256-J9cZHZf5nVZbsm7Pqxc8RsURv1AIXkMgbhfrZvoOs/A='` | Hash do inline script interno do clarity.js |
 | `connect-src` | `https://www.google-analytics.com` | Envio de eventos GA4 |
 | `connect-src` | `https://analytics.google.com` | Endpoint adicional do GA4 |
-| `connect-src` | `https://c.clarity.ms` | Envio de eventos e dados de sessão |
-| `connect-src` | `https://m.clarity.ms` | Endpoint adicional do Clarity |
+| `connect-src` | `https://*.clarity.ms` | Envio de eventos e dados de sessão (`c`, `m`, `n`, etc.) |
 | `img-src` | `https://www.google-analytics.com` | Pixel / beacon do GA |
 | `img-src` | `https://c.clarity.ms` | Pixel de sincronização de cookies |
+
+> **Importante:** o Observatório usa `'unsafe-inline'` em `script-src` (sem nonce). Não adicione hash/`'sha256-...'` nessa diretiva — se houver hash ou nonce, o browser **ignora** `'unsafe-inline'` e bloqueia scripts inline do GA, Next.js e Clarity. No portal-cidados o hash é necessário porque a CSP usa nonce em vez de `'unsafe-inline'`.
 
 ---
 
