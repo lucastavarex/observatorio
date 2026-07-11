@@ -18,15 +18,20 @@ function buildCsp(): string {
     "'unsafe-inline'",
     "https://*.mapbox.com",
     "https://*.powerbi.com",
+    "https://www.googletagmanager.com",
+    "https://www.clarity.ms",
+    "https://scripts.clarity.ms",
+    // Hash do inline script criado internamente pelo clarity.js.
+    "'sha256-J9cZHZf5nVZbsm7Pqxc8RsURv1AIXkMgbhfrZvoOs/A='",
     ...(isDevelopment ? ["'unsafe-eval'"] : []),
   ].join(" ")
 
   return `
     default-src 'self' https://*.cloudinary.com https://*.sharepoint.com https://*.mapbox.com/ https://*.powerbi.com/ https://*.outlook.com/;
     script-src ${scriptSrc};
-    connect-src 'self' ${isDevelopment ? "ws: wss:" : ""} https://*.googleapis.com https://identitytoolkit.googleapis.com https://securetoken.googleapis.com https://*.cloudinary.com https://*.sharepoint.com https://*.mapbox.com https://*.powerbi.com https://*.outlook.com;
+    connect-src 'self' ${isDevelopment ? "ws: wss:" : ""} https://*.googleapis.com https://identitytoolkit.googleapis.com https://securetoken.googleapis.com https://*.cloudinary.com https://*.sharepoint.com https://*.mapbox.com https://*.powerbi.com https://*.outlook.com https://www.google-analytics.com https://analytics.google.com https://c.clarity.ms https://m.clarity.ms;
     style-src 'self' 'unsafe-inline';
-    img-src 'self' blob: data:;
+    img-src 'self' blob: data: https://www.google-analytics.com https://c.clarity.ms;
     font-src 'self' data: https://storage.googleapis.com;
     media-src 'self' data: blob: https://*.cloudinary.com https://*.sharepoint.com;
     worker-src 'self' blob:;
