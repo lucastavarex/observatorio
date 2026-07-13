@@ -5,7 +5,6 @@ import { EventsSection } from "@/components/events-section"
 import { Header } from "@/components/header"
 import { HeroSwiper } from "@/components/hero-swiper"
 import { ImpactNumbersSection } from "@/components/impact-numbers-section"
-import { NoticiasSection } from "@/components/noticias-section"
 import { ProjectsSection } from "@/components/projects-section"
 
 export function HomeContent() {
@@ -32,9 +31,6 @@ export function HomeContent() {
 
       {/* video cast */}
       {/* <VideoCastSection /> */}
-
-      {/* news */}
-      <NoticiasSection />
     </div>
   )
 }
