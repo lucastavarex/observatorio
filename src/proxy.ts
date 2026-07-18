@@ -16,6 +16,8 @@ function buildCsp(): string {
   const scriptSrc = [
     "'self'",
     "'unsafe-inline'",
+    // React usa eval() no modo de desenvolvimento (stack traces / Fast Refresh)
+    ...(isDevelopment ? ["'unsafe-eval'"] : []),
     "https://*.mapbox.com",
     "https://*.powerbi.com",
     "https://www.googletagmanager.com",
@@ -53,6 +55,12 @@ function applySecurityHeaders(response: NextResponse): NextResponse {
 }
 
 export default async function middleware(request: NextRequest) {
+  const { pathname } = request.nextUrl
+
+  if (pathname === "/noticias" || pathname.startsWith("/noticias/")) {
+    return NextResponse.redirect(new URL("/", request.url))
+  }
+
   return authMiddleware(request, {
     loginPath: "/api/auth/login",
     logoutPath: "/api/auth/logout",

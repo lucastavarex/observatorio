@@ -142,15 +142,6 @@ export function Footer() {
 
             <div className="flex flex-col gap-2">
               <Link 
-                href="/noticias" 
-                className="text-gray-600 hover:text-gray-800 transition-colors text-sm font-medium"
-              >
-                Notícias
-              </Link>
-            </div>
-
-            <div className="flex flex-col gap-2">
-              <Link 
                 href="/cursos" 
                 className="text-gray-600 hover:text-gray-800 transition-colors text-sm font-medium"
               >
