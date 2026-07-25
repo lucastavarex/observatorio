@@ -24,6 +24,7 @@
     "clsx": "^2.1.1",
     "cmdk": "^1.1.1",
     "firebase": "^12.13.0",
+    "firebase-admin": "^14.2.0",
     "lucide-react": "^0.525.0",
     "mapbox-gl": "^3.14.0",
     "mapbox-gl-compare": "^0.4.1",

@@ -2,7 +2,10 @@ import { authMiddleware } from "next-firebase-auth-edge"
 import { NextRequest, NextResponse } from "next/server"
 import { FIREBASE_AUTH_CONFIG } from "@/lib/firebase-auth-config"
 
-const PROTECTED_PATHS = ["/projetos/dashboard-wri-brasil"]
+const PROTECTED_PATHS = [
+  "/projetos/dashboard-wri-brasil",
+  "/projetos/admin",
+]
 
 function isProtected(request: NextRequest) {
   return PROTECTED_PATHS.some((path) =>

@@ -204,8 +204,13 @@ Em produção (`NODE_ENV=production`), o cookie só é enviado em conexões HTTP
 | `src/lib/firebase-auth-config.ts` | Configuração centralizada compartilhada entre middleware e server components |
 | `src/lib/firebase-client.ts` | Inicializa Firebase Client SDK (singleton no browser) |
 | `src/components/login-form.tsx` | Formulário de login: chama Firebase, envia ID Token ao servidor |
-| `src/components/user-bar.tsx` | Exibe usuário logado e aciona logout (Firebase + cookie) |
+| `src/components/user-bar.tsx` | Exibe usuário logado, logout e link admin (se `ADMIN_EMAILS`) |
 | `src/app/projetos/(projetos)/dashboard-wri-brasil/page.tsx` | Server Component protegido: usa `getTokens()` para verificar sessão |
+| `src/app/projetos/(projetos)/admin/wri-emails/` | UI admin: upload/preview/apply da lista WRI |
+| `src/app/api/admin/` | APIs admin (me, preview, apply) |
+| `src/lib/admin.ts` / `src/lib/wri-emails/` / `src/lib/firebase-admin.ts` | Allowlist, parse CSV, import Firebase Auth |
+
+Documentação dedicada da importação CSV (segurança, limites, manutenção): [`ADMIN_WRI_EMAILS.md`](./ADMIN_WRI_EMAILS.md).
 
 ---
 

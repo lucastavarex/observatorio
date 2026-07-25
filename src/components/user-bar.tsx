@@ -10,7 +10,15 @@ import {
   type User,
 } from "firebase/auth"
 import { firebaseAuth } from "@/lib/firebase-client"
-import { Eye, EyeOff, KeyRound, LogOut, User as UserIcon } from "lucide-react"
+import {
+  Eye,
+  EyeOff,
+  KeyRound,
+  LogOut,
+  Mail,
+  User as UserIcon,
+} from "lucide-react"
+import Link from "next/link"
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover"
 import {
   Dialog,
@@ -44,6 +52,7 @@ function getChangePasswordErrorMessage(code: string | undefined): string {
 export function UserBar() {
   const [user, setUser] = useState<User | null>(null)
   const [loaded, setLoaded] = useState(false)
+  const [isAdmin, setIsAdmin] = useState(false)
   const [changePasswordOpen, setChangePasswordOpen] = useState(false)
 
   useEffect(() => {
@@ -52,6 +61,27 @@ export function UserBar() {
       setLoaded(true)
     })
   }, [])
+
+  useEffect(() => {
+    if (!user) {
+      setIsAdmin(false)
+      return
+    }
+
+    let cancelled = false
+    fetch("/api/admin/me", { credentials: "include" })
+      .then((res) => (res.ok ? res.json() : { isAdmin: false }))
+      .then((data: { isAdmin?: boolean }) => {
+        if (!cancelled) setIsAdmin(Boolean(data.isAdmin))
+      })
+      .catch(() => {
+        if (!cancelled) setIsAdmin(false)
+      })
+
+    return () => {
+      cancelled = true
+    }
+  }, [user])
 
   if (!loaded || !user) return null
 
@@ -84,6 +114,16 @@ export function UserBar() {
               Olá, <span className="font-semibold text-gray-900">{firstName}</span>!
             </p>
           </div>
+
+          {isAdmin && (
+            <Link
+              href="/projetos/admin/wri-emails"
+              className="flex items-center gap-2.5 w-full px-4 py-3 text-sm text-gray-700 hover:bg-gray-50 transition-colors"
+            >
+              <Mail className="h-4 w-4" />
+              Gerenciar e-mails WRI
+            </Link>
+          )}
 
           <button
             type="button"
