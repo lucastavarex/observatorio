@@ -83,7 +83,7 @@ export function DataTable({ data, selectedFilter, globalFilter, setGlobalFilter 
                     colSpan={columns.length}
                     className="h-24 text-center py-6 px-9"
                   >
-                    Nenhum resultado encontrado.
+                    Nenhum dado encontrado para os filtros selecionados.
                   </TableCell>
                 </TableRow>
               )}
