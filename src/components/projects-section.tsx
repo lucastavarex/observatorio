@@ -4,6 +4,7 @@ import catalogo from "@/app/assets/images/catalogo.png"
 import dashboard from "@/app/assets/images/dashboard.png"
 import geoportal from "@/app/assets/images/geoportal.png"
 import tabela from "@/app/assets/images/tabela.png"
+import wriDashboard from "@/app/assets/images/wri-dashboard.png"
 import Image from 'next/image'
 import Link from 'next/link'
 import { useEffect, useState } from 'react'
@@ -23,13 +24,21 @@ interface Project {
 }
 
 const projects: Project[] = [
-    {
+  {
+    id: 'qualionibus',
+    title: 'Painel QualiÔnibus',
+    description: 'Parceria ONMS & WRI Brasil - Dashboard dos dados do QualiÔnibus.',
+    image: wriDashboard,
+    href: '/projetos/dashboard-wri-brasil'
+  },
+  {
     id: 'geoportal',
     title: 'Geoportal',
     description: 'Visualize dados espaciais e de mobilidade urbana em mapa interativo com camadas temáticas e ferramentas de visualização.',
     image: geoportal,
     href: '/projetos/geoportal'
   },
+
     {
     id: 'catalogo',
     title: 'Catálogo de Dados',
