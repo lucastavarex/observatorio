@@ -1,7 +1,7 @@
 "use client"
 
 import { useState, FormEvent } from "react"
-import { Eye, EyeOff } from "lucide-react"
+import { Eye, EyeOff, FileText } from "lucide-react"
 import { sendPasswordResetEmail, signInWithEmailAndPassword } from "firebase/auth"
 import { firebaseAuth } from "@/lib/firebase-client"
 import { useSearchParams } from "next/navigation"
@@ -152,9 +152,19 @@ export function LoginForm({ className, ...props }: React.ComponentProps<"div">) 
                     <p className="text-sm text-destructive text-center">{error}</p>
                   )}
 
-                  <Button type="submit" className="w-full rounded-none" disabled={loading}>
+                  <Button type="submit" className="w-full rounded-none cursor-pointer" disabled={loading}>
                     {loading ? "Entrando..." : "Entrar"}
                   </Button>
+
+                  <a
+                    href="/Manual_de_Acesso_ao_Painel_QualiOnibus.pdf"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors text-center"
+                  >
+                    <FileText className="h-4 w-4" />
+                    Manual de Acesso ao Painel QualiÔnibus
+                  </a>
                 </div>
               </div>
             </form>
