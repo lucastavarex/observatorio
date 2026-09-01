@@ -26,7 +26,7 @@ const projetosItems = [
   {
     title: "Geoportal",
     href: "/projetos/geoportal",
-    description: "Visualize dados espaciais de mobilidade urbana em um mapa interativo com diversas camadas temáticas",
+    description: "Visualize dados espaciais e de mobilidade urbana em mapa interativo com camadas temáticas e ferramentas de visualização.",
   },
     {
     title: "Catálogo de Dados",
@@ -36,13 +36,18 @@ const projetosItems = [
   {
     title: "Dashboard PEMOB",
     href: "/projetos/dashboard",
-    description: "Visualize dados espaciais de mobilidade urbana em um mapa interativo com diversas camadas temáticas",
+    description: "Visualize dados espaciais e de mobilidade urbana em mapa interativo com camadas temáticas e ferramentas de visualização.",
   },
 
   {
     title: "Dados PEMOB",
     href: "/projetos/tabela",
     description: "Explore indicadores de mobilidade de diferentes cidades brasileiras em uma tabela interativa.",
+  },
+  {
+    title: "Painel QualiÔnibus",
+    href: "/projetos/dashboard-wri-brasil",
+    description: "Parceria ONMS & WRI Brasil - Dashboard dos dados do QualiÔnibus.",
   },
 ]
 const publicacoesItems = [
@@ -52,15 +57,15 @@ const publicacoesItems = [
     description: "Explore nossa coleção de livros sobre mobilidade urbana e desenvolvimento sustentável",
   },
     {
-    title: "Artigos científicos",
-    href: "/publicacoes?tipo=artigos",
-    description: "Acesse artigos científicos e pesquisas sobre mobilidade urbana",
+    title: "Policy Papers",
+    href: "/publicacoes?tipo=policy_paper",
+    description: "Acesse Policy Papers sobre mobilidade urbana",
   },
-  {
-    title: "Notas técnicas",
-    href: "/publicacoes?tipo=notas",
-    description: "Consulte notas técnicas e documentos especializados em mobilidade",
-  },
+  // {
+  //   title: "Notas técnicas",
+  //   href: "/publicacoes?tipo=notas",
+  //   description: "Consulte notas técnicas e documentos especializados em mobilidade",
+  // },
 ]
 
 const menuItems = [
@@ -70,7 +75,6 @@ const menuItems = [
   { title: "Pesquisas", href: "/pesquisas" },
   { title: "Eventos", href: "/eventos" },
   { title: "Vídeos", href: "/videos" },
-  { title: "Notícias", href: "/noticias" },
   { title: "Cursos", href: "/cursos" },
 ]
 
@@ -95,8 +99,11 @@ export function Header({ isBgDark = false, className }: HeaderProps) {
   const activeTextClass = isBgDark ? "text-white! font-medium!" : "text-black! font-medium!"
   const inactiveTextClass = isBgDark ? "text-white/50! hover:text-white/100!" : "text-black/50! hover:text-black/100!"
 
+  // Check if current path contains "geoportal"
+  const isGeoportalPage = pathname.includes("geoportal");
+  
   return (
-    <header className={`z-50 w-full ${className} ${isMobileMenuOpen ? 'bg-white' : isBgDark ? 'bg-gradient-to-b from-[#242424] to-[#242424]/0' : ''}`}>
+    <header className={`z-50 w-full ${className} ${isMobileMenuOpen ? 'bg-white' : isGeoportalPage ? 'bg-none!' : isBgDark ? 'bg-gradient-to-b from-[#242424] to-[#242424]/0' : ''}`}>
       <div className="flex h-28 items-center justify-between px-4 2xl:px-16">
         {/* Logo and Desktop Navigation (keep this part exactly the same) */}
         <div className="flex items-center">
@@ -129,6 +136,14 @@ export function Header({ isBgDark = false, className }: HeaderProps) {
             </NavigationMenuItem>
             
             <NavigationMenuItem>
+              <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
+                <Link href="/sobre" className={pathname === "/sobre" ? activeTextClass : inactiveTextClass}>
+                  Sobre
+                </Link>
+              </NavigationMenuLink>
+            </NavigationMenuItem>
+
+            <NavigationMenuItem>
               <NavigationMenuTrigger 
                 isBgDark={isBgDark}
                 isActive={pathname.startsWith("/projetos/")}
@@ -149,14 +164,6 @@ export function Header({ isBgDark = false, className }: HeaderProps) {
                   ))}
                 </ul>
               </NavigationMenuContent>
-            </NavigationMenuItem>
-            
-            <NavigationMenuItem>
-              <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
-                <Link href="/sobre" className={pathname === "/sobre" ? activeTextClass : inactiveTextClass}>
-                  Sobre
-                </Link>
-              </NavigationMenuLink>
             </NavigationMenuItem>
             
             <NavigationMenuItem>
@@ -198,18 +205,10 @@ export function Header({ isBgDark = false, className }: HeaderProps) {
               </NavigationMenuLink>
             </NavigationMenuItem>
             
-            {/* <NavigationMenuItem>
-              <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
-                <Link href="/videos" className={pathname === "/videos" ? activeTextClass : inactiveTextClass}>
-                  VideoCast
-                </Link>
-              </NavigationMenuLink>
-            </NavigationMenuItem> */}
-            
             <NavigationMenuItem>
               <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
-                <Link href="/noticias" className={pathname === "/noticias" ? activeTextClass : inactiveTextClass}>
-                  Notícias
+                <Link href="/videos" className={pathname === "/videos" ? activeTextClass : inactiveTextClass}>
+                  Vídeos
                 </Link>
               </NavigationMenuLink>
             </NavigationMenuItem>
@@ -266,6 +265,17 @@ export function Header({ isBgDark = false, className }: HeaderProps) {
               Home
             </Link>
 
+            {/* Sobre */}
+            <Link
+              href="/sobre"
+              onClick={closeMobileMenu}
+              className={`block py-3 text-lg font-medium transition-colors ${
+                pathname === "/sobre" ? "text-black font-medium" : "text-gray-400 hover:text-black"
+              }`}
+            >
+              Sobre
+            </Link>
+
             {/* Projetos Section with Accordion */}
             <div className="">
               <Accordion type="single" collapsible className="w-full">
@@ -301,7 +311,7 @@ export function Header({ isBgDark = false, className }: HeaderProps) {
             </div>
 
             {/* Other Menu Items */}
-            {menuItems.slice(1).map((item) => (
+            {menuItems.slice(2).map((item) => (
               <Link
                 key={item.title}
                 href={item.href}

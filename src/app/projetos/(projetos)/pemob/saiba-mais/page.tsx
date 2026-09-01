@@ -1,9 +1,28 @@
+'use client'
+
+import { Button } from '@/components/ui/button'
+import { ArrowLeft } from 'lucide-react'
 import Link from 'next/link'
+import { useRouter } from 'next/navigation'
 
 export default function SaibaMais() {
+  const router = useRouter()
+
   return (
-    <div className="bg-[#f3f3f3] min-h-screen w-full flex items-start justify-center p-4 md:p-4">
-        <div className="bg-white rounded-lg p-8 md:p-12">
+    <div className="bg-[#f3f3f3] min-h-screen w-full flex items-start justify-center p-4 md:p-4 relative">
+        {/* Botão de voltar no canto superior direito */}
+        <Button
+          onClick={() => router.back()}
+          variant="outline"
+          size="default"
+          className="hover:cursor-pointer absolute top-8 right-8 md:top-8 md:right-8 z-10 bg-white hover:bg-gray-50"
+        >
+          <ArrowLeft className="h-4 w-4 mr-2" />
+          Voltar
+        </Button>
+
+        <div className="bg-white rounded-lg p-8 pt-16 md:p-12">
+
           <h1 className="text-xl md:text-2xl font-semibold text-gray-900 mb-8">
             O que é a PEMOB?
           </h1>

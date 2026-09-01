@@ -14,6 +14,7 @@ export interface PEMOBDataItem {
   value: number | null
   is_dashboard?: boolean
   label_pergunta: string
+  year?: number | null | string
 }
 
 export interface PEMOBCityData {

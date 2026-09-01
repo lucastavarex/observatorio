@@ -1,41 +1,26 @@
 "use client"
 
-import { BrandSlider } from "@/components/brand-slider"
-import { EventsSection } from "@/components/events-section"
-import { Header } from "@/components/header"
-import { HeroSwiper } from "@/components/hero-swiper"
-import { ImpactNumbersSection } from "@/components/impact-numbers-section"
-import { NoticiasSection } from "@/components/noticias-section"
-import { ProjectsSection } from "@/components/projects-section"
+import { HomeContent } from "@/components/home-content"
+import { HomeLoading } from "@/components/home-loading"
+import { useHomeLoading } from "@/hooks/use-home-loading"
+import { Suspense } from "react"
 
 export default function Home() {
+  const { shouldShowLoading, isLoading, handleLoadingComplete } = useHomeLoading()
 
   return (
-    <div className="min-h-screen bg-black">
-      <div className="absolute top-0 left-0 w-full z-50">
-        <Header isBgDark={true} />
+    <>
+      {/* Always render content in background to allow preloading */}
+      <div className={shouldShowLoading || isLoading ? "hidden" : "block"}>
+        <Suspense fallback={<div className="min-h-screen bg-black" />}>
+          <HomeContent />
+        </Suspense>
       </div>
-
-      {/* Hero Swiper */}
-      <HeroSwiper />
-
-      {/* Brand Slider Section */}
-      <BrandSlider />
-
-      {/* Projects Section */}
-      <ProjectsSection />
-
-      {/* Events Section */}
-      <EventsSection />
-
-      {/* impact numbers */}
-      <ImpactNumbersSection />
-
-      {/* video cast */}
-      {/* <VideoCastSection /> */}
-
-      {/* news */}
-      <NoticiasSection />
-    </div>
+      
+      {/* Show loading screen when needed */}
+      {(shouldShowLoading || isLoading) && (
+        <HomeLoading onLoadingComplete={handleLoadingComplete} />
+      )}
+    </>
   )
 }

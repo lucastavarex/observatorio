@@ -1,5 +1,6 @@
 @import "tailwindcss";
 @import "tw-animate-css";
+@import "mapbox-gl-compare/dist/mapbox-gl-compare.css";
 
 @custom-variant dark (&:is(.dark *));
 
@@ -145,4 +146,30 @@
   .custom-min-height {
     min-height: 600px;
   }
+}
+
+/* Custom toast styles */
+.toast-custom [data-description] {
+  color: #000000 !important;
+  opacity: 1 !important;
+}
+
+.dark .toast-custom [data-description] {
+  color: #ffffff !important;
+}
+
+.mapboxgl-ctrl-bottom-right{
+  display: none !important;
+
+}
+.mapboxgl-ctrl .mapboxgl-ctrl-attrib .mapboxgl-compact{
+  display: none !important;
+}
+
+/* Line clamp utility */
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }

@@ -2,7 +2,7 @@
 
 import React from "react"
 import { PolarAngleAxis, PolarGrid, PolarRadiusAxis, Radar, RadarChart, ResponsiveContainer, Tooltip } from 'recharts'
-import { getVariableData } from "../../lib/pemob-data"
+import { getVariableCityFillPercentage, getVariableData } from "../../lib/pemob-data"
 
 interface RadarChartProps {
   selectedCities: string[]
@@ -49,8 +49,15 @@ export function ChartRadarMultiple({ selectedCities, selectedVariables, year }: 
       return []
     }
 
-    // Create radar chart data structure
-    const data: RadarChartDataPoint[] = selectedVariables.map(variable => {
+    // Sort variables by city fill percentage in descending order
+    const sortedVariables = [...selectedVariables].sort((a, b) => {
+      const percentageA = getVariableCityFillPercentage(a, year)
+      const percentageB = getVariableCityFillPercentage(b, year)
+      return percentageB - percentageA
+    })
+
+    // Create radar chart data structure with sorted variables
+    const data: RadarChartDataPoint[] = sortedVariables.map(variable => {
       const dataPoint: RadarChartDataPoint = { variable }
       
       const variableData = getVariableData(variable, year)
@@ -121,7 +128,7 @@ export function ChartRadarMultiple({ selectedCities, selectedVariables, year }: 
 
   return (
     <div className="w-full flex flex-col">
-      <div className="h-[350px] custom-height flex flex-col items-start">
+      <div className="h-[300px] custom-height flex flex-col items-start">
         <ResponsiveContainer width="100%" height="100%">
           <RadarChart data={chartData} margin={{  right: 100,top:0, bottom: 0, left: 100 }}>
             <PolarGrid gridType="circle" />
@@ -167,13 +174,13 @@ export function ChartRadarMultiple({ selectedCities, selectedVariables, year }: 
         <div className="text-xs text-gray-500 font-medium">
           Escala: 0-{maxValue.toFixed(1)}%
         </div>
-      <div className="flex flex-col md:flex-row items-start mt-4 gap-2 text-sm flex-shrink-0">
+      <div className="flex flex-wrap items-start mt-4 gap-2 text-sm flex-shrink-0">
         
         
         {selectedCities.slice(0, 5).map((city, index) => (
           <div key={city} className="flex items-center gap-2">
             <div 
-              className="w-4 h-4 rounded-full" 
+              className="w-4 h-4 rounded-full flex-shrink-0 aspect-square" 
               style={{ backgroundColor: colors[index % colors.length] }}
             ></div>
             <span>{city}</span>

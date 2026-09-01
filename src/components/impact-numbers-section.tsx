@@ -12,30 +12,30 @@ interface ImpactNumber {
 
 const impactNumbers: ImpactNumber[] = [
   {
-    value: 63,
+    value: 10000,
     suffix: "gb",
     label: "de dados coletados",
     duration: 2000,
   },
   {
-    value: 20,
+    value: 22,
     label: "municípios com dados",
     duration: 1500,
   },
   {
-    value: 150,
+    value: 205,
     suffix: "+",
     label: "alunos/educação executiva",
     duration: 1800,
   },
   {
-    value: 37,
+    value: 47,
     suffix: "+",
     label: "horas de eventos realizados",
     duration: 1600,
   },
   {
-    value: 2000,
+    value: 1010,
     suffix: "+",
     label: "participantes em eventos",
     duration: 2200,
@@ -103,16 +103,23 @@ function useCounter(
   return { count, startCounter };
 }
 
+function formatNumber(num: number): string {
+  if (num >= 1000) {
+    return num.toLocaleString("pt-BR");
+  }
+  return num.toString();
+}
+
 export function ImpactNumbersSection() {
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref);
 
   // Create individual counters for each impact number
-  const counter1 = useCounter(63, 2000);
-  const counter2 = useCounter(20, 1500);
-  const counter3 = useCounter(150, 1800);
-  const counter4 = useCounter(37, 1600);
-  const counter5 = useCounter(2000, 2200);
+  const counter1 = useCounter(10000, 2000);
+  const counter2 = useCounter(22, 1500);
+  const counter3 = useCounter(205, 1800);
+  const counter4 = useCounter(47, 1600);
+  const counter5 = useCounter(1010, 2200);
 
   const counters = [counter1, counter2, counter3, counter4, counter5];
 
@@ -123,7 +130,7 @@ export function ImpactNumbersSection() {
   }, [isInView, counters]);
 
   return (
-    <section className="py-16 px-4 2xl:px-16 bg-gray-50">
+    <section className="py-16 px-4 2xl:px-16 bg-gray-50 pb-50">
       <div className="mx-auto">
         {/* Title */}
         <h2 className="text-xl text-[#2F2C2C] mb-2">
@@ -137,7 +144,7 @@ export function ImpactNumbersSection() {
           {/* First line: 63gb de dados coletados */}
           <div className="flex flex-col md:flex-row md:items-baseline gap-2 md:justify-start md:pl-[10%]">
             <span className="text-6xl md:text-7xl font-medium text-[#2F2C2C]">
-              {counter1.count}
+              {formatNumber(counter1.count)}
               {impactNumbers[0].suffix}
             </span>
             <span className="text-lg text-[#2F2C2C]/50">
@@ -151,7 +158,7 @@ export function ImpactNumbersSection() {
           {/* Second line: 20 municípios com dados */}
           <div className="flex flex-col md:flex-row md:items-baseline gap-2 md:justify-end md:pr-[20%]">
             <span className="text-6xl md:text-7xl font-medium text-[#2F2C2C]">
-              {counter2.count}
+              {formatNumber(counter2.count)}
             </span>
             <span className="text-lg text-[#2F2C2C]/50">
               {impactNumbers[1].label}
@@ -164,7 +171,7 @@ export function ImpactNumbersSection() {
           {/* Third line: 150+ alunos/educação executiva */}
           <div className="flex flex-col md:flex-row md:items-baseline gap-2 md:justify-center">
             <span className="text-6xl md:text-7xl font-medium text-[#2F2C2C]">
-              {counter3.count}
+              {formatNumber(counter3.count)}
               {impactNumbers[2].suffix}
             </span>
             <span className="text-lg text-[#2F2C2C]/50">
@@ -178,7 +185,7 @@ export function ImpactNumbersSection() {
           {/* Fourth line: 37+ horas de eventos realizados */}
           <div className="flex flex-col md:flex-row md:items-baseline gap-2 md:justify-start md:pl-[10%]">
             <span className="text-6xl md:text-7xl font-medium text-[#2F2C2C]">
-              {counter4.count}
+              {formatNumber(counter4.count)}
               {impactNumbers[3].suffix}
             </span>
             <span className="text-lg text-[#2F2C2C]/50">
@@ -192,7 +199,7 @@ export function ImpactNumbersSection() {
           {/* Fifth line: 2000+ participantes em eventos */}
           <div className="flex flex-col md:flex-row md:items-baseline gap-2 md:justify-end md:pr-[10%]">
             <span className="text-6xl md:text-7xl font-medium text-[#2F2C2C]">
-              {counter5.count}
+              {formatNumber(counter5.count)}
               {impactNumbers[4].suffix}
             </span>
             <span className="text-lg text-[#2F2C2C]/50">

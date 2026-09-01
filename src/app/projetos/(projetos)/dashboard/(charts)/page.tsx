@@ -20,18 +20,17 @@ export default function ChartsPage() {
   
   // Year selection
   const availableYears = [2019, 2020, 2021, 2022, 2023, 2024]
-  const [selectedYearIndex, setSelectedYearIndex] = React.useState<number[]>([4]) // Default to 2023 (index 3)
+  const [selectedYearIndex, setSelectedYearIndex] = React.useState<number[]>([5]) // Default to 2024
   const selectedYear = availableYears[selectedYearIndex[0]]
   
   // Start with some default selections to match the images
-  const [selectedCities, setSelectedCities] = React.useState<string[]>(["Anápolis", "Aparecida de Goiânia", "Aracaju","Barueri","Belo Horizonte"])
+  const [selectedCities, setSelectedCities] = React.useState<string[]>(["Anápolis (GO)", "Aparecida de Goiânia (GO)", "Aracaju (SE)", "Barueri (SP)", "Belo Horizonte (MG)"])
   const [selectedVariables, setSelectedVariables] = React.useState<string[]>([
     "Valor da Tarifa",
-    "Estudantes de Rede Pública - Percentual de Desconto",
     "Frota de Táxis",
     "Agentes de Trânsito em Exercício",
-   
-    "Percentual de Vagas de Estacionamento para Deficientes"
+    "Percentual de Vagas de Estacionamento para Idosos",
+    "Estudantes de Rede Pública - Percentual de Desconto"
   ])
   const [globalFilter, setGlobalFilter] = React.useState<string>("")
   
@@ -83,8 +82,12 @@ export default function ChartsPage() {
       <div className="bg-[#f3f3f3] min-h-screen w-full flex items-start justify-center p-4 md:p-4">
         <div className="w-full">
           {/* //novo card w-full aqui com o texto Explore dados da Pesquisa Nacional de Mobilidade Urbana na esquerda e um botão  saiba mais na direita */}
-           <div className="bg-white w-full flex flex-col sm:flex-row justify-between mb-4 items-start sm:items-center rounded-lg p-2 py-4 gap-4">
+           <div className="bg-white w-full lg:max-w-[716px] flex flex-col sm:flex-row justify-between mb-4 items-start sm:items-center rounded-lg p-2 py-4 gap-4">
+           <div className="flex flex-col gap-0">
             <h2 className="text-lg sm:text-xl px-2 font-bold text-gray-900">Explore dados da Pesquisa Nacional de Mobilidade Urbana</h2>
+            <div className="pb-2 text-sm lg:text-base px-2 text-gray-600">Pesquisa realizada pelo Mininstério das Cidades
+          </div>
+           </div>
             <Link href="/projetos/pemob/saiba-mais">
               <Button variant="secondary" className="px-6 w-full sm:w-auto hover:bg-primary hover:text-primary-foreground cursor-pointer">Saiba mais</Button>
             </Link>
@@ -114,12 +117,12 @@ export default function ChartsPage() {
           </div>
           
                      {/* Container for chart display */}
-           <div className={`flex flex-col w-full lg:flex-1 ${(selectedChartType === "radar" || selectedChartType === "distribuicao") ? "sticky top-32 self-start z-10" : ""}`}>
+           <div className={`flex flex-col lg:-mt-34 w-full lg:flex-1 ${(selectedChartType === "radar" || selectedChartType === "distribuicao") ? "sticky top-32 self-start z-10" : ""}`}>
             
             {/* Chart Type Selection Header */}
             <div className="bg-white rounded-t-lg p-6">
               <div className="flex flex-col sm:flex-row items-start justify-between gap-8">
-                <h2 className="text-xl font-bold text-gray-900">Selecione o ano e o gráfico</h2>
+                <h2 className="text-xl font-bold text-gray-900">{selectedChartType === "evolucao" ? "" : "Selecione o ano e o gráfico"}</h2>
                 
                 <div className="flex flex-col items-end gap-4 w-full sm:w-auto">
                   {/* Chart Type Buttons */}
@@ -174,8 +177,8 @@ export default function ChartsPage() {
             </div>
 
             {/* Chart Container */}
-            <div className="bg-white rounded-t-none rounded-b-lg h-[600px] 2xl:min-h-[380px] 2xl:h-auto custom-min-height">
-              <div className="bg-white rounded-xl w-full h-full p-6 pt-0">
+            <div className="bg-white rounded-t-none rounded-b-lg custom-min-height">
+              <div className="bg-white rounded-xl w-full h-full px-6 pb-10">
                 {renderChart()}
               </div>
             </div>

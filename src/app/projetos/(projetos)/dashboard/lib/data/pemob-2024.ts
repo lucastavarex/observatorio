@@ -4,7 +4,7 @@ export const variaveis: PEMOBCityData[] =
 [
   {
     "CÓDIGO": 1200401,
-    "Município": "Rio Branco",
+    "Município": "Rio Branco (AC)",
     "UF": "AC",
     "data": [
       {
@@ -971,7 +971,7 @@ export const variaveis: PEMOBCityData[] =
   },
   {
     "CÓDIGO": 1302603,
-    "Município": "Manaus",
+    "Município": "Manaus (AM)",
     "UF": "AM",
     "data": [
       {
@@ -1938,7 +1938,7 @@ export const variaveis: PEMOBCityData[] =
   },
   {
     "CÓDIGO": 1400100,
-    "Município": "Boa Vista",
+    "Município": "Boa Vista (RR)",
     "UF": "RR",
     "data": [
       {
@@ -2905,7 +2905,7 @@ export const variaveis: PEMOBCityData[] =
   },
   {
     "CÓDIGO": 1506807,
-    "Município": "Santarém",
+    "Município": "Santarém (PA)",
     "UF": "PA",
     "data": [
       {
@@ -3872,7 +3872,7 @@ export const variaveis: PEMOBCityData[] =
   },
   {
     "CÓDIGO": 2211001,
-    "Município": "Teresina",
+    "Município": "Teresina (PI)",
     "UF": "PI",
     "data": [
       {
@@ -4839,7 +4839,7 @@ export const variaveis: PEMOBCityData[] =
   },
   {
     "CÓDIGO": 2303709,
-    "Município": "Caucaia",
+    "Município": "Caucaia (CE)",
     "UF": "CE",
     "data": [
       {
@@ -5806,7 +5806,7 @@ export const variaveis: PEMOBCityData[] =
   },
   {
     "CÓDIGO": 2403251,
-    "Município": "Parnamirim",
+    "Município": "Parnamirim (RN)",
     "UF": "RN",
     "data": [
       {
@@ -6773,7 +6773,7 @@ export const variaveis: PEMOBCityData[] =
   },
   {
     "CÓDIGO": 2504009,
-    "Município": "Campina Grande",
+    "Município": "Campina Grande (PB)",
     "UF": "PB",
     "data": [
       {
@@ -7740,7 +7740,7 @@ export const variaveis: PEMOBCityData[] =
   },
   {
     "CÓDIGO": 2604106,
-    "Município": "Caruaru",
+    "Município": "Caruaru (PE)",
     "UF": "PE",
     "data": [
       {
@@ -8707,7 +8707,7 @@ export const variaveis: PEMOBCityData[] =
   },
   {
     "CÓDIGO": 2607901,
-    "Município": "Jaboatão dos Guararapes",
+    "Município": "Jaboatão dos Guararapes (PE)",
     "UF": "PE",
     "data": [
       {
@@ -9674,7 +9674,7 @@ export const variaveis: PEMOBCityData[] =
   },
   {
     "CÓDIGO": 2611101,
-    "Município": "Petrolina",
+    "Município": "Petrolina (PE)",
     "UF": "PE",
     "data": [
       {
@@ -10641,7 +10641,7 @@ export const variaveis: PEMOBCityData[] =
   },
   {
     "CÓDIGO": 2611606,
-    "Município": "Recife",
+    "Município": "Recife (PE)",
     "UF": "PE",
     "data": [
       {
@@ -11608,7 +11608,7 @@ export const variaveis: PEMOBCityData[] =
   },
   {
     "CÓDIGO": 2704302,
-    "Município": "Maceió",
+    "Município": "Maceió (AL)",
     "UF": "AL",
     "data": [
       {
@@ -12575,7 +12575,7 @@ export const variaveis: PEMOBCityData[] =
   },
   {
     "CÓDIGO": 2800308,
-    "Município": "Aracaju",
+    "Município": "Aracaju (SE)",
     "UF": "SE",
     "data": [
       {
@@ -13542,7 +13542,7 @@ export const variaveis: PEMOBCityData[] =
   },
   {
     "CÓDIGO": 2905701,
-    "Município": "Camaçari",
+    "Município": "Camaçari (BA)",
     "UF": "BA",
     "data": [
       {
@@ -14509,7 +14509,7 @@ export const variaveis: PEMOBCityData[] =
   },
   {
     "CÓDIGO": 2910800,
-    "Município": "Feira de Santana",
+    "Município": "Feira de Santana (BA)",
     "UF": "BA",
     "data": [
       {
@@ -15476,7 +15476,7 @@ export const variaveis: PEMOBCityData[] =
   },
   {
     "CÓDIGO": 2927408,
-    "Município": "Salvador",
+    "Município": "Salvador (BA)",
     "UF": "BA",
     "data": [
       {
@@ -16443,7 +16443,7 @@ export const variaveis: PEMOBCityData[] =
   },
   {
     "CÓDIGO": 2933307,
-    "Município": "Vitória da Conquista",
+    "Município": "Vitória da Conquista (BA)",
     "UF": "BA",
     "data": [
       {
@@ -17410,7 +17410,7 @@ export const variaveis: PEMOBCityData[] =
   },
   {
     "CÓDIGO": 3106200,
-    "Município": "Belo Horizonte",
+    "Município": "Belo Horizonte (MG)",
     "UF": "MG",
     "data": [
       {
@@ -18377,7 +18377,7 @@ export const variaveis: PEMOBCityData[] =
   },
   {
     "CÓDIGO": 3154606,
-    "Município": "Ribeirão das Neves",
+    "Município": "Ribeirão das Neves (MG)",
     "UF": "MG",
     "data": [
       {
@@ -19344,7 +19344,7 @@ export const variaveis: PEMOBCityData[] =
   },
   {
     "CÓDIGO": 3170107,
-    "Município": "Uberaba",
+    "Município": "Uberaba (MG)",
     "UF": "MG",
     "data": [
       {
@@ -20311,7 +20311,7 @@ export const variaveis: PEMOBCityData[] =
   },
   {
     "CÓDIGO": 3201308,
-    "Município": "Cariacica",
+    "Município": "Cariacica (ES)",
     "UF": "ES",
     "data": [
       {
@@ -21278,7 +21278,7 @@ export const variaveis: PEMOBCityData[] =
   },
   {
     "CÓDIGO": 3205002,
-    "Município": "Serra",
+    "Município": "Serra (ES)",
     "UF": "ES",
     "data": [
       {
@@ -22245,7 +22245,7 @@ export const variaveis: PEMOBCityData[] =
   },
   {
     "CÓDIGO": 3205200,
-    "Município": "Vila Velha",
+    "Município": "Vila Velha (ES)",
     "UF": "ES",
     "data": [
       {
@@ -23212,7 +23212,7 @@ export const variaveis: PEMOBCityData[] =
   },
   {
     "CÓDIGO": 3301009,
-    "Município": "Campos dos Goytacazes",
+    "Município": "Campos dos Goytacazes (RJ)",
     "UF": "RJ",
     "data": [
       {
@@ -24179,7 +24179,7 @@ export const variaveis: PEMOBCityData[] =
   },
   {
     "CÓDIGO": 3303500,
-    "Município": "Nova Iguaçu",
+    "Município": "Nova Iguaçu (RJ)",
     "UF": "RJ",
     "data": [
       {
@@ -25146,7 +25146,7 @@ export const variaveis: PEMOBCityData[] =
   },
   {
     "CÓDIGO": 3303906,
-    "Município": "Petrópolis",
+    "Município": "Petrópolis (RJ)",
     "UF": "RJ",
     "data": [
       {
@@ -26113,7 +26113,7 @@ export const variaveis: PEMOBCityData[] =
   },
   {
     "CÓDIGO": 3304557,
-    "Município": "Rio de Janeiro",
+    "Município": "Rio de Janeiro (RJ)",
     "UF": "RJ",
     "data": [
       {
@@ -27080,7 +27080,7 @@ export const variaveis: PEMOBCityData[] =
   },
   {
     "CÓDIGO": 3304904,
-    "Município": "São Gonçalo",
+    "Município": "São Gonçalo (RJ)",
     "UF": "RJ",
     "data": [
       {
@@ -28047,7 +28047,7 @@ export const variaveis: PEMOBCityData[] =
   },
   {
     "CÓDIGO": 3305109,
-    "Município": "São João de Meriti",
+    "Município": "São João de Meriti (RJ)",
     "UF": "RJ",
     "data": [
       {
@@ -29014,7 +29014,7 @@ export const variaveis: PEMOBCityData[] =
   },
   {
     "CÓDIGO": 3505708,
-    "Município": "Barueri",
+    "Município": "Barueri (SP)",
     "UF": "SP",
     "data": [
       {
@@ -29981,7 +29981,7 @@ export const variaveis: PEMOBCityData[] =
   },
   {
     "CÓDIGO": 3509502,
-    "Município": "Campinas",
+    "Município": "Campinas (SP)",
     "UF": "SP",
     "data": [
       {
@@ -30948,7 +30948,7 @@ export const variaveis: PEMOBCityData[] =
   },
   {
     "CÓDIGO": 3510609,
-    "Município": "Carapicuíba",
+    "Município": "Carapicuíba (SP)",
     "UF": "SP",
     "data": [
       {
@@ -31915,7 +31915,7 @@ export const variaveis: PEMOBCityData[] =
   },
   {
     "CÓDIGO": 3513009,
-    "Município": "Cotia",
+    "Município": "Cotia (SP)",
     "UF": "SP",
     "data": [
       {
@@ -32882,7 +32882,7 @@ export const variaveis: PEMOBCityData[] =
   },
   {
     "CÓDIGO": 3516200,
-    "Município": "Franca",
+    "Município": "Franca (SP)",
     "UF": "SP",
     "data": [
       {
@@ -33849,7 +33849,7 @@ export const variaveis: PEMOBCityData[] =
   },
   {
     "CÓDIGO": 3523107,
-    "Município": "Itaquaquecetuba",
+    "Município": "Itaquaquecetuba (SP)",
     "UF": "SP",
     "data": [
       {
@@ -34816,7 +34816,7 @@ export const variaveis: PEMOBCityData[] =
   },
   {
     "CÓDIGO": 3525904,
-    "Município": "Jundiaí",
+    "Município": "Jundiaí (SP)",
     "UF": "SP",
     "data": [
       {
@@ -35783,7 +35783,7 @@ export const variaveis: PEMOBCityData[] =
   },
   {
     "CÓDIGO": 3526902,
-    "Município": "Limeira",
+    "Município": "Limeira (SP)",
     "UF": "SP",
     "data": [
       {
@@ -36750,7 +36750,7 @@ export const variaveis: PEMOBCityData[] =
   },
   {
     "CÓDIGO": 3529401,
-    "Município": "Mauá",
+    "Município": "Mauá (SP)",
     "UF": "SP",
     "data": [
       {
@@ -37717,7 +37717,7 @@ export const variaveis: PEMOBCityData[] =
   },
   {
     "CÓDIGO": 3534401,
-    "Município": "Osasco",
+    "Município": "Osasco (SP)",
     "UF": "SP",
     "data": [
       {
@@ -38684,7 +38684,7 @@ export const variaveis: PEMOBCityData[] =
   },
   {
     "CÓDIGO": 3541000,
-    "Município": "Praia Grande",
+    "Município": "Praia Grande (SP)",
     "UF": "SP",
     "data": [
       {
@@ -39651,7 +39651,7 @@ export const variaveis: PEMOBCityData[] =
   },
   {
     "CÓDIGO": 3547809,
-    "Município": "Santo André",
+    "Município": "Santo André (SP)",
     "UF": "SP",
     "data": [
       {
@@ -40618,7 +40618,7 @@ export const variaveis: PEMOBCityData[] =
   },
   {
     "CÓDIGO": 3548500,
-    "Município": "Santos",
+    "Município": "Santos (SP)",
     "UF": "SP",
     "data": [
       {
@@ -41585,7 +41585,7 @@ export const variaveis: PEMOBCityData[] =
   },
   {
     "CÓDIGO": 3548708,
-    "Município": "São Bernardo do Campo",
+    "Município": "São Bernardo do Campo (SP)",
     "UF": "SP",
     "data": [
       {
@@ -42552,7 +42552,7 @@ export const variaveis: PEMOBCityData[] =
   },
   {
     "CÓDIGO": 3549805,
-    "Município": "São José do Rio Preto",
+    "Município": "São José do Rio Preto (SP)",
     "UF": "SP",
     "data": [
       {
@@ -43519,7 +43519,7 @@ export const variaveis: PEMOBCityData[] =
   },
   {
     "CÓDIGO": 3549904,
-    "Município": "São José dos Campos",
+    "Município": "São José dos Campos (SP)",
     "UF": "SP",
     "data": [
       {
@@ -44486,7 +44486,7 @@ export const variaveis: PEMOBCityData[] =
   },
   {
     "CÓDIGO": 3550308,
-    "Município": "São Paulo",
+    "Município": "São Paulo (SP)",
     "UF": "SP",
     "data": [
       {
@@ -45453,7 +45453,7 @@ export const variaveis: PEMOBCityData[] =
   },
   {
     "CÓDIGO": 3551009,
-    "Município": "São Vicente",
+    "Município": "São Vicente (SP)",
     "UF": "SP",
     "data": [
       {
@@ -46420,7 +46420,7 @@ export const variaveis: PEMOBCityData[] =
   },
   {
     "CÓDIGO": 3552205,
-    "Município": "Sorocaba",
+    "Município": "Sorocaba (SP)",
     "UF": "SP",
     "data": [
       {
@@ -47387,7 +47387,7 @@ export const variaveis: PEMOBCityData[] =
   },
   {
     "CÓDIGO": 3554102,
-    "Município": "Taubaté",
+    "Município": "Taubaté (SP)",
     "UF": "SP",
     "data": [
       {
@@ -48354,7 +48354,7 @@ export const variaveis: PEMOBCityData[] =
   },
   {
     "CÓDIGO": 4106902,
-    "Município": "Curitiba",
+    "Município": "Curitiba (PR)",
     "UF": "PR",
     "data": [
       {
@@ -49321,7 +49321,7 @@ export const variaveis: PEMOBCityData[] =
   },
   {
     "CÓDIGO": 4108304,
-    "Município": "Foz do Iguaçu",
+    "Município": "Foz do Iguaçu (PR)",
     "UF": "PR",
     "data": [
       {
@@ -50288,7 +50288,7 @@ export const variaveis: PEMOBCityData[] =
   },
   {
     "CÓDIGO": 4113700,
-    "Município": "Londrina",
+    "Município": "Londrina (PR)",
     "UF": "PR",
     "data": [
       {
@@ -51255,7 +51255,7 @@ export const variaveis: PEMOBCityData[] =
   },
   {
     "CÓDIGO": 4115200,
-    "Município": "Maringá",
+    "Município": "Maringá (PR)",
     "UF": "PR",
     "data": [
       {
@@ -52222,7 +52222,7 @@ export const variaveis: PEMOBCityData[] =
   },
   {
     "CÓDIGO": 4119905,
-    "Município": "Ponta Grossa",
+    "Município": "Ponta Grossa (PR)",
     "UF": "PR",
     "data": [
       {
@@ -53189,7 +53189,7 @@ export const variaveis: PEMOBCityData[] =
   },
   {
     "CÓDIGO": 4125506,
-    "Município": "São José dos Pinhais",
+    "Município": "São José dos Pinhais (PR)",
     "UF": "PR",
     "data": [
       {
@@ -54156,7 +54156,7 @@ export const variaveis: PEMOBCityData[] =
   },
   {
     "CÓDIGO": 4202404,
-    "Município": "Blumenau",
+    "Município": "Blumenau (SC)",
     "UF": "SC",
     "data": [
       {
@@ -55123,7 +55123,7 @@ export const variaveis: PEMOBCityData[] =
   },
   {
     "CÓDIGO": 4204202,
-    "Município": "Chapecó",
+    "Município": "Chapecó (SC)",
     "UF": "SC",
     "data": [
       {
@@ -56090,7 +56090,7 @@ export const variaveis: PEMOBCityData[] =
   },
   {
     "CÓDIGO": 4205407,
-    "Município": "Florianópolis",
+    "Município": "Florianópolis (SC)",
     "UF": "SC",
     "data": [
       {
@@ -57057,7 +57057,7 @@ export const variaveis: PEMOBCityData[] =
   },
   {
     "CÓDIGO": 4208203,
-    "Município": "Itajaí",
+    "Município": "Itajaí (SC)",
     "UF": "SC",
     "data": [
       {
@@ -58024,7 +58024,7 @@ export const variaveis: PEMOBCityData[] =
   },
   {
     "CÓDIGO": 4216602,
-    "Município": "São José",
+    "Município": "São José (SC)",
     "UF": "SC",
     "data": [
       {
@@ -58991,7 +58991,7 @@ export const variaveis: PEMOBCityData[] =
   },
   {
     "CÓDIGO": 4309209,
-    "Município": "Gravataí",
+    "Município": "Gravataí (RS)",
     "UF": "RS",
     "data": [
       {
@@ -59958,7 +59958,7 @@ export const variaveis: PEMOBCityData[] =
   },
   {
     "CÓDIGO": 4314902,
-    "Município": "Porto Alegre",
+    "Município": "Porto Alegre (RS)",
     "UF": "RS",
     "data": [
       {
@@ -60925,7 +60925,7 @@ export const variaveis: PEMOBCityData[] =
   },
   {
     "CÓDIGO": 4316907,
-    "Município": "Santa Maria",
+    "Município": "Santa Maria (RS)",
     "UF": "RS",
     "data": [
       {
@@ -61892,7 +61892,7 @@ export const variaveis: PEMOBCityData[] =
   },
   {
     "CÓDIGO": 5002704,
-    "Município": "Campo Grande",
+    "Município": "Campo Grande (MS)",
     "UF": "MS",
     "data": [
       {
@@ -62859,7 +62859,7 @@ export const variaveis: PEMOBCityData[] =
   },
   {
     "CÓDIGO": 5103403,
-    "Município": "Cuiabá",
+    "Município": "Cuiabá (MT)",
     "UF": "MT",
     "data": [
       {
@@ -63826,7 +63826,7 @@ export const variaveis: PEMOBCityData[] =
   },
   {
     "CÓDIGO": 5201108,
-    "Município": "Anápolis",
+    "Município": "Anápolis (GO)",
     "UF": "GO",
     "data": [
       {
@@ -64793,7 +64793,7 @@ export const variaveis: PEMOBCityData[] =
   },
   {
     "CÓDIGO": 5201405,
-    "Município": "Aparecida de Goiânia",
+    "Município": "Aparecida de Goiânia (GO)",
     "UF": "GO",
     "data": [
       {
@@ -65760,7 +65760,7 @@ export const variaveis: PEMOBCityData[] =
   },
   {
     "CÓDIGO": 5208707,
-    "Município": "Goiânia",
+    "Município": "Goiânia (GO)",
     "UF": "GO",
     "data": [
       {
@@ -66727,7 +66727,7 @@ export const variaveis: PEMOBCityData[] =
   },
   {
     "CÓDIGO": 5300108,
-    "Município": "Brasília",
+    "Município": "Brasília (DF)",
     "UF": "DF",
     "data": [
       {
