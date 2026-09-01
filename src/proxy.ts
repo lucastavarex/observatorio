@@ -19,7 +19,7 @@ function buildCsp(): string {
   const scriptSrc = [
     "'self'",
     "'unsafe-inline'",
-    // React usa eval() no modo de desenvolvimento (stack traces / Fast Refresh)
+    // React usa eval() no modo de desenvolvimento (stack traces/Fast Refresh)
     ...(isDevelopment ? ["'unsafe-eval'"] : []),
     "https://*.mapbox.com",
     "https://*.powerbi.com",
