@@ -2,7 +2,10 @@ import { authMiddleware } from "next-firebase-auth-edge"
 import { NextRequest, NextResponse } from "next/server"
 import { FIREBASE_AUTH_CONFIG } from "@/lib/firebase-auth-config"
 
-const PROTECTED_PATHS = ["/projetos/dashboard-wri-brasil"]
+const PROTECTED_PATHS = [
+  "/projetos/dashboard-wri-brasil",
+  "/projetos/admin",
+]
 
 function isProtected(request: NextRequest) {
   return PROTECTED_PATHS.some((path) =>
@@ -16,17 +19,21 @@ function buildCsp(): string {
   const scriptSrc = [
     "'self'",
     "'unsafe-inline'",
+    // React usa eval() no modo de desenvolvimento (stack traces / Fast Refresh)
+    ...(isDevelopment ? ["'unsafe-eval'"] : []),
     "https://*.mapbox.com",
     "https://*.powerbi.com",
-    ...(isDevelopment ? ["'unsafe-eval'"] : []),
+    "https://www.googletagmanager.com",
+    "https://www.clarity.ms",
+    "https://scripts.clarity.ms",
   ].join(" ")
 
   return `
     default-src 'self' https://*.cloudinary.com https://*.sharepoint.com https://*.mapbox.com/ https://*.powerbi.com/ https://*.outlook.com/;
     script-src ${scriptSrc};
-    connect-src 'self' ${isDevelopment ? "ws: wss:" : ""} https://*.googleapis.com https://identitytoolkit.googleapis.com https://securetoken.googleapis.com https://*.cloudinary.com https://*.sharepoint.com https://*.mapbox.com https://*.powerbi.com https://*.outlook.com;
+    connect-src 'self' ${isDevelopment ? "ws: wss:" : ""} https://*.googleapis.com https://identitytoolkit.googleapis.com https://securetoken.googleapis.com https://*.cloudinary.com https://*.sharepoint.com https://*.mapbox.com https://*.powerbi.com https://*.outlook.com https://www.google-analytics.com https://analytics.google.com https://*.clarity.ms;
     style-src 'self' 'unsafe-inline';
-    img-src 'self' blob: data:;
+    img-src 'self' blob: data: https://www.google-analytics.com https://c.clarity.ms;
     font-src 'self' data: https://storage.googleapis.com;
     media-src 'self' data: blob: https://*.cloudinary.com https://*.sharepoint.com;
     worker-src 'self' blob:;
@@ -51,6 +58,12 @@ function applySecurityHeaders(response: NextResponse): NextResponse {
 }
 
 export default async function middleware(request: NextRequest) {
+  const { pathname } = request.nextUrl
+
+  if (pathname === "/noticias" || pathname.startsWith("/noticias/")) {
+    return NextResponse.redirect(new URL("/", request.url))
+  }
+
   return authMiddleware(request, {
     loginPath: "/api/auth/login",
     logoutPath: "/api/auth/logout",
