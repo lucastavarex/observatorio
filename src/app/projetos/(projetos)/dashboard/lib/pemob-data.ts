@@ -188,12 +188,17 @@ export function getTableData(variableName: string, year?: number): Array<{
       return {
         municipio: city.Município,
         uf: city.UF,
-        value: dataItem?.value || null,
+        value: dataItem?.value ?? null,
         codigo: String(city.CÓDIGO), // Convert to string to match return type
         label_pergunta: dataItem?.label_pergunta || ""
       }
     })
-    .sort((a, b) => a.municipio.localeCompare(b.municipio, 'pt-BR'))
+    .sort((a, b) => {
+      const aMissing = a.value === null
+      const bMissing = b.value === null
+      if (aMissing !== bMissing) return aMissing ? 1 : -1
+      return a.municipio.localeCompare(b.municipio, 'pt-BR')
+    })
 }
 
 // Get the raw data for a specific year (useful for advanced operations)

@@ -2,18 +2,72 @@
 
 import { YearCombobox } from "@/components/combo-box"
 import { InputWithIcon } from "@/components/ui/input"
+import { Switch } from "@/components/ui/switch"
 import { Search } from "lucide-react"
+import { usePathname, useRouter, useSearchParams } from "next/navigation"
 import React from "react"
 import { DataTable } from "../dashboard/components/data-table"
 import { FiltersSidebar } from "../dashboard/components/filters-sidebar"
 import { useDashboardData } from "../dashboard/hooks/use-dashboard-data"
 import { getAvailableVariables, getPEMOBDataByYear, getVariableCityFillPercentage } from "../dashboard/lib/pemob-data"
+import {
+  buildTableSearchParams,
+  parseTableUrlState,
+  tableSearchParamsEqual,
+  type TableUrlState,
+} from "../dashboard/lib/table-url-state"
 
 export default function DashboardContent() {
-  const [selectedFilter, setSelectedFilter] = React.useState<string>("Valor Arrecadado com Multas de Trânsito")
-  const [globalFilter, setGlobalFilter] = React.useState<string>("")
-  const [selectedYear, setSelectedYear] = React.useState<string>("2024")
+  const router = useRouter()
+  const pathname = usePathname()
+  const searchParams = useSearchParams()
+
+  const urlState = React.useMemo(
+    () => parseTableUrlState(searchParams),
+    [searchParams]
+  )
+
+  const { selectedFilter, selectedYear, showOnlyWithData } = urlState
+
+  // Local draft for search input; URL `q` is updated with debounce
+  const [globalFilter, setGlobalFilter] = React.useState(urlState.globalFilter)
+
+  React.useEffect(() => {
+    setGlobalFilter(urlState.globalFilter)
+  }, [urlState.globalFilter])
+
+  const replaceUrlState = React.useCallback(
+    (next: TableUrlState) => {
+      const nextParams = buildTableSearchParams(next)
+      if (tableSearchParamsEqual(searchParams, nextParams)) return
+      const query = nextParams.toString()
+      router.replace(query ? `${pathname}?${query}` : pathname, { scroll: false })
+    },
+    [pathname, router, searchParams]
+  )
+
+  const updateUrlState = React.useCallback(
+    (patch: Partial<TableUrlState>) => {
+      replaceUrlState({ ...urlState, ...patch })
+    },
+    [replaceUrlState, urlState]
+  )
+
+  // Debounce writing search to the URL
+  React.useEffect(() => {
+    const timer = window.setTimeout(() => {
+      if (globalFilter === urlState.globalFilter) return
+      replaceUrlState({ ...urlState, globalFilter })
+    }, 300)
+    return () => window.clearTimeout(timer)
+  }, [globalFilter, replaceUrlState, urlState])
+
   const { data, isLoading } = useDashboardData(selectedFilter, parseInt(selectedYear))
+
+  const tableData = React.useMemo(
+    () => (showOnlyWithData ? data.filter((row) => row.value !== null) : data),
+    [data, showOnlyWithData]
+  )
 
   // Get available years for the selected variable
   const availableYears = React.useMemo(() => {
@@ -72,7 +126,7 @@ export default function DashboardContent() {
           <div className="h-full overflow-y-auto">
             <FiltersSidebar 
               selectedFilter={selectedFilter}
-              onFilterChange={setSelectedFilter}
+              onFilterChange={(value) => updateUrlState({ selectedFilter: value })}
             />
           </div>
         </div>
@@ -102,7 +156,7 @@ export default function DashboardContent() {
               </div>
             ) : (
               <DataTable 
-                data={data}
+                data={tableData}
                 selectedFilter={selectedFilter}
                 globalFilter={globalFilter}
                 setGlobalFilter={setGlobalFilter}
@@ -117,7 +171,7 @@ export default function DashboardContent() {
           <div className="w-full">
             <YearCombobox
               value={selectedYear}
-              onValueChange={setSelectedYear}
+              onValueChange={(value) => updateUrlState({ selectedYear: value })}
               placeholder="Selecionar ano..."
               className="w-full h-14"
             />
@@ -150,9 +204,27 @@ export default function DashboardContent() {
               </div>
             </div>
           </div>
+
+          {/* Filter toggle card */}
+          <div className="bg-white w-full rounded-lg overflow-hidden">
+            <div className="p-4 flex items-center justify-between gap-4">
+              <label
+                htmlFor="show-only-with-data"
+                className="text-sm font-medium text-gray-900 cursor-pointer flex-1 leading-relaxed"
+              >
+                Filtrar apenas cidades com dados
+              </label>
+              <Switch
+                id="show-only-with-data"
+                className="cursor-pointer"
+                checked={showOnlyWithData}
+                onCheckedChange={(checked) => updateUrlState({ showOnlyWithData: checked })}
+              />
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </div>
 )
-} 
+}

@@ -130,7 +130,7 @@ export function ImpactNumbersSection() {
   }, [isInView, counters]);
 
   return (
-    <section className="py-16 px-4 2xl:px-16 bg-gray-50">
+    <section className="py-16 px-4 2xl:px-16 bg-gray-50 pb-50">
       <div className="mx-auto">
         {/* Title */}
         <h2 className="text-xl text-[#2F2C2C] mb-2">
