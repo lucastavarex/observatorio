@@ -1,12 +1,13 @@
 "use client"
 
+import economia_azul from "@/app/assets/images/economia_azul.png";
 import publi_princ_conc from "@/app/assets/images/publi_princ_conc.png";
 import publicacao1 from "@/app/assets/images/publicacao1.png";
 import publicacao2 from "@/app/assets/images/publicacao2.png";
 import publicacao3 from "@/app/assets/images/publicacao3.png";
 import publicacao4 from "@/app/assets/images/publicacao4.png";
 import publicacao5 from "@/app/assets/images/publicacao5.png";
-import economia_azul from "@/app/assets/images/economia_azul.png";
+import relatorioQualionibus2026 from "@/app/assets/images/relatorio-qualionibus-2026.png";
 import { Header } from "@/components/header";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
@@ -21,11 +22,22 @@ interface Publication {
   description?: string;
   image: typeof publicacao1 | typeof publicacao2 | typeof publicacao3;
   alt: string;
-  tipo: "livros" | "policy_paper" | "notas";
+  tipo: "livros" | "policy_paper" | "notas" | "relatorios";
   link?: string;
+  tags?: string[];
 }
 
 const publications: Publication[] = [
+  {
+    id: "10",
+    title: "Relatório de Indicadores QualiÔnibus - Edição 2026",
+    description: "O Relatório de Indicadores QualiÔnibus reúne os principais indicadores de monitoramento da qualidade do transporte por ônibus no Brasil. Este relatório marca o início da parceria entre o Observatório Nacional de Mobilidade Sustentável e a WRI Brasil.",
+    image: relatorioQualionibus2026,
+    alt: "Relatório de Indicadores QualiÔnibus - Edição 2026",
+    tipo: "relatorios",
+    link: "/2026_relatorio_qualionibus.pdf",
+    tags: ["Transporte Público Coletivo", "Planejamento do Transporte"],
+  },
   {
     id: "1",
     title: "Guia de Eletromobilidade para Cidades Brasileiras",
@@ -166,6 +178,13 @@ function PublicacoesContent() {
           >
             Policy Papers
           </Button>
+          <Button
+            variant="secondary"
+            onClick={() => handleFilterClick("relatorios")}
+            className={`${activeFilter === "relatorios" ? 'bg-[#EAEAEA] text-black hover:bg-[#EAEAEA]' : 'text-black/40 hover:text-black hover:bg-[#EAEAEA]'}`}
+          >
+            Relatórios
+          </Button>
           {/* <Button 
             variant="secondary"
             onClick={() => handleFilterClick("notas")}
@@ -196,7 +215,7 @@ function PublicacoesContent() {
               </p>
             </div>
           ))}
-        </div>
+      </div>
 
         {/* Show message when no publications match the filter */}
         {filteredPublications.length === 0 && (

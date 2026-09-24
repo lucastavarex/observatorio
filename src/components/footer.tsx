@@ -29,24 +29,6 @@ const projetosItems = [
   },
 ]
 
-const publicacoesItems = [
-  {
-    title: "Livros",
-    href: "/publicacoes?tipo=livros",
-    description: "Explore nossa coleção de livros sobre mobilidade urbana e desenvolvimento sustentável",
-  },
-  {
-    title: "Policy Papers",
-    href: "/publicacoes?tipo=policy_paper",
-    description: "Acesse Policy Papers sobre mobilidade urbana",
-  },
-  // {
-  //   title: "Notas técnicas",
-  //   href: "/publicacoes?tipo=notas",
-  //   description: "Consulte notas técnicas e documentos especializados em mobilidade",
-  // },
-]
-
 export function Footer() {
   return (
     <footer className="bg-white border-t border-gray-200 py-12 ">
@@ -98,28 +80,12 @@ export function Footer() {
                 ))}
               </div>
             </div>
-            {/* Publicações dropdown */}
-            <div className="flex flex-col gap-2">
-              <span className="text-gray-600 text-sm font-medium">Publicações</span>
-              <div className="flex flex-col gap-1">
-                {publicacoesItems.map((item) => (
-                  <Link
-                    key={item.title}
-                    href={item.href}
-                    className="text-gray-500 hover:text-gray-700 transition-colors text-xs"
-                  >
-                    {item.title}
-                  </Link>
-                ))}
-              </div>
-            </div>
-
             <div className="flex flex-col gap-2">
               <Link 
-                href="/pesquisas" 
+                href="/publicacoes" 
                 className="text-gray-600 hover:text-gray-800 transition-colors text-sm font-medium"
               >
-                Pesquisas
+                Publicações
               </Link>
             </div>
 
