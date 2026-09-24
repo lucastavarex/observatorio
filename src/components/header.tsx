@@ -50,29 +50,10 @@ const projetosItems = [
     description: "Parceria ONMS & WRI Brasil - Dashboard dos dados do QualiÔnibus.",
   },
 ]
-const publicacoesItems = [
-  {
-    title: "Livros",
-    href: "/publicacoes?tipo=livros",
-    description: "Explore nossa coleção de livros sobre mobilidade urbana e desenvolvimento sustentável",
-  },
-    {
-    title: "Policy Papers",
-    href: "/publicacoes?tipo=policy_paper",
-    description: "Acesse Policy Papers sobre mobilidade urbana",
-  },
-  // {
-  //   title: "Notas técnicas",
-  //   href: "/publicacoes?tipo=notas",
-  //   description: "Consulte notas técnicas e documentos especializados em mobilidade",
-  // },
-]
-
 const menuItems = [
   { title: "Home", href: "/" },
   { title: "Sobre", href: "/sobre" },
   { title: "Publicações", href: "/publicacoes" },
-  { title: "Pesquisas", href: "/pesquisas" },
   { title: "Eventos", href: "/eventos" },
   { title: "Vídeos", href: "/videos" },
   { title: "Cursos", href: "/cursos" },
@@ -167,32 +148,9 @@ export function Header({ isBgDark = false, className }: HeaderProps) {
             </NavigationMenuItem>
             
             <NavigationMenuItem>
-              <NavigationMenuTrigger 
-                isBgDark={isBgDark}
-                isActive={pathname.startsWith("/publicacoes")}
-                className={pathname.startsWith("/publicacoes") ? activeTextClass : inactiveTextClass}
-              >
-                Publicações
-              </NavigationMenuTrigger>
-              <NavigationMenuContent>
-                <ul className="grid w-[600px] gap-3 p-2 md:grid-cols-2 lg:w-[600px]">
-                  {publicacoesItems.map((item) => (
-                    <ListItem
-                      key={item.title}
-                      title={item.title}
-                      href={item.href}
-                    >
-                      {item.description}
-                    </ListItem>
-                  ))}
-                </ul>
-              </NavigationMenuContent>
-            </NavigationMenuItem>
-            
-            <NavigationMenuItem>
               <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
-                <Link href="/pesquisas" className={pathname === "/pesquisas" ? activeTextClass : inactiveTextClass}>
-                  Pesquisas
+                <Link href="/publicacoes" className={pathname.startsWith("/publicacoes") ? activeTextClass : inactiveTextClass}>
+                  Publicações
                 </Link>
               </NavigationMenuLink>
             </NavigationMenuItem>
